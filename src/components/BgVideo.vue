@@ -10,7 +10,7 @@
 <script lang="ts">
 import Vue from "vue";
 import VideoBackground from "./VideoBackground.vue";
-import ToolBar from "./ToolBar.vue";
+import ToolBar from "./toolbar/ToolBar.vue";
 import Carousel from "./Carousel.vue";
 
 export default Vue.extend({
