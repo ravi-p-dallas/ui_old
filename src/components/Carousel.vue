@@ -26,21 +26,15 @@
 
             <v-card-actions>
               <v-btn
-                :loading="loading3"
-                :disabled="loading3"
                 color="blue-grey"
                 class="ma-2 white--text"
-                @click="loader = 'loading3'"
               >
                 <v-icon left>mdi-chef-hat</v-icon>
                 {{item.btnText}}
               </v-btn>
               <v-btn
-                :loading="loading3"
-                :disabled="loading3"
                 color="blue-grey"
                 class="ma-2 white--text"
-                @click="loader = 'loading3'"
               >
                 <v-icon left>mdi-chef-hat</v-icon>Be a chef!
               </v-btn>

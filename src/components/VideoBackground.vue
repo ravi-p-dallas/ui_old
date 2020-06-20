@@ -106,11 +106,5 @@ export default {
   visibility: hidden;
   transform: translate(-50%, -50%);
   opacity: 0.6;
-  
 }
-/* 
-.VideoBg__content {
-  position: absolute;
-  background-color: transparent;
-} */
 </style>
