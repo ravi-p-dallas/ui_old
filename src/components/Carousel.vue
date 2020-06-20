@@ -1,0 +1,95 @@
+<template>
+  <v-container fill-height fluid ma-0 pa-0>
+    <v-carousel hide-delimiters continuous show-arrows-on-hover cycle>
+      <v-carousel-item v-for="(item,i) in items" :key="i" :src="item.src">
+        <v-container fill-height fluid ma-0 pa-0>
+          <v-card class="transparent card_mgleft card_mgTop" outlined>
+            <v-list-item>
+              <v-list-item-content>
+                <div class="overline mb-10 font-weight-bold">
+                  {{
+                  item.caption
+                  }}
+                </div>
+                <v-list-item-title class="text-h2 font-weight-bold mb-5">
+                  {{
+                  item.title
+                  }}
+                </v-list-item-title>
+                <v-list-item-subtitle class="text-subtitle-1 font-weight-bold" mb-2>
+                  {{
+                  item.desc
+                  }}
+                </v-list-item-subtitle>
+              </v-list-item-content>
+            </v-list-item>
+
+            <v-card-actions>
+              <v-btn
+                :loading="loading3"
+                :disabled="loading3"
+                color="blue-grey"
+                class="ma-2 white--text"
+                @click="loader = 'loading3'"
+              >
+                <v-icon left>mdi-chef-hat</v-icon>
+                {{item.btnText}}
+              </v-btn>
+              <v-btn
+                :loading="loading3"
+                :disabled="loading3"
+                color="blue-grey"
+                class="ma-2 white--text"
+                @click="loader = 'loading3'"
+              >
+                <v-icon left>mdi-chef-hat</v-icon>Be a chef!
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-container>
+      </v-carousel-item>
+    </v-carousel>
+  </v-container>
+</template>
+
+<script lang="ts">
+import Vue from "vue";
+
+export default Vue.extend({
+  name: "Carousel",
+
+  components: {},
+
+  data: () => ({
+    items: [
+      {
+        caption: "Homeliness",
+        title: "Its Homemade",
+        desc: "No Chemicals. Qaulity and healthy.",
+        btnText: "Find Chefs"
+      },
+      {
+        caption: "Daily Suppliments",
+        title: "Highly Nutritious",
+        desc:
+          "Mixed with Quinoa & Bazra.",
+        btnText: "Find Chefs"
+      },
+      {
+        caption: "Public Health",
+        title: "Organic Food",
+        desc:
+          "Complete Organic. Unlike restaurants.",
+        btnText: "Find Chefs"
+      },
+      {
+        caption: "Family Time",
+        title: "Better than what you cook at home",
+        desc:
+          "Cheaper. Spend healthy time with your family.",
+        btnText: "Find Chefs"
+      }
+    ]
+  })
+});
+</script>

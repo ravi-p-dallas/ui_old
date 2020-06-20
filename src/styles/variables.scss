@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo&display=swap");
+
+$body-font-family: "Cairo";
+$title-font: "Cairo";
+
+.v-application {
+  font-family: $body-font-family, sans-serif !important;
+  .title {
+    // To pin point specific classes of some components
+    font-family: $title-font, sans-serif !important;
+  }
+  padding: 0rem;
+  margin: 0rem;
+}
+
+
+.transparent {
+  background-color: transparent;
+}
+
+.card_mgleft {
+  margin-left: 10%;
+}
+.card_mgTop {
+  margin-top: -10%;
+}
+
+.v-window { &-x-transition, &-x-reverse-transition, &-y-transition, &-y-reverse-transition { &-enter-active, &-leave-active { transition: .6s cubic-bezier(.33,.41,.75,.65) !important; } } }
