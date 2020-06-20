@@ -1,6 +1,6 @@
 <template>
   <v-container overflow-y fluid class="ma-0 pa-0">
-    <VideoBackground :sources="['https://github.com/VantaShala/ui/blob/master/src/assets/vantashala.mp4']">
+    <VideoBackground :sources="['https://vsassets.netlify.app/vantashala.mp4']">
       <ToolBar style="position: absolute" />
       <Carousel />
     </VideoBackground>
