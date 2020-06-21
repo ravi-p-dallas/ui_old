@@ -26,10 +26,19 @@
           </v-card>
         </v-container>
       </v-carousel-item>
+      <ActionButtons />
     </v-carousel>
-    <ActionButtons />
   </v-container>
 </template>
+<style scoped>
+.card_mgleft {
+  margin-left: 10%;
+}
+.card_mgTop {
+  margin-top: -25%;
+}
+</style>
+
 
 <script lang="ts">
 import Vue from "vue";

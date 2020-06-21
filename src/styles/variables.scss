@@ -18,11 +18,6 @@ $title-font: "Cairo";
   background-color: transparent;
 }
 
-.card_mgleft {
-  margin-left: 10%;
-}
-.card_mgTop {
-  margin-top: -10%;
-}
+
 
 .v-window { &-x-transition, &-x-reverse-transition, &-y-transition, &-y-reverse-transition { &-enter-active, &-leave-active { transition: .6s cubic-bezier(.33,.41,.75,.65) !important; } } }
