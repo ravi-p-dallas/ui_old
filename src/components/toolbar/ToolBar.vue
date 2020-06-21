@@ -14,9 +14,13 @@
         >{{ item.title }}</v-btn>
 
         <div class="dropdown ma-auto">
-          <select name="country" class="dropdown-select">
-            <option value="1">USA</option>
-            <option value="2">INDIA</option>
+          <select name="country" @change="onchange()" class="dropdown-select" v-model="key">
+            <option
+              default
+              v-for="country in countries"
+              :key="country.name"
+              :value="country.value"
+            >{{country.name}}</option>
           </select>
         </div>
       </v-toolbar-items>
@@ -39,16 +43,35 @@ export default Vue.extend({
       { icon: "warning", title: "My Cart" }
     ],
 
-    items: ["USA", "INDIA"],
-    value: ["USA", "INDIA"],
+    countries: [
+      {
+        name: "INDIA",
+        value: "INDIA"
+      },
+      {
+        name: "SINGAPORE",
+        value: "SINGAPORE"
+      },
+      {
+        name: "USA",
+        value: "USA"
+      }
+    ],
+    key: "INDIA",
 
     styles: {
       "background-color": `transparent`
     }
-  })
+  }),
+  methods: {
+    onchange: function() {
+      this.$store.commit("setCountry", this.key);
+      console.log(this.$store.getters.getCountry);
+    }
+  }
 });
 </script>
 
 <style lang="scss">
-  @import "./toolbar.scss";
+@import "./toolbar.scss";
 </style>

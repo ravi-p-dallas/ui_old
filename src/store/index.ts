@@ -4,8 +4,21 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
+  state: {
+    country: {
+      name: "INDIA",
+    },
+  },
+  mutations: {
+    setCountry(state, payload) {
+      state.country.name = payload;
+    },
+  },
   actions: {},
-  modules: {}
+  modules: {},
+  getters: {
+    getCountry: (state) => {
+      return state.country.name;
+    },
+  },
 });

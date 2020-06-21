@@ -3,7 +3,7 @@
     <v-carousel hide-delimiters continuous show-arrows-on-hover cycle>
       <v-carousel-item v-for="(item,i) in items" :key="i" :src="item.src">
         <v-container fill-height fluid ma-0 pa-0>
-          <v-card class="transparent card_mgleft " outlined>
+          <v-card class="transparent card_mgleft" outlined>
             <v-list-item>
               <v-list-item-content>
                 <div class="overline mb-10 font-weight-bold">
@@ -27,29 +27,18 @@
         </v-container>
       </v-carousel-item>
     </v-carousel>
-    <v-card class="transparent card_mgleft card_mgTop" outlined style="position: absolute;">
-      <v-card-actions>
-        <v-btn color="orange darken-1" class="ma-2 white--text font-weight-bold">
-          <v-icon left>mdi-chef-hat</v-icon>Find chefs
-        </v-btn>
-        <v-btn color="white darken-1" class="ma-2 green--text font-weight-bold">
-          <v-icon left>mdi-chef-hat</v-icon>Be a chef!
-        </v-btn>
-         <v-btn color="green darken-1" class="ma-2 white--text font-weight-bold">
-          <v-icon left>mdi-chef-hat</v-icon>Search Menus
-        </v-btn>
-      </v-card-actions>
-    </v-card>
+    <ActionButtons />
   </v-container>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import ActionButtons from "./actionButtons/actionButtons.vue";
 
 export default Vue.extend({
   name: "Carousel",
 
-  components: {},
+  components: { ActionButtons },
 
   data: () => ({
     items: [
