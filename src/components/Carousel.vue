@@ -35,7 +35,7 @@
         <v-btn color="white darken-1" class="ma-2 green--text font-weight-bold">
           <v-icon left>mdi-chef-hat</v-icon>Be a chef!
         </v-btn>
-         <v-btn color="green darken-1" class="ma-2 yellow--text font-weight-bold">
+         <v-btn color="green darken-1" class="ma-2 white--text font-weight-bold">
           <v-icon left>mdi-chef-hat</v-icon>Search Menus
         </v-btn>
       </v-card-actions>
