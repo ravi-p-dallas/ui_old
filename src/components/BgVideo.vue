@@ -1,12 +1,13 @@
 <template>
   <v-container overflow-y fluid class="ma-0 pa-0">
-    <video-background
+    <VideoBg
       src="https://vsassets.netlify.app/vantashala.mp4"
       style="height: 100vh;"
+      class= "green lighten-4"
     >
       <ToolBar style="position: absolute" />
       <Carousel />
-    </video-background>
+    </VideoBg>
   </v-container>
 </template>
 
