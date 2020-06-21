@@ -1,9 +1,12 @@
 <template>
   <v-container overflow-y fluid class="ma-0 pa-0">
-    <VideoBackground :sources="['https://vsassets.netlify.app/vantashala.mp4']">
+    <video-background
+      src="https://vsassets.netlify.app/vantashala.mp4"
+      style="height: 100vh;"
+    >
       <ToolBar style="position: absolute" />
       <Carousel />
-    </VideoBackground>
+    </video-background>
   </v-container>
 </template>
 
@@ -17,7 +20,7 @@ export default Vue.extend({
   name: "BgVideo",
 
   components: {
-    VideoBackground,
+    // VideoBackground,
     ToolBar,
     Carousel
   },

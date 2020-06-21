@@ -4,7 +4,8 @@ import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
 import vuetify from "./plugins/vuetify";
-
+import VideoBackground from 'vue-responsive-video-background-player'
+Vue.component('video-background', VideoBackground);
 Vue.config.productionTip = false;
 
 new Vue({

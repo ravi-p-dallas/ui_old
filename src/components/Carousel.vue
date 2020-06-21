@@ -1,6 +1,7 @@
 <template>
   <v-container fill-height fluid ma-0 pa-0>
     <v-carousel hide-delimiters continuous show-arrows-on-hover cycle>
+      <ActionButtons />
       <v-carousel-item v-for="(item,i) in items" :key="i" :src="item.src">
         <v-container fill-height fluid ma-0 pa-0>
           <v-card class="transparent card_mgleft" outlined>
@@ -26,16 +27,12 @@
           </v-card>
         </v-container>
       </v-carousel-item>
-      <ActionButtons />
     </v-carousel>
   </v-container>
 </template>
 <style scoped>
 .card_mgleft {
   margin-left: 10%;
-}
-.card_mgTop {
-  margin-top: -25%;
 }
 </style>
 

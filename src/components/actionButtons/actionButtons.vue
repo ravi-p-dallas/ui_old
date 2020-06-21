@@ -1,5 +1,5 @@
 <template>
-  <v-card class="transparent card_mgleft card_mgTop" outlined style="position: absolute;">
+  <v-card class="transparent card_mgleft card_mgTop" outlined style="position: absolute; z-index: 99999">
     <v-card-actions>
       <div v-for="item in items" :key="item.btnText">
         <v-btn :class="countryChanged(item.className)">
@@ -10,6 +10,12 @@
     </v-card-actions>
   </v-card>
 </template>
+<style scoped>
+
+.card_mgTop {
+  margin-top: 0px;
+}
+</style>
 
 <script lang="ts">
 import Vue from "vue";
@@ -57,7 +63,7 @@ export default Vue.extend({
       },
       USA: {
         fCclass: "ma-2 white--text font-weight-bold red darken-1",
-        bCclass: "ma-2 green--text font-weight-bold white darken-1",
+        bCclass: "ma-2 blue--text font-weight-bold white darken-1",
         sMclass: "ma-2 white--text font-weight-bold blue darken-1"
       },
       SINGAPORE: {
