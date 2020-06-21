@@ -1,5 +1,5 @@
 <template>
-  <v-card class="transparent card_mgleft card_mgTop" outlined style="position: absolute; z-index: 99999">
+  <v-card class="transparent card_mgleft card_mgTop" outlined style="position: absolute;">
     <v-card-actions>
       <div v-for="item in items" :key="item.btnText">
         <v-btn :class="countryChanged(item.className)">
@@ -13,7 +13,7 @@
 <style scoped>
 
 .card_mgTop {
-  margin-top: 0px;
+  top: 0px;
 }
 </style>
 

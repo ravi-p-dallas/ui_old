@@ -4,7 +4,7 @@
       src="https://vsassets.netlify.app/vantashala.mp4"
       style="height: 100vh;"
       class= "green lighten-4"
-      overlay="linear-gradient(45deg, #1b5e20fb,#fbc8e6c9)"
+      overlay="linear-gradient(45deg,#2a4ae4B3,#fb949eB3)"
     >
       <ToolBar style="position: absolute" />
       <Carousel />
@@ -22,7 +22,6 @@ export default Vue.extend({
   name: "BgVideo",
 
   components: {
-    // VideoBackground,
     ToolBar,
     Carousel
   },
