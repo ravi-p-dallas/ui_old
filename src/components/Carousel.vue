@@ -23,7 +23,7 @@
           </v-card>
         </v-container>
       </v-carousel-item>
-      <ActionButtons />
+      <ActionCardButtons />
     </v-carousel>
   </v-container>
 </template>
@@ -35,12 +35,12 @@
 
 <script lang="ts">
 import Vue from "vue";
-import ActionButtons from "./actionButtons/ActionButtons.vue";
+import ActionCardButtons from "./actionButtons/ActionCardButtons.vue";
 
 export default Vue.extend({
   name: "Carousel",
 
-  components: { ActionButtons },
+  components: { ActionCardButtons },
 
   data: () => ({
     items: [
