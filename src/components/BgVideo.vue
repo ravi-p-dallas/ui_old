@@ -4,6 +4,7 @@
       src="https://vsassets.netlify.app/vantashala.mp4"
       style="height: 100vh;"
       class= "green lighten-4"
+      overlay="linear-gradient(45deg, #1b5e20fb,#fbc8e6c9)"
     >
       <ToolBar style="position: absolute" />
       <Carousel />
