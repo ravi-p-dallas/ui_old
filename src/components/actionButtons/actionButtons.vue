@@ -1,17 +1,20 @@
 <template>
-  <v-card class="transparent card_mgleft card_mgTop" outlined style="position: absolute;">
+  <v-card
+    class="transparent card_mgleft card_mgTop"
+    outlined
+    style="position: absolute;"
+  >
     <v-card-actions>
       <div v-for="item in items" :key="item.btnText">
         <v-btn :class="countryChanged(item.className)">
-          <v-icon left>{{item.icon}}</v-icon>
-          {{item.btnText}}
+          <v-icon left>{{ item.icon }}</v-icon>
+          {{ item.btnText }}
         </v-btn>
       </div>
     </v-card-actions>
   </v-card>
 </template>
 <style scoped>
-
 .card_mgTop {
   top: 0px;
 }
