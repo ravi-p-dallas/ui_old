@@ -6,7 +6,7 @@
       class="green lighten-4"
       v-bind:overlay="countryChanged"
     >
-      <ToolBar style="position: absolute" />
+      <ToolBar style="position: absolute;" />
       <Carousel />
     </VideoBg>
   </v-container>
