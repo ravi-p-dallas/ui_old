@@ -40,15 +40,28 @@
       v-model="drawer"
       enable-resize-watcher
       app
-      class="primary lighten-3"
+      right
+      color="green lighten-2"
     >
+      <v-list-item two-line >
+        <v-list-item-avatar>
+          <img src="https://randomuser.me/api/portraits/men/81.jpg" />
+        </v-list-item-avatar>
+
+        <v-list-item-content>
+          <v-list-item-title>Gopi Kancharla</v-list-item-title>
+          <v-list-item-subtitle>Premium User</v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-divider></v-divider>
       <v-list subheader>
         <v-subheader>Actions:</v-subheader>
 
         <v-list-item v-for="item in menu" :key="item.title">
-          <v-list-item-avatar>
-            <v-img :src="item.icon"></v-img>
-          </v-list-item-avatar>
+          <v-list-item-icon>
+            <v-icon>{{item.icon}}</v-icon>
+          </v-list-item-icon>
 
           <v-list-item-content>
             <v-list-item-title>
