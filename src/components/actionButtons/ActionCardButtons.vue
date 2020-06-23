@@ -49,12 +49,12 @@ export default Vue.extend({
       },
       {
         btnText: "Be A Chef",
-        icon: "mdi-chef-hat",
+        icon: "mdi-silverware",
         className: "bCclass"
       },
       {
         btnText: "Search Menus",
-        icon: "mdi-chef-hat",
+        icon: "mdi-book-open-page-variant",
         className: "sMclass"
       }
     ],
