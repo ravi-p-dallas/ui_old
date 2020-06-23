@@ -1,11 +1,7 @@
 <template>
-  <v-card
-    class="transparent card_mgleft card_mgTop"
-    outlined
-    style="position: absolute;"
-  >
-    <v-card-actions>
-      <div v-for="item in items" :key="item.btnText">
+  <v-card class="transparent card_mgleft card_mgTop" outlined style="position: absolute;">
+    <v-card-actions :class="this.$vuetify.breakpoint.smAndDown?'d-flex flex-column':''">
+      <div class="text-center" v-for="item in items" :key="item.btnText">
         <v-btn :class="countryChanged(item.className)">
           <v-icon left>{{ item.icon }}</v-icon>
           {{ item.btnText }}

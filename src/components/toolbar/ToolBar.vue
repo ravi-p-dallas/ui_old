@@ -36,7 +36,6 @@
     </v-app-bar>
 
     <v-navigation-drawer
-      :clipped="clipped"
       v-model="drawer"
       enable-resize-watcher
       app
