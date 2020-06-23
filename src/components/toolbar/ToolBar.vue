@@ -37,10 +37,10 @@
 
     <v-navigation-drawer
       v-model="drawer"
-      enable-resize-watcher
       app
       right
       color="green lighten-2"
+      disable-resize-watcher
     >
       <v-list-item two-line >
         <v-list-item-avatar>
@@ -118,7 +118,6 @@ export default Vue.extend({
 
   data: () => ({
     drawer: false,
-    clipped: false,
     key: "INDIA",
     menu: [
       { icon: "mdi-order-bool-descending-variant", title: "My Orders", path: "/" },
