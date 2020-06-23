@@ -19,7 +19,7 @@
           text
           small
           class="ma-auto white--text font-weight-bold"
-        >{{ item.title }}</v-btn>
+        ><v-icon dark left>{{ item.icon }}</v-icon>{{ item.title }}</v-btn>
 
         <div class="dropdown ma-auto">
           <select name="country" @change="onchange()" class="dropdown-select ma-auto" v-model="key">
@@ -114,9 +114,9 @@ export default Vue.extend({
     clipped: false,
     key: "INDIA",
     menu: [
-      { icon: "mdi-chef-hat", title: "My Orders", path: "/" },
+      { icon: "mdi-order-bool-descending-variant", title: "My Orders", path: "/" },
       { icon: "mdi-chef-hat", title: "My Chefs", path: "/" },
-      { icon: "mdi-chef-hat", title: "My Cart", path: "/" }
+      { icon: "mdi-cart-outline", title: "My Cart", path: "/" }
     ],
 
     countries: [
