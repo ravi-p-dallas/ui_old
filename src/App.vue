@@ -21,18 +21,19 @@ export default Vue.extend({
     BgVideo
   },
 
-  data: () => ({
-    menu: [
-      { icon: "home", title: "My Orders" },
-      { icon: "info", title: "My Chefs" },
-      { icon: "warning", title: "My Cart" }
-    ]
-  }),
+  data: () => ({}),
 
-  methods: {
-    menuItems() {
-      return this.menu;
-    }
-  }
+  methods: {},
+  metaInfo: {
+    title: "VantaShala",
+    titleTemplate: "%s | My Organic Chef",
+    link: [{ rel: "favicon", href: "favicon.ico" }],
+    meta: [{
+      vmid: 'Organaic Chef',
+      name: 'Clean Helathy Home Cookoed Food',
+      content: 'Home food at your door'
+    }],
+  },
+  
 });
 </script>
