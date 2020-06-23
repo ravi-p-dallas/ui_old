@@ -2,12 +2,13 @@
   <v-card class="transparent card_mgleft card_mgTop" outlined style="position: absolute;">
     <v-card-actions :class="this.$vuetify.breakpoint.smAndDown?'d-flex flex-column':''">
       <div class="text-center" v-for="item in items" :key="item.btnText">
-        <v-btn :class="countryChanged(item.className)">
+        <v-btn :class="countryChanged(item.className)" @click.stop="`{item.clickAction}`">
           <v-icon left>{{ item.icon }}</v-icon>
           {{ item.btnText }}
         </v-btn>
       </div>
     </v-card-actions>
+    <v-dialog v-model="dialog" max-width="290"></v-dialog>
   </v-card>
 </template>
 <style scoped>
@@ -35,23 +36,27 @@ export default Vue.extend({
       }
     }
   },
-  methods: {},
+
   data: () => ({
+    dialog: false,
     items: [
       {
         btnText: "Find Chefs",
         icon: "mdi-chef-hat",
-        className: "fCclass"
+        className: "fCclass",
+        clickAction: "openDialog"
       },
       {
         btnText: "Be A Chef",
         icon: "mdi-silverware",
-        className: "bCclass"
+        className: "bCclass",
+        clickAction: "dialog = true"
       },
       {
         btnText: "Search Menus",
         icon: "mdi-book-open-page-variant",
-        className: "sMclass"
+        className: "sMclass",
+        clickAction: "dialog = true"
       }
     ],
     visuals: {
@@ -71,6 +76,11 @@ export default Vue.extend({
         sMclass: "ma-2 red--text font-weight-bold white darken-1"
       }
     }
-  })
+  }),
+  methods: {
+    openDialog: function(event) {
+      this.dialog = true;
+    }
+  }
 });
 </script>

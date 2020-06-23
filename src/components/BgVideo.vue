@@ -1,5 +1,5 @@
 <template>
-  <v-container overflow-y fluid class="ma-0 pa-0">
+  <v-container overflow-y fluid class="ma-0 pa-0" style="position:relative">
     <VideoBg
       src="https://vsassets.netlify.app/vantashala.mp4"
       style="height: 100vh;"
@@ -8,10 +8,23 @@
     >
       <ToolBar style="position: absolute;" />
       <Carousel />
+      <v-fab-transition>
+        <v-btn class="downArrow" icon fab medium dark bottom>
+          <v-icon>mdi-chevron-down</v-icon>
+        </v-btn>
+      </v-fab-transition>
     </VideoBg>
   </v-container>
 </template>
 
+<style scoped>
+.downArrow {
+  bottom: 0;
+  position: absolute;
+  margin: 0 0 6px 6px;
+  left: 50%;
+}
+</style>
 <script lang="ts">
 import Vue from "vue";
 import ToolBar from "./toolbar/ToolBar.vue";
@@ -31,6 +44,9 @@ export default Vue.extend({
         const styles = this.visuals[country];
         return styles["overlay"];
       }
+    },
+    activeFab() {
+      return { color: "success", icon: "share" };
     }
   },
   data: () => ({

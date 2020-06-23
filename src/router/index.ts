@@ -8,17 +8,17 @@ const routes: Array<RouteConfig> = [
   {
     path: "/",
     name: "Home",
-    component: Home,
+    component: Home
   },
   {
     path: "/about",
     name: "About",
-    component: () => import("../views/About.vue"),
+    component: () => import("../views/About.vue")
   },
   {
     path: "/legal",
     name: "Legal",
-    component: () => import("../views/Legal.vue"),
+    component: () => import("../views/Legal.vue")
   },
 ];
 
