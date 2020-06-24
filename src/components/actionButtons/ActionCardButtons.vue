@@ -1,6 +1,6 @@
 <template>
   <v-card class="transparent card_mgleft card_mgTop" outlined style="position: absolute;">
-    <v-card-actions :class="this.$vuetify.breakpoint.smAndDown?'d-flex flex-column':''">
+    <v-card-actions :class="this.$vuetify.breakpoint.smAndDown?'d-flex flex-column text-right ':''">
       <div class="text-center" v-for="item in items" :key="item.btnText">
         <v-btn
           :class="countryChanged(item.className)"
@@ -11,7 +11,7 @@
         </v-btn>
       </div>
     </v-card-actions>
-    <v-dialog v-model="dialog" max-width="290">
+    <v-dialog v-model="dialog" max-width="290" :fullscreen="$vuetify.breakpoint.mobile">
       <v-btn v-if="dialogAction == this.items[0].btnText" @click:stop="this.dialog=!this.dialog">sdf</v-btn>
       <BeAChef v-if="dialogAction == this.items[1].btnText" @click:stop="this.dialog=false" />
       <v-btn v-if="dialogAction == this.items[2].btnText" @click:stop="this.dialog=!this.dialog">rtd</v-btn>
