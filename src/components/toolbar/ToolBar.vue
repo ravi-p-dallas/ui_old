@@ -19,7 +19,10 @@
           text
           small
           class="ma-auto white--text font-weight-bold"
-        ><v-icon dark left>{{ item.icon }}</v-icon>{{ item.title }}</v-btn>
+        >
+          <v-icon dark left>{{ item.icon }}</v-icon>
+          {{ item.title }}
+        </v-btn>
 
         <div class="dropdown ma-auto">
           <select name="country" @change="onchange()" class="dropdown-select ma-auto" v-model="key">
@@ -31,19 +34,20 @@
             >{{ country.name }}</option>
           </select>
         </div>
+        <v-avatar class="ma-auto white--text font-weight-bold" size="36" tile>
+          <img
+            src="https://randomuser.me/api/portraits/men/81.jpg"
+            alt="Gopi"
+            @click.stop="drawer = !drawer"
+          />
+        </v-avatar>
       </v-toolbar-items>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="hidden-md-and-up"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="hidden-md-and-up" color="white"></v-app-bar-nav-icon>
     </v-app-bar>
 
-    <v-navigation-drawer
-      v-model="drawer"
-      app
-      right
-      color="green lighten-2"
-      disable-resize-watcher
-    >
-      <v-list-item two-line >
-        <v-list-item-avatar>
+    <v-navigation-drawer v-model="drawer" app right color="green lighten-2" disable-resize-watcher>
+      <v-list-item two-line>
+        <v-list-item-avatar size="36" tile>
           <img src="https://randomuser.me/api/portraits/men/81.jpg" />
         </v-list-item-avatar>
 
@@ -52,13 +56,9 @@
           <v-list-item-subtitle>Premium User</v-list-item-subtitle>
         </v-list-item-content>
 
-         <v-btn
-          icon
-          @click.stop="drawer = !drawer"
-        >
+        <v-btn icon @click.stop="drawer = !drawer">
           <v-icon>mdi-chevron-right</v-icon>
         </v-btn>
-
       </v-list-item>
 
       <v-divider></v-divider>
@@ -89,7 +89,10 @@
         <v-subheader>Choose Country</v-subheader>
 
         <v-list-item>
-          <div class="dropdown ma-auto">
+          <v-list-item-icon>
+            <v-icon>mdi-flag</v-icon>
+          </v-list-item-icon>
+          <div class="dropdown ma-0">
             <select
               name="country"
               @change="onchange()"
@@ -106,6 +109,22 @@
           </div>
         </v-list-item>
       </v-list>
+      <v-divider></v-divider>
+      <v-list subheader>
+        <v-list-item>
+          <v-list-item-icon>
+            <v-icon>mdi-logout-variant</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title>
+              <v-btn text small class="ma-auto white--text font-weight-bold">
+                Logout
+              </v-btn>
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
     </v-navigation-drawer>
   </v-container>
 </template>
@@ -120,7 +139,11 @@ export default Vue.extend({
     drawer: false,
     key: "INDIA",
     menu: [
-      { icon: "mdi-order-bool-descending-variant", title: "My Orders", path: "/" },
+      {
+        icon: "mdi-order-bool-descending-variant",
+        title: "My Orders",
+        path: "/"
+      },
       { icon: "mdi-chef-hat", title: "My Chefs", path: "/" },
       { icon: "mdi-cart-outline", title: "My Cart", path: "/" }
     ],

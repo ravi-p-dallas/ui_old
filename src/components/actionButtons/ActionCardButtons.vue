@@ -12,8 +12,8 @@
       </div>
     </v-card-actions>
     <v-dialog v-model="dialog" max-width="290">
-      <BeAChef v-if="dialogAction == this.items[0].btnText" @click:stop="this.dialog=false" />
-      <v-btn v-if="dialogAction == this.items[1].btnText" @click:stop="this.dialog=!this.dialog">sdf</v-btn>
+      <v-btn v-if="dialogAction == this.items[0].btnText" @click:stop="this.dialog=!this.dialog">sdf</v-btn>
+      <BeAChef v-if="dialogAction == this.items[1].btnText" @click:stop="this.dialog=false" />
       <v-btn v-if="dialogAction == this.items[2].btnText" @click:stop="this.dialog=!this.dialog">rtd</v-btn>
     </v-dialog>
   </v-card>
