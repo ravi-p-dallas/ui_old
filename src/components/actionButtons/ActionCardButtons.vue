@@ -1,5 +1,5 @@
 <template>
-  <v-card class="transparent card_mgleft card_mgTop" outlined style="position: absolute;">
+  <v-card :class="!$vuetify.breakpoint.mobile?'transparent card_mgleft card_mgTop':'transparent card_mgTop'" outlined style="position: absolute; width:100%">
     <v-card-actions :class="this.$vuetify.breakpoint.smAndDown?'d-flex flex-column text-right ':''">
       <div class="text-center" v-for="item in items" :key="item.btnText">
         <v-btn
