@@ -3,6 +3,7 @@
     <v-main>
       <v-container fluid fill-height class="ma-0 pa-0">
         <BgVideo />
+        <OrderRepeats />
       </v-container>
     </v-main>
   </v-app>
@@ -12,13 +13,14 @@
 
 <script lang="ts">
 import Vue from "vue";
-import BgVideo from "./components/BgVideo.vue";
-
+import BgVideo from "./components/homeTop/BgVideo.vue";
+import OrderRepeats from "./components/homeNext/OrderRepeats.vue";
 export default Vue.extend({
   name: "App",
 
   components: {
-    BgVideo
+    BgVideo,
+    OrderRepeats
   },
 
   data: () => ({}),
@@ -28,12 +30,13 @@ export default Vue.extend({
     title: "VantaShala",
     titleTemplate: "%s | My Organic Chef",
     link: [{ rel: "favicon", href: "favicon.ico" }],
-    meta: [{
-      vmid: 'Organaic Chef',
-      name: 'Clean Helathy Home Cookoed Food',
-      content: 'Home food at your door'
-    }],
-  },
-  
+    meta: [
+      {
+        vmid: "Organaic Chef",
+        name: "Clean Healthy Home Cooked Food",
+        content: "Home food at your door"
+      }
+    ]
+  }
 });
 </script>

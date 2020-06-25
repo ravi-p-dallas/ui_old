@@ -44,9 +44,6 @@ export default Vue.extend({
         const styles = this.visuals[country];
         return styles["overlay"];
       }
-    },
-    activeFab() {
-      return { color: "success", icon: "share" };
     }
   },
   data: () => ({

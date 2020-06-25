@@ -1,13 +1,12 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <BgVideo msg="Welcome to Your Vue.js App" />
+    <BgVideo />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import BgVideo from "@/components/BgVideo.vue";
+import BgVideo from "@/components/homeTop/BgVideo.vue";
 
 export default {
   name: "Home",
