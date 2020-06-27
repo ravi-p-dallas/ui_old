@@ -18,6 +18,4 @@ $title-font: "Cairo";
   background-color: transparent;
 }
 
-
-
 .v-window { &-x-transition, &-x-reverse-transition, &-y-transition, &-y-reverse-transition { &-enter-active, &-leave-active { transition: .6s cubic-bezier(.33,.41,.75,.65) !important; } } }

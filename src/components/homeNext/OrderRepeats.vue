@@ -1,9 +1,14 @@
 
 <template>
   <v-container fluid ma-10 pa-10>
-    <v-row align="center" justify="center" no-gutters v-for="item in items" :key="item.Char"> 
-      <v-col lg="2" class="ma-2">
-        <DesignedCard title="BiWeekly" char="B" Caption="Delivered on bi-weekly basis" />
+    <v-row align="center" justify="center" no-gutters>
+      <v-col lg="2" class="ma-2" v-for="item in items" :key="item.Char">
+        <DesignedCard
+          :Title="item.title"
+          :Char="item.char"
+          :Caption="item.caption"
+          :CustomStyle="item.customStyle"
+        />
       </v-col>
     </v-row>
   </v-container>
@@ -25,24 +30,28 @@ export default Vue.extend({
   data: () => ({
     items: [
       {
-        title: "BiWeekly",
+        title: "BiWeekly Orders",
         char: "W",
-        Caption: "Delivered on bi-weekly basis"
+        caption: "Delivered on bi-weekly basis",
+        customStyle: "green lighten-3"
       },
       {
-        title: "BiWeekly",
+        title: "Monthly Orders",
         char: "B",
-        Caption: "Delivered on bi-weekly basis"
+        caption: "Delivered on bi-weekly basis",
+        customStyle: "orange lighten-3"
       },
       {
-        title: "BiWeekly",
+        title: "Weekly Orders",
         char: "M",
-        Caption: "Delivered on bi-weekly basis"
+        caption: "Delivered on bi-weekly basis",
+        customStyle: "red lighten-3 white--text"
       },
       {
-        title: "BiWeekly",
-        char: "M",
-        Caption: "Delivered on bi-weekly basis"
+        title: "Daily Orders",
+        char: "D",
+        caption: "Delivered on bi-weekly basis",
+        customStyle: "blue lighten-3"
       }
     ]
   })
