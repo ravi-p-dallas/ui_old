@@ -2,6 +2,7 @@
   <v-app>
     <v-main>
       <v-container fluid fill-height class="ma-0 pa-0">
+        <ToolBar />
         <BgVideo />
         <OrderRepeats />
       </v-container>
@@ -15,10 +16,13 @@
 import Vue from "vue";
 import BgVideo from "./components/homeTop/BgVideo.vue";
 import OrderRepeats from "./components/homeNext/OrderRepeats.vue";
+import ToolBar from "./components/homeTop/toolbar/ToolBar.vue";
+
 export default Vue.extend({
   name: "App",
 
   components: {
+    ToolBar,
     BgVideo,
     OrderRepeats
   },

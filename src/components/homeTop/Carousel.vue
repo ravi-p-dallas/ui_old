@@ -1,6 +1,7 @@
 <template>
   <v-container fill-height fluid ma-0 pa-0>
-    <v-carousel hide-delimiters continuous show-arrows-on-hover cycle>
+    
+    <v-carousel hide-delimiters continuous show-arrows-on-hover cycle >
       <v-carousel-item v-for="(item, i) in items" :key="i" :src="item.src">
         <v-container fill-height fluid ma-0 pa-0>
           <v-card class="transparent card_mgleft" outlined xs12 sm6 offset-sm3>

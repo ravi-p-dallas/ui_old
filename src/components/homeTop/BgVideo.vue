@@ -6,8 +6,8 @@
       class="green lighten-4"
       v-bind:overlay="countryChanged"
     >
-      <ToolBar style="position: absolute;" />
-      <Carousel />
+      <!-- <ToolBar style="position: absolute;" /> -->
+      <Carousel id="scrolling-techniques-5" class="overflow-y-auto"/>
       <v-fab-transition>
         <v-btn class="downArrow" icon fab medium dark bottom>
           <v-icon>mdi-chevron-down</v-icon>
@@ -27,14 +27,13 @@
 </style>
 <script lang="ts">
 import Vue from "vue";
-import ToolBar from "./toolbar/ToolBar.vue";
 import Carousel from "./Carousel.vue";
 
 export default Vue.extend({
   name: "BgVideo",
 
   components: {
-    ToolBar,
+    // ToolBar,
     Carousel
   },
   computed: {

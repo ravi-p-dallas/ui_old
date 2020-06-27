@@ -1,13 +1,13 @@
 <template>
-  <v-container fluid>
+  <v-container fluid class="pa-0 ma-0">
     <v-app-bar
       flat
       dense
-      elevate-on-scroll
       v-bind:style="styles"
       text-center
       align="center"
-      clipped-right
+      absolute
+      class="ma-5"
     >
       <v-toolbar-title class="ma-2 text-h6 white--text font-weight-bold">VantaShala</v-toolbar-title>
       <v-spacer></v-spacer>
