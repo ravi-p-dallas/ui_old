@@ -12,14 +12,13 @@
     </v-list-item>
 
     <v-card-text class="ma-0 pa-0">
-      <v-app-bar flat elevation="0" dense color="white" class="grey lighten-5 mr-0">
+      <v-app-bar flat elevation="0" dense color="white" class="grey lighten-5">
         <blockquote>Upcoming Orders: (12)</blockquote>
         <v-spacer></v-spacer>
-
-        <v-tooltip bottom >
-          <template v-slot:activator="{ on, attrs }">
-            <span v-bind="attrs" v-on="on" class="ma-0">
-              <v-btn icon>
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on, attrs }" class="ma-0">
+            <span v-bind="attrs" v-on="on">
+              <v-btn icon small>
                 <v-icon color="cyan darken-4">mdi-minus</v-icon>
               </v-btn>
             </span>
@@ -28,42 +27,24 @@
         </v-tooltip>
       </v-app-bar>
       <v-divider class="ma-0"></v-divider>
-      <v-card
-        tile
-        outline
-        v-scroll.self="onScroll"
-        class="overflow-y-auto ma-0"
-        max-height="300"
-        flat
-        v-bind:id="scrollId"
-      >
-        <v-card-text class="ma-0">
-          Date: July 29th, 2020 7:00 PM
-          <br />Chef: Rajulas Kitchen
-          <br />Numbe of Items: 2 View
-          <v-divider class="mt-2 mb-2 grey lighten-4"></v-divider>
-         Date: July 29th, 2020 7:00 PM
-          <br />Chef: Rajulas Kitchen
-          <br />Numbe of Items: 2 View
-          <v-divider class="mt-2 mb-2 grey lighten-4"></v-divider>
-          Date: July 29th, 2020 7:00 PM
-          <br />Chef: Rajulas Kitchen
-          <br />Numbe of Items: 2 View
-          <v-divider class="mt-2 mb-2 grey lighten-4"></v-divider>
-          Date: July 29th, 2020 7:00 PM
-          <br />Chef: Rajulas Kitchen
-          <br />Numbe of Items: 2 View
-          <br />
-        </v-card-text>
-      </v-card>
+
+      <ItemCard v-bind:scrollId="scrollId" />
     </v-card-text>
 
     <v-card-actions class="grey lighten-5">
       <v-btn small text color="teal darken-4">Open Series</v-btn>
       <v-spacer></v-spacer>
-      <v-btn icon>
-        <v-icon color="cyan darken-4">mdi-plus</v-icon>
-      </v-btn>
+
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on, attrs }" class="ma-0">
+          <span v-bind="attrs" v-on="on">
+            <v-btn icon small>
+              <v-icon color="cyan darken-4">mdi-plus</v-icon>
+            </v-btn>
+          </span>
+        </template>
+        <span>Double the orders</span>
+      </v-tooltip>
     </v-card-actions>
   </v-card>
 </template>
@@ -74,9 +55,14 @@
 
 <script lang="ts">
 import Vue from "vue";
+import ItemCard from "./ItemCard.vue";
+
 export default Vue.extend({
   name: "DesignedCard",
   props: ["Title", "Caption", "Char", "CustomStyle", "scrollId"],
+  components: {
+    ItemCard
+  },
   data: () => ({
     scrollInvoked: 0
   }),
