@@ -3,13 +3,12 @@
   <v-container fluid v-scroll="onScroll">
     <v-row align="center" justify="center" no-gutters>
       <v-col lg="2" class="ma-2" v-for="item in items" :key="item.Char">
-        <OrderRepeatedCard
+        <FeedbackCard
           :Title="item.title"
           :Char="item.char"
           :Caption="item.caption"
           :CustomStyle="item.customStyle"
           :scrollId="item.scrollId"
-          class="mt-15 mb-15"
         />
         <v-btn v-show="fab" fab fixed bottom right color="primary" @click="toTop">
           <v-icon>mdi-chevron-down</v-icon>
@@ -23,19 +22,19 @@
 .bg {
   background: rgb(255, 255, 255);
   
-  background: linear-gradient(0deg, rgba(255, 248, 225, 1) 0%, rgba(255, 255, 255, 1) 100%);
+  background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgb(255, 248, 225, 1) 100%);
 }
 </style>
 
 <script lang="ts">
 import Vue from "vue";
-import OrderRepeatedCard from "./OrderRepeatedCard.vue";
+import FeedbackCard from "./FeedbackCard.vue";
 
 export default Vue.extend({
   name: "ActionButtons",
 
   components: {
-    OrderRepeatedCard
+    FeedbackCard
   },
   data: () => ({
     fab: false,

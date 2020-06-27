@@ -11,23 +11,9 @@
       </v-list-item-content>
     </v-list-item>
 
-    <v-card-text class="ma-0 pa-0">
-      <v-app-bar flat elevation="0" dense color="white" class="grey lighten-5 mr-0">
-        <blockquote>Upcoming Orders: (12)</blockquote>
-        <v-spacer></v-spacer>
+    <v-divider></v-divider>
 
-        <v-tooltip bottom >
-          <template v-slot:activator="{ on, attrs }">
-            <span v-bind="attrs" v-on="on" class="ma-0">
-              <v-btn icon>
-                <v-icon color="cyan darken-4">mdi-minus</v-icon>
-              </v-btn>
-            </span>
-          </template>
-          <span>Cancel all upcoming orders</span>
-        </v-tooltip>
-      </v-app-bar>
-      <v-divider class="ma-0"></v-divider>
+    <v-card-text class="ma-0 pa-0">
       <v-card
         tile
         outline
@@ -37,29 +23,31 @@
         flat
         v-bind:id="scrollId"
       >
-        <v-card-text class="ma-0">
-          Date: July 29th, 2020 7:00 PM
+        <v-card-text>
+          Upcoming Order:
+          <br />Date: July 29th, 2020 7:00 PM
           <br />Chef: Rajulas Kitchen
           <br />Numbe of Items: 2 View
-          <v-divider class="mt-2 mb-2 grey lighten-4"></v-divider>
-         Date: July 29th, 2020 7:00 PM
+          <v-divider class="mt-2 mb-2 grey lighten-4"></v-divider>Upcoming Order:
+          <br />Date: July 29th, 2020 7:00 PM
           <br />Chef: Rajulas Kitchen
           <br />Numbe of Items: 2 View
-          <v-divider class="mt-2 mb-2 grey lighten-4"></v-divider>
-          Date: July 29th, 2020 7:00 PM
+          <v-divider class="mt-2 mb-2 grey lighten-4"></v-divider>Upcoming Order:
+          <br />Date: July 29th, 2020 7:00 PM
           <br />Chef: Rajulas Kitchen
           <br />Numbe of Items: 2 View
-          <v-divider class="mt-2 mb-2 grey lighten-4"></v-divider>
-          Date: July 29th, 2020 7:00 PM
+          <v-divider class="mt-2 mb-2 grey lighten-4"></v-divider>Upcoming Order:
+          <br />Date: July 29th, 2020 7:00 PM
           <br />Chef: Rajulas Kitchen
           <br />Numbe of Items: 2 View
           <br />
         </v-card-text>
       </v-card>
     </v-card-text>
-
+    <v-divider class></v-divider>
     <v-card-actions class="grey lighten-5">
       <v-btn small text color="teal darken-4">Open Series</v-btn>
+      <v-btn small text color="light-blue darken-4">Cancel Upcoming</v-btn>
       <v-spacer></v-spacer>
       <v-btn icon>
         <v-icon color="cyan darken-4">mdi-plus</v-icon>
