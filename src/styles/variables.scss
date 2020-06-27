@@ -17,5 +17,7 @@ $title-font: "Cairo";
 .transparent {
   background-color: transparent;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 .v-window { &-x-transition, &-x-reverse-transition, &-y-transition, &-y-reverse-transition { &-enter-active, &-leave-active { transition: .6s cubic-bezier(.33,.41,.75,.65) !important; } } }

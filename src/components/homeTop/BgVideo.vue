@@ -1,15 +1,14 @@
 <template>
-  <v-container overflow-y fluid class="ma-0 pa-0" style="position:relative">
+  <v-container overflow-y fluid class="ma-0 pa-0">
     <VideoBg
       src="https://vsassets.netlify.app/vantashala.mp4"
       style="height: 100vh;"
       class="green lighten-4"
       v-bind:overlay="countryChanged"
     >
-      <!-- <ToolBar style="position: absolute;" /> -->
-      <Carousel id="scrolling-techniques-5" class="overflow-y-auto"/>
+      <Carousel class="overflow-y-auto" />
       <v-fab-transition>
-        <v-btn class="downArrow" icon fab medium dark bottom>
+        <v-btn class="downArrow" icon fab medium dark bottom @click.stop="clicked()">
           <v-icon>mdi-chevron-down</v-icon>
         </v-btn>
       </v-fab-transition>
@@ -28,12 +27,12 @@
 <script lang="ts">
 import Vue from "vue";
 import Carousel from "./Carousel.vue";
+import * as easings from "vuetify/es5/services/goto/easing-patterns";
 
 export default Vue.extend({
   name: "BgVideo",
 
   components: {
-    // ToolBar,
     Carousel
   },
   computed: {
@@ -57,6 +56,17 @@ export default Vue.extend({
         overlay: "linear-gradient(45deg,#ffcc80B3,#fb949eB3)"
       }
     }
-  })
+  }),
+  methods: {
+    clicked: function() {
+      this.$nextTick(() => {
+        this.$vuetify.goTo("#RO", {
+          duration: 900,
+          offset: 0,
+          easing: "easeOutCubic"
+        });
+      });
+    }
+  }
 });
 </script>

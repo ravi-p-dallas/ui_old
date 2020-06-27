@@ -2,9 +2,9 @@
   <v-app>
     <v-main>
       <v-container fluid fill-height class="ma-0 pa-0">
-        <ToolBar />
+        <ToolBar scroll-target="#scrolling-techniques-2" hide-on-scroll prominent />
         <BgVideo />
-        <OrderRepeats />
+        <RepeatedOrders id="scrolling-techniques-5" />
       </v-container>
     </v-main>
   </v-app>
@@ -15,7 +15,7 @@
 <script lang="ts">
 import Vue from "vue";
 import BgVideo from "./components/homeTop/BgVideo.vue";
-import OrderRepeats from "./components/homeNext/OrderRepeats.vue";
+import RepeatedOrders from "./components/homeNext/RepeatedOrders.vue";
 import ToolBar from "./components/homeTop/toolbar/ToolBar.vue";
 
 export default Vue.extend({
@@ -24,7 +24,7 @@ export default Vue.extend({
   components: {
     ToolBar,
     BgVideo,
-    OrderRepeats
+    RepeatedOrders
   },
 
   data: () => ({}),

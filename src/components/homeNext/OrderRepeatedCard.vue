@@ -13,7 +13,7 @@
 
     <v-divider></v-divider>
 
-    <v-card-text class="ma-0 pa-0" style="background:#aeaeae; height:100%">
+    <v-card-text class="ma-0 pa-0">
       <v-card
         tile
         outline
@@ -21,7 +21,7 @@
         class="overflow-y-auto ma-0"
         max-height="300"
         flat
-        id="style-15"
+        v-bind:id="scrollId"
       >
         <v-card-text>
           Upcoming Order:
@@ -32,7 +32,7 @@
           <br />Date: July 29th, 2020 7:00 PM
           <br />Chef: Rajulas Kitchen
           <br />Numbe of Items: 2 View
-          <br />Upcoming Order:
+          <v-divider class="mt-2 mb-2 grey lighten-4"></v-divider>Upcoming Order:
           <br />Date: July 29th, 2020 7:00 PM
           <br />Chef: Rajulas Kitchen
           <br />Numbe of Items: 2 View
@@ -56,29 +56,15 @@
   </v-card>
 </template>
 
-
-<style scoped>
-#style-15::-webkit-scrollbar-track {
-	background-color: #F5F5F5;
-}
-
-#style-15::-webkit-scrollbar {
-  width: 8px;
-  background-color: #f5f5f5;
-}
-
-#style-15::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-	background-color:#c8e6c9;	
-	
-}
+<style lang="scss">
+@import "./OrderRepeatedCard.scss";
 </style>
 
 <script lang="ts">
 import Vue from "vue";
 export default Vue.extend({
   name: "DesignedCard",
-  props: ["Title", "Caption", "Char", "CustomStyle"],
+  props: ["Title", "Caption", "Char", "CustomStyle", "scrollId"],
   data: () => ({
     scrollInvoked: 0
   }),

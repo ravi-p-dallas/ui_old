@@ -1,14 +1,6 @@
 <template>
   <v-container fluid class="pa-0 ma-0">
-    <v-app-bar
-      flat
-      dense
-      v-bind:style="styles"
-      text-center
-      align="center"
-      absolute
-      class="ma-5"
-    >
+    <v-app-bar flat dense v-bind:style="styles" text-center align="center" absolute class="ma-5">
       <v-toolbar-title class="ma-2 text-h6 white--text font-weight-bold">VantaShala</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
@@ -20,7 +12,7 @@
           small
           class="ma-auto white--text font-weight-bold"
         >
-          <v-icon dark left>{{ item.icon }}</v-icon>
+          <v-icon left>{{ item.icon }}</v-icon>
           {{ item.title }}
         </v-btn>
 
@@ -34,7 +26,7 @@
             >{{ country.name }}</option>
           </select>
         </div>
-        <v-avatar class="ma-auto white--text font-weight-bold" size="36" tile>
+        <v-avatar class="ma-auto ml-3 white--text font-weight-bold" size="36" tile>
           <img
             src="https://randomuser.me/api/portraits/men/81.jpg"
             alt="Gopi"
@@ -118,9 +110,7 @@
 
           <v-list-item-content>
             <v-list-item-title>
-              <v-btn text small class="ma-auto white--text font-weight-bold">
-                Logout
-              </v-btn>
+              <v-btn text small class="ma-auto white--text font-weight-bold">Logout</v-btn>
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
