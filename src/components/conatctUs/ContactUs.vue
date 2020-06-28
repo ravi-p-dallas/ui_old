@@ -1,19 +1,19 @@
 <template>
   <v-container fluid class="ma-0 pa-0">
     <v-parallax
-      dark
       :src="image"
-      style="opacity: 0.4; background-color: rgb(255, 255, 255);"
-      object-fit= "cover"
+      style="opacity: 0.6; background-color: rgb(255, 255, 255);"
+      class="pa-8"
     >
-      <v-row align="center" justify="center">
-        <v-col class="text-center" cols="12">
+      <v-row align="center" justify="center" >
+        <v-col class="text-center" cols="12" min-height="550">
           <v-card
             fluid
-            class="mx-auto ma-10"
+            class="mx-auto"
             dense
             flat
             :max-width="$vuetify.breakpoint.smAndDown?'100%':'50%'"
+            color="rgb(255, 255, 255, 0.8)"
           >
             <v-toolbar dark>
               <v-toolbar-title>
@@ -83,7 +83,7 @@ import Vue from "vue";
 export default Vue.extend({
   name: "ContactUs",
   data: () => ({
-    image: require("@/assets/contactus.jpg"),
+    image: require("@/assets/biryani_2.jpg"),
     valid: false,
     firstname: "",
     lastname: "",
@@ -100,3 +100,10 @@ export default Vue.extend({
   methods: {}
 });
 </script>
+
+<style scoped lang="scss">
+.v-parallax__image {
+  transform: none !important;
+  width: 100% !important;
+}
+</style>

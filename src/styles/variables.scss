@@ -2,6 +2,9 @@
 
 $body-font-family: "Cairo";
 $title-font: "Cairo";
+html {
+  scroll-behavior: smooth;
+}
 
 .v-application {
   font-family: $body-font-family, sans-serif !important;
@@ -13,11 +16,20 @@ $title-font: "Cairo";
   margin: 0rem;
 }
 
-
 .transparent {
   background-color: transparent;
 }
 html {
   scroll-behavior: smooth;
 }
-.v-window { &-x-transition, &-x-reverse-transition, &-y-transition, &-y-reverse-transition { &-enter-active, &-leave-active { transition: .6s cubic-bezier(.33,.41,.75,.65) !important; } } }
+.v-window {
+  &-x-transition,
+  &-x-reverse-transition,
+  &-y-transition,
+  &-y-reverse-transition {
+    &-enter-active,
+    &-leave-active {
+      transition: 0.6s cubic-bezier(0.33, 0.41, 0.75, 0.65) !important;
+    }
+  }
+}

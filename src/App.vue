@@ -2,12 +2,13 @@
   <v-app>
     <v-main>
       <!-- d-flex flex-column -->
-      <v-container fluid fill-height class="ma-0 pa-0 d-flex flex-column ">
+      <v-container fluid fill-height class="ma-0 pa-0 d-flex flex-column">
         <ToolBar scroll-target="#scrolling-techniques-2" hide-on-scroll prominent />
         <BgVideo />
         <RepeatedOrders id="scrolling-techniques-5" class="mb-0 grey lighten-5" />
         <ContactUs />
         <Feedback />
+        <Footer />
       </v-container>
     </v-main>
   </v-app>
@@ -22,6 +23,7 @@ import BgVideo from "./components/homeTop/BgVideo.vue";
 import RepeatedOrders from "./components/homeNext/RepeatedOrders.vue";
 import ContactUs from "./components/conatctUs/ContactUs.vue";
 import Feedback from "./components/userFeedback/Feedback.vue";
+import Footer from "./components/footer/Footer.vue";
 
 export default Vue.extend({
   name: "App",
@@ -31,7 +33,8 @@ export default Vue.extend({
     BgVideo,
     RepeatedOrders,
     ContactUs,
-    Feedback
+    Feedback,
+    Footer
   },
 
   data: () => ({}),
