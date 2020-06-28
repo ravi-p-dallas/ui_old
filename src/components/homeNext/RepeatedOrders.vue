@@ -12,7 +12,7 @@
           class="mt-15 mb-15"
         />
         <v-btn v-show="fab" fab fixed bottom right color="primary" @click="toTop">
-          <v-icon>mdi-chevron-down</v-icon>
+          <v-icon>mdi-chevron-up</v-icon>
         </v-btn>
       </v-col>
     </v-row>
@@ -42,21 +42,21 @@ export default Vue.extend({
     items: [
       {
         title: "BiWeekly Orders",
-        char: "W",
+        char: "B",
         caption: "Delivered on bi-weekly basis",
         customStyle: "green lighten-3",
         scrollId: "biWeekly_id"
       },
       {
         title: "Monthly Orders",
-        char: "B",
+        char: "M",
         caption: "Delivered on bi-weekly basis",
         customStyle: "orange lighten-3",
         scrollId: "monthly_id"
       },
       {
         title: "Weekly Orders",
-        char: "M",
+        char: "W",
         caption: "Delivered on bi-weekly basis",
         customStyle: "red lighten-3 white--text",
         scrollId: "weekly_id"

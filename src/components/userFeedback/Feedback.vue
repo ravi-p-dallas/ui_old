@@ -1,5 +1,5 @@
 <template>
-  <v-card fluid class="mx-auto ma-10" flat >
+  <v-card fluid class="mx-auto ma-10" flat>
     <v-list-item class="ma-0 pa-0">
       <v-list-item-content class="ma-0 pa-0">
         <v-list-item-title class="text-center headline mx-auto font-weight-bold">
@@ -17,18 +17,19 @@
             </v-avatar>
           </template>
           <template v-slot:opposite>
-            <span>Gopi Kancharala</span>
+            <span class="green--text">Gopi Kancharala</span>
+            <p class="orange--text">Dec 02, 2020 - 7:28 PM CST</p>
           </template>
           <v-card class="elevation-2">
-            <v-card-text>“Didn't expect this level of service. Very nice and continue it.”</v-card-text>
+            <v-card-text class="orange--text">“Didn't expect this level of service. Very nice and continue it.”</v-card-text>
           </v-card>
         </v-timeline-item>
         <div class="ma-auto text-center">
-          <v-btn color="green lighten-3 mr-1 white--text" small>
+          <v-btn color="blue-grey dark-3 mr-1 white--text" small>
             <v-icon small>mdi-arrow-left</v-icon>
           </v-btn>
-          
-          <v-btn color="orange lighten-3 green--text" small>
+
+          <v-btn color="blue-grey dark-3 white--text" small>
             <v-icon small>mdi-arrow-right</v-icon>
           </v-btn>
         </div>
