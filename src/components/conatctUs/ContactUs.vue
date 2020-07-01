@@ -1,11 +1,12 @@
 <template>
   <v-container fluid class="ma-0 pa-0">
+    <v-layout></v-layout>
     <v-parallax
       :src="image"
       style="opacity: 0.6; background-color: rgb(255, 255, 255);"
       class="pa-8"
     >
-      <v-row align="center" justify="center" >
+      <v-row align="center" justify="center">
         <v-col class="text-center" cols="12" min-height="550">
           <v-card
             fluid

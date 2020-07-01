@@ -2,7 +2,7 @@
 <template>
   <v-container fluid v-scroll="onScroll">
     <v-row align="center" justify="center" no-gutters>
-      <v-col lg="2" class="ma-2" v-for="item in items" :key="item.Char">
+      <v-col lg="2" class="pa-2" v-for="item in items" :key="item.Char">
         <OrderRepeatedCard
           :Title="item.title"
           :Char="item.char"
@@ -11,9 +11,6 @@
           :scrollId="item.scrollId"
           class="mt-15 mb-15"
         />
-        <v-btn v-show="fab" fab fixed bottom right color="primary" @click="toTop">
-          <v-icon>mdi-chevron-up</v-icon>
-        </v-btn>
       </v-col>
     </v-row>
   </v-container>
@@ -22,8 +19,12 @@
 <style scoped>
 .bg {
   background: rgb(255, 255, 255);
-  
-  background: linear-gradient(0deg, rgba(255, 248, 225, 1) 0%, rgba(255, 255, 255, 1) 100%);
+
+  background: linear-gradient(
+    0deg,
+    rgba(255, 248, 225, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
 }
 </style>
 
@@ -38,7 +39,6 @@ export default Vue.extend({
     OrderRepeatedCard
   },
   data: () => ({
-    fab: false,
     items: [
       {
         title: "BiWeekly Orders",
@@ -69,17 +69,6 @@ export default Vue.extend({
         scrollId: "daily_id"
       }
     ]
-  }),
-  methods: {
-    onScroll(e) {
-      console.log(typeof window);
-      if (typeof window === "undefined") return;
-      const top = window.pageYOffset || e.target.scrollTop || 0;
-      this.fab = top > 60;
-    },
-    toTop() {
-      this.$vuetify.goTo(0);
-    }
-  }
+  })
 });
 </script>
