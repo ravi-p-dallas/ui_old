@@ -2,7 +2,7 @@
 <template>
   <v-container fluid v-scroll="onScroll">
     <v-row align="center" justify="center" no-gutters>
-      <v-col lg="2" class="pa-2" v-for="item in items" :key="item.Char">
+      <v-col lg="2" class="pa-2" style="min-wdith:330px" v-for="item in items" :key="item.Char">
         <OrderRepeatedCard
           :Title="item.title"
           :Char="item.char"
