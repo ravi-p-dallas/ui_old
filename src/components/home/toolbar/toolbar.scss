@@ -1,72 +1,137 @@
 .dropdown {
-	display: inline-block;
-	position: relative;
-	height: 28px;
-	width: 100px;
-	font-weight: bold;
-	background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
-	background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
-	background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
-	background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.06));
-	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
-	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
-	&:before {
-		content: "";
-		position: absolute;
-		z-index: 2;
-		top: 9px;
-		right: 10px;
-		width: 0;
-		height: 0;
-		border: 4px dashed;
-		border-color: #ffffff transparent;
-		pointer-events: none;
-		border-bottom-style: solid;
-		border-top: none;
-	}
-	&:after {
-		content: "";
-		position: absolute;
-		z-index: 2;
-		top: 9px;
-		right: 10px;
-		width: 0;
-		height: 0;
-		border: 4px dashed;
-		border-color: #ffffff transparent;
-		pointer-events: none;
-		margin-top: 7px;
-		border-top-style: solid;
-		border-bottom: none;
-	}
+  display: inline-block;
+  position: relative;
+  height: 28px;
+  width: 100px;
+  font-weight: bold;
+  background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+  background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+  background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+  background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.06));
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    top: 9px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 4px dashed;
+    border-color: #ffffff transparent;
+    pointer-events: none;
+    border-bottom-style: solid;
+    border-top: none;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    top: 9px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 4px dashed;
+    border-color: #ffffff transparent;
+    pointer-events: none;
+    margin-top: 7px;
+    border-top-style: solid;
+    border-bottom: none;
+  }
 }
 .dropdown-select {
-	position: relative;
-	width: 100%;
-	margin: 0;
-	padding: 6px 6px 6px 6px;
-	height: 28px;
-	line-height: 14px;
-	font-size: 12px;
-	color: #ffffff;
-	background: rgba(0, 0, 0, 0) !important;
-	border: 0;
-	border-radius: 0;
-	-webkit-appearance: none;
-	&:focus {
-		z-index: 3;
-		width: 100%;
-		color: #ffffff;
-		outline: 2px solid #49aff2;
-		outline: 2px solid -webkit-focus-ring-color;
-		outline-offset: -2px;
-	}
-	>option {
-		margin: 3px;
-		padding: 6px 6px;
-		text-shadow: none;
-		background: #01240a;
-		border-radius: 3px;
-		cursor: pointer;
-	}
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 6px 6px 6px 6px;
+  height: 28px;
+  line-height: 14px;
+  font-size: 12px;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0) !important;
+  border: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+  &:focus {
+    z-index: 3;
+    width: 100%;
+    color: #ffffff;
+    outline: 2px solid #49aff2;
+    outline: 2px solid -webkit-focus-ring-color;
+    outline-offset: -2px;
+  }
+  > option {
+    margin: 3px;
+    padding: 6px 6px;
+    text-shadow: none;
+    background: #01240a;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+}
+
+.gradient-text {
+  /* Fallback: Set a background color. */
+  background-color: #ca4246;
+
+  /* Create the gradient. */
+  background-image: linear-gradient(
+    45deg,
+    #ca4246 16.666%,
+    #e16541 16.666%,
+    #e16541 33.333%,
+    #f18f43 33.333%,
+    #f18f43 50%,
+    #8b9862 50%,
+    #8b9862 66.666%,
+    #476098 66.666%,
+    #476098 83.333%,
+    #a7489b 83.333%
+  );
+
+  /* Set the background size and repeat properties. */
+  background-size: 100%;
+  background-repeat: repeat;
+
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Animate the text when loading the element. */
+  /* This animates it on page load and when hovering out. */
+  animation: rainbow-text-simple-animation-rev 0.75s ease forwards;
+}
+
+.gradient-text:hover {
+  animation: rainbow-text-simple-animation 0.5s ease-in forwards;
+}
+
+/* Move the background and make it smaller. */
+/* Animation shown when entering the page and after the hover animation. */
+@keyframes rainbow-text-simple-animation-rev {
+  0% {
+    background-size: 650%;
+  }
+  40% {
+    background-size: 650%;
+  }
+  100% {
+    background-size: 100%;
+  }
+}
+
+/* Move the background and make it larger. */
+/* Animation shown when hovering over the text. */
+@keyframes rainbow-text-simple-animation {
+  0% {
+    background-size: 100%;
+  }
+  80% {
+    background-size: 650%;
+  }
+  100% {
+    background-size: 650%;
+  }
 }

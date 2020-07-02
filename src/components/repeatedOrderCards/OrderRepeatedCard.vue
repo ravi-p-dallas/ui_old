@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto">
+  <v-card class="mx-auto" style="max-width:300px;">
     <v-list-item :class="CustomStyle" sticly>
       <v-list-item-avatar color="white" class="ma-auto">
         <div class="ma-auto font-weight-bold green--text">{{Char}}</div>
@@ -67,9 +67,7 @@ export default Vue.extend({
     scrollInvoked: 0
   }),
   methods: {
-    onScroll() {
-      this.scrollInvoked++;
-    }
+  
   }
 });
 </script>

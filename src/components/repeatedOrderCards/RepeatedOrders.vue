@@ -1,8 +1,8 @@
 
 <template>
-  <v-container fluid v-scroll="onScroll">
-    <v-row align="center" justify="center" no-gutters>
-      <v-col lg="2" class="pa-2" style="min-wdith:330px" v-for="item in items" :key="item.Char">
+  <v-container fluid>
+    <v-row align="center" justify="center" class="pa-5">
+      <v-col lg="2" md="2" v-for="item in items" :key="item.Char">
         <OrderRepeatedCard
           :Title="item.title"
           :Char="item.char"
@@ -13,6 +13,19 @@
         />
       </v-col>
     </v-row>
+
+    <!-- <v-row align="center"  justify="center">
+      <v-col lg="2" class="pa-2" v-for="item in items" :key="item.Char">
+        <OrderRepeatedCard
+          :Title="item.title"
+          :Char="item.char"
+          :Caption="item.caption"
+          :CustomStyle="item.customStyle"
+          :scrollId="item.scrollId"
+          class="mt-15 mb-15"
+        />
+      </v-col>
+    </v-row>-->
   </v-container>
 </template>
 

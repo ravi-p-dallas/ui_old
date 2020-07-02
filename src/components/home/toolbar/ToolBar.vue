@@ -1,7 +1,7 @@
 <template>
   <v-container fluid class="pa-0 ma-0">
     <v-app-bar flat dense v-bind:style="styles" text-center align="center" absolute class="ma-5">
-      <v-toolbar-title class="ma-2 text-h6 white--text font-weight-bold">VantaShala</v-toolbar-title>
+      <v-toolbar-title class="ma-2 text-h6 white--text font-weight-bold gradient-text">VantaShala</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
         <v-btn
@@ -13,13 +13,17 @@
           class="ma-auto white--text font-weight-bold"
         >
           <v-icon left>{{ item.icon }}</v-icon>
-          {{ item.title }}
+          <div class="gradient-text">{{ item.title }}</div>
         </v-btn>
 
         <div class="dropdown ma-auto">
-          <select name="country" @change="onchange()" class="dropdown-select ma-auto" v-model="key">
+          <select
+            name="country"
+            @change="onchange()"
+            class="dropdown-select ma-auto"
+            v-model="defaultCountry"
+          >
             <option
-              default
               v-for="country in countries"
               :key="country.name"
               :value="country.value"
@@ -30,104 +34,34 @@
           <img
             src="https://randomuser.me/api/portraits/men/81.jpg"
             alt="Gopi"
-            @click.stop="drawer = !drawer"
+            @click.stop="manageDrawer"
           />
         </v-avatar>
       </v-toolbar-items>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="hidden-md-and-up" color="white"></v-app-bar-nav-icon>
     </v-app-bar>
 
-    <v-navigation-drawer v-model="drawer" app right color="green lighten-2" disable-resize-watcher>
-      <v-list-item two-line>
-        <v-list-item-avatar size="36" tile>
-          <img src="https://randomuser.me/api/portraits/men/81.jpg" />
-        </v-list-item-avatar>
-
-        <v-list-item-content>
-          <v-list-item-title>Gopi Kancharla</v-list-item-title>
-          <v-list-item-subtitle>Premium User</v-list-item-subtitle>
-        </v-list-item-content>
-
-        <v-btn icon @click.stop="drawer = !drawer">
-          <v-icon>mdi-chevron-right</v-icon>
-        </v-btn>
-      </v-list-item>
-
-      <v-divider></v-divider>
-      <v-list subheader>
-        <v-subheader>Actions:</v-subheader>
-
-        <v-list-item v-for="item in menu" :key="item.title">
-          <v-list-item-icon>
-            <v-icon>{{item.icon}}</v-icon>
-          </v-list-item-icon>
-
-          <v-list-item-content>
-            <v-list-item-title>
-              <v-btn
-                :to="item.link"
-                text
-                small
-                class="ma-auto white--text font-weight-bold"
-              >{{ item.title }}</v-btn>
-            </v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-
-      <v-divider></v-divider>
-
-      <v-list subheader>
-        <v-subheader>Choose Country</v-subheader>
-
-        <v-list-item>
-          <v-list-item-icon>
-            <v-icon>mdi-flag</v-icon>
-          </v-list-item-icon>
-          <div class="dropdown ma-0">
-            <select
-              name="country"
-              @change="onchange()"
-              class="dropdown-select ma-auto"
-              v-model="key"
-            >
-              <option
-                default
-                v-for="country in countries"
-                :key="country.name"
-                :value="country.value"
-              >{{ country.name }}</option>
-            </select>
-          </div>
-        </v-list-item>
-      </v-list>
-      <v-divider></v-divider>
-      <v-list subheader>
-        <v-list-item>
-          <v-list-item-icon>
-            <v-icon>mdi-logout-variant</v-icon>
-          </v-list-item-icon>
-
-          <v-list-item-content>
-            <v-list-item-title>
-              <v-btn text small class="ma-auto white--text font-weight-bold">Logout</v-btn>
-            </v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
+    <NavigationDrawer
+      :drawer="drawer"
+      :countries="countries"
+      :menu="menu"
+      :defaultCountry="defaultCountry"
+      @updateDrawerState="updateDrawerState"
+    />
   </v-container>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-
+import NavigationDrawer from "./NavigationDrawer.vue";
 export default Vue.extend({
   name: "ToolBar",
-
+  components: {
+    NavigationDrawer
+  },
   data: () => ({
     drawer: false,
-    key: "INDIA",
+    defaultCountry: "INDIA",
     menu: [
       {
         icon: "mdi-order-bool-descending-variant",
@@ -159,8 +93,17 @@ export default Vue.extend({
   }),
   methods: {
     onchange: function() {
-      this.$store.commit("setCountry", this.key);
+      this.$store.commit("setCountry", this.defaultCountry);
       console.log(this.$store.getters.getCountry);
+    },
+    manageDrawer: function(status) {
+      this.drawer = !this.drawer;
+    },
+    updateDrawerState: function(status) {
+      console.log("--> ", this.drawer, status);
+      if (!this.drawer === status) {
+        this.drawer = status;
+      }
     }
   }
 });

@@ -62,8 +62,6 @@
             <v-card-actions color="rgb(255, 0, 0, 0.1)" class="pa-0 ma-0">
               <v-spacer></v-spacer>
               <v-btn
-                :loading="loading3"
-                :disabled="loading3"
                 color="blue-grey"
                 class="ma-2 white--text"
               >

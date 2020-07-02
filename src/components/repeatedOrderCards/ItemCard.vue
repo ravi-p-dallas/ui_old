@@ -36,6 +36,10 @@ export default Vue.extend({
   name: "ItemCard",
   props: ["scrollId"],
   data: () => ({}),
-  methods: {}
+  methods: {
+    onScroll() {
+      console.log("Scrolled")
+    }
+  }
 });
 </script>
