@@ -1,7 +1,7 @@
 <template>
   <v-container fluid class="pa-0 ma-0">
     <v-app-bar flat dense v-bind:style="styles" text-center align="center" absolute class="ma-5">
-      <v-toolbar-title class="ma-2 text-h6 white--text font-weight-bold gradient-text">VantaShala</v-toolbar-title>
+      <v-toolbar-title class="ma-2 text-h6 white--text font-weight-bold gradient-text-logo">VantaShala</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
         <v-btn
