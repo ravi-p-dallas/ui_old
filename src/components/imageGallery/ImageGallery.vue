@@ -21,10 +21,7 @@
                     color="grey lighten-4"
                     max-width="400"
                   >
-                    <v-img
-                      :aspect-ratio="16/9"
-                      :src="item.src"
-                    >
+                    <v-img :aspect-ratio="16/9" :src="item.src">
                       <v-expand-transition>
                         <v-card
                           v-if="hover"
@@ -34,7 +31,7 @@
                           style="height: 100%;"
                           flat
                         >
-                          <v-card-text class="ma-0" >
+                          <v-card-text class="ma-0">
                             <v-card-subtitle class="pb-2">Authentic Hyderabad Biryani - $14.99</v-card-subtitle>
 
                             <v-card-text class="ma-0">
@@ -57,12 +54,24 @@
                                 color="orange"
                                 class="white--text"
                                 fab
-                                small
+                                x-small
                                 right
                                 top
-                                style="top:10px"
+                                 style="top:10px; right: 5%"
                               >
-                                <v-icon color="pink">mdi-heart</v-icon>
+                                <v-icon color="white">mdi-heart</v-icon>
+                              </v-btn>
+                              <v-btn
+                                absolute
+                                color="orange"
+                                class="white--text"
+                                fab
+                                x-small
+                                right
+                                top
+                                style="top:10px; right: 15%"
+                              >
+                                <v-icon color="white">mdi-share-circle</v-icon>
                               </v-btn>
                             </v-card-text>
                           </v-card-text>
@@ -151,32 +160,38 @@ export default Vue.extend({
   data: () => ({
     items: [
       {
-        src: "https://media.gettyimages.com/photos/vegetarian-biryani-on-dark-metal-background-with-copy-space-picture-id522286984?s=2048x2048",
+        src:
+          "https://media.gettyimages.com/photos/vegetarian-biryani-on-dark-metal-background-with-copy-space-picture-id522286984?s=2048x2048",
         gradient: "",
         class: "fill-height bottom-gradient"
       },
       {
-        src: "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/ukh7i9riyebe4d6z8wtr",
+        src:
+          "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/ukh7i9riyebe4d6z8wtr",
         gradient: "",
         class: "fill-height repeating-gradient"
       },
       {
-        src: "https://i0.wp.com/indiathedestiny.com/wp-content/uploads/2016/03/Kerela-food-channel-copy-e1458019341128.jpg?resize=600%2C320&ssl=1",
+        src:
+          "https://i0.wp.com/indiathedestiny.com/wp-content/uploads/2016/03/Kerela-food-channel-copy-e1458019341128.jpg?resize=600%2C320&ssl=1",
         gradient: "to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)",
         class: ""
       },
       {
-        src: "https://i2.wp.com/indiathedestiny.com/wp-content/uploads/2016/03/Andhra-Pradesh-thali-2086-e1458019595406.jpg?resize=600%2C406&ssl=1",
+        src:
+          "https://i2.wp.com/indiathedestiny.com/wp-content/uploads/2016/03/Andhra-Pradesh-thali-2086-e1458019595406.jpg?resize=600%2C406&ssl=1",
         gradient: "to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)",
         class: ""
       },
       {
-        src: "https://i1.wp.com/indiathedestiny.com/wp-content/uploads/2016/07/gujrati-thali-1-e1469279481962.jpg?resize=700%2C324",
+        src:
+          "https://i1.wp.com/indiathedestiny.com/wp-content/uploads/2016/07/gujrati-thali-1-e1469279481962.jpg?resize=700%2C324",
         gradient: "to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)",
         class: ""
       },
       {
-        src: "https://b.zmtcdn.com/data/pictures/9/18553229/24b384a53109b870423dfc99e97cb162_top_thumb_620_314.jpg?output-format=webp",
+        src:
+          "https://b.zmtcdn.com/data/pictures/9/18553229/24b384a53109b870423dfc99e97cb162_top_thumb_620_314.jpg?output-format=webp",
         gradient: "to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)",
         class: ""
       }

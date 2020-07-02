@@ -17,8 +17,8 @@
             </v-avatar>
           </template>
           <template v-slot:opposite>
-            <span class="green--text">Gopi Kancharala</span>
-            <p class="orange--text">Dec 02, 2020 - 7:28 PM CST</p>
+            <span class="orange--text">Gopi Kancharala</span>
+            <p class="grey--text">Dec 02, 2020 - 7:28 PM CST</p>
           </template>
           <v-card class="elevation-2">
             <v-card-text
