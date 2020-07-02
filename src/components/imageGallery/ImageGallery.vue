@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <v-card class="transparent card_mgleft" outlined xs12 sm6 offset-sm3>
+    <v-card class="transparent card_mgleft mx-auto" outlined xs12 sm6 offset-sm3 style="height:100%">
       <v-list-item class="ma-0 pa-0">
         <v-list-item-content class="ma-0 pa-0">
           <v-list-item-title class="text-center headline mx-auto font-weight-bold">
@@ -9,7 +9,7 @@
         </v-list-item-content>
       </v-list-item>
 
-      <v-carousel hide-delimiters show-arrows-on-hover>
+      <v-carousel hide-delimiters show-arrows-on-hover style="height:100%" class="pb-15">
         <v-carousel-item v-for="(item, i) in items" :key="i">
           <v-card-text>
             <v-row class="ma-0 pa-0">

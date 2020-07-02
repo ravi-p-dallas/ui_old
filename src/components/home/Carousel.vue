@@ -98,7 +98,7 @@ export default Vue.extend({
       {
         caption: "Homeliness",
         title: "Its Homemade",
-        desc: "No Chemicals. Qaulity and healthy.",
+        desc: "No Chemicals. Qaulity and healthy. Increasing Family & Education Time.",
         btnText: "Find Chefs"
       },
       {
@@ -114,9 +114,9 @@ export default Vue.extend({
         btnText: "Find Chefs"
       },
       {
-        caption: "Family Time",
-        title: "Better than what you cook at home",
-        desc: "Cheaper. Spend healthy time with your family.",
+        caption: "Culture",
+        title: "Ancient Traditions Applied",
+        desc: "Made by passion. Using Clay Pots & Slow Cooking Techniques",
         btnText: "Find Chefs"
       }
     ]

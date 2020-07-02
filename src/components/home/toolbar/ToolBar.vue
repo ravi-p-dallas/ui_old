@@ -22,19 +22,6 @@
             <div class="gradient-text">{{ item.title }}</div>
           </v-btn>
         </v-badge>
-
-        <!-- <v-btn
-          v-for="item in menu"
-          :key="item.title"
-          :to="item.link"
-          text
-          small
-          class="ma-auto white--text font-weight-bold"
-        >
-          <v-icon left>{{ item.icon }}</v-icon>
-          <div class="gradient-text">{{ item.title }}</div>
-        </v-btn>-->
-
         <div class="dropdown ma-auto">
           <select
             name="country"
@@ -49,7 +36,7 @@
             >{{ country.name }}</option>
           </select>
         </div>
-        <v-avatar class="ma-auto ml-3 white--text font-weight-bold" size="36" tile>
+        <v-avatar class="ma-auto ml-3 white--text font-weight-bold" size="36" tile link>
           <img
             src="https://randomuser.me/api/portraits/men/81.jpg"
             alt="Gopi"

@@ -28,7 +28,7 @@
       </v-app-bar>
       <v-divider class="ma-0"></v-divider>
 
-      <ItemCard v-bind:scrollId="scrollId" />
+      <ItemCard v-bind:scrollId="scrollId" :DividerStyle="DividerStyle" />
     </v-card-text>
 
     <v-card-actions class="grey lighten-5">
@@ -59,15 +59,20 @@ import ItemCard from "./ItemCard.vue";
 
 export default Vue.extend({
   name: "DesignedCard",
-  props: ["Title", "Caption", "Char", "CustomStyle", "scrollId"],
+  props: [
+    "Title",
+    "Caption",
+    "Char",
+    "CustomStyle",
+    "DividerStyle",
+    "scrollId"
+  ],
   components: {
     ItemCard
   },
   data: () => ({
     scrollInvoked: 0
   }),
-  methods: {
-  
-  }
+  methods: {}
 });
 </script>

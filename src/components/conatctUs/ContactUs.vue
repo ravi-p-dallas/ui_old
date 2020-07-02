@@ -1,12 +1,12 @@
 <template>
   <v-container fluid class="ma-0 pa-0">
-    <v-layout></v-layout>
+  
     <v-parallax
       :src="image"
       style="opacity: 0.6; background-color: rgb(255, 255, 255);"
       class="pa-8"
     >
-      <v-row align="center" justify="center">
+      <v-row align="center" justify="center" class="mt-10 mb-10">
         <v-col class="text-center" cols="12" min-height="550">
           <v-card
             fluid
@@ -14,7 +14,7 @@
             dense
             flat
             :max-width="$vuetify.breakpoint.smAndDown?'100%':'50%'"
-            color="rgb(255, 255, 255, 0.8)"
+            color="rgb(255, 255, 255, 0.9)"
           >
             <v-toolbar dark>
               <v-toolbar-title>

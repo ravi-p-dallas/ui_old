@@ -8,37 +8,16 @@
           :Char="item.char"
           :Caption="item.caption"
           :CustomStyle="item.customStyle"
+          :DividerStyle="item.dividerStyle"
           :scrollId="item.scrollId"
           class="mt-15 mb-15"
         />
       </v-col>
     </v-row>
-
-    <!-- <v-row align="center"  justify="center">
-      <v-col lg="2" class="pa-2" v-for="item in items" :key="item.Char">
-        <OrderRepeatedCard
-          :Title="item.title"
-          :Char="item.char"
-          :Caption="item.caption"
-          :CustomStyle="item.customStyle"
-          :scrollId="item.scrollId"
-          class="mt-15 mb-15"
-        />
-      </v-col>
-    </v-row>-->
   </v-container>
 </template>
 
 <style scoped>
-.bg {
-  background: rgb(255, 255, 255);
-
-  background: linear-gradient(
-    0deg,
-    rgba(255, 248, 225, 1) 0%,
-    rgba(255, 255, 255, 1) 100%
-  );
-}
 </style>
 
 <script lang="ts">
@@ -58,6 +37,7 @@ export default Vue.extend({
         char: "B",
         caption: "Delivered on bi-weekly basis",
         customStyle: "green lighten-3",
+        dividerStyle: "green lighten-4",
         scrollId: "biWeekly_id"
       },
       {
@@ -65,6 +45,7 @@ export default Vue.extend({
         char: "M",
         caption: "Delivered on bi-weekly basis",
         customStyle: "orange lighten-3",
+        dividerStyle: "orange lighten-4",
         scrollId: "monthly_id"
       },
       {
@@ -72,6 +53,7 @@ export default Vue.extend({
         char: "W",
         caption: "Delivered on bi-weekly basis",
         customStyle: "red lighten-3 white--text",
+        dividerStyle: "red lighten-4",
         scrollId: "weekly_id"
       },
       {
@@ -79,6 +61,7 @@ export default Vue.extend({
         char: "D",
         caption: "Delivered on bi-weekly basis",
         customStyle: "blue lighten-3",
+        dividerStyle: "blue lighten-4",
         scrollId: "daily_id"
       }
     ]
