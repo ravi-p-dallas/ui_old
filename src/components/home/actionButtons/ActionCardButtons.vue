@@ -61,7 +61,7 @@ export default Vue.extend({
         className: "bCclass"
       },
       {
-        btnText: "Search Menus",
+        btnText: "Explore Menus",
         icon: "mdi-book-open-page-variant",
         className: "sMclass"
       }

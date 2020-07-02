@@ -21,7 +21,9 @@
             <p class="orange--text">Dec 02, 2020 - 7:28 PM CST</p>
           </template>
           <v-card class="elevation-2">
-            <v-card-text class="orange--text">“Didn't expect this level of service. Very nice and continue it.”</v-card-text>
+            <v-card-text
+              class="orange--text font-weight-bold"
+            >“Didn't expect this level of service. Very nice and continue it.”</v-card-text>
           </v-card>
         </v-timeline-item>
         <div class="ma-auto text-center">
@@ -37,3 +39,15 @@
     </v-card-text>
   </v-card>
 </template>
+
+
+<style scoped>
+</style>
+
+<script lang="ts">
+import Vue from "vue";
+
+export default Vue.extend({
+  name: "Feedback"
+});
+</script>

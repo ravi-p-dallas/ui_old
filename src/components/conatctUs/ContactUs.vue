@@ -65,7 +65,7 @@
                 color="blue-grey"
                 class="ma-2 white--text"
               >
-                We are serious. Send!
+                We act to sustain. Send!
                 <v-icon right dark>mdi-email</v-icon>
               </v-btn>
             </v-card-actions>
