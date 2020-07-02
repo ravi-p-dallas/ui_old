@@ -1,10 +1,29 @@
 <template>
   <v-container fluid class="pa-0 ma-0">
     <v-app-bar flat dense v-bind:style="styles" text-center align="center" absolute class="ma-5">
-      <v-toolbar-title class="ma-2 text-h6 white--text font-weight-bold gradient-text-logo">VantaShala</v-toolbar-title>
+      <v-toolbar-title
+        class="ma-2 text-h6 white--text font-weight-bold gradient-text-logo"
+      >VantaShala</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn
+        <v-badge
+          color="purple lighten-4"
+          v-for="(item, i) in menu"
+          :key="i"
+          :to="item.link"
+          text
+          small
+          overlap
+          class="ma-auto mr-5"
+        >
+          <span slot="badge" class="purple--text font-weight-bold">{{ item.badge }}</span>
+          <v-btn text small class="ma-auto white--text font-weight-bold">
+            <v-icon left>{{ item.icon }}</v-icon>
+            <div class="gradient-text">{{ item.title }}</div>
+          </v-btn>
+        </v-badge>
+
+        <!-- <v-btn
           v-for="item in menu"
           :key="item.title"
           :to="item.link"
@@ -14,7 +33,7 @@
         >
           <v-icon left>{{ item.icon }}</v-icon>
           <div class="gradient-text">{{ item.title }}</div>
-        </v-btn>
+        </v-btn>-->
 
         <div class="dropdown ma-auto">
           <select
@@ -47,9 +66,13 @@
       :menu="menu"
       :defaultCountry="defaultCountry"
       @updateDrawerState="updateDrawerState"
+      :countryChange="onchange"
     />
   </v-container>
 </template>
+<style lang="scss">
+@import "./toolbar.scss";
+</style>
 
 <script lang="ts">
 import Vue from "vue";
@@ -66,10 +89,11 @@ export default Vue.extend({
       {
         icon: "mdi-order-bool-descending-variant",
         title: "My Orders",
-        path: "/"
+        path: "/",
+        badge: "2"
       },
-      { icon: "mdi-chef-hat", title: "My Chefs", path: "/" },
-      { icon: "mdi-cart-outline", title: "My Cart", path: "/" }
+      { icon: "mdi-chef-hat", title: "My Chefs", path: "/", badge: "4" },
+      { icon: "mdi-cart-outline", title: "My Cart", path: "/", badge: "0" }
     ],
 
     countries: [
@@ -109,6 +133,3 @@ export default Vue.extend({
 });
 </script>
 
-<style lang="scss">
-@import "./toolbar.scss";
-</style>

@@ -6,7 +6,9 @@
     <v-btn v-show="fab" fab fixed bottom right color="primary" @click="toTop">
       <v-icon>mdi-chevron-up</v-icon>
     </v-btn>
+
     <RepeatedOrders id="scrolling-techniques-5" class="mb-0 grey lighten-5" />
+    <ImageGallery class="ma-0 grey lighten-4" />
     <ContactUs />
     <Feedback />
     <Footer />
@@ -20,6 +22,7 @@ import Vue from "vue";
 import ToolBar from "../components/home/toolbar/ToolBar.vue";
 import BgVideo from "../components/home/BgVideo.vue";
 import RepeatedOrders from "../components/repeatedOrderCards/RepeatedOrders.vue";
+import ImageGallery from "../components/imageGallery/ImageGallery.vue";
 import ContactUs from "../components/conatctUs/ContactUs.vue";
 import Feedback from "../components/userFeedback/Feedback.vue";
 import Footer from "../components/footer/Footer.vue";
@@ -31,6 +34,7 @@ export default Vue.extend({
     ToolBar,
     BgVideo,
     RepeatedOrders,
+    ImageGallery,
     ContactUs,
     Feedback,
     Footer

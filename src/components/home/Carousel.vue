@@ -27,6 +27,7 @@
 .card_mgleft {
   margin-left: 10%;
 }
+
 .text_style {
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
   background: -webkit-linear-gradient(
@@ -38,14 +39,26 @@
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
   -moz-background-clip: text;
+  background-size: 100%;
+  background-repeat: repeat;
 }
-.text_style:hover{
-  background-image: linear-gradient(90deg, #ea00ff 20%, #ffffff 50%);
-  animation: rainbow-text-simple-animation 0.5s ease-in forwards;
+.text_style:hover {
+  background-image: linear-gradient(
+    -45deg,
+    #ff0000 16.666%,
+    #fffb00 16.666%,
+    #e16541 33.333%,
+    #f18f43 33.333%,
+    #f18f43 50%,
+    #8b9862 50%,
+    #8b9862 66.666%,
+    #476098 66.666%,
+    #476098 83.333%,
+    #f03fd8 83.333%
+  );
+  animation: rainbow-text-simple-animation 5s ease-in forwards;
 }
 
-/* Move the background and make it smaller. */
-/* Animation shown when entering the page and after the hover animation. */
 @keyframes rainbow-text-simple-animation-rev {
   0% {
     background-size: 650%;
@@ -58,8 +71,6 @@
   }
 }
 
-/* Move the background and make it larger. */
-/* Animation shown when hovering over the text. */
 @keyframes rainbow-text-simple-animation {
   0% {
     background-size: 100%;
@@ -71,7 +82,6 @@
     background-size: 650%;
   }
 }
-
 </style>
 
 <script lang="ts">

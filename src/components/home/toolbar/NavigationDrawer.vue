@@ -20,20 +20,13 @@
       <v-list subheader>
         <v-subheader>Actions:</v-subheader>
 
-        <v-list-item v-for="item in menu" :key="item.title">
+        <v-list-item v-for="item in menu" :key="item.title" link>
           <v-list-item-icon>
             <v-icon>{{item.icon}}</v-icon>
           </v-list-item-icon>
 
           <v-list-item-content>
-            <v-list-item-title>
-              <v-btn
-                :to="item.link"
-                text
-                small
-                class="ma-auto white--text font-weight-bold"
-              >{{ item.title }}</v-btn>
-            </v-list-item-title>
+            <v-list-item-subtitle class="ma-auto white--text font-weight-bold">{{ item.title }}</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -64,16 +57,17 @@
         </v-list-item>
       </v-list>
       <v-divider></v-divider>
+
       <v-list subheader>
-        <v-list-item>
+        <v-subheader>Actions:</v-subheader>
+
+        <v-list-item link>
           <v-list-item-icon>
             <v-icon>mdi-logout-variant</v-icon>
           </v-list-item-icon>
 
           <v-list-item-content>
-            <v-list-item-title>
-              <v-btn text small class="ma-auto white--text font-weight-bold">Logout</v-btn>
-            </v-list-item-title>
+            <v-list-item-subtitle class="ma-auto white--text font-weight-bold">Logout</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -87,7 +81,7 @@ import Vue from "vue";
 export default Vue.extend({
   name: "NavigationDrawer",
 
-  props: ["countries", "menu", "drawer", "defaultCountry"],
+  props: ["countries", "menu", "drawer", "defaultCountry", "countryChange"],
 
   watch: {
     drawer: function(newVal, oldVal) {
@@ -105,6 +99,9 @@ export default Vue.extend({
     updateDrawerState: function() {
       this.isOpen = !this.isOpen;
       this.$emit("updateDrawerState", this.isOpen);
+    },
+    onchange: function() {
+      this.countryChange();
     }
   }
 });
