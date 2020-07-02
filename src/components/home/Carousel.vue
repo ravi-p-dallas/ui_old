@@ -30,10 +30,8 @@
 .text_style {
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
   background: -webkit-linear-gradient(
-    40deg,
-    rgba(255, 255, 255, 1) 33%,
-    rgb(245, 0, 245) 33%,
-    rgba(255, 255, 255, 1) 44%
+    rgba(255, 255, 255, 1) 100%,
+    rgba(255, 255, 255, 1) 100%
   );
   background-clip: text;
   -webkit-background-clip: text;
