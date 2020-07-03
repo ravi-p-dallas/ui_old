@@ -1,19 +1,37 @@
 
 <template>
-  <v-container fluid>
-    <v-row align="center" justify="center" class="pa-5">
-      <v-col lg="2" md="2" v-for="item in items" :key="item.Char">
-        <OrderRepeatedCard
-          :Title="item.title"
-          :Char="item.char"
-          :Caption="item.caption"
-          :CustomStyle="item.customStyle"
-          :DividerStyle="item.dividerStyle"
-          :scrollId="item.scrollId"
-          class="mt-15 mb-15"
-        />
-      </v-col>
-    </v-row>
+  <v-container grid-list-md text-xs-center>
+    <v-layout row wrap>
+      <!-- v-for="i in 2" :key="`6${i}`"  -->
+      <v-flex xs6>
+        <v-card flat>
+           <v-list-item class="mt-5">
+            <v-list-item-content class="ma-0 pa-0">
+              <v-list-item-title class="text-center headline mx-auto font-weight-bold">
+                <div :style="$vuetify.breakpoint.smAndDown ? 'letter-spacing:0px' : 'letter-spacing:3px'" class="text_card_style">How we operate?</div>
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-card-text class="px-0">
+            <LayoutVideoCard />
+          </v-card-text>
+        </v-card>
+      </v-flex>
+      <v-flex xs6>
+        <v-card flat >
+          <v-list-item class="mt-5">
+            <v-list-item-content class="ma-0 pa-0">
+              <v-list-item-title class="text-center headline mx-auto font-weight-bold">
+                <div :style="$vuetify.breakpoint.smAndDown ? 'letter-spacing:0px' : 'letter-spacing:3px'" class="text_card_style">How we operate?</div>
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-card-text class="px-0">
+            <LayoutSignInBeAChefCard />
+          </v-card-text>
+        </v-card>
+      </v-flex>
+    </v-layout>
   </v-container>
 </template>
 
@@ -21,50 +39,17 @@
 </style>
 
 <script lang="ts">
-import Vue from "vue";
-import OrderRepeatedCard from "./OrderRepeatedCard.vue";
+import Vue from 'vue';
+import LayoutSignInBeAChefCard from './LayoutSignInBeAChefCard.vue';
+import LayoutVideoCard from './LayoutVideoCard.vue';
 
 export default Vue.extend({
-  name: "ActionButtons",
+  name: 'LayoutContainer',
 
   components: {
-    OrderRepeatedCard
+    LayoutSignInBeAChefCard,
+    LayoutVideoCard,
   },
-  data: () => ({
-    items: [
-      {
-        title: "BiWeekly Orders",
-        char: "B",
-        caption: "Delivered on bi-weekly basis",
-        customStyle: "green lighten-3",
-        dividerStyle: "green lighten-4",
-        scrollId: "biWeekly_id"
-      },
-      {
-        title: "Monthly Orders",
-        char: "M",
-        caption: "Delivered on bi-weekly basis",
-        customStyle: "orange lighten-3",
-        dividerStyle: "orange lighten-4",
-        scrollId: "monthly_id"
-      },
-      {
-        title: "Weekly Orders",
-        char: "W",
-        caption: "Delivered on bi-weekly basis",
-        customStyle: "red lighten-3 white--text",
-        dividerStyle: "red lighten-4",
-        scrollId: "weekly_id"
-      },
-      {
-        title: "Daily Orders",
-        char: "D",
-        caption: "Delivered on bi-weekly basis",
-        customStyle: "blue lighten-3",
-        dividerStyle: "blue lighten-4",
-        scrollId: "daily_id"
-      }
-    ]
-  })
+  data: () => ({}),
 });
 </script>
