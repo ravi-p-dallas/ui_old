@@ -13,7 +13,8 @@
                 <v-list-item-title
                   :class="$vuetify.breakpoint.smAndDown?'text-h5 font-weight-bold mb-5 text_style':'text-h2 font-weight-bold mb-5 text_style'"
                 >{{ item.title }}</v-list-item-title>
-                <v-list-item-subtitle class="text-subtitle-1 font-weight-bold" mb-2>{{ item.desc }}</v-list-item-subtitle>
+                <v-list-item-subtitle class="text-subtitle-1 font-weight-bold" mb-2>
+                  {{ item.desc }}</v-list-item-subtitle>
               </v-list-item-content>
             </v-list-item>
           </v-card>
