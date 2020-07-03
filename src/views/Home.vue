@@ -54,18 +54,6 @@ export default Vue.extend({
     toTop() {
       this.$vuetify.goTo(0);
     }
-  },
-  metaInfo: {
-    title: "VantaShala",
-    titleTemplate: "%s | My Organic Chef",
-    link: [{ rel: "favicon", href: "favicon.ico" }],
-    meta: [
-      {
-        vmid: "Organaic Chef",
-        name: "Clean Healthy Home Cooked Food",
-        content: "Home food at your door"
-      }
-    ]
   }
 });
 </script>

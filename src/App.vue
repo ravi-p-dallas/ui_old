@@ -21,8 +21,7 @@ export default Vue.extend({
 
   metaInfo: {
     title: "VantaShala",
-    titleTemplate: "%s | My Organic Chef",
-    link: [{ rel: "favicon", href: "favicon.ico" }],
+    titleTemplate: "%s | Organic Chef",
     meta: [
       {
         vmid: "Organaic Chef",
