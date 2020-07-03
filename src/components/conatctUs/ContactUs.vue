@@ -88,7 +88,7 @@ export default Vue.extend({
     lastname: "",
     nameRules: [
       v => !!v || "Name is required",
-      v => v.length <= 10 || "Name must be less than 10 characters"
+      v => v.length <= 15 || "Name must be less than 15 characters"
     ],
     email: "",
     emailRules: [

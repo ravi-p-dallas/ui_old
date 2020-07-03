@@ -3,7 +3,8 @@
     <v-list-item class="ma-0 pa-0">
       <v-list-item-content class="ma-0 pa-0">
         <v-list-item-title class="text-center headline mx-auto font-weight-bold">
-          <div style="letter-spacing:6px">WHAT OUR FANTASTIC USERS SAY</div>
+          <div :style="$vuetify.breakpoint.smAndDown?'letter-spacing:3px':'letter-spacing:6px'">WHAT OUR FANTASTIC USERS SAY</div>
+           
         </v-list-item-title>
       </v-list-item-content>
     </v-list-item>

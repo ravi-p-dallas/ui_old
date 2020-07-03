@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-card class="transparent card_mgleft mx-auto" outlined xs12 sm6 offset-sm3>
       <v-card-title class="justify-center text-center headline font-weight-bold">
-        <div style="letter-spacing:3px">ORDERED IMAGE GALLERY</div>
+        <div :style="$vuetify.breakpoint.smAndDown?'letter-spacing:3px':'letter-spacing:6px'">ORDERED IMAGE GALLERY</div>
       </v-card-title>
 
       <v-card-text>
