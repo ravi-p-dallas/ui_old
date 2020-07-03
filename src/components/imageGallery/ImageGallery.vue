@@ -1,8 +1,8 @@
 <template>
   <v-container fluid>
-    <v-card class="transparent card_mgleft mx-auto" outlined xs12 sm6 offset-sm3>
-      <v-card-title class="justify-center text-center headline font-weight-bold">
-        <div :style="$vuetify.breakpoint.smAndDown?'letter-spacing:3px':'letter-spacing:6px'">ORDERED IMAGE GALLERY</div>
+    <v-card class="transparent card_mgleft" outlined xs12 sm6 offset-sm6>
+      <v-card-title class="justify-center text-center headline font-weight-bold" >
+        <div :style="$vuetify.breakpoint.smAndDown?'letter-spacing:2px':'letter-spacing:6px'" class="text_card_style">ORDERED IMAGE GALLERY</div>
       </v-card-title>
 
       <v-card-text>
@@ -11,13 +11,13 @@
             <v-item v-for="n in items.folders.length" :key="n" v-slot:default="{ active, toggle }">
               <div>
                 <v-btn :input-value="active" icon @click="toggle">
-                  <v-icon>mdi-record</v-icon>
+                  <v-icon color=" blue-grey ">mdi-record-circle</v-icon>
                 </v-btn>
               </div>
             </v-item>
           </v-item-group>
 
-          <v-col class="ma-10 pa-1">
+          <v-col class="ma-1 pa-1">
             <v-window v-model="window" class="elevation-0" vertical v-if="items.folders != null">
               <v-window-item v-for="(folder, index) in items.folders" :key="index">
                 <v-item-group>
@@ -32,7 +32,7 @@
                        
                       </v-card> -->
                           <v-hover>
-                            <v-card slot-scope="{ hover }" class="mx-auto" color="grey lighten-4">
+                            <v-card slot-scope="{ hover }" class="mx-auto elevation-10" color="grey lighten-4">
                               <v-img :aspect-ratio="16 / 9" :src="item.src">
                                 <v-expand-transition>
                                   <v-card
@@ -42,6 +42,7 @@
                                     class="d-flex transition-fast-in-fast-out orange darken-1 v-card--reveal display-3 white--text"
                                     style="height: 100%;"
                                     flat
+                                    
                                   >
                                     <v-card-text class="ma-0">
                                       <v-card-subtitle class="pb-2">Authentic Hyderabad Biryani - $14.99</v-card-subtitle>
@@ -92,6 +93,7 @@
   position: absolute;
   width: 100%;
 }
+
 </style>
 
 <script lang="ts">

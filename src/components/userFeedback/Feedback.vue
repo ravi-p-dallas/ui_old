@@ -1,9 +1,9 @@
 <template>
-  <v-card fluid class="mx-auto ma-10" flat>
-    <v-list-item class="ma-0 pa-0">
+  <v-card fluid class="mx-auto " flat>
+    <v-list-item class="">
       <v-list-item-content class="ma-0 pa-0">
         <v-list-item-title class="text-center headline mx-auto font-weight-bold">
-          <div :style="$vuetify.breakpoint.smAndDown?'letter-spacing:3px':'letter-spacing:6px'">WHAT OUR FANTASTIC USERS SAY</div>
+          <div :style="$vuetify.breakpoint.smAndDown?'letter-spacing:0px':'letter-spacing:6px'" class="text_card_style">WHAT OUR FANTASTIC USERS SAY</div>
            
         </v-list-item-title>
       </v-list-item-content>

@@ -6,8 +6,8 @@
       style="opacity: 0.6; background-color: rgb(255, 255, 255);"
       class="pa-8"
     >
-      <v-row align="center" justify="center" class="mt-10 mb-10">
-        <v-col class="text-center" cols="12" min-height="550">
+      <v-row align="center" justify="center" >
+        <v-col class="text-center" cols="12">
           <v-card
             fluid
             class="mx-auto"
