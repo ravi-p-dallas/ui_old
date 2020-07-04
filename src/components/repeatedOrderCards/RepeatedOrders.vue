@@ -1,4 +1,3 @@
-
 <template>
   <v-container fluid>
     <v-row align="center" justify="center" class="pa-5">
@@ -17,8 +16,7 @@
   </v-container>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
 
 <script lang="ts">
 import Vue from "vue";

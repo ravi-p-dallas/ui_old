@@ -12,7 +12,7 @@
     <ImageGallery class="ma-0 grey lighten-4" />
     <Feedback />
     <ContactUs />
-    <LayoutContainer/>
+    <LayoutContainer />
 
     <Footer />
   </v-container>
@@ -21,19 +21,18 @@
 <style scoped></style>
 
 <script lang="ts">
-import Vue from 'vue';
-import ToolBar from '../components/home/toolbar/ToolBar.vue';
-import BgVideo from '../components/home/BgVideo.vue';
-import RepeatedOrders from '../components/repeatedOrderCards/RepeatedOrders.vue';
-import ImageGallery from '../components/imageGallery/ImageGallery.vue';
-import ContactUs from '../components/conatctUs/ContactUs.vue';
-import Feedback from '../components/userFeedback/Feedback.vue';
-import Footer from '../components/footer/Footer.vue';
-import LayoutContainer from '../components/howDoWeOperate/LayoutContainer.vue';
-
+import Vue from "vue";
+import ToolBar from "../components/home/toolbar/ToolBar.vue";
+import BgVideo from "../components/home/BgVideo.vue";
+import RepeatedOrders from "../components/repeatedOrderCards/RepeatedOrders.vue";
+import ImageGallery from "../components/imageGallery/ImageGallery.vue";
+import ContactUs from "../components/conatctUs/ContactUs.vue";
+import Feedback from "../components/userFeedback/Feedback.vue";
+import Footer from "../components/footer/Footer.vue";
+import LayoutContainer from "../components/howDoWeOperate/LayoutContainer.vue";
 
 export default Vue.extend({
-  name: 'App',
+  name: "App",
 
   components: {
     ToolBar,
@@ -43,7 +42,7 @@ export default Vue.extend({
     ContactUs,
     Feedback,
     LayoutContainer,
-    Footer,
+    Footer
   },
 
   data: () => ({ fab: false }),
@@ -51,13 +50,13 @@ export default Vue.extend({
   methods: {
     onScroll(e) {
       console.log(typeof window);
-      if (typeof window === 'undefined') return;
+      if (typeof window === "undefined") return;
       const top = window.pageYOffset || e.target.scrollTop || 0;
       this.fab = top > 60;
     },
     toTop() {
       this.$vuetify.goTo(0);
-    },
-  },
+    }
+  }
 });
 </script>

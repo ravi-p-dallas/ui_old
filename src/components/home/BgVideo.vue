@@ -8,7 +8,15 @@
     >
       <Carousel class="overflow-y-auto" />
       <v-fab-transition>
-        <v-btn class="downArrow" icon fab medium dark bottom @click.stop="clicked()">
+        <v-btn
+          class="downArrow"
+          icon
+          fab
+          medium
+          dark
+          bottom
+          @click.stop="clicked()"
+        >
           <v-icon>mdi-chevron-down</v-icon>
         </v-btn>
       </v-fab-transition>

@@ -2,12 +2,16 @@
   <v-card class="mx-auto" style="max-width:300px;">
     <v-list-item :class="CustomStyle" sticly>
       <v-list-item-avatar color="white" class="ma-auto">
-        <div class="ma-auto font-weight-bold green--text">{{Char}}</div>
+        <div class="ma-auto font-weight-bold green--text">{{ Char }}</div>
       </v-list-item-avatar>
       <v-list-item-content>
-        <v-list-item-title class="headline text-right white--text">{{Title}}</v-list-item-title>
+        <v-list-item-title class="headline text-right white--text">{{
+          Title
+        }}</v-list-item-title>
 
-        <v-list-item-subtitle class="text-right mt-2">{{Caption}}</v-list-item-subtitle>
+        <v-list-item-subtitle class="text-right mt-2">{{
+          Caption
+        }}</v-list-item-subtitle>
       </v-list-item-content>
     </v-list-item>
 

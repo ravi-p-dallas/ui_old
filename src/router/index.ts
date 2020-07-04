@@ -19,11 +19,11 @@ const routes: Array<RouteConfig> = [
     path: "/legal",
     name: "Legal",
     component: () => import("../views/Legal.vue")
-  },
+  }
 ];
 
 const router = new VueRouter({
-  routes,
+  routes
 });
 
 export default router;
