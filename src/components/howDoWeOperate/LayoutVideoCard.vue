@@ -1,6 +1,12 @@
 <template>
   <v-card :loading="loading" class="mx-auto my-12" max-width="374">
-    <v-card-title>Cafe Badilico</v-card-title>
+    <v-card-title>
+      <div :style="$vuetify.breakpoint.smAndDown ? 'letter-spacing:0px' : 'letter-spacing:3px'" class="text_card_style">How we operate?</div>
+    </v-card-title>
+
+    <div class="player-container">
+      <vue-core-video-player src="https://vsassets.netlify.app/vantashala.mp4"></vue-core-video-player>
+    </div>
 
     <v-card-text>
       <v-row align="center" class="mx-0">

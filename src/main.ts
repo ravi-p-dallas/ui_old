@@ -6,7 +6,9 @@ import store from "./store";
 import vuetify from "./plugins/vuetify";
 import VideoBackground from "vue-responsive-video-background-player";
 import VueMeta from "vue-meta";
+import VueCoreVideoPlayer from 'vue-core-video-player'
 
+Vue.use(VueCoreVideoPlayer)
 Vue.use(VueMeta);
 Vue.component("VideoBg", VideoBackground);
 Vue.config.productionTip = false;
