@@ -1,9 +1,28 @@
 <template>
   <v-container overflow-y fluid class="ma-0 pa-0">
-    <VideoBg src="https://vsassets.netlify.app/vantashala.mp4" style="height: 100vh;" class="green lighten-4" v-bind:overlay="countryChanged">
+    <VideoBg src="https://vsassets.netlify.app/vantashala.mp4" style="height: 100vh;" class="green lighten-4" v-bind:overlay="countryChanged" id="create">
       <Carousel class="overflow-y-auto" />
       <v-fab-transition>
-        <v-btn class="downArrow" icon fab medium dark bottom @click.stop="clicked()">
+        <v-speed-dial mdAndUp v-model="fab" icon fab medium dark bottom direction="right" open-on-hover="true" transition="slide-x-reverse-transition">
+          <template v-slot:activator>
+            <v-btn v-model="fab" dark fab>
+              <v-icon v-if="fab">mdi-close</v-icon>
+              <v-icon v-else>mdi-chevron-down</v-icon>
+            </v-btn>
+          </template>
+          <v-btn fab dark small color="green">
+            <v-icon>mdi-pencil</v-icon>
+          </v-btn>
+          <v-btn fab dark small color="indigo">
+            <v-icon>mdi-plus</v-icon>
+          </v-btn>
+          <v-btn fab dark small color="red">
+            <v-icon>mdi-delete</v-icon>
+          </v-btn>
+        </v-speed-dial>
+      </v-fab-transition>
+      <v-fab-transition smAndDown>
+        <v-btn class="downArrow" smAndDown icon fab medium dark bottom @click.stop="clicked()">
           <v-icon>mdi-chevron-down</v-icon>
         </v-btn>
       </v-fab-transition>
@@ -12,12 +31,15 @@
 </template>
 
 <style scoped>
-.downArrow {
-  bottom: 0;
+#create .v-speed-dial {
   position: absolute;
   margin: 0 0 20px 0;
   left: 50%;
   transform: translateX(-50%);
+}
+
+#create .v-btn--floating {
+  position: relative;
 }
 </style>
 <script lang="ts">
@@ -50,7 +72,8 @@ export default Vue.extend({
       SINGAPORE: {
         overlay: "linear-gradient(45deg,#ffcc80B3,#fb949eB3)"
       }
-    }
+    },
+    fab: false
   }),
   methods: {
     clicked: function() {

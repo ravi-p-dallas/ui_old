@@ -1,5 +1,4 @@
 <template>
-  <!-- d-flex flex-column -->
   <v-container fluid fill-height class="ma-0 pa-0 d-flex flex-column" scroll-y>
     <ToolBar scroll-target="#scrolling-techniques-2" hide-on-scroll prominent />
     <BgVideo />
