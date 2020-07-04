@@ -1,13 +1,13 @@
 <template>
   <!-- d-flex flex-column -->
-  <v-container fluid fill-height class="ma-0 pa-0 d-flex flex-column">
+  <v-container fluid fill-height class="ma-0 pa-0 d-flex flex-column" scroll-y>
     <ToolBar scroll-target="#scrolling-techniques-2" hide-on-scroll prominent />
     <BgVideo />
-
-    <v-btn v-show="fab" fab fixed bottom right color="primary" @click="toTop">
-      <v-icon>mdi-chevron-up</v-icon>
-    </v-btn>
-
+    <v-fab-transition>
+      <v-btn v-scroll="onScroll" v-show="fab" fab dark fixed bottom right class="circle" @click="toTop">
+        <v-icon>mdi-chevron-up</v-icon>
+      </v-btn>
+    </v-fab-transition>
     <RepeatedOrders id="scrolling-techniques-5" class="mb-0 grey lighten-5" />
     <ImageGallery class="ma-0 grey lighten-4" />
     <Feedback />
@@ -49,10 +49,9 @@ export default Vue.extend({
 
   methods: {
     onScroll(e) {
-      console.log(typeof window);
       if (typeof window === "undefined") return;
       const top = window.pageYOffset || e.target.scrollTop || 0;
-      this.fab = top > 60;
+      this.fab = top > 20;
     },
     toTop() {
       this.$vuetify.goTo(0);
@@ -60,3 +59,6 @@ export default Vue.extend({
   }
 });
 </script>
+
+<style scoped lang="scss">
+</style>

@@ -15,7 +15,7 @@
 .downArrow {
   bottom: 0;
   position: absolute;
-  margin: 0 0 0 0;
+  margin: 0 0 20px 0;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -23,7 +23,6 @@
 <script lang="ts">
 import Vue from "vue";
 import Carousel from "./Carousel.vue";
-import * as easings from "vuetify/es5/services/goto/easing-patterns";
 
 export default Vue.extend({
   name: "BgVideo",
