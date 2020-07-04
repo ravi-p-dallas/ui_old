@@ -42,7 +42,7 @@
 import Vue from "vue";
 
 export default Vue.extend({
-  name: "LayoutCard",
+  name: "LayoutVideoCard",
   props: [],
   components: {},
 
