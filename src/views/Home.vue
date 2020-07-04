@@ -12,7 +12,7 @@
     <ImageGallery class="ma-0 grey lighten-4" />
     <Feedback />
     <ContactUs />
-    <LayoutContainer />
+    <LayoutContainer class="ma-auto grey lighten-4" />
 
     <Footer />
   </v-container>

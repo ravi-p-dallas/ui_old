@@ -19,12 +19,10 @@
 
     <v-divider class="mx-4"></v-divider>
 
-    <v-card-title ma-auto>
-      <v-text-field v-model="message4" label="Name your Kitchen:" outlined clearable></v-text-field>
-      <v-btn color="deep-purple lighten-2" text @click="reserve">
-        Reserve
-      </v-btn></v-card-title
-    >
+    <v-card-actions>
+      <v-text-field label="Name your Kitchen:" outlined clearable></v-text-field>
+      <v-btn color="deep-purple lighten-2" text @click="reserve">Reserve</v-btn>
+    </v-card-actions>
   </v-card>
 </template>
 

@@ -5,12 +5,12 @@
         HOW WE OPERATE?
       </div>
     </v-card-title>
+
     <vue-plyr>
       <video>
         <source src="https://vsassets.netlify.app/vantashala.mp4" type="video/mp4" size="720" />
       </video>
     </vue-plyr>
-
     <v-card-text>
       <v-row align="center" class="mx-0">
         <v-rating :value="5" color="amber" dense half-increments readonly size="14"></v-rating>
@@ -23,12 +23,15 @@
 
     <v-card-title> VantaShala.com - Mission </v-card-title>
 
-    <v-card-text> </v-card-text>
+    <v-card-text> Building healthy generations, providing, healthy food chocices and practicing traditions. </v-card-text>
 
-    <v-card-actions>
-      <v-btn color="deep-purple lighten-2" text @click="reserve">
-        Reserve
-      </v-btn>
+    <v-card-actions :class="this.$vuetify.breakpoint.smAndDown ? 'd-flex flex-column text-right ' : ''">
+      <div class="text-center" v-for="item in items" :key="item.btnText">
+        <v-btn :class="countryChanged(item.className)" @click.stop="handleFunctionCall(item.btnText)">
+          <v-icon left>{{ item.icon }}</v-icon>
+          {{ item.btnText }}
+        </v-btn>
+      </div>
     </v-card-actions>
   </v-card>
 </template>
@@ -42,9 +45,51 @@ export default Vue.extend({
   name: "LayoutCard",
   props: [],
   components: {},
+
+  computed: {
+    countryChanged: {
+      get() {
+        return className => {
+          const country = this.$store.getters.getCountry;
+          const styles = this.visuals[country];
+          return styles[className];
+        };
+      }
+    }
+  },
   data: () => ({
     loading: false,
-    selection: 1
+    selection: 1,
+    items: [
+      {
+        btnText: "Find Chefs",
+        icon: "mdi-chef-hat",
+        className: "fCclass"
+      },
+
+      {
+        btnText: "Explore Menus",
+        icon: "mdi-book-open-page-variant",
+        className: "sMclass"
+      }
+    ],
+    visuals: {
+      INDIA: {
+        fCclass: "ma-2 white--text font-weight-bold orange darken-1",
+        bCclass: "ma-2 green--text font-weight-bold white darken-1",
+        sMclass: "ma-2 white--text font-weight-bold green darken-1"
+      },
+      USA: {
+        fCclass: "ma-2 white--text font-weight-bold red darken-1",
+        bCclass: "ma-2 blue--text font-weight-bold white darken-1",
+        sMclass: "ma-2 white--text font-weight-bold blue darken-1"
+      },
+      SINGAPORE: {
+        fCclass: "ma-2 white--text font-weight-bold red lighten-1",
+        bCclass: "ma-2 white--text font-weight-bold red lighten-1",
+        sMclass: "ma-2 red--text font-weight-bold white darken-1"
+      }
+    }
   }),
 
   methods: {

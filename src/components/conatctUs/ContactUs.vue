@@ -1,21 +1,9 @@
 <template>
   <v-container fluid class="ma-0 pa-0">
-    <v-parallax
-      :src="image"
-      style="opacity: 0.6; background-color: rgb(255, 255, 255); "
-      height="800"
-      class="pa-8 mx-auto "
-    >
+    <v-parallax :src="image" style="opacity: 0.6; background-color: rgb(255, 255, 255); " height="800" class="pa-8 mx-auto ">
       <v-row align="center" justify="center">
         <v-col class="text-center" cols="12">
-          <v-card
-            fluid
-            class="mx-auto"
-            dense
-            flat
-            :max-width="$vuetify.breakpoint.smAndDown ? '100%' : '50%'"
-            color="rgb(255, 255, 255, 0.9)"
-          >
+          <v-card fluid class="mx-auto" dense flat :max-width="$vuetify.breakpoint.smAndDown ? '100%' : '50%'" color="rgb(255, 255, 255, 0.9)">
             <v-toolbar dark>
               <v-toolbar-title>
                 <div style="letter-spacing:3px">COMPLAINTS & CONTACT FORM</div>
@@ -30,41 +18,19 @@
               <v-container>
                 <v-row>
                   <v-col cols="12" md="4">
-                    <v-text-field
-                      v-model="firstname"
-                      :rules="nameRules"
-                      :counter="10"
-                      label="First name"
-                      required
-                    ></v-text-field>
+                    <v-text-field v-model="firstname" :rules="nameRules" :counter="10" label="First name" required></v-text-field>
                   </v-col>
 
                   <v-col cols="12" md="4">
-                    <v-text-field
-                      v-model="lastname"
-                      :rules="nameRules"
-                      :counter="10"
-                      label="Last name"
-                      required
-                    ></v-text-field>
+                    <v-text-field v-model="lastname" :rules="nameRules" :counter="10" label="Last name" required></v-text-field>
                   </v-col>
 
                   <v-col cols="12" md="4">
-                    <v-text-field
-                      v-model="email"
-                      :rules="emailRules"
-                      label="E-mail"
-                      required
-                    ></v-text-field>
+                    <v-text-field v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
                   </v-col>
 
                   <v-col cols="12" md="12">
-                    <v-textarea
-                      outlined
-                      name="input-7-4"
-                      label="Message"
-                      value
-                    ></v-textarea>
+                    <v-textarea outlined name="input-7-4" label="Message" value></v-textarea>
                   </v-col>
                 </v-row>
               </v-container>
@@ -92,15 +58,9 @@ export default Vue.extend({
     valid: false,
     firstname: "",
     lastname: "",
-    nameRules: [
-      v => !!v || "Name is required",
-      v => v.length <= 15 || "Name must be less than 15 characters"
-    ],
+    nameRules: [v => !!v || "Name is required", v => v.length <= 15 || "Name must be less than 15 characters"],
     email: "",
-    emailRules: [
-      v => !!v || "E-mail is required",
-      v => /.+@.+/.test(v) || "E-mail must be valid"
-    ]
+    emailRules: [v => !!v || "E-mail is required", v => /.+@.+/.test(v) || "E-mail must be valid"]
   }),
   methods: {}
 });

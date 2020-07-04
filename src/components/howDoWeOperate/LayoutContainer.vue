@@ -1,20 +1,12 @@
 <template>
-  <v-container grid-list-md text-xs-center>
-    <v-layout row wrap>
+  <v-container fluid grid-list-md text-xs-center>
+    <v-layout row :class="this.$vuetify.breakpoint.smAndDown ? 'd-flex flex-column ' : ''">
       <!-- v-for="i in 2" :key="`6${i}`"  -->
-      <v-flex xs6>
-        <v-card flat>
-          <v-card-text class="px-0">
-            <LayoutSignInBeAChefCard />
-          </v-card-text>
-        </v-card>
+      <v-flex xs6 mt-10>
+        <LayoutVideoCard />
       </v-flex>
-      <v-flex xs6>
-        <v-card flat>
-          <v-card-text class="px-0">
-            <LayoutVideoCard />
-          </v-card-text>
-        </v-card>
+      <v-flex xs6 mt-10>
+        <LayoutSignInBeAChefCard />
       </v-flex>
     </v-layout>
   </v-container>
