@@ -1,22 +1,9 @@
 <template>
   <v-container overflow-y fluid class="ma-0 pa-0">
-    <VideoBg
-      src="https://vsassets.netlify.app/vantashala.mp4"
-      style="height: 100vh;"
-      class="green lighten-4"
-      v-bind:overlay="countryChanged"
-    >
+    <VideoBg src="https://vsassets.netlify.app/vantashala.mp4" style="height: 100vh;" class="green lighten-4" v-bind:overlay="countryChanged">
       <Carousel class="overflow-y-auto" />
       <v-fab-transition>
-        <v-btn
-          class="downArrow"
-          icon
-          fab
-          medium
-          dark
-          bottom
-          @click.stop="clicked()"
-        >
+        <v-btn class="downArrow" icon fab medium dark bottom @click.stop="clicked()">
           <v-icon>mdi-chevron-down</v-icon>
         </v-btn>
       </v-fab-transition>
@@ -28,8 +15,9 @@
 .downArrow {
   bottom: 0;
   position: absolute;
-  margin: 0 0 6px 6px;
+  margin: 0 0 0 0;
   left: 50%;
+  transform: translateX(-50%);
 }
 </style>
 <script lang="ts">
