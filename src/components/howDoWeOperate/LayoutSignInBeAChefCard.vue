@@ -6,7 +6,7 @@
       </div>
     </v-card-title>
 
-    <v-img height="526" :src="image"></v-img>
+    <v-img height="526" src="https://cdn.pixabay.com/photo/2017/10/09/19/29/eat-2834549_960_720.jpg"></v-img>
     <v-card-text>
       <v-row align="center" class="mx-0">
         <div class="blue-grey--text ml-2">Rest assured. Strat Simple.</div>
