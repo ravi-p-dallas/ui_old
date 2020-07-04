@@ -10,7 +10,7 @@
         </v-card>
       </v-flex>
       <v-flex xs6>
-        <v-card  flat>
+        <v-card flat>
           <v-card-text class="px-0">
             <LayoutVideoCard />
           </v-card-text>

@@ -2,7 +2,7 @@
   <v-card :loading="loading" class="mx-auto">
     <v-card-title>
       <div :style="$vuetify.breakpoint.smAndDown ? 'letter-spacing:0px' : 'letter-spacing:3px'" class="text_card_style">
-        How we operate?
+        HOW WE OPERATE?
       </div>
     </v-card-title>
     <vue-plyr>

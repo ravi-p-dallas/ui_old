@@ -1,22 +1,15 @@
 <template>
-  <v-card :loading="loading" class="mx-auto my-12" max-width="374">
-    <v-img
-      height="250"
-      src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
-    ></v-img>
-
-    <v-card-title>Cafe Badilico</v-card-title>
+  <v-card :loading="loading" class="mx-auto">
+    <v-card-title>
+      <div :style="$vuetify.breakpoint.smAndDown ? 'letter-spacing:0px' : 'letter-spacing:1px'" class="text_card_style">
+        BECOME A PROUD CHEF - WORLD IS WAITING YOU
+      </div>
+    </v-card-title>
+    <v-img height="250" src="https://cdn.vuetifyjs.com/images/cards/cooking.png"></v-img>
 
     <v-card-text>
       <v-row align="center" class="mx-0">
-        <v-rating
-          :value="4.5"
-          color="amber"
-          dense
-          half-increments
-          readonly
-          size="14"
-        ></v-rating>
+        <v-rating :value="4.5" color="amber" dense half-increments readonly size="14"></v-rating>
 
         <div class="grey--text ml-4">4.5 (413)</div>
       </v-row>
@@ -26,8 +19,7 @@
       </div>
 
       <div>
-        Small plates, salads & sandwiches - an intimate setting with 12 indoor
-        seats plus patio seating.
+        Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.
       </div>
     </v-card-text>
 
@@ -36,11 +28,7 @@
     <v-card-title>Tonight's availability</v-card-title>
 
     <v-card-text>
-      <v-chip-group
-        v-model="selection"
-        active-class="deep-purple accent-4 white--text"
-        column
-      >
+      <v-chip-group v-model="selection" active-class="deep-purple accent-4 white--text" column>
         <v-chip>5:30PM</v-chip>
 
         <v-chip>7:30PM</v-chip>
