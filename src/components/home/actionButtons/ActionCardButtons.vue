@@ -52,7 +52,7 @@ export default Vue.extend({
     dialogAction: "",
     items: [
       {
-        btnText: "Find Chefs",
+        btnText: "Find Home Chefs",
         icon: "mdi-chef-hat",
         className: "fCclass"
       },
