@@ -1,7 +1,11 @@
 <template>
   <v-container fluid class="pa-0 ma-0">
-    <v-app-bar :style="tbStyle" text-center align="center" class="pa-0" elevate-on-scroll fixed >
-      <v-toolbar-title class="ma-2 text-h6 white--text font-weight-bold gradient-text-logo">VantaShala</v-toolbar-title>
+    <v-app-bar :style="tbStyle" text-center align="center" class="pa-0" elevate-on-scroll fixed>
+      <!-- <v-app-bar-nav-icon>
+        <v-img :src="require('@/assets/logo_vs.png')" height="48px" width="48px"></v-img>
+      </v-app-bar-nav-icon> -->
+
+      <v-toolbar-title class="ma-2 text-h6 white--text font-weight-bold gradient-text-logo"> VantaShala</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
         <v-badge color="purple lighten-4" v-for="(item, i) in menu" :key="i" :to="item.link" text small overlap class="ma-auto mr-5">
@@ -12,9 +16,12 @@
           </v-btn>
         </v-badge>
         <div class="dropdown ma-auto">
-          <select name="country" @change="onchange()" class="dropdown-select ma-auto" v-model="defaultCountry">
-            <option v-for="country in countries" :key="country.name" :value="country.value">{{ country.name }}</option>
-          </select>
+          <v-btn text small class="ma-auto white--text font-weight-bold">
+            <v-icon left>mdi-earth</v-icon>
+            <select name="country" @change="onchange()" class="dropdown-select ma-auto" v-model="defaultCountry">
+              <option v-for="country in countries" :key="country.name" :value="country.value">{{ country.name }}</option>
+            </select>
+          </v-btn>
         </div>
         <v-avatar class="ma-auto ml-3 white--text font-weight-bold" size="36" tile link>
           <img src="https://randomuser.me/api/portraits/men/81.jpg" alt="Gopi" @click.stop="manageDrawer" />

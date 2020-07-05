@@ -51,8 +51,6 @@ export default Vue.extend({
     onScroll(e) {
       if (typeof window === "undefined") return;
 
-      console.log(window.pageYOffset, e.target.scrollTop);
-
       const top = window.pageYOffset || e.target.scrollTop || 0;
 
       if (top > 120) {
@@ -61,11 +59,11 @@ export default Vue.extend({
           "opacity:0.95; background-color: #263238; background: rgb(250,117,0); background: radial-gradient(circle, rgba(250,117,0,1) 0%, rgba(128,153,41,1) 76%, rgba(62,83,81,1) 100%);";
       } else {
         this.tbStyle = "background-color: transparent";
+        this.fab = false;
       }
     },
     toTop(e) {
       this.$vuetify.goTo(0);
-      console.log(window.pageYOffset, e.target.scrollTop);
     }
   }
 });

@@ -1,132 +1,141 @@
 .dropdown {
-  display: inline-block;
-  position: relative;
-  height: 28px;
-  width: 100px;
-  font-weight: bold;
-  background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
-  background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
-  background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
-  background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.06));
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
-  &:before {
-    content: "";
-    position: absolute;
-    z-index: 2;
-    top: 9px;
-    right: 10px;
-    width: 0;
-    height: 0;
-    border: 4px dashed;
-    border-color: #ffffff transparent;
-    pointer-events: none;
-    border-bottom-style: solid;
-    border-top: none;
-  }
-  &:after {
-    content: "";
-    position: absolute;
-    z-index: 2;
-    top: 9px;
-    right: 10px;
-    width: 0;
-    height: 0;
-    border: 4px dashed;
-    border-color: #ffffff transparent;
-    pointer-events: none;
-    margin-top: 7px;
-    border-top-style: solid;
-    border-bottom: none;
-  }
+    display: inline-block;
+    position: relative;
+    height: 28px;
+    width: 130px;
+    font-weight: bold;
+    background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+    background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+    background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+    background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.06));
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+    &:before {
+        content: "";
+        position: absolute;
+        z-index: 2;
+        top: 9px;
+        right: 10px;
+        width: 0;
+        height: 0;
+        border: 4px dashed;
+        border-color: #ffffff transparent;
+        pointer-events: none;
+        border-bottom-style: solid;
+        border-top: none;
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        z-index: 2;
+        top: 9px;
+        right: 10px;
+        width: 0;
+        height: 0;
+        border: 4px dashed;
+        border-color: #ffffff transparent;
+        pointer-events: none;
+        margin-top: 7px;
+        border-top-style: solid;
+        border-bottom: none;
+    }
 }
+
 .dropdown-select {
-  position: relative;
-  width: 100%;
-  margin: 0;
-  padding: 6px 6px 6px 6px;
-  height: 28px;
-  line-height: 14px;
-  font-size: 12px;
-  color: #ffffff;
-  background: rgba(0, 0, 0, 0) !important;
-  border: 0;
-  border-radius: 0;
-  -webkit-appearance: none;
-  &:focus {
-    z-index: 3;
+    position: relative;
     width: 100%;
+    margin: 0;
+    padding: 6px 6px 6px 6px;
+    height: 28px;
+    line-height: 14px;
+    font-size: 12px;
     color: #ffffff;
-    outline: 2px solid #49aff2;
-    outline: 2px solid -webkit-focus-ring-color;
-    outline-offset: -2px;
-  }
-  > option {
-    margin: 3px;
-    padding: 6px 6px;
-    text-shadow: none;
-    background: #01240a;
-    border-radius: 3px;
-    cursor: pointer;
-  }
+    background: rgba(0, 0, 0, 0) !important;
+    border: 0;
+    border-radius: 0;
+    -webkit-appearance: none;
+    &:focus {
+        z-index: 3;
+        width: 100%;
+        color: #ffffff;
+        outline: 2px solid #49aff2;
+        outline: 2px solid -webkit-focus-ring-color;
+        outline-offset: -2px;
+    }
+    >option {
+        margin: 3px;
+        padding: 6px 6px;
+        text-shadow: none;
+        background: #01240a;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 }
 
 .gradient-text-logo {
-  background-color: #ffffff;
-  background-image: linear-gradient(90deg, #ffffff 50%, #ebf3ec 50%);
-  background-size: 100%;
-  background-repeat: repeat;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: rainbow-text-simple-animation-rev 0.75s ease forwards;
+    background-color: #ffffff;
+    background-image: linear-gradient(90deg, #ffffff 50%, #ebf3ec 50%);
+    background-size: 100%;
+    background-repeat: repeat;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow-text-simple-animation-rev 0.75s ease forwards;
 }
 
 .gradient-text-logo:hover {
-  background-image: linear-gradient(45deg, #ff6600 10%, #ffef08 90%);
-  animation: rainbow-text-simple-animation 1s ease-in forwards;
+    background-image: linear-gradient(45deg, #ff6600 10%, #ffef08 90%);
+    animation: rainbow-text-simple-animation 1s ease-in forwards;
 }
 
 .gradient-text {
-  background-color: #ffffff;
-  background-image: linear-gradient(90deg, #ffffff 50%, #ffffff 50%);
-  background-size: 100%;
-  background-repeat: repeat;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: rainbow-text-simple-animation-rev 0.75s ease forwards;
+    background-color: #ffffff;
+    background-image: linear-gradient(90deg, #ffffff 50%, #ffffff 50%);
+    background-size: 100%;
+    background-repeat: repeat;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow-text-simple-animation-rev 0.75s ease forwards;
 }
 
 .gradient-text:hover {
-  background-image: linear-gradient(90deg, #ea00ff 50%, #ffffff 50%);
-  animation: rainbow-text-simple-animation 0.5s ease-in forwards;
+    background-image: linear-gradient(90deg, #ea00ff 50%, #ffffff 50%);
+    animation: rainbow-text-simple-animation 0.5s ease-in forwards;
 }
+
 
 /* Move the background and make it smaller. */
+
+
 /* Animation shown when entering the page and after the hover animation. */
+
 @keyframes rainbow-text-simple-animation-rev {
-  0% {
-    background-size: 650%;
-  }
-  40% {
-    background-size: 650%;
-  }
-  100% {
-    background-size: 100%;
-  }
+    0% {
+        background-size: 650%;
+    }
+    40% {
+        background-size: 650%;
+    }
+    100% {
+        background-size: 100%;
+    }
 }
 
+
 /* Move the background and make it larger. */
+
+
 /* Animation shown when hovering over the text. */
+
 @keyframes rainbow-text-simple-animation {
-  0% {
-    background-size: 100%;
-  }
-  80% {
-    background-size: 650%;
-  }
-  100% {
-    background-size: 650%;
-  }
+    0% {
+        background-size: 100%;
+    }
+    80% {
+        background-size: 650%;
+    }
+    100% {
+        background-size: 650%;
+    }
 }
