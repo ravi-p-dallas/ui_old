@@ -1,6 +1,6 @@
 <template>
   <v-container fluid class="pa-0 ma-0">
-    <v-app-bar flat dense v-bind:style="styles" text-center align="center" absolute class="ma-5">
+    <v-app-bar :style="tbStyle" text-center align="center" class="pa-2 mb-5" elevate-on-scroll fixed >
       <v-toolbar-title class="ma-2 text-h6 white--text font-weight-bold gradient-text-logo">VantaShala</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
@@ -42,12 +42,14 @@ import Vue from "vue";
 import NavigationDrawer from "./NavigationDrawer.vue";
 export default Vue.extend({
   name: "ToolBar",
+  props: ["tbStyle"],
   components: {
     NavigationDrawer
   },
   data: () => ({
     drawer: false,
     defaultCountry: "INDIA",
+    collapseOnScroll: true,
     menu: [
       {
         icon: "mdi-order-bool-descending-variant",
@@ -72,18 +74,14 @@ export default Vue.extend({
         name: "USA",
         value: "USA"
       }
-    ],
-
-    styles: {
-      "background-color": `transparent`
-    }
+    ]
   }),
   methods: {
     onchange: function() {
       this.$store.commit("setCountry", this.defaultCountry);
       console.log(this.$store.getters.getCountry);
     },
-    manageDrawer: function(status) {
+    manageDrawer: function() {
       this.drawer = !this.drawer;
     },
     updateDrawerState: function(status) {

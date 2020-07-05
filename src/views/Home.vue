@@ -1,9 +1,9 @@
 <template>
   <v-container fluid fill-height class="ma-0 pa-0 d-flex flex-column" scroll-y>
-    <ToolBar hide-on-scroll prominent />
+    <ToolBar :tbStyle="tbStyle" />
     <BgVideo />
 
-    <RepeatedOrders class="mb-0 grey lighten-5" id="RO" />
+    <RepeatedOrders class="mb-0 grey lighten-5 overflow-y-auto" id="RO" />
     <ImageGallery class="ma-0 grey lighten-4" id="IG" />
     <Feedback id="FD" />
     <ContactUs id="CU" />
@@ -45,14 +45,23 @@ export default Vue.extend({
     Footer
   },
 
-  data: () => ({ fab: false }),
+  data: () => ({ fab: false, tbStyle: "background-color: transparent" }),
 
   methods: {
     onScroll(e) {
       if (typeof window === "undefined") return;
 
+      console.log(window.pageYOffset, e.target.scrollTop);
+
       const top = window.pageYOffset || e.target.scrollTop || 0;
-      this.fab = top > 20;
+
+      if (top > 120) {
+        this.fab = true;
+        this.tbStyle =
+          "opacity:0.95; background-color: #263238; background: rgb(250,117,0); background: radial-gradient(circle, rgba(250,117,0,1) 0%, rgba(128,153,41,1) 76%, rgba(62,83,81,1) 100%);";
+      } else {
+        this.tbStyle = "background-color: transparent";
+      }
     },
     toTop(e) {
       this.$vuetify.goTo(0);
