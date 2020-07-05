@@ -23,25 +23,92 @@
           :open-on-hover="hover"
         >
           <template v-slot:activator>
-            <v-btn icon fab medium dark bottom @click.stop="clicked()">
-              <v-icon v-if="fab">mdi-close</v-icon>
-              <v-icon v-else>mdi-chevron-down</v-icon>
-            </v-btn>
-
-            <!-- <v-btn v-model="fab" dark fab>
-              <v-icon v-if="fab">mdi-close</v-icon>
-              <v-icon v-else>mdi-chevron-down</v-icon>
-            </v-btn> -->
+            <v-tooltip left>
+              <template v-slot:activator="{ on, attrs }" class="ma-0">
+                <span v-bind="attrs" v-on="on">
+                  <v-btn
+                    icon
+                    fab
+                    medium
+                    dark
+                    bottom
+                    @click.stop="
+                      event => {
+                        clicked(event, 'RO');
+                      }
+                    "
+                  >
+                    <v-icon v-if="fab">mdi-close</v-icon>
+                    <v-icon v-else>mdi-chevron-down</v-icon>
+                  </v-btn>
+                </span>
+              </template>
+              <span>Move to Next Section</span>
+            </v-tooltip>
           </template>
-          <v-btn fab dark small color="green">
-            <v-icon>mdi-pencil</v-icon>
-          </v-btn>
-          <v-btn fab dark small color="indigo">
-            <v-icon>mdi-plus</v-icon>
-          </v-btn>
-          <v-btn fab dark small color="red">
-            <v-icon>mdi-delete</v-icon>
-          </v-btn>
+
+          <v-tooltip top>
+            <template v-slot:activator="{ on, attrs }" class="ma-0">
+              <span v-bind="attrs" v-on="on">
+                <v-btn
+                  fab
+                  dark
+                  small
+                  color="green"
+                  @click.stop="
+                    event => {
+                      clicked(event, 'IG');
+                    }
+                  "
+                >
+                  <v-icon>mdi-orbit</v-icon>
+                </v-btn>
+              </span>
+            </template>
+            <span>Move to Gallery Section</span>
+          </v-tooltip>
+
+          <v-tooltip top>
+            <template v-slot:activator="{ on, attrs }" class="ma-0">
+              <span v-bind="attrs" v-on="on">
+                <v-btn
+                  fab
+                  dark
+                  small
+                  color="indigo"
+                  @click.stop="
+                    event => {
+                      clicked(event, 'FD');
+                    }
+                  "
+                >
+                  <v-icon>mdi-skip-forward</v-icon>
+                </v-btn>
+              </span>
+            </template>
+            <span>Feedback Section</span>
+          </v-tooltip>
+
+          <v-tooltip top>
+            <template v-slot:activator="{ on, attrs }" class="ma-0">
+              <span v-bind="attrs" v-on="on">
+                <v-btn
+                  fab
+                  dark
+                  small
+                  color="red"
+                  @click.stop="
+                    event => {
+                      clicked(event, 'LC');
+                    }
+                  "
+                >
+                  <v-icon>mdi-comment-arrow-right-outline</v-icon>
+                </v-btn>
+              </span>
+            </template>
+            <span>Chef Opearations Area</span>
+          </v-tooltip>
         </v-speed-dial>
       </v-fab-transition>
     </VideoBg>
@@ -100,17 +167,25 @@ export default Vue.extend({
       }
     },
     fab: false,
-    hover: "true"
+    hover: true
   }),
   methods: {
-    clicked: function() {
+    clicked: function(e, obj) {
+      console.log(e, obj);
+      let objId = "RO";
+      if (obj != "undefined") {
+        objId = obj;
+      }
+
+      console.log(objId);
       this.$nextTick(() => {
-        this.$vuetify.goTo("#RO", {
+        this.$vuetify.goTo("#" + objId, {
           duration: 900,
           offset: 0,
           easing: "easeOutCubic"
         });
       });
+      return;
     }
   }
 });

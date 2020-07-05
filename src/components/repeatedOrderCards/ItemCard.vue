@@ -1,28 +1,11 @@
 <template>
-  <v-card
-    tile
-    outline
-    v-scroll.self="onScroll"
-    class="overflow-y-auto ma-0"
-    max-height="300"
-    flat
-    v-bind:id="scrollId"
-  >
+  <v-card tile outline v-scroll.self="onScroll" class="overflow-y-auto ma-0" max-height="300" flat v-bind:id="scrollId">
     <v-card-text class="ma-0" v-for="n in 5" :key="n">
       <v-card-text class="ma-0">
-        <div class="text-left">
-          <v-icon small class="mr-2" color="teal lighten-1">mdi-calendar</v-icon
-          >July 29th, 2020 7:00 PM
-        </div>
-        <div class="text-left">
-          <v-icon small class="mb-1 mr-2" color="teal lighten-1"
-            >mdi-chef-hat</v-icon
-          >Rajulas Kitchen
-        </div>
+        <div class="text-left"><v-icon small class="mr-2" color="teal lighten-1">mdi-calendar</v-icon>July 29th, 2020 7:00 PM</div>
+        <div class="text-left"><v-icon small class="mb-1 mr-2" color="teal lighten-1">mdi-chef-hat</v-icon>Rajulas Kitchen</div>
         <p class="text-left">
-          <v-icon small class="mb-1 mr-2" color="teal lighten-1"
-            >mdi-chef-hat</v-icon
-          >Number of Items:
+          <v-icon small class="mb-1 mr-2" color="teal lighten-1">mdi-chef-hat</v-icon>Number of Items:
           <a>2</a>
         </p>
         <div>

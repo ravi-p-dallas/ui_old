@@ -7,6 +7,7 @@ import vuetify from "./plugins/vuetify";
 import VideoBackground from "vue-responsive-video-background-player";
 import VueMeta from "vue-meta";
 import VuePlyr from "vue-plyr";
+
 Vue.use(VuePlyr, {
   plyr: {
     fullscreen: { enabled: false }
