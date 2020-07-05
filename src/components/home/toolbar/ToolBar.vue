@@ -1,6 +1,6 @@
 <template>
   <v-container fluid class="pa-0 ma-0">
-    <v-app-bar :style="tbStyle" text-center align="center" class="pa-2 mb-5" elevate-on-scroll fixed >
+    <v-app-bar :style="tbStyle" text-center align="center" class="pa-0" elevate-on-scroll fixed >
       <v-toolbar-title class="ma-2 text-h6 white--text font-weight-bold gradient-text-logo">VantaShala</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
