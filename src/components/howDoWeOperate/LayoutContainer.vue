@@ -1,8 +1,8 @@
 <template>
   <v-container fluid grid-list-md text-xs-center>
-    <v-layout row :class="this.$vuetify.breakpoint.smAndDown ? 'd-flex flex-column' : ''">
+    <v-layout row :class="this.$vuetify.breakpoint.smAndDown ? 'd-flex flex-column' : 'mb-10'">
       <!-- v-for="i in 2" :key="`6${i}`"  -->
-      <v-flex xs12 md6 :class="this.$vuetify.breakpoint.smAndDown ? 'd-flex flex-column' : ''" mt-10>
+      <v-flex xs12 md6 :class="this.$vuetify.breakpoint.smAndDown ? 'd-flex flex-column' : 'mt-10'">
         <LayoutVideoCard />
       </v-flex>
       <v-flex xs12 md6 mt-10>

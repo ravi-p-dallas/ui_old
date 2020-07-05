@@ -17,13 +17,20 @@
 
     <v-divider class="mx-4"></v-divider>
 
-    <v-card-text class="ma-0 pa-6 justify-right">
+    <v-card-text class="ma-0 pa-4">
       <v-text-field id="kitchName" name="kitchName" label="Name your Kitchen" outlined clearable></v-text-field>
-      <v-btn class="white--text font-weight-bold red darken-1 ">
-        <v-icon left>mdi-chef-hat</v-icon>
-        Reserve
-      </v-btn>
     </v-card-text>
+
+    <v-card-actions :class="this.$vuetify.breakpoint.smAndDown ? 'd-flex flex-column text-right ' : ''">
+      <div class="text-center">
+        <v-btn class="white--text font-weight-bold red darken-1 ">
+          <v-icon left>mdi-chef-hat</v-icon>
+          Reserve
+        </v-btn>
+
+        <v-btn class="white--text font-weight-bold blue darken-1 ml-5"> Existing Chef? <v-icon class="ml-8 mr-1">mdi-key</v-icon> Login </v-btn>
+      </div>
+    </v-card-actions>
   </v-card>
 </template>
 
