@@ -1,5 +1,5 @@
 <template>
-  <v-card tile outline v-scroll.self="onScroll" class="overflow-y-auto ma-0" max-height="300" flat v-bind:id="scrollId">
+  <v-card tile outline v-scroll.self="onScroll" class="overflow-y-auto ma-0" max-height="300" flat v-bind:id="scrollId" xs12 md6 lg3 xl4>
     <v-card-text class="ma-0" v-for="n in 5" :key="n">
       <v-card-text class="ma-0">
         <div class="text-left"><v-icon small class="mr-2" color="teal lighten-1">mdi-calendar</v-icon>July 29th, 2020 7:00 PM</div>

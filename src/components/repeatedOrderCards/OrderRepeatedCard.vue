@@ -1,6 +1,6 @@
 <template>
   <v-card class="mx-auto" style="max-width:300px;">
-    <v-list-item :class="CustomStyle" sticly>
+    <v-list-item :class="CustomStyle">
       <v-list-item-avatar color="white" class="ma-auto">
         <div class="ma-auto font-weight-bold green--text">{{ Char }}</div>
       </v-list-item-avatar>

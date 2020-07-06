@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
     <v-row align="center" justify="center" class="pa-5">
-      <v-col lg="2" md="2" v-for="item in items" :key="item.Char">
+      <v-col lg="2" md="6" v-for="item in items" :key="item.Char">
         <OrderRepeatedCard
           :Title="item.title"
           :Char="item.char"
