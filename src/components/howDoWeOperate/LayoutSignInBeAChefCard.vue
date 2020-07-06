@@ -21,7 +21,7 @@
       <v-text-field id="kitchName" name="kitchName" label="Name your Kitchen" outlined clearable></v-text-field>
     </v-card-text>
 
-    <v-card-actions :class="this.$vuetify.breakpoint.smAndDown ? 'd-flex flex-column text-right ' : ''">
+    <v-card-actions :class="this.$vuetify.breakpoint.smAndDown ? 'd-flex flex-column ma-5' : ''">
       <div class="text-center">
         <v-btn class="white--text font-weight-bold red darken-1 ">
           <v-icon left>mdi-chef-hat</v-icon>

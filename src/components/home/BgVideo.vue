@@ -4,7 +4,20 @@
       <Carousel class="overflow-y-auto" />
 
       <v-fab-transition>
-        <v-btn class="downArrow" icon fab medium dark bottom @click.stop="clicked()" v-show="$vuetify.breakpoint.mdAndDown">
+        <v-btn
+          class="downArrow"
+          icon
+          fab
+          medium
+          dark
+          bottom
+          @click.stop="
+            event => {
+              clicked(event, 'RO');
+            }
+          "
+          v-show="$vuetify.breakpoint.mdAndDown"
+        >
           <v-icon>mdi-chevron-down</v-icon>
         </v-btn>
       </v-fab-transition>

@@ -15,7 +15,16 @@
       <v-row align="center" class="mx-0">
         <v-rating :value="5" color="amber" dense half-increments readonly size="14"></v-rating>
         <div class="grey--text ml-4">5 (4413)</div>
-        <v-spacer /> Encourage by liking us on Facebook
+        <v-spacer />
+        <div
+          class="fb-like"
+          data-href="https://developers.facebook.com/docs/plugins/"
+          data-width=""
+          data-layout="button"
+          data-action="like"
+          data-size="large"
+          data-share="true"
+        ></div>
       </v-row>
     </v-card-text>
 
