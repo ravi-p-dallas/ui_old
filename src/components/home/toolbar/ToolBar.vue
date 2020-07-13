@@ -80,6 +80,14 @@ export default Vue.extend({
       {
         name: "USA",
         value: "USA"
+      },
+       {
+        name: "CANADA",
+        value: "CANADA"
+      },
+      {
+        name: "MALAYSIA",
+        value: "MALAYSIA"
       }
     ]
   }),
