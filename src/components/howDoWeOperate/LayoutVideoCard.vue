@@ -97,6 +97,16 @@ export default Vue.extend({
         fCclass: "ma-2 white--text font-weight-bold red lighten-1",
         bCclass: "ma-2 white--text font-weight-bold red lighten-1",
         sMclass: "ma-2 red--text font-weight-bold white darken-1"
+      },
+      CANADA: {
+         fCclass: "ma-2 white--text font-weight-bold red lighten-1",
+        bCclass: "ma-2 white--text font-weight-bold red lighten-1",
+        sMclass: "ma-2 red--text font-weight-bold white darken-1"
+      },
+      MALAYSIA: {
+        fCclass: "ma-2 white--text font-weight-bold red lighten-1",
+        bCclass: "ma-2 blue--text font-weight-bold white lighten-1",
+        sMclass: "ma-2 white--text font-weight-bold blue darken-1"
       }
     }
   }),
