@@ -27,7 +27,7 @@
           <v-icon left>mdi-chef-hat</v-icon>
           Reserve
         </v-btn>
-        <v-btn class="white--text font-weight-bold blue darken-1 ml-4"> Existing Chef? <v-icon class">mdi-key</v-icon> Login </v-btn>
+        <v-btn class="white--text font-weight-bold blue darken-1 ml-4"> Existing Chef? <v-icon >mdi-key</v-icon> Login </v-btn>
       </div>
     </v-card-actions>
     </v-row>
