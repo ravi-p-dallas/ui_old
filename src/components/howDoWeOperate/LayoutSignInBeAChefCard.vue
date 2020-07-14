@@ -31,7 +31,7 @@
       </div>
     </v-card-actions>
     </v-row>
-    </v-text-field>
+    </v-card-text>
   </v-card>
 </template>
 
