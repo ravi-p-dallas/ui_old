@@ -31,7 +31,6 @@
 
 }
 </style>
-
 <script lang="ts">
 import Vue from "vue";
 import ActionCardButtons from "./actionButtons/ActionCardButtons.vue";
