@@ -7,14 +7,14 @@
             <v-card class="transparent card_mgleft" outlined xs12 sm6 offset-sm3>
               <v-list-item>
                 <v-list-item-content>
-                  <div class="overline mb-5 font-weight-bold" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.25);">
+                  <div class="overline mb-10 font-weight-bold" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.25);">
                     {{ item.caption }}
                   </div>
                   <v-list-item-title
-                    :class="$vuetify.breakpoint.mobile ? 'text-h5 font-weight-bold mb-5 text_style' : 'text-h2 font-weight-bold mb-5 text_style'"
+                    :class="$vuetify.breakpoint.smAndDown ? 'text-h5 font-weight-bold mb-5 text_style' : 'text-h2 font-weight-bold mb-5 text_style'"
                     >{{ item.title }}</v-list-item-title
                   >
-                  <v-list-item-subtitle class="text-wrap text-justify font-weight-bold" mb-2> {{ item.desc }}</v-list-item-subtitle>
+                  <v-list-item-subtitle class="text-wrap text-subtitle-1 font-weight-bold" mb-2> {{ item.desc }}</v-list-item-subtitle>
                 </v-list-item-content>
               </v-list-item>
             </v-card>
@@ -25,12 +25,14 @@
     </v-hover>
   </v-container>
 </template>
+
 <style scoped>
 .card_mgleft {
-  margin-left: 5%;
+  margin-left: 10%;
 
 }
 </style>
+
 <script lang="ts">
 import Vue from "vue";
 import ActionCardButtons from "./actionButtons/ActionCardButtons.vue";
