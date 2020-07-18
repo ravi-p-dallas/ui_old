@@ -25,11 +25,9 @@
     </v-hover>
   </v-container>
 </template>
-
 <style scoped>
 .card_mgleft {
   margin-left: 10%;
-
 }
 </style>
 
