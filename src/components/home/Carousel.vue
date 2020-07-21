@@ -14,7 +14,7 @@
                     :class="$vuetify.breakpoint.smAndDown ? 'text-h5 font-weight-bold mb-5 text_style' : 'text-h2 font-weight-bold mb-5 text_style'"
                     >{{ item.title }}</v-list-item-title
                   >
-                  <v-list-item-subtitle class="text-subtitle-1 font-weight-bold" mb-2> {{ item.desc }}</v-list-item-subtitle>
+                  <v-list-item-subtitle class="text-wrap text-subtitle-1 font-weight-bold" mb-2> {{ item.desc }}</v-list-item-subtitle>
                 </v-list-item-content>
               </v-list-item>
             </v-card>
@@ -34,10 +34,8 @@
 <script lang="ts">
 import Vue from "vue";
 import ActionCardButtons from "./actionButtons/ActionCardButtons.vue";
-
 export default Vue.extend({
   name: "Carousel",
-
   components: { ActionCardButtons },
   created() {
     for (let i = this.items.length - 1; i > 0; i--) {
