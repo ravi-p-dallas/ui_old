@@ -27,7 +27,7 @@
                             </v-card-title>
 
                             <v-card-text v-for="(listItem, j) in item.list" :key="j" class="ml-5 pa-1">
-                              <v-btn text color="white" small> <v-icon left>mdi-circle-small </v-icon> {{ listItem.title }} </v-btn>
+                              <v-btn text color="white" small :to="listItem.src"> <v-icon left>mdi-circle-small </v-icon> {{ listItem.title }} </v-btn>
                             </v-card-text>
                           </v-card>
                         </v-col>
@@ -109,8 +109,8 @@ export default {
           title: "Resources",
           list: [
             { title: "Kitchen Ware", src: "/" },
-            { title: "FAQs & Support", src: "/" },
-            { title: "Mobile Access", src: "/" }
+            { title: "FAQs & Support", src: "/faqs" },
+            { title: "Mobile Access", src: "mobile" }
           ]
         },
         {

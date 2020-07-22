@@ -7,18 +7,23 @@ Vue.use(VueRouter);
 const routes: Array<RouteConfig> = [
   {
     path: "/",
-    name: "Home",
+    name: "home",
     component: Home
   },
   {
     path: "/about",
-    name: "About",
+    name: "about",
     component: () => import("../views/About.vue")
   },
   {
     path: "/legal",
-    name: "Legal",
+    name: "legal",
     component: () => import("../views/Legal.vue")
+  },
+  {
+    path: "/mobile",
+    name: "mobile",
+    component: () => import("../views/Mobile.vue")
   }
 ];
 
