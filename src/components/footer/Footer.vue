@@ -69,9 +69,7 @@
 
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="deep-green lighten-2" text @click="reserve" class="mr-3">
-                  Subscribe
-                </v-btn>
+                <v-btn color="success" dark class="mr-2">Subscribe</v-btn>
               </v-card-actions>
             </v-card>
           </v-layout>
