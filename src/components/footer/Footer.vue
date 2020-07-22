@@ -18,7 +18,7 @@
 
                     <v-flex>
                       <v-row no-gutters align-content>
-                        <v-col v-for="(item, i) in links.cards" :key="i" class="text-align: center ma-5">
+                        <v-col v-for="(item, i) in cards" :key="i" class="text-align: center ma-5">
                           <v-card flat outline color="transparent">
                             <v-card-title mb-2>
                               <h5 class="green--text text--lighten-3">
@@ -66,7 +66,6 @@
               <v-card-title class="green--text text--lighten-3">Get Special Offers Delivered to your Inbox</v-card-title>
 
               <v-card-text class="ma-0 pa-0">
-                <v-spacer />
                 <v-text-field
                   label="Enter your email"
                   class="ma-auto green--text text--lighten-3"
@@ -76,10 +75,11 @@
                   solo
                   clearable
                   hide-details
+                  full-width
                 ></v-text-field>
               </v-card-text>
 
-              <v-card-actions color="ma-auto">
+              <v-card-actions color="ml-auto mr-auto">
                 <v-spacer />
                 <v-btn color="green" class="ma-auto">Subscribe</v-btn>
               </v-card-actions>
@@ -94,39 +94,35 @@
 export default {
   data: () => ({
     icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
-    links: {
-      cards: [
-        {
-          title: "Services",
-          list: [
-            { title: "Our Menu", src: "/" },
-            { title: "How it Works", src: "/" },
-            { title: "Login", src: "/" },
-            { title: "Signup", src: "/" }
-          ]
-        },
-        {
-          title: "Resources",
-          list: [
-            { title: "Kitchen Ware", src: "/" },
-            { title: "FAQs & Support", src: "/about" },
-            { title: "Mobile Access", src: "mobile" }
-          ]
-        },
-        {
-          title: "Features",
-          list: [
-            { title: "Legal", src: "/" },
-            { title: "Terms of Service", src: "/" },
-            { title: "Privacy Policy", src: "/" },
-            { title: "Don't sell my Info", src: "/" }
-          ]
-        }
-      ]
-    }
+
+    cards: [
+      {
+        title: "Services",
+        list: [
+          { title: "Our Menu", src: "/" },
+          { title: "How it Works", src: "/" },
+          { title: "Login", src: "/" },
+          { title: "Signup", src: "/" }
+        ]
+      },
+      {
+        title: "Resources",
+        list: [
+          { title: "Kitchen Ware", src: "/" },
+          { title: "FAQs & Support", src: "/about" },
+          { title: "Mobile Access", src: "mobile" }
+        ]
+      },
+      {
+        title: "Features",
+        list: [
+          { title: "Legal", src: "/" },
+          { title: "Terms of Service", src: "/" },
+          { title: "Privacy Policy", src: "/" },
+          { title: "Don't sell my Info", src: "/" }
+        ]
+      }
+    ]
   })
 };
 </script>
-
-<style scoped lang="scss">
-</style>
