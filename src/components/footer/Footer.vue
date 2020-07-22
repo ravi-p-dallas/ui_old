@@ -8,14 +8,10 @@
               <v-layout row wrap align-center>
                 <v-flex d-flex xs12>
                   <v-flex xs12 fill-height>
-                    <v-card dark outlined>
-                      <v-card-text>
+                    <v-card dark>
+                      <v-card-text style="text-align:center">
                         <v-btn v-for="icon in icons" :key="icon" class="mx-4 white--text" icon>
                           <v-icon size="24px">{{ icon }}</v-icon>
-                        </v-btn>
-
-                        <v-btn class="mx-4 white--text">
-                          <strong style="text-align: right;"> {{ new Date().getFullYear() }} — VantaShala © Patent Pending</strong>
                         </v-btn>
                       </v-card-text>
                     </v-card>
@@ -38,10 +34,15 @@
                     <v-flex>
                       <v-row no-gutters align-content>
                         <v-col>
-                          <v-card dark outlined>
+                          <v-card dark>
                             <v-card-text class="white--text" style="text-align:center">
                               Head Quartes <br />
-                              Beside CPM Office, Raitupeta, Nandigama, India, 521185
+                              Beside CPM Office, Raitupeta, Nandigama, India, 521185 | Contact Us
+
+                              <br />
+                              <br />
+
+                              <strong style="text-align: right;"> {{ new Date().getFullYear() }} — VantaShala © Patent Pending</strong>
                             </v-card-text>
                           </v-card>
                           <v-spacer />
@@ -82,8 +83,6 @@
 <script>
 export default {
   data: () => ({
-    inset: false,
-    lorem: `Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`,
     icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
     links: {
       cards: [
