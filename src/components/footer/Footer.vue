@@ -60,18 +60,28 @@
 
         <v-flex d-flex xs12 sm6 md4>
           <v-layout justify-center align-center>
-            <v-card color="green lighten-3" dark outlined>
+            <v-card color="transaparent" dark outlined>
               <v-img height="250" src="https://cdn.vuetifyjs.com/images/cards/cooking.png"></v-img>
 
-              <v-card-title>Get Special Offers Delivered to your Inbox</v-card-title>
+              <v-card-title class="green--text text--lighten-3">Get Special Offers Delivered to your Inbox</v-card-title>
 
               <v-card-text class="ma-0 pa-0">
-                <v-text-field v-model="label" label="Enter your email" class="ml-3 mr-3" outlined shaped rounded solo clearable hide-details></v-text-field>
+                <v-spacer />
+                <v-text-field
+                  label="Enter your email"
+                  class="ma-auto green--text text--lighten-3"
+                  outlined
+                  shaped
+                  rounded
+                  solo
+                  clearable
+                  hide-details
+                ></v-text-field>
               </v-card-text>
 
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn color="success" dark class="mr-2">Subscribe</v-btn>
+              <v-card-actions color="ma-auto">
+                <v-spacer />
+                <v-btn color="green" class="ma-auto">Subscribe</v-btn>
               </v-card-actions>
             </v-card>
           </v-layout>
