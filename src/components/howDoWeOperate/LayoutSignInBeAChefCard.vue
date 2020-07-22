@@ -6,7 +6,7 @@
       </div>
     </v-card-title>
 
-    <v-img height="526" src="https://cdn.pixabay.com/photo/2017/10/09/19/29/eat-2834549_960_720.jpg"></v-img>
+    <v-img height="395" src="https://cdn.pixabay.com/photo/2017/10/09/19/29/eat-2834549_960_720.jpg"></v-img>
     <v-card-text>
       <v-row align="center" class="mx-0">
         <div class="blue-grey--text ml-2">Rest assured. Strat Simple.</div>
@@ -17,24 +17,29 @@
 
     <v-divider class="mx-4"></v-divider>
 
-    <v-card-text class="ma-0 pa-4">
+    <v-card-text class="ma-0 pa-7">
+    <v-row align="center" class="mx-0">
       <v-text-field id="kitchName" name="kitchName" label="Name your Kitchen" outlined clearable></v-text-field>
-    </v-card-text>
-
+      <v-spacer />
     <v-card-actions :class="this.$vuetify.breakpoint.smAndDown ? 'd-flex flex-column ma-5' : ''">
       <div class="text-center">
         <v-btn class="white--text font-weight-bold red darken-1 ">
           <v-icon left>mdi-chef-hat</v-icon>
           Reserve
         </v-btn>
-
-        <v-btn class="white--text font-weight-bold blue darken-1 ml-5"> Existing Chef? <v-icon class="ml-8 mr-1">mdi-key</v-icon> Login </v-btn>
+        <v-btn class="white--text font-weight-bold blue darken-1 ml-4"> Existing Chef? <v-icon >mdi-key</v-icon> Login </v-btn>
       </div>
     </v-card-actions>
+    </v-row>
+    </v-card-text>
   </v-card>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+.v-text-field{
+    width: 300px;
+  }
+</style>
 <script lang="ts">
 import Vue from "vue";
 export default Vue.extend({

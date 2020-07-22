@@ -113,7 +113,8 @@ export default Vue.extend({
       this.$emit("updateDrawerState", this.isOpen);
     },
     onchange: function() {
-      this.countryChange();
+      this.$store.commit("setCountry", this.defaultCountry);
+      console.log(this.$store.getters.getCountry); 
     }
   }
 });
