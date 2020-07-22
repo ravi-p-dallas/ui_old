@@ -99,7 +99,8 @@ export default {
           title: "Resources",
           list: [
             { title: "Kitchen Ware", src: "/" },
-            { title: "FAQs & Support", src: "/" }
+            { title: "FAQs & Support", src: "/" },
+            { title: "Mobile Access", src: "/" }
           ]
         },
         {
