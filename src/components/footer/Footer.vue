@@ -1,55 +1,126 @@
 <template>
-  <v-container fluid ma-0 pa-0>
-    <v-footer dark padless>
-      <v-card
-        flat
-        tile
-        class="grey-blue lighten-1 white--text text-center"
-        style="width:100%"
-      >
-        <v-card-text>
-          <v-btn
-            v-for="icon in icons"
-            :key="icon"
-            class="mx-4 white--text"
-            icon
-          >
-            <v-icon size="24px">{{ icon }}</v-icon>
-          </v-btn>
-        </v-card-text>
+  <v-footer dark padless style="width: 100%" class="pa-10">
+    <v-container fluid grid-list-md>
+      <v-layout row wrap>
+        <v-flex d-flex xs12 sm6 md8>
+          <v-layout row wrap>
+            <v-flex d-flex>
+              <v-layout row wrap align-center>
+                <v-flex d-flex xs12>
+                  <v-flex xs12 fill-height>
+                    <v-card dark outlined>
+                      <v-card-text>
+                        <v-btn v-for="icon in icons" :key="icon" class="mx-4 white--text" icon>
+                          <v-icon size="24px">{{ icon }}</v-icon>
+                        </v-btn>
 
-        <v-card-text class="white--text pt-0">
-          Gopi to Work on this
-          <pre>
-ASIA
-Beside CPM Office, Raitupeta
-Nandigama, India, 521185
+                        <v-btn class="mx-4 white--text">
+                          <strong style="text-align: right;"> {{ new Date().getFullYear() }} — VantaShala © Patent Pending</strong>
+                        </v-btn>
+                      </v-card-text>
+                    </v-card>
 
-USA
-2700 Main St, #120
-Frisco, TX, USA, 75034
+                    <v-flex>
+                      <v-row no-gutters align-content>
+                        <v-col v-for="(item, i) in links.cards" :key="i" class="text-align: center">
+                          <v-card flat outline color="transparent">
+                            <v-card-title mb-2>
+                              <h5 style="color:green">{{ item.title }}</h5>
+                            </v-card-title>
 
-UK
-Kemp House, 152 - 160 City Road,
-London EC1V 2NX
-</pre
-          >
-        </v-card-text>
+                            <v-card-text v-for="(listItem, j) in item.list" :key="j" class="ml-5 pa-1">
+                              <a :href="listItem.src" class="customLink">{{ listItem.title }} </a>
+                            </v-card-text>
+                          </v-card>
+                        </v-col>
+                      </v-row>
+                    </v-flex>
+                    <v-flex>
+                      <v-row no-gutters align-content>
+                        <v-col>
+                          <v-card dark outlined>
+                            <v-card-text class="white--text" style="text-align:center">
+                              Head Quartes <br />
+                              Beside CPM Office, Raitupeta, Nandigama, India, 521185
+                            </v-card-text>
+                          </v-card>
+                          <v-spacer />
+                        </v-col>
+                      </v-row>
+                    </v-flex>
+                  </v-flex>
+                </v-flex>
+              </v-layout>
+            </v-flex>
+          </v-layout>
+        </v-flex>
 
-        <v-divider></v-divider>
+        <v-flex d-flex xs12 sm6 md4>
+          <v-layout justify-center align-center>
+            <v-card color="green lighten-1" dark outlined>
+              <v-img height="250" src="https://cdn.vuetifyjs.com/images/cards/cooking.png"></v-img>
 
-        <v-card-text class="white--text">
-          {{ new Date().getFullYear() }} —
-          <strong>VantaShala &copy; Patent Pending</strong>
-        </v-card-text>
-      </v-card>
-    </v-footer>
-  </v-container>
+              <v-card-title>Get Special Offers Delivered to your Inbox</v-card-title>
+
+              <v-card-text class="ma-0 pa-0">
+                <v-text-field v-model="label" label="Enter your email" class="ml-3 mr-3" outlined shaped rounded solo clearable hide-details></v-text-field>
+              </v-card-text>
+
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="deep-green lighten-2" text @click="reserve" class="mr-3">
+                  Subscribe
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-layout>
+        </v-flex>
+      </v-layout>
+    </v-container>
+  </v-footer>
 </template>
 <script>
 export default {
   data: () => ({
-    icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"]
+    inset: false,
+    lorem: `Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`,
+    icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
+    links: {
+      cards: [
+        {
+          title: "Service",
+          list: [
+            { title: "Our Menu", src: "/" },
+            { title: "How it Works", src: "/" },
+            { title: "Login", src: "/" },
+            { title: "Signup", src: "/" }
+          ]
+        },
+        {
+          title: "Resources",
+          list: [
+            { title: "Kitchen Ware", src: "/" },
+            { title: "FAQs & Support", src: "/" }
+          ]
+        },
+        {
+          title: "Features",
+          list: [
+            { title: "Legal", src: "/" },
+            { title: "Terms of Service", src: "/" },
+            { title: "Privacy Policy", src: "/" },
+            { title: "Don't sell my Info", src: "/" }
+          ]
+        }
+      ]
+    }
   })
 };
 </script>
+
+<style scoped lang="scss">
+.customLink {
+  color: azure;
+  text-decoration: none;
+}
+</style>
