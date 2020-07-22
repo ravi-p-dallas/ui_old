@@ -1,7 +1,7 @@
 <template>
   <v-container fluid fill-height class="ma-0 pa-0 d-flex flex-column" scroll-y>
     <ToolBar> </ToolBar>
-    <MobileLink class="mt-10"/>
+    <MobileLink class="mt-15" />
     <Footer id="FT" />
   </v-container>
 </template>
