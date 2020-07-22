@@ -1,8 +1,7 @@
 <template>
   <v-container fluid fill-height class="ma-0 pa-0 d-flex flex-column" scroll-y>
-    <ToolBar :tbStyle="tbStyle" />
-
-    MOBILE VIEW
+    <ToolBar> </ToolBar>
+    <MobileLink class="mt-10"/>
     <Footer id="FT" />
   </v-container>
 </template>
@@ -14,13 +13,15 @@ import Vue from "vue";
 import ToolBar from "../components/home/toolbar/ToolBar.vue";
 
 import Footer from "../components/footer/Footer.vue";
+import MobileLink from "../components/footer/links/MobileLink.vue";
 
 export default Vue.extend({
   name: "App",
 
   components: {
     ToolBar,
-    Footer
+    Footer,
+    MobileLink
   }
 });
 </script>
