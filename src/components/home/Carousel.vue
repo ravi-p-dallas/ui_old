@@ -54,19 +54,19 @@ export default Vue.extend({
         desc: "Using Clay Pots & Slow Cooking Techniques"
       },
       {
-        caption: "How about this?",
+        caption: "Family & Education Time Matters",
         title: "Home Made, Live Streaming",
-        desc: "Watch live how your food is being made"
+        desc: "You have right to watch how your food is being made."
       },
       {
         caption: "Daily Suppliments @ Home",
         title: "Nutritiously Homemade",
-        desc: "Organic Quinoa & Bazra Mixed. No Chemicals. Qaulity and healthy. Increasing Family & Education Time. "
+        desc: "Chemicals Free. Quinoa & Bazra Mixed Rice."
       },
       {
-        caption: "Public Health",
+        caption: "Public & Social Health",
         title: "Organic - Be Diet Specific ",
-        desc: "Complete Organic. Unlike restaurants. Share your health profile. We take care rest"
+        desc: "Complete Organic. Unlike restaurants. Share your health profile & let us care rest"
       }
     ]
   })
