@@ -11,21 +11,23 @@
                     <v-card dark>
                       <v-card-text style="text-align:center">
                         <v-btn v-for="icon in icons" :key="icon" class="mx-4 white--text" icon>
-                          <v-icon size="24px">{{ icon }}</v-icon>
+                          <v-icon size="24px" color="green lighten-3">{{ icon }}</v-icon>
                         </v-btn>
                       </v-card-text>
                     </v-card>
 
                     <v-flex>
                       <v-row no-gutters align-content>
-                        <v-col v-for="(item, i) in links.cards" :key="i" class="text-align: center">
+                        <v-col v-for="(item, i) in links.cards" :key="i" class="text-align: center ma-5">
                           <v-card flat outline color="transparent">
                             <v-card-title mb-2>
-                              <h5 style="color:green">{{ item.title }}</h5>
+                              <h5 class="green--text text--lighten-3">
+                                <strong>{{ item.title }}</strong>
+                              </h5>
                             </v-card-title>
 
                             <v-card-text v-for="(listItem, j) in item.list" :key="j" class="ml-5 pa-1">
-                              <a :href="listItem.src" class="customLink">{{ listItem.title }} </a>
+                              <v-btn text color="white" small> <v-icon left>mdi-circle-small </v-icon> {{ listItem.title }} </v-btn>
                             </v-card-text>
                           </v-card>
                         </v-col>
@@ -34,15 +36,15 @@
                     <v-flex>
                       <v-row no-gutters align-content>
                         <v-col>
-                          <v-card dark>
-                            <v-card-text class="white--text" style="text-align:center">
+                          <v-card outlined color="transparent">
+                            <v-card-text class="grey--text" style="text-align:center">
                               Head Quartes <br />
-                              Beside CPM Office, Raitupeta, Nandigama, India, 521185 | Contact Us
+                              Beside CPM Office, Raitupeta, Nandigama, AP, India, 521185
 
                               <br />
                               <br />
 
-                              <strong style="text-align: right;"> {{ new Date().getFullYear() }} — VantaShala © Patent Pending</strong>
+                              {{ new Date().getFullYear() }} — VantaShala © Patent Pending
                             </v-card-text>
                           </v-card>
                           <v-spacer />
@@ -58,7 +60,7 @@
 
         <v-flex d-flex xs12 sm6 md4>
           <v-layout justify-center align-center>
-            <v-card color="green lighten-1" dark outlined>
+            <v-card color="green lighten-3" dark outlined>
               <v-img height="250" src="https://cdn.vuetifyjs.com/images/cards/cooking.png"></v-img>
 
               <v-card-title>Get Special Offers Delivered to your Inbox</v-card-title>
@@ -85,7 +87,7 @@ export default {
     links: {
       cards: [
         {
-          title: "Service",
+          title: "Services",
           list: [
             { title: "Our Menu", src: "/" },
             { title: "How it Works", src: "/" },
@@ -116,8 +118,4 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.customLink {
-  color: azure;
-  text-decoration: none;
-}
 </style>
