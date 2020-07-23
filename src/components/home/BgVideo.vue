@@ -177,6 +177,12 @@ export default Vue.extend({
       },
       SINGAPORE: {
         overlay: "linear-gradient(45deg,#ffcc80B3,#fb949eB3)"
+      },
+      CANADA: {
+        overlay: "linear-gradient(45deg, #30e8bfB3,#ff8235B3)"
+      },
+      MALAYSIA: {
+        overlay: "linear-gradient(45deg, #ffd89bB3, #19547bB3)"
       }
     },
     fab: false,
