@@ -1,5 +1,11 @@
 <template>
   <v-container fluid>
+    <v-card-title class="justify-center text-center headline font-weight-bold mt-10 pa-0">
+        <div :style="$vuetify.breakpoint.smAndDown ? 'letter-spacing:3px' : 'letter-spacing:6px'" class="text_card_style">
+          MY UPCOMING ORDERS
+        </div>
+    </v-card-title>
+
     <v-row align="center" justify="center" class="pa-5">
       <v-col lg="2" md="6" v-for="item in items" :key="item.Char">
         <OrderRepeatedCard
@@ -9,7 +15,7 @@
           :CustomStyle="item.customStyle"
           :DividerStyle="item.dividerStyle"
           :scrollId="item.scrollId"
-          class="mt-15 mb-15"
+          class="mt-10 mb-15"
         />
       </v-col>
     </v-row>
