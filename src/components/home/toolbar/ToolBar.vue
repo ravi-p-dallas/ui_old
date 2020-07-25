@@ -8,13 +8,14 @@
       <v-toolbar-title class="ma-2 text-h6 white--text font-weight-bold gradient-text-logo"> VantaShala</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-badge color="purple lighten-4" v-for="(item, i) in menu" :key="i" :to="item.link" text small overlap class="ma-auto mr-5">
+        <v-badge color="purple lighten-4" v-for="(item, i) in menu" :key="i" :to="item.link" text small overlap class="ma-auto mr-5" :value="item.badge != '?'">
           <span slot="badge" class="purple--text font-weight-bold">{{ item.badge }}</span>
           <v-btn text small class="ma-auto white--text font-weight-bold">
             <v-icon left>{{ item.icon }}</v-icon>
             <div class="gradient-text">{{ item.title }}</div>
           </v-btn>
         </v-badge>
+
         <div class="dropdown ma-auto">
           <v-btn text small class="ma-auto white--text font-weight-bold">
             <v-icon left>mdi-earth</v-icon>
@@ -27,6 +28,7 @@
           <img src="https://randomuser.me/api/portraits/men/81.jpg" alt="Gopi" @click.stop="manageDrawer" />
         </v-avatar>
       </v-toolbar-items>
+
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="hidden-md-and-up" color="white"></v-app-bar-nav-icon>
     </v-app-bar>
 
@@ -62,10 +64,10 @@ export default Vue.extend({
         icon: "mdi-order-bool-descending-variant",
         title: "My Orders",
         path: "/",
-        badge: "2"
+        badge: "?"
       },
-      { icon: "mdi-chef-hat", title: "My Chefs", path: "/", badge: "4" },
-      { icon: "mdi-cart-outline", title: "My Cart", path: "/", badge: "0" }
+      { icon: "mdi-chef-hat", title: "My Chefs", path: "/", badge: "?" },
+      { icon: "mdi-cart-outline", title: "My Cart", path: "/", badge: "?" }
     ],
 
     countries: [
@@ -80,6 +82,14 @@ export default Vue.extend({
       {
         name: "USA",
         value: "USA"
+      },
+       {
+        name: "CANADA",
+        value: "CANADA"
+      },
+      {
+        name: "MALAYSIA",
+        value: "MALAYSIA"
       }
     ]
   }),

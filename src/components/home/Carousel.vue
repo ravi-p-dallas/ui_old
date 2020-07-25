@@ -14,7 +14,7 @@
                     :class="$vuetify.breakpoint.smAndDown ? 'text-h5 font-weight-bold mb-5 text_style' : 'text-h2 font-weight-bold mb-5 text_style'"
                     >{{ item.title }}</v-list-item-title
                   >
-                  <v-list-item-subtitle class="text-subtitle-1 font-weight-bold" mb-2> {{ item.desc }}</v-list-item-subtitle>
+                  <v-list-item-subtitle class="text-wrap text-subtitle-1 font-weight-bold" mb-2> {{ item.desc }}</v-list-item-subtitle>
                 </v-list-item-content>
               </v-list-item>
             </v-card>
@@ -34,10 +34,8 @@
 <script lang="ts">
 import Vue from "vue";
 import ActionCardButtons from "./actionButtons/ActionCardButtons.vue";
-
 export default Vue.extend({
   name: "Carousel",
-
   components: { ActionCardButtons },
   created() {
     for (let i = this.items.length - 1; i > 0; i--) {
@@ -56,19 +54,19 @@ export default Vue.extend({
         desc: "Using Clay Pots & Slow Cooking Techniques"
       },
       {
-        caption: "How about this?",
+        caption: "Family & Education Time Matters",
         title: "Home Made, Live Streaming",
-        desc: "Watch live how your food is being made"
+        desc: "You have right to watch how your food is being made."
       },
       {
         caption: "Daily Suppliments @ Home",
         title: "Nutritiously Homemade",
-        desc: "Organic Quinoa & Bazra Mixed. No Chemicals. Qaulity and healthy. Increasing Family & Education Time. "
+        desc: "Chemicals Free. Quinoa & Bazra Mixed Rice."
       },
       {
-        caption: "Public Health",
+        caption: "Public & Social Health",
         title: "Organic - Be Diet Specific ",
-        desc: "Complete Organic. Unlike restaurants. Share your health profile. We take care rest"
+        desc: "Complete Organic. Unlike restaurants. Share your health profile & let us care rest"
       }
     ]
   })

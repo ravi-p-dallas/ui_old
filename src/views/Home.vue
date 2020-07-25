@@ -4,7 +4,7 @@
     <BgVideo />
 
     <RepeatedOrders class="mb-0 grey lighten-5 overflow-y-auto" id="RO" />
-    <ImageGallery class="ma-0 grey lighten-4" id="IG" />
+    <ImageGallery class="ma-0 green lighten-5" id="IG" />
     <Feedback id="FD" />
     <ContactUs id="CU" />
     <LayoutContainer class="ma-auto grey lighten-4" id="LC" />
