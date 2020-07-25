@@ -2,7 +2,7 @@
   <v-card :loading="loading" class="mx-auto">
     <v-card-title>
       <div :style="$vuetify.breakpoint.smAndDown ? 'letter-spacing:0px' : 'letter-spacing:3px'" class="text_card_style">
-        BECOME A PROUD CHEF - WORLD IS WAITING FOR YOUR PASSION.
+        BE A PROUD CHEF - COOKING IS A BLESSED GIFT
       </div>
     </v-card-title>
 
