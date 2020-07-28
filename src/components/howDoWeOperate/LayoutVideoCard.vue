@@ -8,7 +8,7 @@
 
     <vue-plyr>
       <video poster="https://cdn.pixabay.com/photo/2017/05/07/19/32/strawberry-2293337_960_720.jpg">
-        <source src="https://vsassets.netlify.app/vantashala.mp4" type="video/mp4" size="720" />
+        <source src="https://vsassets.netlify.app/vantashala_slides.mp4" type="video/mp4" size="720" />
       </video>
     </vue-plyr>
     <v-card-text>
