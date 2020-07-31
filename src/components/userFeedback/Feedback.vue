@@ -15,7 +15,7 @@
         <v-timeline-item v-for="n in 4" :key="n" large>
           <template v-slot:icon>
             <v-avatar>
-              <img src="http://i.pravatar.cc/64" />
+              <img src="https://i.pravatar.cc/64" />
             </v-avatar>
           </template>
           <template v-slot:opposite>
