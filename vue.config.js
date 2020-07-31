@@ -3,7 +3,7 @@ module.exports = {
     pwa: {
         name: 'VantaShala',
         themeColor: '#4DBA87',
-        msTileColor: '#000000',
+        msTileColor: '#fb8c00',
         appleMobileWebAppCapable: 'yes',
         appleMobileWebAppStatusBarStyle: 'black',
 
