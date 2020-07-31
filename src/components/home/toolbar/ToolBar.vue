@@ -7,6 +7,16 @@
 
       <v-toolbar-title class="ma-2 text-h6 white--text font-weight-bold gradient-text-logo"> VantaShala</v-toolbar-title>
       <v-spacer></v-spacer>
+       <v-toolbar-items v-if="deferredPrompt">
+        <v-badge color="purple lighten-4" text small overlap class="ma-auto mr-5" :value="'?' != '?'">
+          <span slot="badge" class="purple--text font-weight-bold">?</span>
+          <v-btn text small class="ma-auto white--text font-weight-bold" @click="install">
+            <v-icon left>mdi-open-in-new</v-icon>
+            <div class="gradient-text">Open App</div>
+          </v-btn>
+        </v-badge>
+      </v-toolbar-items>
+
       <v-toolbar-items class="hidden-sm-and-down">
         <v-badge color="purple lighten-4" v-for="(item, i) in menu" :key="i" :to="item.link" text small overlap class="ma-auto mr-5" :value="item.badge != '?'">
           <span slot="badge" class="purple--text font-weight-bold">{{ item.badge }}</span>
@@ -43,70 +53,87 @@
   </v-container>
 </template>
 <style lang="scss">
-@import "./toolbar.scss";
+@import './toolbar.scss';
 </style>
 
 <script lang="ts">
-import Vue from "vue";
-import NavigationDrawer from "./NavigationDrawer.vue";
+import Vue from 'vue';
+import NavigationDrawer from './NavigationDrawer.vue';
 export default Vue.extend({
-  name: "ToolBar",
-  props: ["tbStyle"],
+  name: 'ToolBar',
+  props: ['tbStyle'],
   components: {
-    NavigationDrawer
+    NavigationDrawer,
+  },
+  created() {
+    window.addEventListener('beforeinstallprompt', e => {
+      e.preventDefault();
+      // Stash the event so it can be triggered later.
+      this.deferredPrompt = e;
+      console.log('deferredPrompt -->', this.deferredPrompt);
+    });
+    window.addEventListener('appinstalled', () => {
+      this.deferredPrompt = null;
+      console.log('deferredPrompt ->', this.deferredPrompt);
+    });
   },
   data: () => ({
+    deferredPrompt: null,
     drawer: false,
-    defaultCountry: "INDIA",
+    defaultCountry: 'INDIA',
     collapseOnScroll: true,
     menu: [
+     
       {
-        icon: "mdi-order-bool-descending-variant",
-        title: "My Orders",
-        path: "/",
-        badge: "?"
+        icon: 'mdi-order-bool-descending-variant',
+        title: 'My Orders',
+        path: '/',
+        badge: '?',
       },
-      { icon: "mdi-chef-hat", title: "My Chefs", path: "/", badge: "?" },
-      { icon: "mdi-cart-outline", title: "My Cart", path: "/", badge: "?" }
+      { icon: 'mdi-chef-hat', title: 'My Chefs', path: '/', badge: '?' },
+      { icon: 'mdi-cart-outline', title: 'My Cart', path: '/', badge: '?' },
     ],
 
     countries: [
       {
-        name: "INDIA",
-        value: "INDIA"
+        name: 'INDIA',
+        value: 'INDIA',
       },
       {
-        name: "SINGAPORE",
-        value: "SINGAPORE"
+        name: 'SINGAPORE',
+        value: 'SINGAPORE',
       },
       {
-        name: "USA",
-        value: "USA"
-      },
-       {
-        name: "CANADA",
-        value: "CANADA"
+        name: 'USA',
+        value: 'USA',
       },
       {
-        name: "MALAYSIA",
-        value: "MALAYSIA"
-      }
-    ]
+        name: 'CANADA',
+        value: 'CANADA',
+      },
+      {
+        name: 'MALAYSIA',
+        value: 'MALAYSIA',
+      },
+    ],
   }),
   methods: {
     onchange: function() {
-      this.$store.commit("setCountry", this.defaultCountry);
+      this.$store.commit('setCountry', this.defaultCountry);
       console.log(this.$store.getters.getCountry);
     },
     manageDrawer: function() {
       this.drawer = !this.drawer;
     },
     updateDrawerState: function(status) {
-      console.log("--> ", this.drawer, status);
+      console.log('--> ', this.drawer, status);
       if (!this.drawer === status) {
         this.drawer = status;
       }
-    }
-  }
+    },
+    async install() {
+      this.deferredPrompt.prompt();
+    },
+  },
 });
 </script>

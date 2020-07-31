@@ -1,16 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <v-snackbar v-model="snackbar" :multi-line="multiLine" v-if="deferredPrompt" >
-        Get our free app. It won't take up space on your phone and also works offline!
-
-        <template v-slot:actions>
-          <v-btn text color="red" @click="dismiss">Dismiss</v-btn>
-          <v-btn text color="red" @click="install">Install</v-btn>
-        </template>
-      </v-snackbar>
-
-      <router-view></router-view>
+       <router-view></router-view>
     </v-main>
   </v-app>
 </template>
@@ -26,7 +17,6 @@ export default Vue.extend({
   components: {
     //HomeView
   },
-
   metaInfo: {
     title: 'VantaShala',
     titleTemplate: '%s | Organic Chef',
@@ -41,6 +31,9 @@ export default Vue.extend({
   data() {
     return {
       deferredPrompt: null,
+      snackbar: true,
+      text: "Get our free app. It won't take up space on your phone and also works offline!",
+      vertical: true,
     };
   },
   created() {
