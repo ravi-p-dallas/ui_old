@@ -93,36 +93,36 @@
 <script>
 export default {
   data: () => ({
-    icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
+    icons: ['mdi-facebook', 'mdi-twitter', 'mdi-linkedin', 'mdi-instagram'],
 
     cards: [
       {
-        title: "Services",
+        title: 'Services',
         list: [
-          { title: "Our Menu", src: "/" },
-          { title: "How it Works", src: "/" },
-          { title: "Login", src: "/" },
-          { title: "Signup", src: "/" }
-        ]
+          { title: 'Our Menu', src: '/' },
+          { title: 'How it Works', src: '/' },
+          { title: 'Login', src: '/' },
+          { title: 'Signup', src: '/' },
+        ],
       },
       {
-        title: "Resources",
+        title: 'Resources',
         list: [
-          { title: "Kitchen Ware", src: "/" },
-          { title: "FAQs & Support", src: "/about" },
-          { title: "Mobile Access", src: "mobile" }
-        ]
+          { title: 'Kitchen Ware', src: '/' },
+          { title: 'FAQs & Support', src: '/about' },
+          { title: 'Mobile Access', src: 'mobile' },
+        ],
       },
       {
-        title: "Features",
+        title: 'Features',
         list: [
-          { title: "Legal", src: "/" },
-          { title: "Terms of Service", src: "/" },
-          { title: "Privacy Policy", src: "/" },
-          { title: "Don't sell my Info", src: "/" }
-        ]
-      }
-    ]
-  })
+          { title: 'Legal', src: '/' },
+          { title: 'Terms of Service', src: '/' },
+          { title: 'Privacy Policy', src: '/' },
+          { title: "Don't sell my Info", src: '/' },
+        ],
+      },
+    ],
+  }),
 };
 </script>
