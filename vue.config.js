@@ -2,13 +2,10 @@ module.exports = {
     transpileDependencies: ['vuetify'],
     pwa: {
         name: 'VantaShala',
-        themeColor: '#4DBA87',
-        msTileColor: '#fb8c00',
+        themeColor: '#fff3e0',
+        msTileColor: '#fff3e0',
         appleMobileWebAppCapable: 'yes',
         appleMobileWebAppStatusBarStyle: 'black',
-
-        // configure the workbox plugin
         workboxPluginMode: 'GenerateSW'
-
     }
 };
