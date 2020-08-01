@@ -99,27 +99,27 @@ export default {
       {
         title: 'Services',
         list: [
-          { title: 'Our Menu', src: '/' },
-          { title: 'How it Works', src: '/' },
-          { title: 'Login', src: '/' },
-          { title: 'Signup', src: '/' },
+          { title: 'Our Menu', src: 'ourMenu' },
+          { title: 'How it Works', src: 'howItWorks' },
+          { title: 'Login', src: 'login' },
+          { title: 'Signup', src: 'signUp' },
         ],
       },
       {
         title: 'Resources',
         list: [
-          { title: 'Kitchen Ware', src: '/' },
-          { title: 'FAQs & Support', src: '/about' },
+          { title: 'Kitchen Ware', src: 'kitchen' },
+          { title: 'FAQs & Support', src: 'about' },
           { title: 'Mobile Access', src: 'mobile' },
         ],
       },
       {
         title: 'Features',
         list: [
-          { title: 'Legal', src: '/' },
-          { title: 'Terms of Service', src: '/' },
-          { title: 'Privacy Policy', src: '/' },
-          { title: "Don't sell my Info", src: '/' },
+          { title: 'Legal', src: 'legal' },
+          { title: 'Terms of Service', src: 'termsOfService' },
+          { title: 'Privacy Policy', src: 'privacyPolicy' },
+          { title: "Don't sell my Info", src: 'info' },
         ],
       },
     ],
