@@ -1,20 +1,17 @@
 <template>
   <v-container fluid class="pa-0 ma-0">
     <v-app-bar :style="tbStyle" text-center align="center" class="pa-0" elevate-on-scroll fixed>
-      <!-- <v-app-bar-nav-icon>
-        <v-img :src="require('@/assets/logo_vs.png')" height="48px" width="48px"></v-img>
-      </v-app-bar-nav-icon> -->
+      <v-app-bar-nav-icon>
+        <v-img :src="image" class="ml-8" width="48px"></v-img>
+      </v-app-bar-nav-icon>
 
-      <v-toolbar-title class="ma-2 text-h6 white--text font-weight-bold gradient-text-logo"> VantaShala</v-toolbar-title>
+      <v-toolbar-title class="ml-2 text-h6 white--text font-weight-bold gradient-text-logo">VantaShala</v-toolbar-title>
       <v-spacer></v-spacer>
-       <v-toolbar-items v-if="deferredPrompt">
-        <v-badge color="purple lighten-4" text small overlap class="ma-auto mr-5" :value="'?' != '?'">
-          <span slot="badge" class="purple--text font-weight-bold">?</span>
-          <v-btn text small class="ma-auto white--text font-weight-bold" @click="install">
-            <v-icon left>mdi-open-in-new</v-icon>
-            <div class="gradient-text">Open App</div>
-          </v-btn>
-        </v-badge>
+      <v-toolbar-items v-if="deferredPrompt">
+        <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="install">
+          <v-icon left>mdi-open-in-new</v-icon>
+          <div class="gradient-text">Open App</div>
+        </v-btn>
       </v-toolbar-items>
 
       <v-toolbar-items class="hidden-sm-and-down">
@@ -78,12 +75,12 @@ export default Vue.extend({
     });
   },
   data: () => ({
+    image: require('@/assets/logo.png'),
     deferredPrompt: null,
     drawer: false,
     defaultCountry: 'INDIA',
     collapseOnScroll: true,
     menu: [
-     
       {
         icon: 'mdi-order-bool-descending-variant',
         title: 'My Orders',
