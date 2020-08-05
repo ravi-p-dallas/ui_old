@@ -40,7 +40,7 @@ export default Vue.extend({
       {
         title: "BiWeekly Orders",
         char: "B",
-        color:"ma-auto font-weight-bold green--text",
+        color:"ma-auto font-weight-bold green--text text--lighten-3",
         caption: "Delivered on bi-weekly basis",
         customStyle: "green lighten-3",
         dividerStyle: "green lighten-4",
@@ -49,7 +49,7 @@ export default Vue.extend({
       {
         title: "Monthly Orders",
         char: "M",
-        color:"ma-auto font-weight-bold orange--text",
+        color:"ma-auto font-weight-bold orange--text text--lighten-3",
         caption: "Delivered on bi-weekly basis",
         customStyle: "orange lighten-3",
         dividerStyle: "orange lighten-4",
@@ -58,7 +58,7 @@ export default Vue.extend({
       {
         title: "Weekly Orders",
         char: "W",
-        color:"ma-auto font-weight-bold red--text",
+        color:"ma-auto font-weight-bold red--text text--lighten-3",
         caption: "Delivered on bi-weekly basis",
         customStyle: "red lighten-3 white--text",
         dividerStyle: "red lighten-4",
@@ -67,7 +67,7 @@ export default Vue.extend({
       {
         title: "Daily Orders",
         char: "D",
-        color:"ma-auto font-weight-bold blue--text",
+        color:"ma-auto font-weight-bold blue--text text--lighten-3",
         caption: "Delivered on bi-weekly basis",
         customStyle: "blue lighten-3",
         dividerStyle: "blue lighten-4",
