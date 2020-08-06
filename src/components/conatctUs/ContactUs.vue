@@ -30,7 +30,7 @@
                   </v-col>
 
                   <v-col cols="12" md="12">
-                    <v-textarea outlined class="mx-2" label="Message" rows="3"></v-textarea>
+                    <v-textarea outlined label="Message" rows="3"></v-textarea>
                   </v-col>
                 </v-row>
               </v-container>
