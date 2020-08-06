@@ -1,31 +1,37 @@
 <template>
   <v-container fluid grid-list-md>
-    <v-layout row wrap>
-      <v-flex d-flex xs12 sm6 md8>
-        <v-layout row wrap>
-          <v-flex d-flex>
-            <v-layout row wrap align-center>
-              <v-flex d-flex xs12>
-                <v-flex xs12 fill-height>
-                  <v-card dark>
-                    <v-card-text style="text-align:center">
-                      TEST ME MOBILE
-                      <v-btn v-for="icon in icons" :key="icon" class="mx-4 white--text" icon>
-                        <v-icon size="24px" color="green lighten-3"> mdi-circle-small </v-icon>
-                      </v-btn>
-                    </v-card-text>
-                  </v-card>
-                </v-flex>
-              </v-flex>
-            </v-layout>
-          </v-flex>
-        </v-layout>
-      </v-flex>
-    </v-layout>
+    <v-title text-align-center>Install Vantashala for better Experience</v-title>
+    <v-card max-width="344" class="mx-auto">
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title class="headline">For ANDROID </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-img src="https://cdn.vuetifyjs.com/images/cards/mountain.jpg" height="194"></v-img>
+    </v-card>
+    <v-card max-width="344" class="mx-auto">
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title class="headline">For IOS</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-img src="https://cdn.vuetifyjs.com/images/cards/mountain.jpg" height="194"></v-img>
+    </v-card>
+    <v-card max-width="500" class="mx-auto">
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title class="headline">For DESKTOP </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-img src="https://cdn.vuetifyjs.com/images/cards/mountain.jpg" height="194"></v-img>
+    </v-card>
   </v-container>
 </template>
 <script>
 export default {
-  data: () => ({})
+  data: () => ({}),
 };
 </script>
