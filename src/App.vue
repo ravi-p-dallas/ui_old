@@ -30,10 +30,6 @@ export default Vue.extend({
   },
   data() {
     return {
-      deferredPrompt: null,
-      snackbar: true,
-      text: "Get our free app. It won't take up space on your phone and also works offline!",
-      vertical: true,
     };
   }
 });
