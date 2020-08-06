@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <v-card-title class="justify-center text-center headline font-weight-bold mt-10 pa-0">
+    <v-card-title class="justify-center text-center headline font-weight-bold mt-1">
         <div :style="$vuetify.breakpoint.smAndDown ? 'letter-spacing:3px' : 'letter-spacing:6px'" class="text_card_style">
           MY UPCOMING ORDERS
         </div>
@@ -11,11 +11,12 @@
         <OrderRepeatedCard
           :Title="item.title"
           :Char="item.char"
+          :Color="item.color"
           :Caption="item.caption"
           :CustomStyle="item.customStyle"
           :DividerStyle="item.dividerStyle"
           :scrollId="item.scrollId"
-          class="mt-10 mb-15"
+          class="mt-5 mb-15"
         />
       </v-col>
     </v-row>
@@ -39,6 +40,7 @@ export default Vue.extend({
       {
         title: "BiWeekly Orders",
         char: "B",
+        color:"ma-auto font-weight-bold green--text",
         caption: "Delivered on bi-weekly basis",
         customStyle: "green lighten-3",
         dividerStyle: "green lighten-4",
@@ -47,6 +49,7 @@ export default Vue.extend({
       {
         title: "Monthly Orders",
         char: "M",
+        color:"ma-auto font-weight-bold orange--text",
         caption: "Delivered on bi-weekly basis",
         customStyle: "orange lighten-3",
         dividerStyle: "orange lighten-4",
@@ -55,6 +58,7 @@ export default Vue.extend({
       {
         title: "Weekly Orders",
         char: "W",
+        color:"ma-auto font-weight-bold red--text",
         caption: "Delivered on bi-weekly basis",
         customStyle: "red lighten-3 white--text",
         dividerStyle: "red lighten-4",
@@ -63,6 +67,7 @@ export default Vue.extend({
       {
         title: "Daily Orders",
         char: "D",
+        color:"ma-auto font-weight-bold blue--text",
         caption: "Delivered on bi-weekly basis",
         customStyle: "blue lighten-3",
         dividerStyle: "blue lighten-4",
