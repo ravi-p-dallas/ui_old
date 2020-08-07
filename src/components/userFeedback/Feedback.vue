@@ -2,8 +2,8 @@
   <v-card fluid class="mx-auto mt-10 mb-10" flat>
     <v-list-item class="mt-5">
       <v-list-item-content class="ma-0 pa-0">
-        <v-list-item-title class="text-center headline mx-auto font-weight-bold">
-          <div :style="$vuetify.breakpoint.smAndDown ? 'letter-spacing:0px' : 'letter-spacing:6px'" class="text_card_style">
+        <v-list-item-title class="text-center text-wrap headline mx-auto font-weight-bold">
+          <div :style="$vuetify.breakpoint.smAndDown ? 'letter-spacing:2px' : 'letter-spacing:6px'" class="text_card_style">
             WHAT OUR FANTASTIC USERS SAY
           </div>
         </v-list-item-title>

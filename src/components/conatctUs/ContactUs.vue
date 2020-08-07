@@ -5,7 +5,7 @@
         <v-col class="text-center" cols="12">
           <v-card fluid class="mx-auto" dense flat :max-width="$vuetify.breakpoint.smAndDown ? '100%' : '50%'" color="rgb(255, 255, 255, 0.9)">
             <v-toolbar dark>
-              <v-toolbar-title>
+              <v-toolbar-title class="text-wrap">
                 <div style="letter-spacing:3px">COMPLAINTS & CONTACT FORM</div>
               </v-toolbar-title>
               <v-spacer></v-spacer>
