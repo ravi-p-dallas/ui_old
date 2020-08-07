@@ -27,7 +27,7 @@
                             </v-card-title>
 
                             <v-card-text v-for="(listItem, j) in item.list" :key="j" class="ml-5 pa-1">
-                              <v-btn text color="white" small :to="listItem.src"> <v-icon left>mdi-circle-small </v-icon> {{ listItem.title }} </v-btn>
+                              <v-btn text color="white" target="_blank" small :to="listItem.src"> <v-icon left>mdi-circle-small </v-icon> {{ listItem.title }} </v-btn>
                             </v-card-text>
                           </v-card>
                         </v-col>

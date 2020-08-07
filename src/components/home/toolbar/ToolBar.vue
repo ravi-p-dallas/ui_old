@@ -2,10 +2,12 @@
   <v-container fluid class="pa-0 ma-0">
     <v-app-bar :style="tbStyle" text-center align="center" class="pa-0" elevate-on-scroll fixed>
       <v-app-bar-nav-icon>
+        <router-link to="/">
         <v-img :src="image" class="ml-8" width="48px"></v-img>
+        </router-link>
       </v-app-bar-nav-icon>
 
-      <v-toolbar-title class="ml-2 text-h6 white--text font-weight-bold gradient-text-logo">VantaShala</v-toolbar-title>
+      <v-toolbar-title class="ml-2 text-h6 white--text font-weight-bold gradient-text-logo"><router-link to="/">VantaShala</router-link></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items v-if="deferredPrompt">
         <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="install">
