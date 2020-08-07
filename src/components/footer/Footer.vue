@@ -9,8 +9,8 @@
                 <v-flex d-flex xs12>
                   <v-flex xs12 fill-height>
                     <v-card dark>
-                      <v-card-text style="text-align:center">
-                        <v-btn v-for="icon in icons" :key="icon" class="mx-4 white--text" icon>
+                      <v-card-text class="row mx-auto" style="text-align:center">
+                        <v-btn v-for="icon in icons" :key="icon" class=" white--text  mx-auto col-3 col-sm-3 col-lg-3" icon>
                           <v-icon size="24px" color="green lighten-3">{{ icon }}</v-icon>
                         </v-btn>
                       </v-card-text>
