@@ -79,7 +79,7 @@
                 ></v-text-field>
               </v-card-text>
 
-              <v-card-actions :class="this.$vuetify.breakpoint.smAndDown ? 'mr-2': 'mr-2'">
+              <v-card-actions :class="{'mr-2':this.$vuetify.breakpoint.lgAndDown}">
                 <v-spacer />
                 <v-btn color="green" class="ma-auto">Subscribe</v-btn>
               </v-card-actions>
