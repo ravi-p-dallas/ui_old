@@ -9,6 +9,11 @@
 
       <v-toolbar-title class="ml-2 text-h6 white--text font-weight-bold gradient-text-logo"><router-link to="/">VantaShala</router-link></v-toolbar-title>
       <v-spacer></v-spacer>
+      <v-toolbar-items v-if="updateExists" color="primary">
+          <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="refreshApp">
+          <div class="gradient-text">Update App</div>
+        </v-btn>
+      </v-toolbar-items>
       <v-toolbar-items v-if="deferredPrompt">
         <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="install">
           <v-icon left>mdi-open-in-new</v-icon>
@@ -75,6 +80,13 @@ export default Vue.extend({
       this.deferredPrompt = null;
       console.log('deferredPrompt ->', this.deferredPrompt);
     });
+    document.addEventListener('swUpdated', this.updateAvailable, { once: true })
+     navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (this.refreshing) return
+          this.refreshing = true
+                // Here the actual reload of the page occurs
+          window.location.reload()
+        })
   },
   data: () => ({
     image: require('@/assets/logo.png'),
@@ -82,6 +94,9 @@ export default Vue.extend({
     drawer: false,
     defaultCountry: 'INDIA',
     collapseOnScroll: true,
+    refreshing: false,
+    registration: null,
+    updateExists: false,
     menu: [
       {
         icon: 'mdi-order-bool-descending-variant',
@@ -132,6 +147,15 @@ export default Vue.extend({
     },
     async install() {
       this.deferredPrompt.prompt();
+    },
+    updateAvailable(event) {
+      this.registration = event.detail
+      this.updateExists = true
+     },
+    refreshApp() {
+      this.updateExists = false
+      if (!this.registration || !this.registration.waiting) return
+        this.registration.waiting.postMessage({ type: 'SKIP_WAITING' })
     },
   },
 });
