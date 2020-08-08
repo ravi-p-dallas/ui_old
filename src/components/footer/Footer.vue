@@ -9,8 +9,8 @@
                 <v-flex d-flex xs12>
                   <v-flex xs12 fill-height>
                     <v-card dark>
-                      <v-card-text style="text-align:center">
-                        <v-btn v-for="icon in icons" :key="icon" class="mx-4 white--text" icon>
+                      <v-card-text class="row mx-auto" style="text-align:center">
+                        <v-btn v-for="icon in icons" :key="icon" class=" white--text  mx-auto col-3 col-sm-3 col-lg-3" icon>
                           <v-icon size="24px" color="green lighten-3">{{ icon }}</v-icon>
                         </v-btn>
                       </v-card-text>
@@ -27,7 +27,7 @@
                             </v-card-title>
 
                             <v-card-text v-for="(listItem, j) in item.list" :key="j" class="ml-5 pa-1">
-                              <v-btn text color="white" small :to="listItem.src"> <v-icon left>mdi-circle-small </v-icon> {{ listItem.title }} </v-btn>
+                              <v-btn text color="white" target="_blank" small :to="listItem.src"> <v-icon left>mdi-circle-small </v-icon> {{ listItem.title }} </v-btn>
                             </v-card-text>
                           </v-card>
                         </v-col>
@@ -93,36 +93,36 @@
 <script>
 export default {
   data: () => ({
-    icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
+    icons: ['mdi-facebook', 'mdi-twitter', 'mdi-linkedin', 'mdi-instagram'],
 
     cards: [
       {
-        title: "Services",
+        title: 'Services',
         list: [
-          { title: "Our Menu", src: "/" },
-          { title: "How it Works", src: "/" },
-          { title: "Login", src: "/" },
-          { title: "Signup", src: "/" }
-        ]
+          { title: 'Our Menu', src: 'ourMenu' },
+          { title: 'How it Works', src: 'howItWorks' },
+          { title: 'Login', src: 'login' },
+          { title: 'Signup', src: 'signUp' },
+        ],
       },
       {
-        title: "Resources",
+        title: 'Resources',
         list: [
-          { title: "Kitchen Ware", src: "/" },
-          { title: "FAQs & Support", src: "/about" },
-          { title: "Mobile Access", src: "mobile" }
-        ]
+          { title: 'Kitchen Ware', src: 'kitchen' },
+          { title: 'FAQs & Support', src: 'about' },
+          { title: 'Mobile Access', src: 'mobile' },
+        ],
       },
       {
-        title: "Features",
+        title: 'Features',
         list: [
-          { title: "Legal", src: "/" },
-          { title: "Terms of Service", src: "/" },
-          { title: "Privacy Policy", src: "/" },
-          { title: "Don't sell my Info", src: "/" }
-        ]
-      }
-    ]
-  })
+          { title: 'Legal', src: 'legal' },
+          { title: 'Terms of Service', src: 'termsOfService' },
+          { title: 'Privacy Policy', src: 'privacyPolicy' },
+          { title: "Don't sell my Info", src: 'info' },
+        ],
+      },
+    ],
+  }),
 };
 </script>

@@ -1,4 +1,4 @@
-# vantashala
+# VantaShala
 
 ## Project setup
 ```
