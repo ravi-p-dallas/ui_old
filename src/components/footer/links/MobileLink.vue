@@ -1,39 +1,47 @@
 <template>
   <v-container fluid grid-list-md>
-    <v-card class="transparent card_mgleft" outlined xs12 sm6 offset-sm6>
-      <v-card-title class="justify-center text-center headline font-weight-bold">
-    <div :style="$vuetify.breakpoint.mobile ? 'letter-spacing:0px' : 'letter-spacing:6px'" class="text_card_style text-align-center">
-      INSTALL MOBILE APP for better experience
-    </div>
-      </v-card-title>
-    <v-card max-width="400" class="mx-auto">
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title class="headline">For ANDROID </v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
+    <v-layout row wrap>
+      <v-flex d-flex xs12 sm6 md8>
+        <v-layout row wrap>
+          <v-flex d-flex>
+            <v-layout row wrap align-center>
+              <v-flex d-flex xs12>
+                <v-flex xs12 fill-height>
+                  <v-card class="transparent card text-center" outlined xs12 sm6 offset-sm6>
+                    <div :style="$vuetify.breakpoint.smAndDown ? 'letter-spacing:1px' : 'letter-spacing:6px'" class="text_card_style">
+                      <h2>INSTALL MOBILE APP FOR BETTER EXPERIENCE</h2>
+                    </div>
 
-      <v-img src="https://cdn.vuetifyjs.com/images/cards/mountain.jpg" height="194"></v-img>
-    </v-card>
-    <v-card max-width="400" class="mx-auto">
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title class="headline">For IOS</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title class="text-center headline text_card_style">For ANDROID </v-list-item-title>
+                      </v-list-item-content>
+                    </v-list-item>
+                    <video :key="video" center height="340" width="320" autoplay source src="https://vsassets.netlify.app/vs_android.mp4" type="video/mp4"></video>
 
-      <v-img src="https://cdn.vuetifyjs.com/images/cards/mountain.jpg" height="194"></v-img>
-    </v-card>
-    <v-card max-width="600" class="mx-auto">
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title class="headline">For DESKTOP </v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title class="text-center headline text_card_style">For IOS</v-list-item-title>
+                      </v-list-item-content>
+                    </v-list-item>
 
-      <v-img src="https://cdn.vuetifyjs.com/images/cards/mountain.jpg" height="194"></v-img>
-    </v-card>
-    </v-card>  </v-container>
+                    <video :key="video" height="340" width="320" autoplay source src="https://vsassets.netlify.app/vs_ios.mp4" type="video/mp4"></video>
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title class="text-center headline text_card_style">For DESKTOP </v-list-item-title>
+                      </v-list-item-content>
+                    </v-list-item>
+
+                    <video :key="video" height="240" width="320" autoplay source src="https://vsassets.netlify.app/vs_web.mp4" type="video/mp4"></video>
+                  </v-card>
+                </v-flex>
+              </v-flex>
+            </v-layout>
+          </v-flex>
+        </v-layout>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 <script>
 export default {
