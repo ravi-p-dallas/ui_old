@@ -1,7 +1,7 @@
 <template>
   <v-container fluid class="pa-0 ma-0">
     <v-app-bar :style="tbStyle" text-center align="center" class="pa-0" elevate-on-scroll fixed>
-      <v-app-bar-nav-icon class="ml-1 pa-7">
+      <v-app-bar-nav-icon class="pa-7" :class="this.$vuetify.breakpoint.mdAndDown ? '':'ml-2'">
         <router-link to="/">
         <v-img :src="image" width="48px"></v-img>
         </router-link>
