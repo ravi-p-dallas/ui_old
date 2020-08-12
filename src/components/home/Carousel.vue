@@ -20,7 +20,7 @@
             </v-card>
           </v-container>
         </v-carousel-item>
-        <ActionCardButtons />
+        <ActionCardButtons v-on:Menus="MenusAction()"/>
       </v-carousel>
     </v-hover>
   </v-container>
@@ -69,6 +69,12 @@ export default Vue.extend({
         desc: "Complete Organic. Unlike restaurants. Share your health profile & let us care rest"
       }
     ]
-  })
+  }),
+  methods: {
+    MenusAction: function() {
+      console.log('inside Menu Action');
+      this.$emit('Menus');
+    },
+  }
 });
 </script>

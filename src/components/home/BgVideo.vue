@@ -1,7 +1,8 @@
 <template>
   <v-container overflow-y fluid class="ma-0 pa-0" id="create">
-    <VideoBg src="https://vsassets.netlify.app/vantashala_1.mp4" style="height: 100vh;" class="green lighten-4" v-bind:overlay="countryChanged">
-      <Carousel class="overflow-y-auto" />
+    <VideoBg :src="BGvidsrc" style="height: 100vh;" class="green lighten-4" v-bind:overlay="countryChanged">
+      <Carousel v-if="show" class="overflow-y-auto" v-on:Menus="MenusBgAction()" />
+      <SearchMenus v-if="!show" />
 
       <v-fab-transition>
         <v-btn
@@ -151,12 +152,14 @@
 <script lang="ts">
 import Vue from "vue";
 import Carousel from "./Carousel.vue";
+import SearchMenus from "./actionButtons/actions/SearchMenus.vue";
 
 export default Vue.extend({
   name: "BgVideo",
 
   components: {
-    Carousel
+    Carousel,
+    SearchMenus
   },
   computed: {
     countryChanged: {
@@ -186,7 +189,9 @@ export default Vue.extend({
       }
     },
     fab: false,
-    hover: true
+    hover: true,
+    show: true,
+    BGvidsrc: "https://vsassets.netlify.app/vantashala_1.mp4",
   }),
   methods: {
     clicked: function(e, obj) {
@@ -205,7 +210,12 @@ export default Vue.extend({
         });
       });
       return;
-    }
+    },
+    MenusBgAction: function(){
+      console.log("OKAY Done");
+      this.show=false;
+      this.BGvidsrc="";
+    },
   }
 });
 </script>
