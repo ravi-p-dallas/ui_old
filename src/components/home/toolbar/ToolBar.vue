@@ -1,7 +1,7 @@
 <template>
   <v-container fluid class="pa-0 ma-0">
     <v-app-bar :style="tbStyle" text-center align="center" class="pa-0" elevate-on-scroll fixed>
-      <v-app-bar-nav-icon class="ml-1 pa-7">
+      <v-app-bar-nav-icon :class="this.$vuetify.breakpoint.mdAndDown ? 'pa-3':'ml-2 pa-7'">
         <a href="/">
         <v-img :src="image" width="48px"></v-img>
         </a>
@@ -11,6 +11,7 @@
       <v-spacer></v-spacer>
       <v-toolbar-items v-if="updateExists" color="primary">
           <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="refreshApp">
+          <v-icon left dark>mdi-call-received</v-icon>
           <div class="gradient-text">Update App</div>
         </v-btn>
       </v-toolbar-items>
