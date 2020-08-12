@@ -11,7 +11,7 @@
       <v-spacer></v-spacer>
       <v-toolbar-items v-if="updateExists" color="primary">
           <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="refreshApp">
-          <v-icon left dark>mdi-call-received</v-icon>
+          <v-icon left>mdi:arrow-collapse-down</v-icon>
           <div class="gradient-text">Update App</div>
         </v-btn>
       </v-toolbar-items>
