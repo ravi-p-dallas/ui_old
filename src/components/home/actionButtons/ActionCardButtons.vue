@@ -14,7 +14,7 @@
     <v-dialog v-model="dialog" max-width="290" :fullscreen="$vuetify.breakpoint.mobile">
       <v-btn v-if="dialogAction == this.items[0].btnText" @click:stop="this.dialog = !this.dialog">sdf</v-btn>
       <BeAChef v-if="dialogAction == this.items[1].btnText" @click:stop="this.dialog = false" />
-      <v-btn v-if="dialogAction == this.items[2].btnText" @click:stop="this.dialog = !this.dialog">rtd</v-btn>
+         
     </v-dialog>
   </v-card>
 </template>
@@ -96,8 +96,13 @@ export default Vue.extend({
   }),
   methods: {
     handleFunctionCall: function(event) {
-      this.dialog = true;
+      if(event==this.items[2].btnText){
+        console.log("in Menu bro");
+        this.$emit('Menus');
+      }else{
+        this.dialog = true;
       this.dialogAction = event;
+      }
     }
   }
 });
