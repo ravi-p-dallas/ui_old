@@ -20,7 +20,7 @@
             </v-card>
           </v-container>
         </v-carousel-item>
-        <ActionCardButtons v-on:Menus="MenusAction()" />
+        <ActionCardButtons />
       </v-carousel>
     </v-hover>
   </v-container>
@@ -71,11 +71,6 @@ export default Vue.extend({
     ],
     CarouselTime: 15000,
   }),
-  methods: {
-    MenusAction: function() {
-      console.log('inside Menu Action');
-      this.$emit('Menus');
-    },
-  },
+  methods: { },
 });
 </script>

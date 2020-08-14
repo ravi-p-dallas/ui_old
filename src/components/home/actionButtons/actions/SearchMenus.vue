@@ -1,7 +1,7 @@
 <template>
   <v-container fill-height fluid ma-0 pa-0 class="overflow-y-auto overflow-x-hidden" :class="this.$vuetify.breakpoint.mdAndDown ? 'py-1 px-4' : 'py-12 px-4'">
     <v-row>
-      <v-col cols="12" sm="12" md="4" lg="3" v-for="(Menu, i) in Menus" :key="i" class="mx-auto my-12">
+      <v-col cols="12" sm="12" md="4" lg="3" v-for="(Menu, i) in Menus" :key="i" class="mx-auto my-16">
         <v-card max-width="300" class="mx-auto">
           <v-img height="250" :src="Menu.PicSrc"></v-img>
           <v-card-title>
@@ -35,14 +35,16 @@
       </v-col>
       <v-btn style="background: transparent;" to="/ourMenu" class="mx-auto my-12 text-center" width="300" height="100" cols="12">View more Menus</v-btn>
     </v-row>
+    <ActionCardButtons class="pt-10" />
   </v-container>
 </template>
 <script lang="ts">
 import Vue from 'vue';
+import ActionCardButtons from '../ActionCardButtons.vue';
 export default Vue.extend({
   name: 'SearchMenus',
 
-  components: {},
+  components: {ActionCardButtons},
 
   computed: {},
 

@@ -1,8 +1,10 @@
 <template>
   <v-container overflow-y fluid class="ma-0 pa-0" id="create">
+    <ActionCardButtons class="pb-8" />
     <VideoBg :src="BGvidsrc" style="height: 100vh;" class="green lighten-4" v-bind:overlay="countryChanged">
-      <Carousel v-if="show" class="overflow-y-auto" v-on:Menus="MenusBgAction()" />
-      <SearchMenus v-if="!show" />
+      <component class="pt-15" :is="currentComp"></component>
+      <!--<Carousel v-if="show" class="overflow-y-auto" />
+      <SearchMenus v-if="!show" />-->
 
       <v-fab-transition>
         <v-btn
@@ -153,13 +155,23 @@
 import Vue from 'vue';
 import Carousel from './Carousel.vue';
 import SearchMenus from './actionButtons/actions/SearchMenus.vue';
+import actionButtons from './actionButtons/ActionCardButtons.vue';
+import { bus } from '../../App.vue';
 
 export default Vue.extend({
   name: 'BgVideo',
 
+  created() {
+      bus.$on('switchComp', event => {
+          console.log(event);
+           this.currentComp = event;
+           this.BGvidsrc = '';
+      })
+  },
   components: {
     Carousel,
     SearchMenus,
+    actionButtons
   },
   computed: {
     countryChanged: {
@@ -191,6 +203,7 @@ export default Vue.extend({
     fab: false,
     hover: true,
     show: true,
+    currentComp: Carousel,
     BGvidsrc: 'https://vsassets.netlify.app/vantashala_1.mp4',
   }),
   methods: {
@@ -210,11 +223,6 @@ export default Vue.extend({
         });
       });
       return;
-    },
-    MenusBgAction: function() {
-      console.log('OKAY Done');
-      this.show = false;
-      this.BGvidsrc = '';
     },
   },
 });

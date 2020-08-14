@@ -26,9 +26,16 @@
 <script lang="ts">
 import Vue from 'vue';
 import BeAChef from './actions/BeAChef.vue';
+import { bus } from '../../../App.vue';
 export default Vue.extend({
   name: 'ActionButtons',
 
+  props: {
+        currentComp: {
+            type: String,
+            required: true
+        }
+    },
   components: {
     BeAChef,
   },
@@ -97,7 +104,7 @@ export default Vue.extend({
     handleFunctionCall: function(event) {
       if (event == this.items[2].btnText) {
         console.log('in Menu bro');
-        this.$emit('Menus');
+        bus.$emit('switchComp',"SearchMenus");
       } else {
         this.dialog = true;
         this.dialogAction = event;

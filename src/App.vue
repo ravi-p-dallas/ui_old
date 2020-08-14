@@ -11,6 +11,7 @@
 <script lang="ts">
 import Vue from 'vue';
 
+export const bus = new Vue();
 export default Vue.extend({
   name: 'App',
 
