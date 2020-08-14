@@ -10,7 +10,7 @@
                   <v-flex xs12 fill-height>
                     <v-card dark>
                       <v-card-text class="row mx-auto" style="text-align:center">
-                        <v-btn v-for="icon in icons" :key="icon" class=" white--text  mx-auto col-3 col-sm-3 col-lg-3" icon>
+                        <v-btn cols="3" sm="3" lg="3" md="3"  v-for="icon in icons" :key="icon" class=" white--text  mx-auto" icon>
                           <v-icon size="24px" color="green lighten-3">{{ icon }}</v-icon>
                         </v-btn>
                       </v-card-text>
@@ -65,7 +65,7 @@
 
               <v-card-title class="green--text text--lighten-3">Get Special Offers Delivered to your Inbox</v-card-title>
 
-              <v-card-text class="ma-0 pa-0">
+              <v-card-text class="pb-0">
                 <v-text-field
                   label="Enter your email"
                   class="ma-auto green--text text--lighten-3"
@@ -79,7 +79,7 @@
                 ></v-text-field>
               </v-card-text>
 
-              <v-card-actions color="ml-auto mr-auto">
+              <v-card-actions class="mr-2">
                 <v-spacer />
                 <v-btn color="green" class="ma-auto">Subscribe</v-btn>
               </v-card-actions>
@@ -90,6 +90,11 @@
     </v-container>
   </v-footer>
 </template>
+<style scoped>
+.v-text-field{
+  height: 57px;
+}
+</style>
 <script>
 export default {
   data: () => ({
