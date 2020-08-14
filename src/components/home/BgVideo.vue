@@ -3,8 +3,6 @@
     <ActionCardButtons class="pb-8" />
     <VideoBg :src="BGvidsrc" style="height: 100vh;" class="green lighten-4" v-bind:overlay="countryChanged">
       <component class="pt-15" :is="currentComp"></component>
-      <!--<Carousel v-if="show" class="overflow-y-auto" />
-      <SearchMenus v-if="!show" />-->
 
       <v-fab-transition>
         <v-btn
