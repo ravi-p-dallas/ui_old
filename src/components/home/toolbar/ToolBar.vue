@@ -33,7 +33,7 @@
             </select>
           </v-btn>
         </div>
-        <v-avatar class="ma-auto ml-3 white--text font-weight-bold" size="36" tile link>
+        <v-avatar class="ma-auto ml-3 white--text font-weight-bold" size="36" tile link @click="this.checkIsUserLoggedIn()">
           <img src="https://randomuser.me/api/portraits/men/81.jpg" alt="Gopi" @click.stop="manageDrawer" />
         </v-avatar>
       </v-toolbar-items>

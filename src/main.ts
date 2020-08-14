@@ -8,6 +8,10 @@ import VideoBackground from "vue-responsive-video-background-player";
 import VueMeta from "vue-meta";
 import VuePlyr from "vue-plyr";
 
+
+
+Vue.prototype.$log = console.log.bind(console);
+
 Vue.use(VuePlyr, {
   plyr: {
     fullscreen: { enabled: false }
@@ -19,7 +23,6 @@ Vue.use(VueMeta);
 Vue.component("VideoBg", VideoBackground);
 
 Vue.config.productionTip = false;
-
 new Vue({
   router,
   store,

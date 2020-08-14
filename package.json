@@ -1,5 +1,5 @@
 {
-    "name": "VantaShala",
+    "name": "vanashala",
     "version": "0.1.0",
     "private": true,
     "scripts": {
@@ -10,9 +10,11 @@
         "lint": "vue-cli-service lint"
     },
     "dependencies": {
+        "@dsb-norge/vue-keycloak-js": "^1.1.2",
         "core-js": "^3.6.5",
         "register-service-worker": "^1.7.1",
         "vue": "^2.6.11",
+        "vue-axios": "^2.1.5",
         "vue-meta": "^2.4.0",
         "vue-plyr": "^6.0.4",
         "vue-responsive-video-background-player": "^1.1.1",
