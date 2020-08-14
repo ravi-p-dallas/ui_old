@@ -150,72 +150,72 @@
 }
 </style>
 <script lang="ts">
-import Vue from "vue";
-import Carousel from "./Carousel.vue";
-import SearchMenus from "./actionButtons/actions/SearchMenus.vue";
+import Vue from 'vue';
+import Carousel from './Carousel.vue';
+import SearchMenus from './actionButtons/actions/SearchMenus.vue';
 
 export default Vue.extend({
-  name: "BgVideo",
+  name: 'BgVideo',
 
   components: {
     Carousel,
-    SearchMenus
+    SearchMenus,
   },
   computed: {
     countryChanged: {
       get() {
         const country = this.$store.getters.getCountry;
         const styles = this.visuals[country];
-        return styles["overlay"];
-      }
-    }
+        return styles['overlay'];
+      },
+    },
   },
   data: () => ({
     visuals: {
       INDIA: {
-        overlay: "linear-gradient(45deg,#2a4ae4B3,#fb949eB3)"
+        overlay: 'linear-gradient(45deg,#2a4ae4B3,#fb949eB3)',
       },
       USA: {
-        overlay: "linear-gradient(45deg,#aed581B3,#b3e5fcB3)"
+        overlay: 'linear-gradient(45deg,#aed581B3,#b3e5fcB3)',
       },
       SINGAPORE: {
-        overlay: "linear-gradient(45deg,#ffcc80B3,#fb949eB3)"
+        overlay: 'linear-gradient(45deg,#ffcc80B3,#fb949eB3)',
       },
       CANADA: {
-        overlay: "linear-gradient(45deg, #30e8bfB3,#ff8235B3)"
+        overlay: 'linear-gradient(45deg, #30e8bfB3,#ff8235B3)',
       },
       MALAYSIA: {
-        overlay: "linear-gradient(45deg, #ffd89bB3, #19547bB3)"
-      }
+        overlay: 'linear-gradient(45deg, #ffd89bB3, #19547bB3)',
+      },
     },
     fab: false,
     hover: true,
     show: true,
-    BGvidsrc: "https://vsassets.netlify.app/vantashala_1.mp4",
+    BGvidsrc: 'https://vsassets.netlify.app/vantashala_1.mp4',
   }),
   methods: {
     clicked: function(e, obj) {
       console.log(e, obj);
-      let objId = "RO";
-      if (obj != "undefined") {
+      let objId = 'RO';
+      if (obj != 'undefined') {
         objId = obj;
       }
 
       console.log(objId);
       this.$nextTick(() => {
-        this.$vuetify.goTo("#" + objId, {
+        this.$vuetify.goTo('#' + objId, {
           duration: 900,
           offset: 0,
-          easing: "easeOutCubic"
+          easing: 'easeOutCubic',
         });
       });
       return;
     },
-    MenusBgAction: function(){
-      console.log("OKAY Done");
-      this.show=false;
-      this.BGvidsrc="";
+    MenusBgAction: function() {
+      console.log('OKAY Done');
+      this.show = false;
+      this.BGvidsrc = '';
     },
-  }
+  },
 });
 </script>

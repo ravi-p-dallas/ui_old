@@ -20,7 +20,7 @@
     <v-card-text>
       <v-text-field id="kitchName" name="kitchName" label="Name your Kitchen" outlined clearable></v-text-field>
     </v-card-text>
-    
+
     <v-card-actions :class="this.$vuetify.breakpoint.smAndDown ? 'd-flex flex-column text-right ' : ''">
       <div class="text-center" v-for="item in items" :key="item.btnText">
         <v-btn :class="countryChanged(item.className)" @click.stop="handleFunctionCall(item.btnText)">
@@ -29,21 +29,20 @@
         </v-btn>
       </div>
     </v-card-actions>
-   
   </v-card>
 </template>
 
 <style lang="scss">
-.v-text-field{
+.v-text-field {
   height: 71px;
 }
 </style>
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 export default Vue.extend({
-  name: "LayoutCard",
+  name: 'LayoutCard',
   props: [],
-  
+
   computed: {
     countryChanged: {
       get() {
@@ -52,48 +51,48 @@ export default Vue.extend({
           const styles = this.visuals[country];
           return styles[className];
         };
-      }
-    }
+      },
+    },
   },
   data: () => ({
     loading: false,
     selection: 1,
-    image: require("@/assets/biryani_2.jpg"),
+    image: require('@/assets/biryani_2.jpg'),
     items: [
       {
-        btnText: "RESERVE",
-        icon: "mdi-chef-hat",
-        className: "fCclass"
+        btnText: 'RESERVE',
+        icon: 'mdi-chef-hat',
+        className: 'fCclass',
       },
 
       {
-        btnText: "EXISTING CHEF? LOGIN",
-        icon: "mdi-key",
-        className: "sMclass"
-      }
+        btnText: 'EXISTING CHEF? LOGIN',
+        icon: 'mdi-key',
+        className: 'sMclass',
+      },
     ],
     visuals: {
       INDIA: {
-        fCclass: "ma-2 white--text font-weight-bold orange darken-1",
-        sMclass: "ma-2 white--text font-weight-bold green darken-1"
+        fCclass: 'ma-2 white--text font-weight-bold orange darken-1',
+        sMclass: 'ma-2 white--text font-weight-bold green darken-1',
       },
       USA: {
-        fCclass: "ma-2 white--text font-weight-bold red darken-1",
-        sMclass: "ma-2 white--text font-weight-bold blue darken-1"
+        fCclass: 'ma-2 white--text font-weight-bold red darken-1',
+        sMclass: 'ma-2 white--text font-weight-bold blue darken-1',
       },
       SINGAPORE: {
-        fCclass: "ma-2 white--text font-weight-bold red lighten-1",
-        sMclass: "ma-2 red--text font-weight-bold white darken-1"
+        fCclass: 'ma-2 white--text font-weight-bold red lighten-1',
+        sMclass: 'ma-2 red--text font-weight-bold white darken-1',
       },
       CANADA: {
-        fCclass: "ma-2 white--text font-weight-bold red lighten-1",
-        sMclass: "ma-2 red--text font-weight-bold white darken-1"
+        fCclass: 'ma-2 white--text font-weight-bold red lighten-1',
+        sMclass: 'ma-2 red--text font-weight-bold white darken-1',
       },
       MALAYSIA: {
-        fCclass: "ma-2 white--text font-weight-bold red lighten-1",
-        sMclass: "ma-2 white--text font-weight-bold blue darken-1"
-      }
-    }
+        fCclass: 'ma-2 white--text font-weight-bold red lighten-1',
+        sMclass: 'ma-2 white--text font-weight-bold blue darken-1',
+      },
+    },
   }),
 
   methods: {
@@ -101,7 +100,7 @@ export default Vue.extend({
       this.loading = true;
 
       setTimeout(() => (this.loading = false), 2000);
-    }
-  }
+    },
+  },
 });
 </script>

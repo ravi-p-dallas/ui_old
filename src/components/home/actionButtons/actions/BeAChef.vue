@@ -18,15 +18,15 @@
 <style scoped></style>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 export default Vue.extend({
-  name: "BeAChef",
+  name: 'BeAChef',
 
   components: {},
 
   computed: {},
 
   data: () => ({}),
-  methods: {}
+  methods: {},
 });
 </script>

@@ -43,19 +43,19 @@
 </template>
 
 <style lang="scss">
-@import "./OrderRepeatedCard.scss";
+@import './OrderRepeatedCard.scss';
 </style>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 export default Vue.extend({
-  name: "ItemCard",
-  props: ["scrollId", "DividerStyle"],
+  name: 'ItemCard',
+  props: ['scrollId', 'DividerStyle'],
   data: () => ({}),
   methods: {
     onScroll() {
-      console.log("Scrolled");
-    }
-  }
+      console.log('Scrolled');
+    },
+  },
 });
 </script>

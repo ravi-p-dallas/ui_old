@@ -15,17 +15,17 @@
 <style scoped></style>
 
 <script lang="ts">
-import Vue from "vue";
-import LayoutSignInBeAChefCard from "./LayoutSignInBeAChefCard.vue";
-import LayoutVideoCard from "./LayoutVideoCard.vue";
+import Vue from 'vue';
+import LayoutSignInBeAChefCard from './LayoutSignInBeAChefCard.vue';
+import LayoutVideoCard from './LayoutVideoCard.vue';
 
 export default Vue.extend({
-  name: "LayoutContainer",
+  name: 'LayoutContainer',
 
   components: {
     LayoutSignInBeAChefCard,
-    LayoutVideoCard
+    LayoutVideoCard,
   },
-  data: () => ({})
+  data: () => ({}),
 });
 </script>

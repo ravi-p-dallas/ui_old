@@ -21,18 +21,18 @@
 <style scoped></style>
 
 <script lang="ts">
-import Vue from "vue";
-import ToolBar from "../components/home/toolbar/ToolBar.vue";
-import BgVideo from "../components/home/BgVideo.vue";
-import RepeatedOrders from "../components/repeatedOrderCards/RepeatedOrders.vue";
-import ImageGallery from "../components/imageGallery/ImageGallery.vue";
-import ContactUs from "../components/conatctUs/ContactUs.vue";
-import Feedback from "../components/userFeedback/Feedback.vue";
-import Footer from "../components/footer/Footer.vue";
-import LayoutContainer from "../components/howDoWeOperate/LayoutContainer.vue";
+import Vue from 'vue';
+import ToolBar from '../components/home/toolbar/ToolBar.vue';
+import BgVideo from '../components/home/BgVideo.vue';
+import RepeatedOrders from '../components/repeatedOrderCards/RepeatedOrders.vue';
+import ImageGallery from '../components/imageGallery/ImageGallery.vue';
+import ContactUs from '../components/conatctUs/ContactUs.vue';
+import Feedback from '../components/userFeedback/Feedback.vue';
+import Footer from '../components/footer/Footer.vue';
+import LayoutContainer from '../components/howDoWeOperate/LayoutContainer.vue';
 
 export default Vue.extend({
-  name: "App",
+  name: 'App',
 
   components: {
     ToolBar,
@@ -42,29 +42,29 @@ export default Vue.extend({
     ContactUs,
     Feedback,
     LayoutContainer,
-    Footer
+    Footer,
   },
 
-  data: () => ({ fab: false, tbStyle: "background-color: transparent" }),
+  data: () => ({ fab: false, tbStyle: 'background-color: transparent' }),
 
   methods: {
     onScroll(e) {
-      if (typeof window === "undefined") return;
+      if (typeof window === 'undefined') return;
 
       const top = window.pageYOffset || e.target.scrollTop || 0;
 
       if (top > 120) {
         this.fab = true;
         this.tbStyle =
-          "opacity:0.95; background-color: #263238; background: rgb(250,117,0); background: radial-gradient(circle, rgba(250,117,0,1) 0%, rgba(128,153,41,1) 76%, rgba(62,83,81,1) 100%);";
+          'opacity:0.95; background-color: #263238; background: rgb(250,117,0); background: radial-gradient(circle, rgba(250,117,0,1) 0%, rgba(128,153,41,1) 76%, rgba(62,83,81,1) 100%);';
       } else {
-        this.tbStyle = "background-color: transparent";
+        this.tbStyle = 'background-color: transparent';
         this.fab = false;
       }
     },
     toTop(e) {
       this.$vuetify.goTo(0);
-    }
-  }
+    },
+  },
 });
 </script>

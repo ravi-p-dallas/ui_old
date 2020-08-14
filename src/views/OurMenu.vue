@@ -9,19 +9,19 @@
 <style scoped></style>
 
 <script lang="ts">
-import Vue from "vue";
-import ToolBar from "../components/home/toolbar/ToolBar.vue";
+import Vue from 'vue';
+import ToolBar from '../components/home/toolbar/ToolBar.vue';
 
-import Footer from "../components/footer/Footer.vue";
-import OurMenuLink from "../components/footer/links/OurMenuLink.vue";
+import Footer from '../components/footer/Footer.vue';
+import OurMenuLink from '../components/footer/links/OurMenuLink.vue';
 
 export default Vue.extend({
-  name: "App",
+  name: 'App',
 
   components: {
     ToolBar,
     Footer,
     OurMenuLink,
-  }
+  },
 });
 </script>

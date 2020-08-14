@@ -1,16 +1,16 @@
 <template>
   <v-container fluid class="pa-0 ma-0">
     <v-app-bar :style="tbStyle" text-center align="center" class="pa-0" elevate-on-scroll fixed>
-      <v-app-bar-nav-icon :class="this.$vuetify.breakpoint.mdAndDown ? 'pa-3':'ml-2 pa-7'">
+      <v-app-bar-nav-icon :class="this.$vuetify.breakpoint.mdAndDown ? 'pa-3' : 'ml-2 pa-7'">
         <a href="/">
-        <v-img :src="image" width="48px"></v-img>
+          <v-img :src="image" width="48px"></v-img>
         </a>
       </v-app-bar-nav-icon>
 
       <v-toolbar-title class="pl-2 text-h6 white--text font-weight-bold gradient-text-logo"><a href="/">VantaShala</a></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items v-if="updateExists" color="primary">
-          <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="refreshApp">
+        <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="refreshApp">
           <v-icon left>mdi-open-in-new</v-icon>
           <div class="gradient-text">Update App</div>
         </v-btn>
@@ -64,100 +64,108 @@
 <script lang="ts">
 import Vue from 'vue';
 import NavigationDrawer from './NavigationDrawer.vue';
-export default Vue.extend({
-  name: 'ToolBar',
+import { loginService } from '../../../services/LoginService';
+import { Component, Prop, Watch } from 'vue-property-decorator';
+
+@Component({
+  components: { NavigationDrawer },
   props: ['tbStyle'],
-  components: {
-    NavigationDrawer,
-  },
+})
+export default class ToolBar extends Vue {
+  name = 'ToolBar';
+  drawer = false;
+  defaultCountry = 'INDIA';
+  collapseOnScroll = true;
+  refreshing = false;
+  registration;
+  updateExists = false;
+
+  data(): any {
+    return {
+      deferredPrompt: null,
+    };
+  }
+
+  menu = [
+    {
+      icon: 'mdi-order-bool-descending-variant',
+      title: 'My Orders',
+      path: '/',
+      badge: '?',
+    },
+    { icon: 'mdi-chef-hat', title: 'My Chefs', path: '/', badge: '?', action: 'login' },
+    { icon: 'mdi-cart-outline', title: 'My Cart', path: '/', badge: '?' },
+  ];
+  countries = [
+    {
+      name: 'INDIA',
+      value: 'INDIA',
+    },
+    {
+      name: 'SINGAPORE',
+      value: 'SINGAPORE',
+    },
+    {
+      name: 'USA',
+      value: 'USA',
+    },
+    {
+      name: 'CANADA',
+      value: 'CANADA',
+    },
+    {
+      name: 'MALAYSIA',
+      value: 'MALAYSIA',
+    },
+  ];
+  image = require('@/assets/logo.png');
+
   created() {
+    loginService.login();
+
     window.addEventListener('beforeinstallprompt', e => {
       e.preventDefault();
       // Stash the event so it can be triggered later.
-      this.deferredPrompt = e;
-      console.log('deferredPrompt -->', this.deferredPrompt);
+      this.$data.deferredPrompt = e;
+      console.log('deferredPrompt -->', this.$data.deferredPrompt);
     });
     window.addEventListener('appinstalled', () => {
-      this.deferredPrompt = null;
-      console.log('deferredPrompt ->', this.deferredPrompt);
+      this.$data.deferredPrompt = null;
+      console.log('deferredPrompt ->', this.$data.deferredPrompt);
     });
-    document.addEventListener('swUpdated', this.updateAvailable, { once: true })
-     navigator.serviceWorker.addEventListener('controllerchange', () => {
-        if (this.refreshing) return
-          this.refreshing = true
-                // Here the actual reload of the page occurs
-          window.location.reload()
-        })
-  },
-  data: () => ({
-    image: require('@/assets/logo.png'),
-    deferredPrompt: null,
-    drawer: false,
-    defaultCountry: 'INDIA',
-    collapseOnScroll: true,
-    refreshing: false,
-    registration: null,
-    updateExists: false,
-    menu: [
-      {
-        icon: 'mdi-order-bool-descending-variant',
-        title: 'My Orders',
-        path: '/',
-        badge: '?',
-      },
-      { icon: 'mdi-chef-hat', title: 'My Chefs', path: '/', badge: '?' },
-      { icon: 'mdi-cart-outline', title: 'My Cart', path: '/', badge: '?' },
-    ],
+    document.addEventListener('swUpdated', this.updateAvailable, { once: true });
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (this.refreshing) return;
+      this.refreshing = true;
+      // Here the actual reload of the page occurs
+      window.location.reload();
+    });
+  }
 
-    countries: [
-      {
-        name: 'INDIA',
-        value: 'INDIA',
-      },
-      {
-        name: 'SINGAPORE',
-        value: 'SINGAPORE',
-      },
-      {
-        name: 'USA',
-        value: 'USA',
-      },
-      {
-        name: 'CANADA',
-        value: 'CANADA',
-      },
-      {
-        name: 'MALAYSIA',
-        value: 'MALAYSIA',
-      },
-    ],
-  }),
-  methods: {
-    onchange: function() {
-      this.$store.commit('setCountry', this.defaultCountry);
-      console.log(this.$store.getters.getCountry);
-    },
-    manageDrawer: function() {
-      this.drawer = !this.drawer;
-    },
-    updateDrawerState: function(status) {
-      console.log('--> ', this.drawer, status);
-      if (!this.drawer === status) {
-        this.drawer = status;
-      }
-    },
-    async install() {
-      this.deferredPrompt.prompt();
-    },
-    updateAvailable(event) {
-      this.registration = event.detail
-      this.updateExists = true
-     },
-    refreshApp() {
-      this.updateExists = false
-      if (!this.registration || !this.registration.waiting) return
-        this.registration.waiting.postMessage({ type: 'SKIP_WAITING' })
-    },
-  },
-});
+  onchange() {
+    this.$store.commit('setCountry', this.defaultCountry);
+    console.log(this.$store.getters.getCountry);
+  }
+  manageDrawer() {
+    this.drawer = !this.drawer;
+  }
+  updateDrawerState(status) {
+    console.log('--> ', this.drawer, status);
+    if (!this.drawer === status) {
+      this.drawer = status;
+    }
+  }
+  async install() {
+    this.$data.deferredPrompt.prompt();
+  }
+  updateAvailable(event) {
+    this.registration = event.detail;
+    this.updateExists = true;
+  }
+  refreshApp() {
+    this.updateExists = false;
+    if (!this.registration || !this.registration.waiting) return;
+    this.registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+  }
+}
 </script>

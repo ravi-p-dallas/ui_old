@@ -48,10 +48,10 @@
 <style lang="scss"></style>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 
 export default Vue.extend({
-  name: "LayoutVideoCard",
+  name: 'LayoutVideoCard',
   props: [],
   components: {},
 
@@ -63,47 +63,47 @@ export default Vue.extend({
           const styles = this.visuals[country];
           return styles[className];
         };
-      }
-    }
+      },
+    },
   },
   data: () => ({
     loading: false,
     selection: 1,
     items: [
       {
-        btnText: "Find Chefs",
-        icon: "mdi-chef-hat",
-        className: "fCclass"
+        btnText: 'Find Chefs',
+        icon: 'mdi-chef-hat',
+        className: 'fCclass',
       },
 
       {
-        btnText: "Explore Menus",
-        icon: "mdi-book-open-page-variant",
-        className: "sMclass"
-      }
+        btnText: 'Explore Menus',
+        icon: 'mdi-book-open-page-variant',
+        className: 'sMclass',
+      },
     ],
     visuals: {
       INDIA: {
-        fCclass: "ma-2 white--text font-weight-bold orange darken-1",
-        sMclass: "ma-2 white--text font-weight-bold green darken-1"
+        fCclass: 'ma-2 white--text font-weight-bold orange darken-1',
+        sMclass: 'ma-2 white--text font-weight-bold green darken-1',
       },
       USA: {
-        fCclass: "ma-2 white--text font-weight-bold red darken-1",
-        sMclass: "ma-2 white--text font-weight-bold blue darken-1"
+        fCclass: 'ma-2 white--text font-weight-bold red darken-1',
+        sMclass: 'ma-2 white--text font-weight-bold blue darken-1',
       },
       SINGAPORE: {
-        fCclass: "ma-2 white--text font-weight-bold red lighten-1",
-        sMclass: "ma-2 red--text font-weight-bold white darken-1"
+        fCclass: 'ma-2 white--text font-weight-bold red lighten-1',
+        sMclass: 'ma-2 red--text font-weight-bold white darken-1',
       },
       CANADA: {
-        fCclass: "ma-2 white--text font-weight-bold red lighten-1",
-        sMclass: "ma-2 red--text font-weight-bold white darken-1"
+        fCclass: 'ma-2 white--text font-weight-bold red lighten-1',
+        sMclass: 'ma-2 red--text font-weight-bold white darken-1',
       },
       MALAYSIA: {
-        fCclass: "ma-2 white--text font-weight-bold red lighten-1",
-        sMclass: "ma-2 white--text font-weight-bold blue darken-1"
-      }
-    }
+        fCclass: 'ma-2 white--text font-weight-bold red lighten-1',
+        sMclass: 'ma-2 white--text font-weight-bold blue darken-1',
+      },
+    },
   }),
 
   methods: {
@@ -111,7 +111,7 @@ export default Vue.extend({
       this.loading = true;
 
       setTimeout(() => (this.loading = false), 2000);
-    }
-  }
+    },
+  },
 });
 </script>

@@ -22,15 +22,15 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 
 export default Vue.extend({
-  name: "SignInVideo",
+  name: 'SignInVideo',
 
   components: {},
   computed: {},
   data: () => ({
-    dialog: false
-  })
+    dialog: false,
+  }),
 });
 </script>

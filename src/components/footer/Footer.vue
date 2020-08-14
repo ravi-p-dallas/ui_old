@@ -10,7 +10,7 @@
                   <v-flex xs12 fill-height>
                     <v-card dark>
                       <v-card-text class="row mx-auto" style="text-align:center">
-                        <v-btn cols="3" sm="3" lg="3" md="3"  v-for="icon in icons" :key="icon" class=" white--text  mx-auto" icon>
+                        <v-btn cols="3" sm="3" lg="3" md="3" v-for="icon in icons" :key="icon" class=" white--text  mx-auto" icon>
                           <v-icon size="24px" color="green lighten-3">{{ icon }}</v-icon>
                         </v-btn>
                       </v-card-text>
@@ -27,7 +27,9 @@
                             </v-card-title>
 
                             <v-card-text v-for="(listItem, j) in item.list" :key="j" class="ml-5 pa-1">
-                              <v-btn text color="white" target="_blank" small :to="listItem.src"> <v-icon left>mdi-circle-small </v-icon> {{ listItem.title }} </v-btn>
+                              <v-btn text color="white" target="_blank" small :to="listItem.src">
+                                <v-icon left>mdi-circle-small </v-icon> {{ listItem.title }}
+                              </v-btn>
                             </v-card-text>
                           </v-card>
                         </v-col>
@@ -91,7 +93,7 @@
   </v-footer>
 </template>
 <style scoped>
-.v-text-field{
+.v-text-field {
   height: 57px;
 }
 </style>
