@@ -58,7 +58,10 @@
           </v-list-item-icon>
 
           <v-list-item-content>
-            <v-list-item-subtitle class="ma-auto white--text font-weight-bold">Logout</v-list-item-subtitle>
+            <v-list-item-subtitle class="ma-auto white--text font-weight-bold">
+               <!-- <button @click="$keycloak.logoutFn" v-if="$keycloak.authenticated">Logout</button> -->
+               Logout
+              </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -76,7 +79,7 @@ export default Vue.extend({
 
   watch: {
     drawer: function(newVal, oldVal) {
-      console.log('Prop changed: ', newVal, ' | was: ', oldVal);
+      this.$log.info('Prop changed: ', newVal, ' | was: ', oldVal);
       this.isOpen = newVal;
     },
   },
@@ -93,7 +96,7 @@ export default Vue.extend({
     },
     onchange: function() {
       this.$store.commit('setCountry', this.defaultCountry);
-      console.log(this.$store.getters.getCountry);
+      this.$log.info(this.name ,  this.$store.getters.getCountry);
     },
   },
 });

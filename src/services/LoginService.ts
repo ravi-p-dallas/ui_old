@@ -2,31 +2,32 @@
 
 import Vue from 'vue';
 import VueKeyCloak from '@dsb-norge/vue-keycloak-js';
-import axios from 'axios';
-import VueAxios from 'vue-axios';
 
-Vue.use(VueAxios, axios);
-Vue.use(VueKeyCloak, {
+const initOptions = {
   init: {
     // Use 'login-required' to always require authentication
     // If using 'login-required', there is no need for the router guards in router.js
     onLoad: 'check-sso',
   },
   config: {
-    url: 'http://keycloak:9080/auth/',
-    realm: 'keycloak-demo',
-    clientId: 'vs',
+    url: 'http://keycloak:9080/auth',
+    realm: 'VantaShala',
+    clientId: 'vantashala',
   },
   onReady: keycloak => {
     this.isUserLoggedIn = true;
-
+    console.log("---> READY");
     this.tokenInterceptor();
-  },
-});
+  }
+}
+
+Vue.use(VueKeyCloak, initOptions);
 
 class LoginService {
-  isUserLoggedIn = false;
+
+
   public login(loc = window.location) {
+
     console.log('Login Initiatied');
     const port = loc.port ? ':' + loc.port : '';
     let contextPath = location.pathname;
@@ -38,7 +39,9 @@ class LoginService {
     }
     // If you have configured multiple OIDC providers, then, you can update this URL to /login.
     // It will show a Spring Security generated login page with links to configured OIDC providers.
+
     //loc.href = `//${loc.hostname}${port}${contextPath}oauth2/authorization/oidc`;
+    console.log(loc.href)
   }
 
   public logout(): void {
