@@ -7,8 +7,16 @@ import vuetify from './plugins/vuetify';
 import VideoBackground from 'vue-responsive-video-background-player';
 import VueMeta from 'vue-meta';
 import VuePlyr from 'vue-plyr';
+import axios from 'axios';
+import VueAxios from 'vue-axios';
+import VueLogger from 'vue-logger-plugin'
+Vue.use(VueLogger, {
+  enabled: true,
+  level: 'debug',
+})
 
-Vue.prototype.$log = console.log.bind(console);
+
+const isProduction = process.env.NODE_ENV === 'production';
 
 Vue.use(VuePlyr, {
   plyr: {
@@ -19,6 +27,7 @@ Vue.use(VuePlyr, {
 
 Vue.use(VueMeta);
 Vue.component('VideoBg', VideoBackground);
+Vue.use(VueAxios, axios);
 
 Vue.config.productionTip = false;
 new Vue({
