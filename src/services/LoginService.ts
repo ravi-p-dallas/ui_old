@@ -6,8 +6,8 @@ import VueKeyCloak from '@dsb-norge/vue-keycloak-js';
 const initOptions = {
   init: {
     // Use 'login-required' to always require authentication
-    // If using 'login-required', there is no need for the router guards in router.js
-    onLoad: 'check-sso',
+    // If using 'login-required', there is no need for the router guards in router.js check-sso
+    onLoad: 'login-required',
   },
   config: {
     url: 'http://keycloak:9080/auth',
@@ -23,8 +23,8 @@ const initOptions = {
 
 Vue.use(VueKeyCloak, initOptions);
 
-class LoginService {
 
+class LoginService {
 
   public login(loc = window.location) {
 
@@ -59,6 +59,7 @@ class LoginService {
     // }, error => {
     //   return Promise.reject(error)
     // })
+    
     console.log('intercepting the request');
   }
 }
