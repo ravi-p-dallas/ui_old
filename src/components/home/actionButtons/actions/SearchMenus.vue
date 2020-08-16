@@ -1,7 +1,22 @@
 <template>
   <v-container fill-height fluid ma-0 pa-0 class="overflow-y-auto overflow-x-hidden" :class="this.$vuetify.breakpoint.mdAndDown ? 'py-1 px-4' : 'py-12 px-4'">
-    <v-row>
-      <v-col cols="12" sm="12" md="4" lg="3" v-for="(Menu, i) in Menus" :key="i" class="mx-auto my-16">
+    <v-row class="mx-auto my-16">
+      <v-col cols="12">
+      <v-col sm="12" md="12" lg="12" :class="this.$vuetify.breakpoint.mdAndDown ? 'mt-16' : 'mx-auto'">
+        <v-text-field
+              
+              v-model="search"
+              :class="this.$vuetify.breakpoint.mdAndDown ?'wa-100':'float-right'"
+              clearable
+              flat
+              solo-inverted
+              append-icon="mdi-magnify"
+              hide-details
+              label="Enter your zip code"
+            ></v-text-field>
+      </v-col>
+      </v-col>
+      <v-col cols="12" sm="12" md="4" lg="3" v-for="(Menu, i) in Menus" :key="i" >
         <v-card max-width="300" class="mx-auto">
           <v-img height="250" :src="Menu.PicSrc"></v-img>
           <v-card-title>
