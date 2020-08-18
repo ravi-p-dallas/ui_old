@@ -1,7 +1,27 @@
 <template>
   <v-container fill-height fluid ma-0 pa-0 class="overflow-y-auto overflow-x-hidden" :class="this.$vuetify.breakpoint.mdAndDown ? 'py-1 px-4' : 'py-12 px-4'">
-    <v-row>
-      <v-col cols="12" sm="12" md="4" lg="3" v-for="(Menu, i) in Menus" :key="i" class="mx-auto my-12">
+    <v-row class="mx-auto my-0">
+      <v-col cols="12">
+      <v-col sm="12" md="12" lg="12" :class="this.$vuetify.breakpoint.mdAndDown ? 'mt-0' : 'mx-auto'">
+        <v-container class="ma-0 pa-0 text-center">
+          <a href="/" style="text-decoration: none;"><v-btn text :class="this.$vuetify.breakpoint.mdAndDown ? 'mb-1 ' : 'float-right pa-6'"><v-icon class="pa-0">mdi-arrow-left-bold</v-icon></v-btn></a>
+          <v-btn text :class="this.$vuetify.breakpoint.mdAndDown ? 'mb-1 ' : 'float-right pa-6'"><v-icon class="pa-0">mdi-book-open-page-variant</v-icon></v-btn>
+          <v-btn text :class="this.$vuetify.breakpoint.mdAndDown ? 'mb-1 ' : 'float-right pa-6'"><v-icon class="pa-0">mdi-silverware</v-icon></v-btn>
+          <v-btn text :class="this.$vuetify.breakpoint.mdAndDown ? 'mb-1 ' : 'float-right pa-6'"><v-icon class="pa-0">mdi-chef-hat</v-icon></v-btn>
+        </v-container>
+        <v-text-field
+              v-model="search"
+              :class="this.$vuetify.breakpoint.mdAndDown ?'wa-100':'float-right'"
+              clearable
+              flat
+              solo-inverted
+              append-icon="mdi-magnify"
+              hide-details
+              label="Enter your zip code"
+            ></v-text-field>
+      </v-col>
+      </v-col>
+      <v-col cols="12" sm="12" md="4" lg="3" v-for="(Menu, i) in Menus" :key="i" >
         <v-card max-width="300" class="mx-auto">
           <v-img height="250" :src="Menu.PicSrc"></v-img>
           <v-card-title>
