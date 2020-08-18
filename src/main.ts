@@ -9,22 +9,22 @@ import VueMeta from 'vue-meta';
 import VuePlyr from 'vue-plyr';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
-import VueLogger from 'vue-logger-plugin'
-Vue.use(VueLogger, {
-  enabled: true,
-  level: 'debug',
-})
-
+import VueLogger from 'vue-logger-plugin';
+import Notifications from 'vue-notification'
 
 const isProduction = process.env.NODE_ENV === 'production';
 
+Vue.use(Notifications);
+Vue.use(VueLogger, {
+  enabled: true,
+  level: 'debug',
+});
 Vue.use(VuePlyr, {
   plyr: {
     fullscreen: { enabled: false },
   },
   emit: ['ended'],
 });
-
 Vue.use(VueMeta);
 Vue.component('VideoBg', VideoBackground);
 Vue.use(VueAxios, axios);
@@ -36,3 +36,4 @@ new Vue({
   vuetify,
   render: h => h(App),
 }).$mount('#app');
+

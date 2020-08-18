@@ -1,54 +1,53 @@
 // import axios, { AxiosPromise } from 'axios';
 
 import Vue from 'vue';
+import Component from "vue-class-component";
 import VueKeyCloak from '@dsb-norge/vue-keycloak-js';
 
 const initOptions = {
   init: {
     // Use 'login-required' to always require authentication
     // If using 'login-required', there is no need for the router guards in router.js check-sso
-    onLoad: 'check-sso',
+    onLoad: 'check-sso'
+
   },
   config: {
     url: 'http://keycloak:9080/auth',
     realm: 'VantaShala',
     clientId: 'vantashala',
   },
-  onReady: keycloak => {
-    this.isUserLoggedIn = true;
-    console.log("---> READY");
-    this.tokenInterceptor();
+  onReady: (keycloak: any) => {
+    //this.tokenInterceptor();
+    console.log("I wonder what Keycloak returns: " + Vue.prototype.$keycloak)
   }
 }
 
 Vue.use(VueKeyCloak, initOptions);
 
 
-class LoginService {
+@Component
+class AuthService extends Vue {
 
   public login(loc = window.location) {
 
     console.log('Login Initiatied');
-    const port = loc.port ? ':' + loc.port : '';
-    let contextPath = location.pathname;
-    if (contextPath.endsWith('accessdenied')) {
-      contextPath = contextPath.substring(0, contextPath.indexOf('accessdenied'));
-    }
-    if (!contextPath.endsWith('/')) {
-      contextPath = contextPath + '/';
-    }
-    // If you have configured multiple OIDC providers, then, you can update this URL to /login.
-    // It will show a Spring Security generated login page with links to configured OIDC providers.
+    const keyCloak = Vue.prototype.$keycloak;
 
-    //loc.href = `//${loc.hostname}${port}${contextPath}oauth2/authorization/oidc`;
-    console.log(loc.href)
+    if (keyCloak != undefined && keyCloak.authenticated) {
+      console.log("User Already Logged in");
+    } else {
+      Vue.prototype.$keycloak.login();
+    }
+
   }
 
   public logout(): void {
     //   return axios.post('api/logout');
-    Vue.axios.get('api/logout').then(response => {
-      console.log(response.data);
-    });
+    // Vue.axios.get('api/logout').then(response => {
+    //   console.log(response.data);
+    // });
+
+    Vue.prototype.$keycloak.logout();
   }
 
   public tokenInterceptor(): void {
@@ -59,9 +58,9 @@ class LoginService {
     // }, error => {
     //   return Promise.reject(error)
     // })
-    
+
     console.log('intercepting the request');
   }
 }
 
-export const loginService = new LoginService();
+export const authService = new AuthService();

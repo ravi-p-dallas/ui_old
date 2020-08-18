@@ -192,6 +192,7 @@ export default Vue.extend({
     hover: true,
     show: true,
     BGvidsrc: 'https://vsassets.netlify.app/vantashala_1.mp4',
+
   }),
   methods: {
     clicked: function(e, obj) {

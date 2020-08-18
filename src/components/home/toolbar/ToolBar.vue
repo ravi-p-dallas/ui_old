@@ -9,19 +9,25 @@
 
       <v-toolbar-title class="pl-2 text-h6 white--text font-weight-bold gradient-text-logo"><a href="/">VantaShala</a></v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-toolbar-items v-if="updateExists" color="primary">
+      <!-- <v-toolbar-items v-if="updateExists" color="primary">
         <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="refreshApp">
           <v-icon left>mdi-open-in-new</v-icon>
           <div class="gradient-text">Update App</div>
         </v-btn>
-      </v-toolbar-items>
+      </v-toolbar-items> -->
       <v-toolbar-items v-if="deferredPrompt">
         <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="install">
           <v-icon left>mdi-open-in-new</v-icon>
-          <div class="gradient-text">Open App</div>
+          <div class="gradient-text">Install App</div>
         </v-btn>
       </v-toolbar-items>
 
+      <!-- <v-toolbar-items>
+        <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="login">
+          <v-icon left>mdi-open-in-new</v-icon>
+          <div class="gradient-text">Test Login</div>
+        </v-btn>
+      </v-toolbar-items> -->
       <v-toolbar-items class="hidden-sm-and-down">
         <v-badge color="purple lighten-4" v-for="(item, i) in menu" :key="i" :to="item.link" text small overlap class="ma-auto mr-5" :value="item.badge != '?'">
           <span slot="badge" class="purple--text font-weight-bold">{{ item.badge }}</span>
@@ -39,7 +45,12 @@
             </select>
           </v-btn>
         </div>
-        <v-avatar class="ma-auto ml-3 white--text font-weight-bold" size="36" tile link @click="this.checkIsUserLoggedIn()">
+
+        <!-- <button @click="$keycloak != undefined && $keycloak.logoutFn" v-if="$keycloak != undefined && $keycloak.authenticated">Log out</button> -->
+        <button v-if="isLoggedIn()">Log out</button>
+
+        <v-avatar class="ma-auto ml-3 white--text font-weight-bold" size="36" tile link>
+          <!-- <img src="https://randomuser.me/api/portraits/men/81.jpg" alt="Gopi" @click.stop="manageDrawer" /> -->
           <img src="https://randomuser.me/api/portraits/men/81.jpg" alt="Gopi" @click.stop="manageDrawer" />
         </v-avatar>
       </v-toolbar-items>
@@ -55,6 +66,25 @@
       @updateDrawerState="updateDrawerState"
       :countryChange="onchange"
     />
+
+    <v-dialog v-model="updateExists" persistent max-width="310">
+      <v-card>
+        <v-card-title class="headline orange lighten-1">
+          Reload Required
+        </v-card-title>
+
+        <v-card-text class="mt-10">
+          VantaShala needs an update. Lets refresh.
+        </v-card-text>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="green darken-1" dark @click="refreshApp()">
+            <v-icon left>mdi-download-box</v-icon> Refresh
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
 <style lang="scss">
@@ -64,7 +94,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import NavigationDrawer from './NavigationDrawer.vue';
-import { loginService } from '../../../services/LoginService';
+import { authService } from '../../../services/AuthService';
 import { Component, Prop, Watch } from 'vue-property-decorator';
 
 @Component({
@@ -121,8 +151,6 @@ export default class ToolBar extends Vue {
   image = require('@/assets/logo.png');
 
   created() {
-    loginService.login();
-
     window.addEventListener('beforeinstallprompt', e => {
       e.preventDefault();
       // Stash the event so it can be triggered later.
@@ -138,10 +166,15 @@ export default class ToolBar extends Vue {
       if (this.refreshing) return;
       this.refreshing = true;
       // Here the actual reload of the page occurs
+      console.log("Reloading.....");
       window.location.reload();
     });
   }
 
+  isLoggedIn() {
+    //console.log('Is User Authenticated ==> ' + Vue.prototype.$keycloak.authenticated);
+    //return Vue.prototype.$keycloak.authenticated;
+  }
   onchange() {
     this.$store.commit('setCountry', this.defaultCountry);
     console.log(this.$store.getters.getCountry);
@@ -158,11 +191,16 @@ export default class ToolBar extends Vue {
   async install() {
     this.$data.deferredPrompt.prompt();
   }
+
+  login() {
+    authService.login();
+  }
   updateAvailable(event) {
     this.registration = event.detail;
     this.updateExists = true;
   }
   refreshApp() {
+    console.log("->Reloading....")
     this.updateExists = false;
     if (!this.registration || !this.registration.waiting) return;
     this.registration.waiting.postMessage({ type: 'SKIP_WAITING' });
