@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid fill-height class="ma-0 pa-0 d-flex flex-column" scroll-y>
+  <v-container fluid fill-height class="ma-0 pa-0 flex-column" scroll-y>
     <ToolBar :tbStyle="tbStyle" />
     <ScrollTransitionButtons />
     <BgVideo />
