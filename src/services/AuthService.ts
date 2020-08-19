@@ -33,11 +33,16 @@ class AuthService extends Vue {
     console.log('Login Initiatied');
     const keyCloak = Vue.prototype.$keycloak;
 
-    if (keyCloak != undefined && keyCloak.authenticated) {
+    if (keyCloak != undefined) {
+      if (!keyCloak.authenticated) {
+        Vue.prototype.$keycloak.login();
+        return;
+      }
       console.log("User Already Logged in");
     } else {
-      Vue.prototype.$keycloak.login();
+      console.log("Problem with keycloak");
     }
+
 
   }
 

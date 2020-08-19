@@ -30,12 +30,6 @@ import { bus } from '../../../App.vue';
 export default Vue.extend({
   name: 'ActionButtons',
 
-  props: {
-        currentComp: {
-            type: String,
-            required: true
-        }
-    },
   components: {
     BeAChef,
   },
@@ -104,7 +98,7 @@ export default Vue.extend({
     handleFunctionCall: function(event) {
       if (event == this.items[2].btnText) {
         console.log('in Menu bro');
-        bus.$emit('switchComp',"SearchMenus");
+        bus.$emit('switchComp', 'SearchMenus');
       } else {
         this.dialog = true;
         this.dialogAction = event;

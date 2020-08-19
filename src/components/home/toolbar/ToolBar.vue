@@ -22,12 +22,12 @@
         </v-btn>
       </v-toolbar-items>
 
-      <!-- <v-toolbar-items>
+      <v-toolbar-items>
         <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="login">
           <v-icon left>mdi-open-in-new</v-icon>
           <div class="gradient-text">Test Login</div>
         </v-btn>
-      </v-toolbar-items> -->
+      </v-toolbar-items>
       <v-toolbar-items class="hidden-sm-and-down">
         <v-badge color="purple lighten-4" v-for="(item, i) in menu" :key="i" :to="item.link" text small overlap class="ma-auto mr-5" :value="item.badge != '?'">
           <span slot="badge" class="purple--text font-weight-bold">{{ item.badge }}</span>
