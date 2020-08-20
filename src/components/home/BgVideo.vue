@@ -24,7 +24,6 @@ import Vue from 'vue';
 import Carousel from './Carousel.vue';
 import SearchMenus from './actionButtons/actions/SearchMenus.vue';
 import actionButtons from './actionButtons/ActionCardButtons.vue';
-import { bus } from '../../App.vue';
 import CountryFlip from '../../store/CountryFlip';
 import store from '@/store';
 import { Component, Prop, Watch } from 'vue-property-decorator';
@@ -42,11 +41,6 @@ export default class BgVideo extends Vue {
   created() {
     this.currentComp = Carousel;
     this.BGvidsrc = 'https://vsassets.netlify.app/vantashala_1.mp4';
-    bus.$on('switchComp', event => {
-      console.log(event);
-      this.currentComp = event;
-      this.BGvidsrc = '';
-    });
   }
 
   get countryChanged() {

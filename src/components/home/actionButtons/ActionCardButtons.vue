@@ -34,7 +34,6 @@
 <script lang="ts">
 import Vue from 'vue';
 import BeAChef from './actions/BeAChef.vue';
-import { bus } from '../../../App.vue';
 import store from '@/store';
 import { Component, Prop, Watch } from 'vue-property-decorator';
 import { getModule } from 'vuex-module-decorators';
