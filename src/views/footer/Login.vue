@@ -1,7 +1,7 @@
 <template>
   <v-container fluid fill-height class="ma-0 pa-0 d-flex flex-column" scroll-y>
     <ToolBar> </ToolBar>
-    <SignUpLink class="mt-15" />
+    <LoginLink class="mt-15" />
     <Footer id="FT" />
   </v-container>
 </template>
@@ -10,10 +10,10 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import ToolBar from '../components/home/toolbar/ToolBar.vue';
+import ToolBar from '../../components/home/toolbar/ToolBar.vue';
 
-import Footer from '../components/footer/Footer.vue';
-import SignUpLink from '../components/footer/links/SignUpLink.vue';
+import Footer from '../../components/footer/Footer.vue';
+import LoginLink from '../../components/footer/links/LoginLink.vue';
 
 export default Vue.extend({
   name: 'App',
@@ -21,7 +21,7 @@ export default Vue.extend({
   components: {
     ToolBar,
     Footer,
-    SignUpLink,
+    LoginLink,
   },
 });
 </script>
