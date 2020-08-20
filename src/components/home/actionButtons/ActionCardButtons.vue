@@ -1,9 +1,6 @@
 <template>
   <v-card class="transparent card_mgTop" outlined style="position: absolute; width:100%">
-    <v-card-actions
-      :class="this.$vuetify.breakpoint.smAndDown ? 'd-flex flex-column' : ''"
-      :style="this.$vuetify.breakpoint.smAndDown ? '' : 'margin-left: 10%'"
-    >
+    <v-card-actions>
       <div class="text-center">
         <v-btn :class="findChefClass" @click.stop="handleFunctionCall('Find Home Chefs')" id="findChef">
           <v-icon left>mdi-chef-hat</v-icon>
