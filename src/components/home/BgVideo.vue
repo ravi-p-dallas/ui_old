@@ -30,8 +30,7 @@ import { Component, Prop, Watch } from 'vue-property-decorator';
 import { getModule } from 'vuex-module-decorators';
 
 @Component({
-  components: { Carousel, SearchMenus, actionButtons },
-  props: ['tbStyle'],
+  components: { Carousel, SearchMenus, actionButtons }
 })
 export default class BgVideo extends Vue {
   currentComp: any = '';
