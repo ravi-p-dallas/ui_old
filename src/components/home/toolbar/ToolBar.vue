@@ -11,17 +11,23 @@
       <v-spacer></v-spacer>
 
       <v-toolbar-items v-if="deferredPrompt">
-        <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="install">
-          <v-icon left>mdi-open-in-new</v-icon>
-          <div class="gradient-text">Install App</div>
-        </v-btn>
+        <v-badge color="purple lighten-4" text small overlap class="ma-auto mr-5">
+          <span slot="badge" class="purple--text font-weight-bold">alert</span>
+          <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="install">
+            <v-icon left>mdi-open-in-new</v-icon>
+            <div class="gradient-text">Install App</div>
+          </v-btn>
+        </v-badge>
       </v-toolbar-items>
 
       <v-toolbar-items>
-        <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="login">
-          <v-icon left>mdi-open-in-new</v-icon>
-          <div class="gradient-text">Test Login</div>
-        </v-btn>
+        <v-badge color="purple lighten-4" text small overlap class="ma-auto mr-5">
+          <span slot="badge" class="purple--text font-weight-bold">?</span>
+          <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="login">
+            <v-icon left>mdi-open-in-new</v-icon>
+            <div class="gradient-text">Test Login</div>
+          </v-btn>
+        </v-badge>
       </v-toolbar-items>
       <v-toolbar-items class="hidden-sm-and-down">
         <v-badge color="purple lighten-4" v-for="(item, i) in menu" :key="i" :to="item.link" text small overlap class="ma-auto mr-5" :value="item.badge != '?'">
@@ -45,8 +51,7 @@
         <button v-if="isLoggedIn()">Log out</button>
 
         <v-avatar class="ma-auto ml-3 white--text font-weight-bold" size="36" tile link>
-          
-          <img src="https://randomuser.me/api/portraits/men/99.jpg" alt="Gopi" @click.stop="manageDrawer" />
+          <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Gopi" @click.stop="manageDrawer" />
         </v-avatar>
       </v-toolbar-items>
 
@@ -156,7 +161,6 @@ export default class ToolBar extends Vue {
     //return Vue.prototype.$keycloak.authenticated;
   }
   onchange() {
-
     const cMod = getModule(CountryFlip);
     cMod.changeCountry(this.defaultCountry);
     console.log('Change Country Triggered');
