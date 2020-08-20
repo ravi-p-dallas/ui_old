@@ -13,57 +13,57 @@ const routes: Array<RouteConfig> = [
   {
     path: '/about',
     name: 'about',
-    component: () => import('../views/About.vue'),
+    component: () => import('../views/footer/About.vue'),
   },
   {
     path: '/legal',
     name: 'legal',
-    component: () => import('../views/Legal.vue'),
+    component: () => import('../views/footer/Legal.vue'),
   },
   {
     path: '/mobile',
     name: 'mobile',
-    component: () => import('../views/Mobile.vue'),
+    component: () => import('../views/footer/Mobile.vue'),
   },
   {
     path: '/ourMenu',
     name: 'ourMenu',
-    component: () => import('../views/OurMenu.vue'),
+    component: () => import('../views/footer/OurMenu.vue'),
   },
   {
     path: '/howItWorks',
     name: 'howItWorks',
-    component: () => import('../views/HowItWorks.vue'),
+    component: () => import('../views/footer/HowItWorks.vue'),
   },
   {
     path: '/login',
     name: 'login',
-    component: () => import('../views/Login.vue'),
+    component: () => import('../views/footer/Login.vue'),
   },
   {
     path: '/signUp',
     name: 'signUp',
-    component: () => import('../views/SignUp.vue'),
+    component: () => import('../views/footer/SignUp.vue'),
   },
   {
     path: '/kitchen',
     name: 'kitchen',
-    component: () => import('../views/Kitchen.vue'),
+    component: () => import('../views/footer/Kitchen.vue'),
   },
   {
     path: '/termsOfService',
     name: 'termsOfService',
-    component: () => import('../views/TermsOfService.vue'),
+    component: () => import('../views/footer/TermsOfService.vue'),
   },
   {
     path: '/privacyPolicy',
     name: 'privacyPolicy',
-    component: () => import('../views/PrivacyPolicy.vue'),
+    component: () => import('../views/footer/PrivacyPolicy.vue'),
   },
   {
     path: '/info',
     name: 'info',
-    component: () => import('../views/Info.vue'),
+    component: () => import('../views/footer/Info.vue'),
   },
 ];
 
