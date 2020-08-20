@@ -58,7 +58,7 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="hidden-md-and-up" color="white"></v-app-bar-nav-icon>
     </v-app-bar>
 
-    <NavigationDrawer :drawer="drawer" :countries="countries" :menu="menu" @updateDrawerState="updateDrawerState" />
+    <NavigationDrawer :drawer="drawer"  :menu="menu" @updateDrawerState="updateDrawerState" />
 
     <v-dialog v-model="updateExists" persistent max-width="310">
       <v-card>
@@ -104,7 +104,7 @@ export default class ToolBar extends Vue {
   registration;
   updateExists = false;
   deferredPrompt = '';
-  countryName=getModule(CountryFlip).CountryName;
+  countryName = getModule(CountryFlip).CountryName;
 
   menu = [
     {

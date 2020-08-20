@@ -81,7 +81,7 @@ import { getModule } from 'vuex-module-decorators';
 
 @Component({
   components: {},
-  props: ['countries', 'menu', 'drawer'],
+  props: ['menu', 'drawer'],
 })
 export default class NavigationDrawer extends Vue {
   isOpen = false;
