@@ -42,7 +42,7 @@
           <v-btn text small class="ma-auto white--text font-weight-bold">
             <v-icon left>mdi-earth</v-icon>
             <select name="country" @change="onchange()" class="dropdown-select ma-auto" v-model="defaultCountry">
-              <option v-for="country in countries" :key="country.name" :value="country.name">{{ country.name }}</option>
+              <option v-for="country in countryName" :key="country.name" :value="country.name">{{ country.name }}</option>
             </select>
           </v-btn>
         </div>
@@ -58,7 +58,7 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="hidden-md-and-up" color="white"></v-app-bar-nav-icon>
     </v-app-bar>
 
-    <NavigationDrawer :drawer="drawer" :countries="countries" :menu="menu" @updateDrawerState="updateDrawerState" />
+    <NavigationDrawer :drawer="drawer"  :menu="menu" @updateDrawerState="updateDrawerState" />
 
     <v-dialog v-model="updateExists" persistent max-width="310">
       <v-card>
@@ -104,6 +104,7 @@ export default class ToolBar extends Vue {
   registration;
   updateExists = false;
   deferredPrompt = '';
+  countryName = getModule(CountryFlip).CountryName;
 
   menu = [
     {
@@ -114,23 +115,6 @@ export default class ToolBar extends Vue {
     },
     { icon: 'mdi-chef-hat', title: 'My Chefs', path: '/', badge: '?', action: 'login' },
     { icon: 'mdi-cart-outline', title: 'My Cart', path: '/', badge: '?' },
-  ];
-  countries = [
-    {
-      name: 'INDIA',
-    },
-    {
-      name: 'SINGAPORE',
-    },
-    {
-      name: 'USA',
-    },
-    {
-      name: 'CANADA',
-    },
-    {
-      name: 'MALAYSIA',
-    },
   ];
   image = require('@/assets/logo.png');
 
