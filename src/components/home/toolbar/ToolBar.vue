@@ -1,6 +1,6 @@
 <template>
   <v-container fluid class="pa-0 ma-0">
-    <v-app-bar :style="tbStyle" text-center align="center" class="pa-0" elevate-on-scroll fixed>
+    <v-app-bar :style="tbStyle" text-center align="center" class="pa-0" elevate-on-scroll fixed v-scroll="onScroll">
       <v-app-bar-nav-icon :class="this.$vuetify.breakpoint.mdAndDown ? 'pa-3' : 'ml-2 pa-7'">
         <a href="/">
           <v-img :src="image" width="48px"></v-img>
@@ -58,7 +58,7 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="hidden-md-and-up" color="white"></v-app-bar-nav-icon>
     </v-app-bar>
 
-    <NavigationDrawer :drawer="drawer"  :menu="menu" @updateDrawerState="updateDrawerState" />
+    <NavigationDrawer :drawer="drawer" :menu="menu" @updateDrawerState="updateDrawerState" />
 
     <v-dialog v-model="updateExists" persistent max-width="310">
       <v-card>
@@ -90,10 +90,10 @@ import { Component, Prop, Watch } from 'vue-property-decorator';
 import { getModule } from 'vuex-module-decorators';
 import store from '@/store';
 import CountryFlip from '../../../store/CountryFlip';
+import ActionButtonsSwitch from '@/store/ActionButtonsSwitch';
 
 @Component({
   components: { NavigationDrawer },
-  props: ['tbStyle'],
 })
 export default class ToolBar extends Vue {
   name = 'ToolBar';
@@ -105,6 +105,10 @@ export default class ToolBar extends Vue {
   updateExists = false;
   deferredPrompt = '';
   visualsClassAttributes = getModule(CountryFlip).visualsClassAttributes;
+  tbStyle = 'background-color: transparent';
+  tbStyleNonTransparent =
+    'opacity:0.95; background-color: #263238; background: rgb(250,117,0); background: radial-gradient(circle, rgba(250,117,0,1) 0%, rgba(128,153,41,1) 76%, rgba(62,83,81,1) 100%);';
+  activeComponent = '';
 
   menu = [
     {
@@ -185,6 +189,32 @@ export default class ToolBar extends Vue {
     this.$log.info('Country Chnaged in Vuex Store');
     const cMod = getModule(CountryFlip);
     return cMod.visualStyle.overlay;
+  }
+
+  @Watch('activeComponentChanged')
+  updateActiveComponent() {
+    this.$log.info(this.name, 'Watch Observed');
+    this.tbStyle = this.tbStyleNonTransparent;
+  }
+
+  get activeComponentChanged() {
+    const cMod = getModule(ActionButtonsSwitch);
+    this.$log.info(this.name, ': Active Component Changed' + cMod.activeComponent);
+    return cMod.activeComponent;
+  }
+
+  onScroll(e) {
+    if (typeof window === 'undefined') return;
+
+    const top = window.pageYOffset || e.target.scrollTop || 0;
+
+    if (top > 120) {
+      this.tbStyle = this.tbStyleNonTransparent;
+    } else {
+      if (this.activeComponent == 'Home') {
+        this.tbStyle = 'background-color: transparent';
+      }
+    }
   }
 }
 </script>

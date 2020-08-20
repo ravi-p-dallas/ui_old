@@ -1,6 +1,6 @@
 <template>
   <v-container fluid fill-height class="ma-0 pa-0 flex-column" scroll-y>
-    <ToolBar :tbStyle="tbStyle" />
+    <ToolBar />
     <ScrollTransitionButtons />
 
     <v-main style="width:100%" v-if="activeComponent == 'Home'">
@@ -15,7 +15,7 @@
     <BeAChef v-if="activeComponent == 'Be A Chef'" />
     <FindChefs v-if="activeComponent == 'Find Home Chefs'" />
     <Footer id="FT" />
-    <ScrollTransitionBottomButton v-scroll="onScroll" />
+    <ScrollTransitionBottomButton />
   </v-container>
 </template>
 
@@ -54,25 +54,13 @@ import { getModule } from 'vuex-module-decorators';
     ScrollTransitionBottomButton,
     SearchMenus,
     BeAChef,
-    FindChefs
+    FindChefs,
   },
 })
 export default class Home extends Vue {
   name = 'Home: ';
-  tbStyle = 'background-color: transparent';
   activeComponent = '';
-  onScroll(e) {
-    if (typeof window === 'undefined') return;
 
-    const top = window.pageYOffset || e.target.scrollTop || 0;
-
-    if (top > 120) {
-      this.tbStyle =
-        'opacity:0.95; background-color: #263238; background: rgb(250,117,0); background: radial-gradient(circle, rgba(250,117,0,1) 0%, rgba(128,153,41,1) 76%, rgba(62,83,81,1) 100%);';
-    } else {
-      this.tbStyle = 'background-color: transparent';
-    }
-  }
   toTop() {
     this.$vuetify.goTo(0);
   }

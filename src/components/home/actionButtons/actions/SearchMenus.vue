@@ -1,34 +1,35 @@
 <template>
-  <v-container fill-height fluid ma-0 pa-0 class="overflow-y-auto overflow-x-hidden" :class="this.$vuetify.breakpoint.mdAndDown ? 'py-1 px-4' : 'py-12 px-4'">
-    <v-row class="mx-auto my-0">
-      <v-col cols="12">
-        <v-col sm="12" md="12" lg="12" :class="this.$vuetify.breakpoint.mdAndDown ? 'mt-0' : 'mx-auto'">
-          <v-container class="ma-0 pa-0 text-center">
-            <a href="/" style="text-decoration: none;"
-              ><v-btn text :class="this.$vuetify.breakpoint.mdAndDown ? 'mb-1 ' : 'float-right pa-6'"
-                ><v-icon class="pa-0">mdi-arrow-left-bold</v-icon></v-btn
-              ></a
-            >
-            <v-btn text :class="this.$vuetify.breakpoint.mdAndDown ? 'mb-1 ' : 'float-right pa-6'"
-              ><v-icon class="pa-0">mdi-book-open-page-variant</v-icon></v-btn
-            >
-            <v-btn text :class="this.$vuetify.breakpoint.mdAndDown ? 'mb-1 ' : 'float-right pa-6'"><v-icon class="pa-0">mdi-silverware</v-icon></v-btn>
-            <v-btn text :class="this.$vuetify.breakpoint.mdAndDown ? 'mb-1 ' : 'float-right pa-6'"><v-icon class="pa-0">mdi-chef-hat</v-icon></v-btn>
-          </v-container>
+  <v-container fill-height fluid>
+    <v-row align="center" justify="center" class="ma-2">
+      <v-col>
+        <v-toolbar flat width="100%">
+          <v-toolbar-title class="font-weight-bold ">
+            <span style="letter-spacing:1px" class="text_card_style ma-0">
+              Menus Section
+            </span>
+          </v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-btn text class="mr-2"> <v-icon>mdi-arrow-left-bold</v-icon></v-btn>
           <v-text-field
-            v-model="search"
-            :class="this.$vuetify.breakpoint.mdAndDown ? 'wa-100' : 'float-right'"
+            label="ZIP Code"
+            class="ma-auto green--text text--lighten-3"
+            outlined
+            rounded
+            solo
             clearable
-            flat
-            solo-inverted
-            append-icon="mdi-magnify"
             hide-details
-            label="Enter your zip code"
+            append-icon="mdi-magnify"
           ></v-text-field>
-        </v-col>
+
+          <v-btn text class="ml-2 "><v-icon>mdi-book-open-page-variant</v-icon></v-btn>
+          <v-btn text class="ml-2 "><v-icon>mdi-silverware</v-icon></v-btn>
+          <v-btn text class="ml-2"><v-icon>mdi-chef-hat</v-icon></v-btn>
+        </v-toolbar>
       </v-col>
-      <v-col cols="12" sm="12" md="4" lg="3" v-for="(Menu, i) in Menus" :key="i">
-        <v-card max-width="300" class="mx-auto">
+    </v-row>
+    <v-row align="center" justify="center" class="ma-2">
+      <v-col v-for="(Menu, i) in Menus" :key="i">
+        <v-card max-width="300">
           <v-img height="250" :src="Menu.PicSrc"></v-img>
           <v-card-title>
             {{ Menu.KitchenName }}
@@ -46,20 +47,26 @@
           <v-card-title>Availability</v-card-title>
           <div class="grey--text ml-4">Sufficien for {{ Menu.capacity }}People</div>
           <v-card-text>
-            <v-chip-group v-model="selection" active-class="deep-purple accent-4 white--text" column>
+            <v-chip-group active-class="deep-purple accent-4 white--text" column>
               <v-chip>BreakFast</v-chip>
               <v-chip>Lunch</v-chip>
               <v-chip>Dinner</v-chip>
             </v-chip-group>
           </v-card-text>
           <v-card-actions>
-            <v-btn color="deep-purple lighten-2" text @click="reserve">Reserve</v-btn>
+            <v-btn color="deep-purple lighten-2" text>Reserve</v-btn>
             <v-spacer></v-spacer>
-            <v-btn color="deep-purple lighten-2" text @click="reserve">Ingradients</v-btn>
+            <v-btn color="deep-purple lighten-2" text>Ingradients</v-btn>
           </v-card-actions>
         </v-card>
       </v-col>
-      <v-btn style="background: transparent;" to="/ourMenu" class="mx-auto my-12 text-center" width="300" height="100" cols="12">View more Menus</v-btn>
+    </v-row>
+
+    <v-row>
+      <v-row>
+        <v-col cols="12" sm="12" md="4" lg="3" v-for="(Menu, i) in Menus" :key="i"> </v-col>
+        <v-btn style="background: transparent;" to="/ourMenu" class="mx-auto my-12 text-center" width="300" height="100" cols="12">View more Menus</v-btn>
+      </v-row>
     </v-row>
   </v-container>
 </template>
@@ -73,6 +80,126 @@ import { Component, Prop, Watch } from 'vue-property-decorator';
 export default class SearchMenus extends Vue {
   name = 'SearchMenus';
   Menus = [
+    {
+      PicSrc: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
+      KitchenName: 'MyKitchen1',
+      speciality: 'All rounder1',
+      rating: 4.5,
+      ItemName: 'sandwiches',
+      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      NoOfReviews: 13,
+      capacity: 3,
+    },
+    {
+      PicSrc: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
+      KitchenName: 'MyKitchen2',
+      speciality: 'All rounder2',
+      rating: 4.5,
+      ItemName: 'sandwiches',
+      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      NoOfReviews: 13,
+      capacity: 4,
+    },
+    {
+      PicSrc: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
+      KitchenName: 'MyKitchen3',
+      speciality: 'All rounder3',
+      rating: 4.5,
+      ItemName: 'sandwiches',
+      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      NoOfReviews: 13,
+      capacity: 5,
+    },
+    {
+      PicSrc: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
+      KitchenName: 'MyKitchen4',
+      speciality: 'All rounder4',
+      rating: 4.5,
+      ItemName: 'sandwiches',
+      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      NoOfReviews: 13,
+      capacity: 6,
+    },
+    {
+      PicSrc: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
+      KitchenName: 'MyKitchen1',
+      speciality: 'All rounder1',
+      rating: 4.5,
+      ItemName: 'sandwiches',
+      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      NoOfReviews: 13,
+      capacity: 3,
+    },
+    {
+      PicSrc: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
+      KitchenName: 'MyKitchen2',
+      speciality: 'All rounder2',
+      rating: 4.5,
+      ItemName: 'sandwiches',
+      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      NoOfReviews: 13,
+      capacity: 4,
+    },
+    {
+      PicSrc: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
+      KitchenName: 'MyKitchen3',
+      speciality: 'All rounder3',
+      rating: 4.5,
+      ItemName: 'sandwiches',
+      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      NoOfReviews: 13,
+      capacity: 5,
+    },
+    {
+      PicSrc: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
+      KitchenName: 'MyKitchen4',
+      speciality: 'All rounder4',
+      rating: 4.5,
+      ItemName: 'sandwiches',
+      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      NoOfReviews: 13,
+      capacity: 6,
+    },
+    {
+      PicSrc: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
+      KitchenName: 'MyKitchen1',
+      speciality: 'All rounder1',
+      rating: 4.5,
+      ItemName: 'sandwiches',
+      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      NoOfReviews: 13,
+      capacity: 3,
+    },
+    {
+      PicSrc: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
+      KitchenName: 'MyKitchen2',
+      speciality: 'All rounder2',
+      rating: 4.5,
+      ItemName: 'sandwiches',
+      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      NoOfReviews: 13,
+      capacity: 4,
+    },
+    {
+      PicSrc: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
+      KitchenName: 'MyKitchen3',
+      speciality: 'All rounder3',
+      rating: 4.5,
+      ItemName: 'sandwiches',
+      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      NoOfReviews: 13,
+      capacity: 5,
+    },
+    {
+      PicSrc: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
+      KitchenName: 'MyKitchen4',
+      speciality: 'All rounder4',
+      rating: 4.5,
+      ItemName: 'sandwiches',
+      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      NoOfReviews: 13,
+      capacity: 6,
+    },
     {
       PicSrc: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
       KitchenName: 'MyKitchen1',
