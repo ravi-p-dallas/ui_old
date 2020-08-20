@@ -1,7 +1,7 @@
 <template>
   <v-card class="transparent card_mgTop" outlined style="position: absolute; width:100%">
-    <v-card-actions>
-      <div class="text-center">
+    <v-card-actions class="text-center">
+      <span>
         <v-btn :class="findChefClass" @click.stop="handleFunctionCall('Find Home Chefs')" id="findChef">
           <v-icon left>mdi-chef-hat</v-icon>
           Find Home Chefs
@@ -14,7 +14,7 @@
           <v-icon left>mdi-book-open-page-variant</v-icon>
           Explore Menus
         </v-btn>
-      </div>
+      </span>
     </v-card-actions>
     <!-- <v-dialog v-model="dialog" max-width="290" :fullscreen="$vuetify.breakpoint.mobile">
       <v-btn v-if="dialogAction == this.items[0].btnText" @click:stop="this.dialog = !this.dialog">sdf</v-btn>
