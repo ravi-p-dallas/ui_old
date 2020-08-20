@@ -42,7 +42,7 @@
           </v-list-item-icon>
           <div class="dropdown ma-0">
             <select name="country" @change="onchange()" class="dropdown-select ma-auto" v-model="defaultCountry">
-              <option v-for="country in countries" :key="country.name" :value="country.name">{{ country.name }}</option>
+              <option v-for="country in countryName" :key="country.name" :value="country.name">{{ country.name }}</option>
             </select>
           </div>
         </v-list-item>
@@ -85,6 +85,7 @@ import { getModule } from 'vuex-module-decorators';
 })
 export default class NavigationDrawer extends Vue {
   isOpen = false;
+  countryName=getModule(CountryFlip).CountryName;
   styles = {
     'background-color': `transparent`,
   };

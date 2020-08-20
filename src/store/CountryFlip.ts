@@ -57,6 +57,12 @@ export default class CountryFlip extends VuexModule {
     console.log(': VisualStyle Get', this.visualsClasses[this.countryName]);
     return this.visualsClasses[this.countryName];
   }
+  public get CountryName(){
+    
+    for( const a in this.visualsClasses){
+    console.log(':CountryNames Get', a);}
+    return this.visualsClasses;
+  }
 
   @Action
   public changeCountry(country: string) {
