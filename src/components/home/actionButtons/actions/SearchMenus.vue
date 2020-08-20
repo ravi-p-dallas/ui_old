@@ -12,16 +12,19 @@
             {{ Menu.kitchenName }} <v-spacer />
             <div class="text-subtitle-1 blue-grey--text ml-1">{{ Menu.speciality }}</div>
           </v-card-title>
-
           <v-divider class="mx-2 pa-0"></v-divider>
-          <v-card-title class="green--text text-subtitle-1 align-end"
-            >Availability
-            <v-spacer />
-            <v-row class="ml-2">
-              <v-rating :value="Menu.rating" color="amber" dense half-increments readonly size="14"></v-rating>
-              <div class="grey--text ml-4">{{ Menu.rating }} ({{ Menu.noOfReviews }})</div>
-            </v-row></v-card-title
-          >
+          <v-card-title class="text-subtitle-1 mx-2 pa-2">
+            Availability <v-spacer />
+            <!-- <v-rating :value="Menu.rating" color="green accent-4" background-color="green" dense half-increments readonly size="14"></v-rating> -->
+            <v-rating v-model="Menu.rating" dense half-increments>
+              <template v-slot:item="props">
+                <v-icon color="green lighten-1" small @click="props.click">
+                  {{ props.isFilled ? 'mdi-star-circle' : 'mdi-circle-outline' }}
+                </v-icon>
+              </template>
+            </v-rating>
+          </v-card-title>
+
           <div class="grey--text ml-4">Sufficient for {{ Menu.capacity }} person(s)</div>
           <v-card-text>
             <v-chip-group active-class="deep-purple accent-4 white--text" column>
@@ -93,7 +96,7 @@ export default class SearchMenus extends Vue {
     {
       image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
       kitchenName: 'MyKitchen4',
-      speciality: 'All rounder4',
+      speciality: 'Mexican4',
       rating: 4.5,
       itemName: 'sandwiches',
       description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
@@ -103,7 +106,7 @@ export default class SearchMenus extends Vue {
     {
       image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
       kitchenName: 'MyKitchen1',
-      speciality: 'All rounder1',
+      speciality: 'Mexican1',
       rating: 4.5,
       itemName: 'sandwiches',
       description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
@@ -113,7 +116,7 @@ export default class SearchMenus extends Vue {
     {
       image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
       kitchenName: 'MyKitchen2',
-      speciality: 'All rounder2',
+      speciality: 'Mexican2',
       rating: 4.5,
       itemName: 'sandwiches',
       description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
@@ -123,7 +126,7 @@ export default class SearchMenus extends Vue {
     {
       image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
       kitchenName: 'MyKitchen3',
-      speciality: 'All rounder3',
+      speciality: 'Mexican3',
       rating: 4.5,
       itemName: 'sandwiches',
       description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
@@ -133,7 +136,7 @@ export default class SearchMenus extends Vue {
     {
       image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
       kitchenName: 'MyKitchen4',
-      speciality: 'All rounder4',
+      speciality: 'Mexican4',
       rating: 4.5,
       itemName: 'sandwiches',
       description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
@@ -143,7 +146,7 @@ export default class SearchMenus extends Vue {
     {
       image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
       kitchenName: 'MyKitchen1',
-      speciality: 'All rounder1',
+      speciality: 'Mexican1',
       rating: 4.5,
       itemName: 'sandwiches',
       description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
@@ -153,7 +156,7 @@ export default class SearchMenus extends Vue {
     {
       image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
       kitchenName: 'MyKitchen2',
-      speciality: 'All rounder2',
+      speciality: 'Mexican2',
       rating: 4.5,
       itemName: 'sandwiches',
       description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
@@ -163,7 +166,7 @@ export default class SearchMenus extends Vue {
     {
       image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
       kitchenName: 'MyKitchen3',
-      speciality: 'All rounder3',
+      speciality: 'Mexican3',
       rating: 4.5,
       itemName: 'sandwiches',
       description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
@@ -173,7 +176,7 @@ export default class SearchMenus extends Vue {
     {
       image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
       kitchenName: 'MyKitchen4',
-      speciality: 'All rounder4',
+      speciality: 'Mexican4',
       rating: 4.5,
       itemName: 'sandwiches',
       description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
@@ -183,7 +186,7 @@ export default class SearchMenus extends Vue {
     {
       image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
       kitchenName: 'MyKitchen1',
-      speciality: 'All rounder1',
+      speciality: 'Mexican1',
       rating: 4.5,
       itemName: 'sandwiches',
       description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
@@ -193,7 +196,7 @@ export default class SearchMenus extends Vue {
     {
       image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
       kitchenName: 'MyKitchen2',
-      speciality: 'All rounder2',
+      speciality: 'Mexican2',
       rating: 4.5,
       itemName: 'sandwiches',
       description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
@@ -203,7 +206,7 @@ export default class SearchMenus extends Vue {
     {
       image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
       kitchenName: 'MyKitchen3',
-      speciality: 'All rounder3',
+      speciality: 'Mexican3',
       rating: 4.5,
       itemName: 'sandwiches',
       description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
@@ -213,7 +216,7 @@ export default class SearchMenus extends Vue {
     {
       image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
       kitchenName: 'MyKitchen4',
-      speciality: 'All rounder4',
+      speciality: 'Mexican4',
       rating: 4.5,
       itemName: 'sandwiches',
       description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
