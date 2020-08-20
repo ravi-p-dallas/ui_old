@@ -54,7 +54,7 @@ export default Vue.extend({
   data: () => ({}),
   methods: {
     onScroll() {
-      console.log('Scrolled');
+      this.$log.debug(this.name, 'Scrolled');
     },
   },
 });

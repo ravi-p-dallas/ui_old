@@ -3,15 +3,19 @@ import store from '@/store';
 
 @Module({ dynamic: true, store, name: 'ActionButtonsSwitch' })
 export default class ActionButtonsSwitch extends VuexModule {
-  activeComponent = '';
+    private aComponent = 'Home';
 
-  @Mutation
-  setComponent(payload: string) {
-    this.activeComponent = payload;
-  }
+    @Mutation
+    private setActiveComponent(cName: string) {
+        this.aComponent = cName;
+    }
 
-  @Action
-  changeComponent(cName: string) {
-    this.context.commit('setCountry', cName);
-  }
+    @Action
+    public changeComponent(cName: string) {
+        this.context.commit('setActiveComponent', cName);
+    }
+
+    public get activeComponent() {
+        return this.aComponent;
+    }
 }

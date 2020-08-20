@@ -39,12 +39,14 @@ import store from '@/store';
 import { Component, Prop, Watch } from 'vue-property-decorator';
 import { getModule } from 'vuex-module-decorators';
 import CountryFlip from '../../../store/CountryFlip';
+import ActionButtonsSwitch from '../../../store/ActionButtonsSwitch';
 
 @Component({
   components: { BeAChef },
   props: ['tbStyle'],
 })
 export default class ActionButtons extends Vue {
+  name = 'ActionButtons';
   dialog = false;
   dialogAction = '';
   items: any = '';
@@ -67,7 +69,9 @@ export default class ActionButtons extends Vue {
     console.log('===> ', this.findChefStyle, this.beAchefStyle, this.exploreMenusStyle);
   }
   handleFunctionCall(event) {
-    console.log('-->', event);
+    console.log(this.name, '-clicked-', event);
+    const actionButtonsSwitch = getModule(ActionButtonsSwitch);
+    actionButtonsSwitch.changeComponent(event);
   }
 
   get findChefClass() {

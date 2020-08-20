@@ -65,57 +65,59 @@
 </template>
 <script lang="ts">
 import Vue from 'vue';
-export default Vue.extend({
-  name: 'SearchMenus',
+import { Component, Prop, Watch } from 'vue-property-decorator';
 
+@Component({
   components: {},
+})
+export default class SearchMenus extends Vue {
+  name = 'SearchMenus';
+  Menus = [
+    {
+      PicSrc: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
+      KitchenName: 'MyKitchen1',
+      speciality: 'All rounder1',
+      rating: 4.5,
+      ItemName: 'sandwiches',
+      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      NoOfReviews: 13,
+      capacity: 3,
+    },
+    {
+      PicSrc: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
+      KitchenName: 'MyKitchen2',
+      speciality: 'All rounder2',
+      rating: 4.5,
+      ItemName: 'sandwiches',
+      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      NoOfReviews: 13,
+      capacity: 4,
+    },
+    {
+      PicSrc: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
+      KitchenName: 'MyKitchen3',
+      speciality: 'All rounder3',
+      rating: 4.5,
+      ItemName: 'sandwiches',
+      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      NoOfReviews: 13,
+      capacity: 5,
+    },
+    {
+      PicSrc: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
+      KitchenName: 'MyKitchen4',
+      speciality: 'All rounder4',
+      rating: 4.5,
+      ItemName: 'sandwiches',
+      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      NoOfReviews: 13,
+      capacity: 6,
+    },
+  ];
 
-  computed: {},
-
-  data: () => ({
-    Menus: [
-      {
-        PicSrc: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
-        KitchenName: 'MyKitchen1',
-        speciality: 'All rounder1',
-        rating: 4.5,
-        ItemName: 'sandwiches',
-        description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
-        NoOfReviews: 13,
-        capacity: 3,
-      },
-      {
-        PicSrc: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
-        KitchenName: 'MyKitchen2',
-        speciality: 'All rounder2',
-        rating: 4.5,
-        ItemName: 'sandwiches',
-        description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
-        NoOfReviews: 13,
-        capacity: 4,
-      },
-      {
-        PicSrc: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
-        KitchenName: 'MyKitchen3',
-        speciality: 'All rounder3',
-        rating: 4.5,
-        ItemName: 'sandwiches',
-        description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
-        NoOfReviews: 13,
-        capacity: 5,
-      },
-      {
-        PicSrc: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
-        KitchenName: 'MyKitchen4',
-        speciality: 'All rounder4',
-        rating: 4.5,
-        ItemName: 'sandwiches',
-        description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
-        NoOfReviews: 13,
-        capacity: 6,
-      },
-    ],
-  }),
-  methods: {},
-});
+  constructor(parameters) {
+    super();
+    console.log('LayoutContainer Object Contructor called');
+  }
+}
 </script>
