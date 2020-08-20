@@ -156,11 +156,10 @@ export default class ToolBar extends Vue {
     //return Vue.prototype.$keycloak.authenticated;
   }
   onchange() {
-    // this.$store.commit('setCountry', this.defaultCountry);
+
     const cMod = getModule(CountryFlip);
     cMod.changeCountry(this.defaultCountry);
-    console.log('Chnage Country Triggered');
-    //console.log(this.$store.getters.getCountry);
+    console.log('Change Country Triggered');
   }
   manageDrawer() {
     this.drawer = !this.drawer;
