@@ -77,7 +77,6 @@ export default class LayoutVideoCard extends Vue {
     const styles = cMod.visualStyle;
     this.findChefStyle = styles['fCclass'];
     this.exploreMenusStyle = styles['sMclass'];
-
   }
   handleFunctionCall(event) {
     console.log('-->', event);
@@ -102,8 +101,8 @@ export default class LayoutVideoCard extends Vue {
     return cMod.country;
   }
   reserve() {
-      this.loading = true;
-      setTimeout(() => (this.loading = false), 2000);
-    }
+    this.loading = true;
+    setTimeout(() => (this.loading = false), 2000);
+  }
 }
 </script>

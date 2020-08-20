@@ -50,8 +50,7 @@ import { Component, Prop, Watch } from 'vue-property-decorator';
 import { getModule } from 'vuex-module-decorators';
 import CountryFlip from '../../store/CountryFlip';
 
-@Component({
-})
+@Component({})
 export default class LayoutSignInBeAChefCard extends Vue {
   loading = false;
   image = require('@/assets/biryani_2.jpg');

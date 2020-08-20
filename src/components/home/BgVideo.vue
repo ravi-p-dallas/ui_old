@@ -50,7 +50,7 @@ export default class BgVideo extends Vue {
   }
 
   get countryChanged() {
-    this.$log.info("Overlay is about to change")
+    this.$log.info('Overlay is about to change');
     const cMod = getModule(CountryFlip);
     return cMod.visualStyle.overlay;
   }

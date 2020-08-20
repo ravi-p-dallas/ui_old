@@ -113,7 +113,6 @@ export default class NavigationDrawer extends Vue {
 }
 </script>
 
-
 <style lang="scss">
 @import './toolbar.scss';
 </style>
