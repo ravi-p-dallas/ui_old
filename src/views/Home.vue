@@ -1,9 +1,8 @@
 <template>
   <v-container fluid fill-height class="ma-0 pa-0 flex-column" scroll-y>
     <ToolBar />
-    <ScrollTransitionButtons />
-
     <v-main style="width:100%" v-if="activeComponent == 'Home'">
+      <ScrollTransitionButtons />
       <BgVideo />
       <RepeatedOrders class="mb-0 grey lighten-5 overflow-y-auto" id="RO" />
       <ImageGallery class="ma-0 green lighten-5" id="IG" />

@@ -205,7 +205,7 @@ export default class ToolBar extends Vue {
 
   get activeComponentChanged() {
     const cMod = getModule(ActionButtonsSwitch);
-    this.$log.info(this.name, ': Active Component Changed' + cMod.activeComponent);
+    this.$log.debug(this.name, ': Active Component Changed : ' + cMod.activeComponent);
     return cMod.activeComponent;
   }
 
