@@ -9,12 +9,7 @@
 
       <v-toolbar-title class="pl-2 text-h6 white--text font-weight-bold gradient-text-logo"><a href="/">VantaShala</a></v-toolbar-title>
       <v-spacer></v-spacer>
-      <!-- <v-toolbar-items v-if="updateExists" color="primary">
-        <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="refreshApp">
-          <v-icon left>mdi-open-in-new</v-icon>
-          <div class="gradient-text">Update App</div>
-        </v-btn>
-      </v-toolbar-items> -->
+
       <v-toolbar-items v-if="deferredPrompt">
         <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="install">
           <v-icon left>mdi-open-in-new</v-icon>
