@@ -5,7 +5,7 @@
       <v-col v-for="(Menu, i) in Menus" :key="i">
         <v-card max-width="320">
           <v-img height="250" :src="Menu.image" class="white--text text-subtitle-1 align-end">
-            <v-card-title class="">{{ Menu.itemName }}</v-card-title>
+            <v-card-title class="test font-weight-bold white--text">{{ Menu.itemName }}</v-card-title>
           </v-img>
           <v-card-text> {{ Menu.description }} </v-card-text>
           <v-card-title class="text-subtitle-1 mx-2 pa-2">
@@ -13,9 +13,8 @@
             <div class="text-subtitle-1 blue-grey--text ml-1">{{ Menu.speciality }}</div>
           </v-card-title>
           <v-divider class="mx-2 pa-0"></v-divider>
-          <v-card-title class="text-subtitle-1 mx-2 pa-2">
-            Availability <v-spacer />
-            <!-- <v-rating :value="Menu.rating" color="green accent-4" background-color="green" dense half-increments readonly size="14"></v-rating> -->
+          <v-card-title class="text-subtitle-2 mx-2 pa-2">
+            Sufficient for {{ Menu.capacity }} person(s) <v-spacer />
             <v-rating v-model="Menu.rating" dense half-increments>
               <template v-slot:item="props">
                 <v-icon color="green lighten-1" small @click="props.click">
@@ -25,12 +24,14 @@
             </v-rating>
           </v-card-title>
 
-          <div class="grey--text ml-4">Sufficient for {{ Menu.capacity }} person(s)</div>
           <v-card-text>
+            <div class="text-subtitle-2">Availabile for:</div>
             <v-chip-group active-class="deep-purple accent-4 white--text" column>
-              <v-chip>BreakFast</v-chip>
-              <v-chip>Lunch</v-chip>
-              <v-chip>Dinner</v-chip>
+              <v-chip small class="ma-2" color="green" outlined>9:00 AM</v-chip>
+              <v-chip small class="ma-2" color="green" outlined>12:00 PM</v-chip>
+              <v-chip small class="ma-2" color="green" outlined>4:00 PM</v-chip>
+              <v-chip small class="ma-2" color="green" outlined>7:00 PM</v-chip>
+              <v-chip small class="ma-2" color="green" outlined>9:00 PM</v-chip>
             </v-chip-group>
           </v-card-text>
           <v-card-actions>
@@ -50,6 +51,13 @@
     </v-row>
   </v-container>
 </template>
+
+<style lang="scss" scoped>
+.test {
+  color: #fff;
+  text-shadow: 0 0 5px rgb(211, 38, 38), 0 0 10px #ccc, 0 0 20px #676, 0 0 40px rgb(212, 6, 6), 0 0 80px #8c7, 0 0 90px rgb(151, 175, 141), 0 0 100px rgb(50, 211, 18), 0 0 150px rgb(41, 223, 17);
+}
+</style>>
 <script lang="ts">
 import Vue from 'vue';
 import { Component, Prop, Watch } from 'vue-property-decorator';
@@ -68,8 +76,8 @@ export default class SearchMenus extends Vue {
       kitchenName: 'MyKitchen1',
       speciality: 'South Indian',
       rating: 4.5,
-      itemName: 'sandwiches',
-      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      itemName: 'Sandwich',
+      description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
       capacity: 3,
     },
@@ -78,8 +86,8 @@ export default class SearchMenus extends Vue {
       kitchenName: 'MyKitchen2',
       speciality: 'Italian',
       rating: 4.5,
-      itemName: 'sandwiches',
-      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      itemName: 'Sandwich',
+      description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
       capacity: 4,
     },
@@ -89,7 +97,7 @@ export default class SearchMenus extends Vue {
       speciality: 'Italian',
       rating: 4.5,
       itemName: 'Cheese Pizza',
-      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
       capacity: 5,
     },
@@ -98,8 +106,8 @@ export default class SearchMenus extends Vue {
       kitchenName: 'MyKitchen4',
       speciality: 'Mexican4',
       rating: 4.5,
-      itemName: 'sandwiches',
-      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      itemName: 'Sandwich',
+      description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
       capacity: 6,
     },
@@ -108,8 +116,8 @@ export default class SearchMenus extends Vue {
       kitchenName: 'MyKitchen1',
       speciality: 'Mexican1',
       rating: 4.5,
-      itemName: 'sandwiches',
-      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      itemName: 'Sandwich',
+      description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
       capacity: 3,
     },
@@ -118,8 +126,8 @@ export default class SearchMenus extends Vue {
       kitchenName: 'MyKitchen2',
       speciality: 'Mexican2',
       rating: 4.5,
-      itemName: 'sandwiches',
-      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      itemName: 'Sandwich',
+      description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
       capacity: 4,
     },
@@ -128,8 +136,8 @@ export default class SearchMenus extends Vue {
       kitchenName: 'MyKitchen3',
       speciality: 'Mexican3',
       rating: 4.5,
-      itemName: 'sandwiches',
-      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      itemName: 'Sandwich',
+      description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
       capacity: 5,
     },
@@ -138,8 +146,8 @@ export default class SearchMenus extends Vue {
       kitchenName: 'MyKitchen4',
       speciality: 'Mexican4',
       rating: 4.5,
-      itemName: 'sandwiches',
-      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      itemName: 'Sandwich',
+      description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
       capacity: 6,
     },
@@ -148,8 +156,8 @@ export default class SearchMenus extends Vue {
       kitchenName: 'MyKitchen1',
       speciality: 'Mexican1',
       rating: 4.5,
-      itemName: 'sandwiches',
-      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      itemName: 'Sandwich',
+      description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
       capacity: 3,
     },
@@ -158,8 +166,8 @@ export default class SearchMenus extends Vue {
       kitchenName: 'MyKitchen2',
       speciality: 'Mexican2',
       rating: 4.5,
-      itemName: 'sandwiches',
-      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      itemName: 'Sandwich',
+      description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
       capacity: 4,
     },
@@ -168,8 +176,8 @@ export default class SearchMenus extends Vue {
       kitchenName: 'MyKitchen3',
       speciality: 'Mexican3',
       rating: 4.5,
-      itemName: 'sandwiches',
-      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      itemName: 'Sandwich',
+      description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
       capacity: 5,
     },
@@ -178,8 +186,8 @@ export default class SearchMenus extends Vue {
       kitchenName: 'MyKitchen4',
       speciality: 'Mexican4',
       rating: 4.5,
-      itemName: 'sandwiches',
-      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      itemName: 'Sandwich',
+      description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
       capacity: 6,
     },
@@ -188,8 +196,8 @@ export default class SearchMenus extends Vue {
       kitchenName: 'MyKitchen1',
       speciality: 'Mexican1',
       rating: 4.5,
-      itemName: 'sandwiches',
-      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      itemName: 'Sandwich',
+      description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
       capacity: 3,
     },
@@ -198,8 +206,8 @@ export default class SearchMenus extends Vue {
       kitchenName: 'MyKitchen2',
       speciality: 'Mexican2',
       rating: 4.5,
-      itemName: 'sandwiches',
-      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      itemName: 'Sandwich',
+      description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
       capacity: 4,
     },
@@ -208,8 +216,8 @@ export default class SearchMenus extends Vue {
       kitchenName: 'MyKitchen3',
       speciality: 'Mexican3',
       rating: 4.5,
-      itemName: 'sandwiches',
-      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      itemName: 'Sandwich',
+      description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
       capacity: 5,
     },
@@ -218,8 +226,8 @@ export default class SearchMenus extends Vue {
       kitchenName: 'MyKitchen4',
       speciality: 'Mexican4',
       rating: 4.5,
-      itemName: 'sandwiches',
-      description: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
+      itemName: 'Sandwich',
+      description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
       capacity: 6,
     },
