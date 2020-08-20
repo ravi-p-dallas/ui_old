@@ -45,8 +45,8 @@
         <button v-if="isLoggedIn()">Log out</button>
 
         <v-avatar class="ma-auto ml-3 white--text font-weight-bold" size="36" tile link>
-          <!-- <img src="https://randomuser.me/api/portraits/men/81.jpg" alt="Gopi" @click.stop="manageDrawer" /> -->
-          <img src="https://randomuser.me/api/portraits/men/81.jpg" alt="Gopi" @click.stop="manageDrawer" />
+          
+          <img src="https://randomuser.me/api/portraits/men/99.jpg" alt="Gopi" @click.stop="manageDrawer" />
         </v-avatar>
       </v-toolbar-items>
 
