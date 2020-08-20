@@ -193,8 +193,14 @@ export default class ToolBar extends Vue {
 
   @Watch('activeComponentChanged')
   updateActiveComponent() {
-    this.$log.info(this.name, 'Watch Observed');
-    this.tbStyle = this.tbStyleNonTransparent;
+    this.$log.info(this.name, 'Watch Observed', this.activeComponent);
+    this.activeComponent = getModule(ActionButtonsSwitch).activeComponent;
+
+    if (this.activeComponent != 'Home') {
+      this.tbStyle = this.tbStyleNonTransparent;
+    } else {
+      this.tbStyle = 'background-color: transparent';
+    }
   }
 
   get activeComponentChanged() {
