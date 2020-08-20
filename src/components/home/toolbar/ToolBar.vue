@@ -42,7 +42,7 @@
           <v-btn text small class="ma-auto white--text font-weight-bold">
             <v-icon left>mdi-earth</v-icon>
             <select name="country" @change="onchange()" class="dropdown-select ma-auto" v-model="defaultCountry">
-              <option v-for="country in countryName" :key="country.name" :value="country.name">{{ country.name }}</option>
+              <option v-for="country in visualsClassAttributes" :key="country.name" :value="country.name">{{ country.name }}</option>
             </select>
           </v-btn>
         </div>
@@ -104,7 +104,7 @@ export default class ToolBar extends Vue {
   registration;
   updateExists = false;
   deferredPrompt = '';
-  countryName = getModule(CountryFlip).CountryName;
+  visualsClassAttributes = getModule(CountryFlip).visualsClassAttributes;
 
   menu = [
     {
