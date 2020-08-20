@@ -10,11 +10,9 @@ import VuePlyr from 'vue-plyr';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 import VueLogger from 'vue-logger-plugin';
-import Notifications from 'vue-notification'
 
 const isProduction = process.env.NODE_ENV === 'production';
 
-Vue.use(Notifications);
 Vue.use(VueLogger, {
   enabled: true,
   level: 'debug',
@@ -36,4 +34,3 @@ new Vue({
   vuetify,
   render: h => h(App),
 }).$mount('#app');
-

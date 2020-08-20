@@ -59,7 +59,7 @@ export default Vue.extend({
         this.tbStyle = 'background-color: transparent';
       }
     },
-    toTop(e) {
+    toTop() {
       this.$vuetify.goTo(0);
     },
   },

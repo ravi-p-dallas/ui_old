@@ -1,4 +1,4 @@
- <template>
+<template>
   <v-container ma-0 pa-0>
     <v-fab-transition>
       <v-btn v-scroll="onScroll" v-show="fab" fab dark fixed bottom right class="circle" @click="toTop">

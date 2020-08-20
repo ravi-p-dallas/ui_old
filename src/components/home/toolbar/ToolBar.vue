@@ -41,7 +41,7 @@
           <v-btn text small class="ma-auto white--text font-weight-bold">
             <v-icon left>mdi-earth</v-icon>
             <select name="country" @change="onchange()" class="dropdown-select ma-auto" v-model="defaultCountry">
-              <option v-for="country in countries" :key="country.name" :value="country.value">{{ country.name }}</option>
+              <option v-for="country in countries" :key="country.name" :value="country.name">{{ country.name }}</option>
             </select>
           </v-btn>
         </div>
@@ -58,14 +58,7 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="hidden-md-and-up" color="white"></v-app-bar-nav-icon>
     </v-app-bar>
 
-    <NavigationDrawer
-      :drawer="drawer"
-      :countries="countries"
-      :menu="menu"
-      :defaultCountry="defaultCountry"
-      @updateDrawerState="updateDrawerState"
-      :countryChange="onchange"
-    />
+    <NavigationDrawer :drawer="drawer" :countries="countries" :menu="menu" @updateDrawerState="updateDrawerState" />
 
     <v-dialog v-model="updateExists" persistent max-width="310">
       <v-card>
@@ -79,9 +72,7 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="green darken-1" dark @click="refreshApp()">
-            <v-icon left>mdi-download-box</v-icon> Refresh
-          </v-btn>
+          <v-btn color="green darken-1" dark @click="refreshApp()"> <v-icon left>mdi-download-box</v-icon> Refresh </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -96,6 +87,9 @@ import Vue from 'vue';
 import NavigationDrawer from './NavigationDrawer.vue';
 import { authService } from '../../../services/AuthService';
 import { Component, Prop, Watch } from 'vue-property-decorator';
+import { getModule } from 'vuex-module-decorators';
+import store from '@/store';
+import CountryFlip from '../../../store/CountryFlip';
 
 @Component({
   components: { NavigationDrawer },
@@ -104,17 +98,12 @@ import { Component, Prop, Watch } from 'vue-property-decorator';
 export default class ToolBar extends Vue {
   name = 'ToolBar';
   drawer = false;
-  defaultCountry = 'INDIA';
+  defaultCountry;
   collapseOnScroll = true;
   refreshing = false;
   registration;
   updateExists = false;
-
-  data(): any {
-    return {
-      deferredPrompt: null,
-    };
-  }
+  deferredPrompt = '';
 
   menu = [
     {
@@ -129,23 +118,18 @@ export default class ToolBar extends Vue {
   countries = [
     {
       name: 'INDIA',
-      value: 'INDIA',
     },
     {
       name: 'SINGAPORE',
-      value: 'SINGAPORE',
     },
     {
       name: 'USA',
-      value: 'USA',
     },
     {
       name: 'CANADA',
-      value: 'CANADA',
     },
     {
       name: 'MALAYSIA',
-      value: 'MALAYSIA',
     },
   ];
   image = require('@/assets/logo.png');
@@ -166,9 +150,10 @@ export default class ToolBar extends Vue {
       if (this.refreshing) return;
       this.refreshing = true;
       // Here the actual reload of the page occurs
-      console.log("Reloading.....");
+      console.log('Reloading.....');
       window.location.reload();
     });
+    this.defaultCountry = getModule(CountryFlip).country;
   }
 
   isLoggedIn() {
@@ -176,8 +161,11 @@ export default class ToolBar extends Vue {
     //return Vue.prototype.$keycloak.authenticated;
   }
   onchange() {
-    this.$store.commit('setCountry', this.defaultCountry);
-    console.log(this.$store.getters.getCountry);
+    // this.$store.commit('setCountry', this.defaultCountry);
+    const cMod = getModule(CountryFlip);
+    cMod.changeCountry(this.defaultCountry);
+    console.log('Chnage Country Triggered');
+    //console.log(this.$store.getters.getCountry);
   }
   manageDrawer() {
     this.drawer = !this.drawer;
@@ -200,10 +188,21 @@ export default class ToolBar extends Vue {
     this.updateExists = true;
   }
   refreshApp() {
-    console.log("->Reloading....")
+    console.log('->Reloading....');
     this.updateExists = false;
     if (!this.registration || !this.registration.waiting) return;
     this.registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+  }
+
+  @Watch('countryChanged')
+  setbackCountry() {
+    console.log(this.constructor.name, ': Country Changed', getModule(CountryFlip).country);
+    this.defaultCountry = getModule(CountryFlip).country;
+  }
+  get countryChanged() {
+    this.$log.info('Country Chnaged in Vuex Store');
+    const cMod = getModule(CountryFlip);
+    return cMod.visualStyle.overlay;
   }
 }
 </script>

@@ -42,7 +42,7 @@
           </v-list-item-icon>
           <div class="dropdown ma-0">
             <select name="country" @change="onchange()" class="dropdown-select ma-auto" v-model="defaultCountry">
-              <option v-for="country in countries" :key="country.name" :value="country.value">{{ country.name }}</option>
+              <option v-for="country in countries" :key="country.name" :value="country.name">{{ country.name }}</option>
             </select>
           </div>
         </v-list-item>
@@ -59,9 +59,9 @@
 
           <v-list-item-content>
             <v-list-item-subtitle class="ma-auto white--text font-weight-bold">
-               <!-- <button @click="$keycloak.logoutFn" v-if="$keycloak.authenticated">Logout</button> -->
-               Logout
-              </v-list-item-subtitle>
+              <!-- <button @click="$keycloak.logoutFn" v-if="$keycloak.authenticated">Logout</button> -->
+              Logout
+            </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -71,36 +71,48 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import Carousel from './Carousel.vue';
+import SearchMenus from './actionButtons/actions/SearchMenus.vue';
+import actionButtons from './actionButtons/ActionCardButtons.vue';
+import CountryFlip from '../../../store/CountryFlip';
+import store from '@/store';
+import { Component, Prop, Watch } from 'vue-property-decorator';
+import { getModule } from 'vuex-module-decorators';
 
-export default Vue.extend({
-  name: 'NavigationDrawer',
+@Component({
+  components: {},
+  props: ['countries', 'menu', 'drawer'],
+})
+export default class NavigationDrawer extends Vue {
+  isOpen = false;
+  styles = {
+    'background-color': `transparent`,
+  };
+  defaultCountry;
+  drawer;
+  created() {
+    this.defaultCountry = getModule(CountryFlip).country;
+  }
+  updateDrawerState() {
+    this.isOpen = !this.isOpen;
+    this.$emit('updateDrawerState', this.isOpen);
+  }
 
-  props: ['countries', 'menu', 'drawer', 'defaultCountry', 'countryChange'],
+  onchange() {
+    const cMod = getModule(CountryFlip);
+    cMod.changeCountry(this.defaultCountry);
+    console.log('Change Country Triggered from Drawer');
+  }
 
-  watch: {
-    drawer: function(newVal, oldVal) {
-      this.$log.info('Prop changed: ', newVal, ' | was: ', oldVal);
-      this.isOpen = newVal;
-    },
-  },
-  data: () => ({
-    isOpen: false,
-    styles: {
-      'background-color': `transparent`,
-    },
-  }),
-  methods: {
-    updateDrawerState: function() {
-      this.isOpen = !this.isOpen;
-      this.$emit('updateDrawerState', this.isOpen);
-    },
-    onchange: function() {
-      this.$store.commit('setCountry', this.defaultCountry);
-      this.$log.info(this.name ,  this.$store.getters.getCountry);
-    },
-  },
-});
+  @Watch('drawer')
+  updateClasses(newVal, oldVal) {
+    this.$log.info('Prop changed: ', newVal, ' | was: ', oldVal);
+    this.isOpen = newVal;
+    this.defaultCountry = getModule(CountryFlip).country;
+  }
+}
 </script>
+
 
 <style lang="scss">
 @import './toolbar.scss';

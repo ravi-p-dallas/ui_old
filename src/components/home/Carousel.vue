@@ -71,6 +71,6 @@ export default Vue.extend({
     ],
     CarouselTime: 15000,
   }),
-  methods: { },
+  methods: {},
 });
 </script>

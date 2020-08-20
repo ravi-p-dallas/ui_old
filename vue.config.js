@@ -1,5 +1,5 @@
 module.exports = {
-  transpileDependencies: ['vuetify'],
+  transpileDependencies: ['vuetify', 'vuex-module-decorators'],
   pwa: {
     name: 'VantaShala',
     themeColor: '#fff3e0',

@@ -18,14 +18,15 @@
 import Vue from 'vue';
 import LayoutSignInBeAChefCard from './LayoutSignInBeAChefCard.vue';
 import LayoutVideoCard from './LayoutVideoCard.vue';
+import { Component, Prop, Watch } from 'vue-property-decorator';
 
-export default Vue.extend({
-  name: 'LayoutContainer',
-
-  components: {
-    LayoutSignInBeAChefCard,
-    LayoutVideoCard,
-  },
-  data: () => ({}),
-});
+@Component({
+  components: { LayoutSignInBeAChefCard, LayoutVideoCard },
+})
+export default class LayoutContainer extends Vue {
+  constructor(parameters) {
+    super();
+    console.log('LayoutContainer Object Contructor called');
+  }
+}
 </script>
