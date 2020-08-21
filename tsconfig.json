@@ -13,6 +13,7 @@
     "strict": true,
     "noImplicitAny": false,
     "allowJs": true,
+    "strictFunctionTypes": false,
     "baseUrl": ".",
     "types": [
       "webpack-env",

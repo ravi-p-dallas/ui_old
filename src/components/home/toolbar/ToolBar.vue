@@ -1,21 +1,34 @@
 <template>
   <v-container fluid class="pa-0 ma-0">
-    <v-app-bar :style="tbStyle" text-center align="center" class="pa-0" elevate-on-scroll fixed>
-      <v-app-bar-nav-icon>
-        <router-link to="/">
-        <v-img :src="image" class="ml-8" width="48px"></v-img>
-        </router-link>
+    <v-app-bar :style="tbStyle" text-center align="center" class="pa-0" elevate-on-scroll fixed v-scroll="onScroll">
+      <v-app-bar-nav-icon :class="this.$vuetify.breakpoint.mdAndDown ? 'pa-3' : 'ml-2 pa-7'">
+        <a href="/">
+          <v-img :src="image" width="48px"></v-img>
+        </a>
       </v-app-bar-nav-icon>
 
-      <v-toolbar-title class="ml-2 text-h6 white--text font-weight-bold gradient-text-logo"><router-link to="/">VantaShala</router-link></v-toolbar-title>
+      <v-toolbar-title class="pl-2 text-h6 white--text font-weight-bold gradient-text-logo"><a href="/">VantaShala</a></v-toolbar-title>
       <v-spacer></v-spacer>
+
       <v-toolbar-items v-if="deferredPrompt">
-        <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="install">
-          <v-icon left>mdi-open-in-new</v-icon>
-          <div class="gradient-text">Open App</div>
-        </v-btn>
+        <v-badge color="purple lighten-4" text small overlap class="ma-auto mr-5">
+          <span slot="badge" class="purple--text font-weight-bold">alert</span>
+          <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="install">
+            <v-icon left>mdi-open-in-new</v-icon>
+            <div class="gradient-text">Install App</div>
+          </v-btn>
+        </v-badge>
       </v-toolbar-items>
 
+      <v-toolbar-items>
+        <v-badge color="purple lighten-4" text small overlap class="ma-auto mr-5">
+          <span slot="badge" class="purple--text font-weight-bold">?</span>
+          <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="login">
+            <v-icon left>mdi-open-in-new</v-icon>
+            <div class="gradient-text">Test Login</div>
+          </v-btn>
+        </v-badge>
+      </v-toolbar-items>
       <v-toolbar-items class="hidden-sm-and-down">
         <v-badge color="purple lighten-4" v-for="(item, i) in menu" :key="i" :to="item.link" text small overlap class="ma-auto mr-5" :value="item.badge != '?'">
           <span slot="badge" class="purple--text font-weight-bold">{{ item.badge }}</span>
@@ -29,26 +42,40 @@
           <v-btn text small class="ma-auto white--text font-weight-bold">
             <v-icon left>mdi-earth</v-icon>
             <select name="country" @change="onchange()" class="dropdown-select ma-auto" v-model="defaultCountry">
-              <option v-for="country in countries" :key="country.name" :value="country.value">{{ country.name }}</option>
+              <option v-for="country in visualsClassAttributes" :key="country.name" :value="country.name">{{ country.name }}</option>
             </select>
           </v-btn>
         </div>
+
+        <!-- <button @click="$keycloak != undefined && $keycloak.logoutFn" v-if="$keycloak != undefined && $keycloak.authenticated">Log out</button> -->
+        <button v-if="isLoggedIn()">Log out</button>
+
         <v-avatar class="ma-auto ml-3 white--text font-weight-bold" size="36" tile link>
-          <img src="https://randomuser.me/api/portraits/men/81.jpg" alt="Gopi" @click.stop="manageDrawer" />
+          <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Gopi" @click.stop="manageDrawer" />
         </v-avatar>
       </v-toolbar-items>
 
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="hidden-md-and-up" color="white"></v-app-bar-nav-icon>
     </v-app-bar>
 
-    <NavigationDrawer
-      :drawer="drawer"
-      :countries="countries"
-      :menu="menu"
-      :defaultCountry="defaultCountry"
-      @updateDrawerState="updateDrawerState"
-      :countryChange="onchange"
-    />
+    <NavigationDrawer :drawer="drawer" :menu="menu" @updateDrawerState="updateDrawerState" />
+
+    <v-dialog v-model="updateExists" persistent max-width="310">
+      <v-card>
+        <v-card-title class="headline orange lighten-1">
+          Reload Required
+        </v-card-title>
+
+        <v-card-text class="mt-10">
+          VantaShala needs an update. Lets refresh.
+        </v-card-text>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="green darken-1" dark @click="refreshApp()"> <v-icon left>mdi-download-box</v-icon> Refresh </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
 <style lang="scss">
@@ -58,81 +85,142 @@
 <script lang="ts">
 import Vue from 'vue';
 import NavigationDrawer from './NavigationDrawer.vue';
-export default Vue.extend({
-  name: 'ToolBar',
-  props: ['tbStyle'],
-  components: {
-    NavigationDrawer,
-  },
+import { authService } from '../../../services/AuthService';
+import { Component, Prop, Watch } from 'vue-property-decorator';
+import { getModule } from 'vuex-module-decorators';
+import store from '@/store';
+import CountryFlip from '../../../store/CountryFlip';
+import ActionButtonsSwitch from '@/store/ActionButtonsSwitch';
+
+@Component({
+  components: { NavigationDrawer },
+})
+export default class ToolBar extends Vue {
+  name = 'ToolBar';
+  drawer = false;
+  defaultCountry;
+  collapseOnScroll = true;
+  refreshing = false;
+  registration;
+  updateExists = false;
+  deferredPrompt = '';
+  visualsClassAttributes = getModule(CountryFlip).visualsClassAttributes;
+  tbStyle = 'background-color: transparent';
+  tbStyleNonTransparent =
+    'opacity:0.95; background-color: #263238; background: rgb(250,117,0); background: radial-gradient(circle, rgba(250,117,0,1) 0%, rgba(128,153,41,1) 76%, rgba(62,83,81,1) 100%);';
+  activeComponent = '';
+
+  menu = [
+    {
+      icon: 'mdi-order-bool-descending-variant',
+      title: 'My Orders',
+      path: '/',
+      badge: '?',
+    },
+    { icon: 'mdi-chef-hat', title: 'My Chefs', path: '/', badge: '?', action: 'login' },
+    { icon: 'mdi-cart-outline', title: 'My Cart', path: '/', badge: '?' },
+  ];
+  image = require('@/assets/logo.png');
+
   created() {
     window.addEventListener('beforeinstallprompt', e => {
       e.preventDefault();
       // Stash the event so it can be triggered later.
-      this.deferredPrompt = e;
-      console.log('deferredPrompt -->', this.deferredPrompt);
+      this.$data.deferredPrompt = e;
+      console.log('deferredPrompt -->', this.$data.deferredPrompt);
     });
     window.addEventListener('appinstalled', () => {
-      this.deferredPrompt = null;
-      console.log('deferredPrompt ->', this.deferredPrompt);
+      this.$data.deferredPrompt = null;
+      console.log('deferredPrompt ->', this.$data.deferredPrompt);
     });
-  },
-  data: () => ({
-    image: require('@/assets/logo.png'),
-    deferredPrompt: null,
-    drawer: false,
-    defaultCountry: 'INDIA',
-    collapseOnScroll: true,
-    menu: [
-      {
-        icon: 'mdi-order-bool-descending-variant',
-        title: 'My Orders',
-        path: '/',
-        badge: '?',
-      },
-      { icon: 'mdi-chef-hat', title: 'My Chefs', path: '/', badge: '?' },
-      { icon: 'mdi-cart-outline', title: 'My Cart', path: '/', badge: '?' },
-    ],
+    document.addEventListener('swUpdated', this.updateAvailable, { once: true });
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (this.refreshing) return;
+      this.refreshing = true;
+      // Here the actual reload of the page occurs
+      console.log('Reloading.....');
+      window.location.reload();
+    });
+    this.defaultCountry = getModule(CountryFlip).country;
+  }
 
-    countries: [
-      {
-        name: 'INDIA',
-        value: 'INDIA',
-      },
-      {
-        name: 'SINGAPORE',
-        value: 'SINGAPORE',
-      },
-      {
-        name: 'USA',
-        value: 'USA',
-      },
-      {
-        name: 'CANADA',
-        value: 'CANADA',
-      },
-      {
-        name: 'MALAYSIA',
-        value: 'MALAYSIA',
-      },
-    ],
-  }),
-  methods: {
-    onchange: function() {
-      this.$store.commit('setCountry', this.defaultCountry);
-      console.log(this.$store.getters.getCountry);
-    },
-    manageDrawer: function() {
-      this.drawer = !this.drawer;
-    },
-    updateDrawerState: function(status) {
-      console.log('--> ', this.drawer, status);
-      if (!this.drawer === status) {
-        this.drawer = status;
+  isLoggedIn() {
+    //console.log('Is User Authenticated ==> ' + Vue.prototype.$keycloak.authenticated);
+    //return Vue.prototype.$keycloak.authenticated;
+  }
+  onchange() {
+    const cMod = getModule(CountryFlip);
+    cMod.changeCountry(this.defaultCountry);
+    console.log('Change Country Triggered');
+  }
+  manageDrawer() {
+    this.drawer = !this.drawer;
+  }
+  updateDrawerState(status) {
+    console.log('--> ', this.drawer, status);
+    if (!this.drawer === status) {
+      this.drawer = status;
+    }
+  }
+  async install() {
+    this.$data.deferredPrompt.prompt();
+  }
+
+  login() {
+    authService.login();
+  }
+  updateAvailable(event) {
+    this.registration = event.detail;
+    this.updateExists = true;
+  }
+  refreshApp() {
+    console.log('->Reloading....');
+    this.updateExists = false;
+    if (!this.registration || !this.registration.waiting) return;
+    this.registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+  }
+
+  @Watch('countryChanged')
+  setbackCountry() {
+    console.log(this.constructor.name, ': Country Changed', getModule(CountryFlip).country);
+    this.defaultCountry = getModule(CountryFlip).country;
+  }
+  get countryChanged() {
+    this.$log.info('Country Chnaged in Vuex Store');
+    const cMod = getModule(CountryFlip);
+    return cMod.visualStyle.overlay;
+  }
+
+  @Watch('activeComponentChanged')
+  updateActiveComponent() {
+    this.$log.info(this.name, 'Watch Observed', this.activeComponent);
+    this.activeComponent = getModule(ActionButtonsSwitch).activeComponent;
+
+    if (this.activeComponent != 'Home') {
+      this.tbStyle = this.tbStyleNonTransparent;
+    } else {
+      this.tbStyle = 'background-color: transparent';
+    }
+  }
+
+  get activeComponentChanged() {
+    const cMod = getModule(ActionButtonsSwitch);
+    this.$log.debug(this.name, ': Active Component Changed : ' + cMod.activeComponent);
+    return cMod.activeComponent;
+  }
+
+  onScroll(e) {
+    if (typeof window === 'undefined') return;
+
+    const top = window.pageYOffset || e.target.scrollTop || 0;
+
+    if (top > 120) {
+      this.tbStyle = this.tbStyleNonTransparent;
+    } else {
+      if (this.activeComponent == 'Home') {
+        this.tbStyle = 'background-color: transparent';
       }
-    },
-    async install() {
-      this.deferredPrompt.prompt();
-    },
-  },
-});
+    }
+  }
+}
 </script>

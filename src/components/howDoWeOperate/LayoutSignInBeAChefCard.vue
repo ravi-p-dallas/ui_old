@@ -20,88 +20,82 @@
     <v-card-text>
       <v-text-field id="kitchName" name="kitchName" label="Name your Kitchen" outlined clearable></v-text-field>
     </v-card-text>
-    
+
     <v-card-actions :class="this.$vuetify.breakpoint.smAndDown ? 'd-flex flex-column text-right ' : ''">
-      <div class="text-center" v-for="item in items" :key="item.btnText">
-        <v-btn :class="countryChanged(item.className)" @click.stop="handleFunctionCall(item.btnText)">
-          <v-icon left>{{ item.icon }}</v-icon>
-          {{ item.btnText }}
+      <div class="text-center">
+        <v-btn :class="findChefClass" @click.stop="handleFunctionCall('Find Home Chefs')">
+          <v-icon left>mdi-chef-hat</v-icon>
+          RESERVE
+        </v-btn>
+
+        <v-btn :class="exploreMenusClass" @click.stop="handleFunctionCall('Explore Menus')">
+          <v-icon left>mdi-key</v-icon>
+          EXISTING CHEF? LOGIN
         </v-btn>
       </div>
     </v-card-actions>
-   
   </v-card>
 </template>
 
 <style lang="scss">
-.v-text-field{
+.v-text-field {
   height: 71px;
 }
 </style>
+
 <script lang="ts">
-import Vue from "vue";
-export default Vue.extend({
-  name: "LayoutCard",
-  props: [],
-  
-  computed: {
-    countryChanged: {
-      get() {
-        return className => {
-          const country = this.$store.getters.getCountry;
-          const styles = this.visuals[country];
-          return styles[className];
-        };
-      }
-    }
-  },
-  data: () => ({
-    loading: false,
-    selection: 1,
-    image: require("@/assets/biryani_2.jpg"),
-    items: [
-      {
-        btnText: "RESERVE",
-        icon: "mdi-chef-hat",
-        className: "fCclass"
-      },
+import Vue from 'vue';
+import store from '@/store';
+import { Component, Prop, Watch } from 'vue-property-decorator';
+import { getModule } from 'vuex-module-decorators';
+import CountryFlip from '../../store/CountryFlip';
 
-      {
-        btnText: "EXISTING CHEF? LOGIN",
-        icon: "mdi-key",
-        className: "sMclass"
-      }
-    ],
-    visuals: {
-      INDIA: {
-        fCclass: "ma-2 white--text font-weight-bold orange darken-1",
-        sMclass: "ma-2 white--text font-weight-bold green darken-1"
-      },
-      USA: {
-        fCclass: "ma-2 white--text font-weight-bold red darken-1",
-        sMclass: "ma-2 white--text font-weight-bold blue darken-1"
-      },
-      SINGAPORE: {
-        fCclass: "ma-2 white--text font-weight-bold red lighten-1",
-        sMclass: "ma-2 red--text font-weight-bold white darken-1"
-      },
-      CANADA: {
-        fCclass: "ma-2 white--text font-weight-bold red lighten-1",
-        sMclass: "ma-2 red--text font-weight-bold white darken-1"
-      },
-      MALAYSIA: {
-        fCclass: "ma-2 white--text font-weight-bold red lighten-1",
-        sMclass: "ma-2 white--text font-weight-bold blue darken-1"
-      }
-    }
-  }),
+@Component({})
+export default class LayoutSignInBeAChefCard extends Vue {
+  loading = false;
+  image = require('@/assets/biryani_2.jpg');
 
-  methods: {
-    reserve() {
-      this.loading = true;
+  exploreMenusStyle = '';
+  findChefStyle = '';
 
-      setTimeout(() => (this.loading = false), 2000);
-    }
+  created() {
+    this.updateStyles();
   }
-});
+
+  updateStyles() {
+    const cMod = getModule(CountryFlip);
+    const styles = cMod.visualStyle;
+    this.findChefStyle = styles['fCclass'];
+    this.exploreMenusStyle = styles['sMclass'];
+
+    console.log('===> ', this.findChefStyle, this.exploreMenusStyle);
+  }
+  handleFunctionCall(event) {
+    console.log('-->', event);
+  }
+
+  get findChefClass() {
+    return this.findChefStyle;
+  }
+
+  get exploreMenusClass() {
+    return this.exploreMenusStyle;
+  }
+
+  @Watch('countryChanged')
+  updateClasses() {
+    console.log(this.constructor.name, ': Country Changed');
+    this.updateStyles();
+  }
+
+  get countryChanged() {
+    const cMod = getModule(CountryFlip);
+    return cMod.country;
+  }
+
+  reserve() {
+    this.loading = true;
+    setTimeout(() => (this.loading = false), 2000);
+  }
+}
 </script>
