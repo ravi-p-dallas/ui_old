@@ -45,9 +45,9 @@
             </v-btn>
             <v-spacer></v-spacer>
 
-            <v-btn color="deep-purple lighten-2" text @click="snackbar = true"
+            <v-btn color="yellow darken-3" text @click="snackbar = true"
               >Reccuring
-              <v-icon color="green lighten-1">
+              <v-icon color="yellow darken-3">
                 mdi-cart-arrow-right
               </v-icon>
             </v-btn>
