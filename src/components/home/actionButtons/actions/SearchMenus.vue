@@ -38,7 +38,7 @@
             </v-chip-group>
           </v-card-text>
           <v-card-actions>
-            <v-btn color="deep-purple lighten-2" text @click="snackbar = true">
+            <v-btn color="deep-purple lighten-2" text @click="snackbar = true" @click:stop="addTocart()">
               <v-icon color="green lighten-1">
                 mdi-cart-plus
               </v-icon>
@@ -275,6 +275,10 @@ export default class SearchMenus extends Vue {
   constructor(parameters) {
     super();
     console.log('LayoutContainer Object Contructor called');
+  }
+
+  addTocart() {
+    console.log('Adding to cart');
   }
 }
 </script>
