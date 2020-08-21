@@ -5,7 +5,12 @@
       <v-col v-for="(Menu, i) in Menus" :key="i">
         <v-card max-width="320">
           <v-img height="250" :src="Menu.image" class="white--text text-subtitle-1 align-end">
-            <v-card-title class="test font-weight-bold white--text">{{ Menu.itemName }}</v-card-title>
+            <v-card-title class="test font-weight-bold white--text">
+              <v-icon color="orange lighten-1">
+                mdi-fire
+              </v-icon>
+              {{ Menu.itemName }}</v-card-title
+            >
           </v-img>
           <v-card-text> {{ Menu.description }} </v-card-text>
           <v-card-title class="text-subtitle-1 mx-2 pa-2">
@@ -55,7 +60,8 @@
 <style lang="scss" scoped>
 .test {
   color: #fff;
-  text-shadow: 0 0 5px rgb(211, 38, 38), 0 0 10px #ccc, 0 0 20px #676, 0 0 40px rgb(212, 6, 6), 0 0 80px #8c7, 0 0 90px rgb(151, 175, 141), 0 0 100px rgb(50, 211, 18), 0 0 150px rgb(41, 223, 17);
+  text-shadow: 0 0 5px rgb(211, 38, 38), 0 0 10px #ccc, 0 0 20px #676, 0 0 40px rgb(212, 6, 6), 0 0 80px #8c7, 0 0 90px rgb(151, 175, 141),
+    0 0 100px rgb(50, 211, 18), 0 0 150px rgb(41, 223, 17);
 }
 </style>>
 <script lang="ts">
