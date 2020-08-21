@@ -1,6 +1,6 @@
 <template>
   <v-container fluid mt-10>
-    <ActionToolbar />
+    <ActionToolbar title="Explore Menus"/>
     <v-row align="center" justify="center" class="ma-2">
       <v-col v-for="(Menu, i) in Menus" :key="i">
         <v-card max-width="320">
