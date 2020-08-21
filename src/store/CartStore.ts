@@ -3,7 +3,7 @@ import store from '@/store';
 import { plainToClass } from 'class-transformer';
 import { CartItem } from '../model/CartItem';
 
-@Module({ dynamic: true, store, name: 'CountryFlip' })
+@Module({ dynamic: true, store, name: 'CartStore' })
 export default class CartStore extends VuexModule {
   private items = new Array<CartItem>();;
 
@@ -25,7 +25,7 @@ export default class CartStore extends VuexModule {
   @Action
   public addToCart(item: object) {
 
-    let cartItem = plainToClass(CartItem, item);
+    const cartItem = plainToClass(CartItem, item);
     this.context.commit('updateCart', cartItem);
     console.log(': Cart Change Action');
   }

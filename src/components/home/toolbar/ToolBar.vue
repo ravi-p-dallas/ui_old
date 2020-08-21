@@ -38,6 +38,14 @@
           </v-btn>
         </v-badge>
 
+        <v-badge color="purple lighten-4" text small overlap class="ma-auto mr-5" :value="this.cartCount != 0">
+          <span slot="badge" class="purple--text font-weight-bold">{{ cartCount }}</span>
+          <v-btn text small class="ma-auto white--text font-weight-bold">
+            <v-icon left>mdi-cart-outline</v-icon>
+            <div class="gradient-text">My Cart</div>
+          </v-btn>
+        </v-badge>
+
         <div class="dropdown ma-auto">
           <v-btn text small class="ma-auto white--text font-weight-bold">
             <v-icon left>mdi-earth</v-icon>
@@ -91,6 +99,7 @@ import { getModule } from 'vuex-module-decorators';
 import store from '@/store';
 import CountryFlip from '../../../store/CountryFlip';
 import ActionButtonsSwitch from '@/store/ActionButtonsSwitch';
+import CartStore from '@/store/CartStore';
 
 @Component({
   components: { NavigationDrawer },
@@ -109,6 +118,7 @@ export default class ToolBar extends Vue {
   tbStyleNonTransparent =
     'opacity:0.95; background-color: #263238; background: rgb(250,117,0); background: radial-gradient(circle, rgba(250,117,0,1) 0%, rgba(128,153,41,1) 76%, rgba(62,83,81,1) 100%);';
   activeComponent = 'Home';
+  cartCount = 0;
 
   menu = [
     {
@@ -117,8 +127,7 @@ export default class ToolBar extends Vue {
       path: '/',
       badge: '?',
     },
-    { icon: 'mdi-chef-hat', title: 'My Chefs', path: '/', badge: '?', action: 'login' },
-    { icon: 'mdi-cart-outline', title: 'My Cart', path: '/', badge: '?' },
+    { icon: 'mdi-chef-hat', title: 'My Chefs', path: '/', badge: '?', action: 'login' }
   ];
   image = require('@/assets/logo.png');
 
@@ -202,11 +211,23 @@ export default class ToolBar extends Vue {
       this.tbStyle = 'background-color: transparent';
     }
   }
-
   get activeComponentChanged() {
     const cMod = getModule(ActionButtonsSwitch);
     this.$log.debug(this.name, ': Active Component Changed : ' + cMod.activeComponent);
     return cMod.activeComponent;
+  }
+
+  @Watch('cartCountChange')
+  updateCartCount() {
+    this.$log.info(this.name, 'Watch Observed', this.cartCount);
+    const cMod = getModule(CartStore);
+    this.cartCount = cMod.cartCount;
+  }
+
+  get cartCountChange() {
+    const cMod = getModule(CartStore);
+    this.$log.debug(this.name, ': Cart count changed : ' + cMod.cartCount);
+    return cMod.cartCount;
   }
 
   onScroll(e) {

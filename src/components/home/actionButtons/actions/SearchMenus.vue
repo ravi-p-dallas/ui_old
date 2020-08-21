@@ -38,14 +38,14 @@
             </v-chip-group>
           </v-card-text>
           <v-card-actions>
-            <v-btn color="deep-purple lighten-2" text @click="snackbar = true" @click:stop="addTocart()">
+            <v-btn color="deep-purple lighten-2" text @click="addTocart(Menu)">
               <v-icon color="green lighten-1">
                 mdi-cart-plus
               </v-icon>
             </v-btn>
             <v-spacer></v-spacer>
 
-            <v-btn color="yellow darken-3" text @click="snackbar = true"
+            <v-btn color="yellow darken-3" text @click="addTocart(Menu)"
               >Reccuring
               <v-icon color="yellow darken-3">
                 mdi-cart-arrow-right
@@ -88,6 +88,7 @@ import { Component, Prop, Watch } from 'vue-property-decorator';
 import ActionToolbar from './ActionToolbar.vue';
 import { getModule } from 'vuex-module-decorators';
 import CountryFlip from '../../../../store/CountryFlip';
+import CartStore from '../../../../store/CartStore';
 
 @Component({
   components: { ActionToolbar },
@@ -277,8 +278,10 @@ export default class SearchMenus extends Vue {
     console.log('LayoutContainer Object Contructor called');
   }
 
-  addTocart() {
-    console.log('Adding to cart');
+  addTocart(menu: any) {
+    console.log('Adding to cart', menu);
+    getModule(CartStore).addToCart(menu);
+    this.snackbar = true;
   }
 }
 </script>
