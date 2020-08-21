@@ -38,10 +38,19 @@
             </v-chip-group>
           </v-card-text>
           <v-card-actions>
-            <v-btn color="deep-purple lighten-2" text>Reserve</v-btn>
+            <v-btn color="deep-purple lighten-2" text @click="snackbar = true">
+              <v-icon color="green lighten-1">
+                mdi-cart-plus
+              </v-icon>
+            </v-btn>
             <v-spacer></v-spacer>
 
-            <v-btn color="deep-purple lighten-2" text>Ingradients</v-btn>
+            <v-btn color="deep-purple lighten-2" text @click="snackbar = true"
+              >Reccuring
+              <v-icon color="green lighten-1">
+                mdi-cart-arrow-right
+              </v-icon>
+            </v-btn>
           </v-card-actions>
         </v-card>
       </v-col>
@@ -53,14 +62,24 @@
         <v-btn style="background: transparent;" to="/ourMenu" class="mx-auto my-12 text-center" width="300" height="100" cols="12">View more Menus</v-btn>
       </v-row>
     </v-row>
+
+    <v-snackbar v-model="snackbar" :timeout="-1" shaped color="success" bottom>
+      Item added to cart. Click on cart to chekout on the right navigation drawer.
+
+      <template v-slot:action="{ attrs }">
+        <v-btn color="blue" text v-bind="attrs" @click="snackbar = false">
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
   </v-container>
 </template>
 
 <style lang="scss" scoped>
 .test {
   color: rgb(8, 248, 68);
-  text-shadow: 0 0 5px rgb(250, 0, 0), 0 0 10px rgb(248, 248, 248), 0 0 20px rgb(22, 214, 205), 0 0 40px rgb(161, 12, 12), 0 0 80px #8c7, 0 0 90px rgb(151, 175, 141),
-    0 0 100px rgb(50, 211, 18), 0 0 150px rgb(41, 223, 17);
+  text-shadow: 0 0 5px rgb(250, 0, 0), 0 0 10px rgb(248, 248, 248), 0 0 20px rgb(22, 214, 205), 0 0 40px rgb(161, 12, 12), 0 0 80px #8c7,
+    0 0 90px rgb(151, 175, 141), 0 0 100px rgb(50, 211, 18), 0 0 150px rgb(41, 223, 17);
 }
 </style>>
 <script lang="ts">
@@ -75,6 +94,7 @@ import CountryFlip from '../../../../store/CountryFlip';
 })
 export default class SearchMenus extends Vue {
   name = 'SearchMenus';
+  snackbar = false;
   Menus = [
     {
       image: 'https://images.food52.com/N6TN7x-H4ZTPEHbZVVuiO1iTqLc=/768x511/d815e816-4664-472e-990b-d880be41499f--chicken-biryani-recipe.jpg',
