@@ -1,6 +1,6 @@
 <template>
   <v-container fluid class="pa-0 ma-0">
-    <v-navigation-drawer v-model="isOpen" app right color="green lighten-2" disable-resize-watcher>
+    <v-navigation-drawer v-model="isOpen" right color="green lighten-2 mt-16" disable-resize-watcher absolute>
       <v-list-item two-line>
         <v-list-item-avatar size="36" tile>
           <img src="https://randomuser.me/api/portraits/men/81.jpg" />
