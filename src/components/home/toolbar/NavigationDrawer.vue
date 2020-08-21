@@ -29,6 +29,20 @@
             <v-list-item-subtitle class="ma-auto white--text font-weight-bold">{{ item.title }}</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
+
+        <v-list-item link>
+          <v-list-item-icon>
+            <v-icon>mdi-cart-outline</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-badge color="purple lighten-4" text small overlap class="ma-auto mr-5" :value="this.cartCount != 0">
+              <v-list-item-subtitle class="ma-auto white--text font-weight-bold">
+                My Cart
+              </v-list-item-subtitle>
+            </v-badge>
+          </v-list-item-content>
+        </v-list-item>
       </v-list>
 
       <v-divider></v-divider>
@@ -78,19 +92,23 @@ import CountryFlip from '../../../store/CountryFlip';
 import store from '@/store';
 import { Component, Prop, Watch } from 'vue-property-decorator';
 import { getModule } from 'vuex-module-decorators';
+import CartStore from '@/store/CartStore';
 
 @Component({
   components: {},
   props: ['menu', 'drawer'],
 })
 export default class NavigationDrawer extends Vue {
+  name = 'NavigationDrawer';
   isOpen = false;
-  visualsClassAttributes=getModule(CountryFlip).visualsClassAttributes;
+  visualsClassAttributes = getModule(CountryFlip).visualsClassAttributes;
   styles = {
     'background-color': `transparent`,
   };
   defaultCountry;
   drawer;
+  cartCount = 0;
+
   created() {
     this.defaultCountry = getModule(CountryFlip).country;
   }
@@ -110,6 +128,19 @@ export default class NavigationDrawer extends Vue {
     this.$log.info('Prop changed: ', newVal, ' | was: ', oldVal);
     this.isOpen = newVal;
     this.defaultCountry = getModule(CountryFlip).country;
+  }
+
+  @Watch('cartCountChange')
+  updateCartCount() {
+    this.$log.info(this.name, 'Watch Observed', this.cartCount);
+    const cMod = getModule(CartStore);
+    this.cartCount = cMod.cartCount;
+  }
+
+  get cartCountChange() {
+    const cMod = getModule(CartStore);
+    this.$log.debug(this.name, ': Cart count changed : ' + cMod.cartCount);
+    return cMod.cartCount;
   }
 }
 </script>
