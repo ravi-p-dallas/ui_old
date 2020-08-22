@@ -190,7 +190,7 @@ export default class ToolBar extends Vue {
     this.drawer = !this.drawer;
   }
   updateDrawerState(status) {
-    console.log('--> ', this.drawer, status);
+    console.log(this.name, ' Drawrer State: ', this.drawer, status);
     if (!this.drawer === status) {
       this.drawer = status;
     }
@@ -222,7 +222,7 @@ export default class ToolBar extends Vue {
     this.defaultCountry = getModule(CountryFlip).country;
   }
   get countryChanged() {
-    this.$log.info('Country Chnaged in Vuex Store');
+    this.$log.info(name, 'Country Chnaged in Vuex Store');
     const cMod = getModule(CountryFlip);
     return cMod.visualStyle.overlay;
   }

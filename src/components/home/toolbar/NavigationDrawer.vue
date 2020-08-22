@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="pa-0 ma-0">
+  <v-container fluid class="pa-0 mx-0 mb-0 mt-16">
     <v-navigation-drawer v-model="isOpen" right color="green lighten-2 mt-16" disable-resize-watcher absolute>
       <v-list-item two-line>
         <v-list-item-avatar size="36" tile>
@@ -141,6 +141,17 @@ export default class NavigationDrawer extends Vue {
     const cMod = getModule(CartStore);
     this.$log.debug(this.name, ': Cart count changed : ' + cMod.cartCount);
     return cMod.cartCount;
+  }
+
+  @Watch('countryChanged')
+  setbackCountry() {
+    console.log(this.constructor.name, ': Country Changed', getModule(CountryFlip).country);
+    this.defaultCountry = getModule(CountryFlip).country;
+  }
+  get countryChanged() {
+    this.$log.info(name, ' Country Chnaged in Vuex Store');
+    const cMod = getModule(CountryFlip);
+    return cMod.visualStyle.overlay;
   }
 }
 </script>

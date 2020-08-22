@@ -49,7 +49,7 @@ export default class CountryFlip extends VuexModule {
   }
 
   public get country() {
-    console.log(': Country Get');
+    console.log(name, ': Country Get');
     return this.countryName;
   }
 
