@@ -1,7 +1,7 @@
 <template>
   <v-container fluid fill-height class="ma-0 pa-0 flex-column" scroll-y>
     <ToolBar />
-    <v-main style="width:100%" v-if="activeComponent == 'Home'">
+    <v-main style="width:100%; padding:0" v-if="activeComponent == 'Home'">
       <ScrollTransitionButtons />
       <BgVideo />
       <RepeatedOrders class="mb-0 grey lighten-5 overflow-y-auto" id="RO" />
