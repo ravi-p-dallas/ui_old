@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="pa-0 ma-0">
+  <v-container fluid fill-height class="pa-0 ma-0">
     <v-app-bar :style="tbStyle" text-center align="center" class="pa-0" elevate-on-scroll fixed v-scroll="onScroll">
       <v-app-bar-nav-icon :class="this.$vuetify.breakpoint.mdAndDown ? 'pa-0' : 'ml-2 pb-1 '">
         <a href="/">
@@ -24,7 +24,7 @@
         <v-badge color="purple lighten-4" text small overlap class="ma-auto mr-5">
           <span slot="badge" class="purple--text font-weight-bold">?</span>
           <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="login">
-            <v-icon class ="gradient-button-logo" left>mdi-open-in-new</v-icon>
+            <v-icon class="gradient-button-logo" left>mdi-open-in-new</v-icon>
             <div class="gradient-text">Login</div>
           </v-btn>
         </v-badge>
@@ -99,12 +99,7 @@
         </v-card-title>
         <v-card-text>
           <Camera />
-          <!-- <vue-web-cam /> -->
         </v-card-text>
-        <!-- <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="green darken-1" text @click="dialog = false">Start Stream</v-btn>
-        </v-card-actions> -->
       </v-card>
     </v-dialog>
   </v-container>
@@ -124,12 +119,11 @@ import CountryFlip from '../../../store/CountryFlip';
 import ActionButtonsSwitch from '@/store/ActionButtonsSwitch';
 import CartStore from '@/store/CartStore';
 import Camera from '../../camera/Camera.vue';
-// import { WebCam } from 'vue-web-cam';
 @Component({
   components: { NavigationDrawer, Camera },
 })
 export default class ToolBar extends Vue {
-  name = 'ToolBar';
+  name = 'ToolBar: ';
   drawer = false;
   defaultCountry;
   collapseOnScroll = true;
@@ -138,7 +132,7 @@ export default class ToolBar extends Vue {
   updateExists = false;
   deferredPrompt = '';
   visualsClassAttributes = getModule(CountryFlip).visualsClassAttributes;
-  tbStyle = 'background-color: transparent';
+  tbStyle = 'background-color: transparent;';
   tbStyleNonTransparent =
     'opacity:0.95; background-color: #263238; background: rgb(250,117,0); background: radial-gradient(circle, rgba(250,117,0,1) 0%, rgba(128,153,41,1) 76%, rgba(62,83,81,1) 100%);';
   activeComponent = 'Home';
@@ -218,29 +212,31 @@ export default class ToolBar extends Vue {
 
   @Watch('countryChanged')
   setbackCountry() {
-    console.log(this.constructor.name, ': Country Changed', getModule(CountryFlip).country);
+    this.$log.info(this.name, 'Country Changed: ', getModule(CountryFlip).country);
     this.defaultCountry = getModule(CountryFlip).country;
   }
+
   get countryChanged() {
-    this.$log.info(name, 'Country Chnaged in Vuex Store');
+    this.$log.info(this.name, 'Country Chnaged');
     const cMod = getModule(CountryFlip);
     return cMod.visualStyle.overlay;
   }
 
   @Watch('activeComponentChanged')
   updateActiveComponent() {
-    this.$log.info(this.name, 'Watch Observed', this.activeComponent);
     this.activeComponent = getModule(ActionButtonsSwitch).activeComponent;
-
+    this.$log.info(this.name, 'Watch Observed: ', this.activeComponent);
     if (this.activeComponent != 'Home') {
       this.tbStyle = this.tbStyleNonTransparent;
     } else {
       this.tbStyle = 'background-color: transparent';
     }
+    this.$log.info(this.name, 'Style Applied: ', this.tbStyle);
   }
+
   get activeComponentChanged() {
     const cMod = getModule(ActionButtonsSwitch);
-    this.$log.debug(this.name, ': Active Component Changed : ' + cMod.activeComponent);
+    this.$log.info(this.name, 'Active Component Changed: ' + cMod.activeComponent);
     return cMod.activeComponent;
   }
 

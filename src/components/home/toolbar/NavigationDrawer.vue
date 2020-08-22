@@ -1,6 +1,7 @@
 <template>
   <v-container fluid class="pa-0 mx-0 mb-0 mt-16">
-    <v-navigation-drawer v-model="isOpen" right color="green lighten-2 mt-16" disable-resize-watcher absolute>
+    <v-navigation-drawer v-model="isOpen" right color="green lighten-2 " disable-resize-watcher absolute
+      temporary>
       <v-list-item two-line>
         <v-list-item-avatar size="36" tile>
           <img src="https://randomuser.me/api/portraits/men/81.jpg" />
@@ -99,7 +100,7 @@ import CartStore from '@/store/CartStore';
   props: ['menu', 'drawer'],
 })
 export default class NavigationDrawer extends Vue {
-  name = 'NavigationDrawer';
+  name = 'NavigationDrawer: ';
   isOpen = false;
   visualsClassAttributes = getModule(CountryFlip).visualsClassAttributes;
   styles = {
@@ -145,11 +146,11 @@ export default class NavigationDrawer extends Vue {
 
   @Watch('countryChanged')
   setbackCountry() {
-    console.log(this.constructor.name, ': Country Changed', getModule(CountryFlip).country);
+    this.$log.info(this.name, 'Country Changed: ', getModule(CountryFlip).country);
     this.defaultCountry = getModule(CountryFlip).country;
   }
   get countryChanged() {
-    this.$log.info(name, ' Country Chnaged in Vuex Store');
+    this.$log.info(this.name, 'Country Changed');
     const cMod = getModule(CountryFlip);
     return cMod.visualStyle.overlay;
   }

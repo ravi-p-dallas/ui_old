@@ -73,7 +73,7 @@
 }
 
 .gradient-text-logo {
-    background-color: #ffffff;
+    //background-color: #ffffff;
     background-image: linear-gradient(90deg, #ffffff 50%, #ebf3ec 50%);
     background-size: 100%;
     background-repeat: repeat;
@@ -89,7 +89,7 @@
 }
 
 .gradient-text {
-    background-color: #ffffff;
+    //background-color: #ffffff;
     background-image: linear-gradient(90deg, #ffffff 50%, #ffffff 50%);
     background-size: 100%;
     background-repeat: repeat;
@@ -100,11 +100,12 @@
 }
 
 .gradient-text:hover {
-    background-image: linear-gradient(90deg, #2f00ff  30%, #ff00dd 20%, #fffb00 50%);
+    background-image: linear-gradient(90deg, #2f00ff 30%, #ff00dd 20%, #fffb00 50%);
     animation: rainbow-text-simple-animation 1s ease-in forwards;
 }
+
 .gradient-button-logo {
-    background-color: #ffffff;
+    //background-color: #ffffff;
     background-image: linear-gradient(90deg, #ffffff 50%, #ebf3ec 50%);
     background-size: 100%;
     background-repeat: repeat;
@@ -115,9 +116,11 @@
 }
 
 .gradient-button-logo:hover {
-    background-image: linear-gradient(45deg, #2f00ff   30%, #ff00dd 20%, #fffb00 50%);
+    background-image: linear-gradient(45deg, #2f00ff 30%, #ff00dd 20%, #fffb00 50%);
     animation: rainbow-text-simple-animation 0.75s ease-in forwards;
 }
+
+
 /* Move the background and make it smaller. */
 
 
