@@ -25,7 +25,14 @@
           <span slot="badge" class="purple--text font-weight-bold">?</span>
           <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="login">
             <v-icon left>mdi-open-in-new</v-icon>
-            <div class="gradient-text">Test Login</div>
+            <div class="gradient-text">Login</div>
+          </v-btn>
+        </v-badge>
+        <v-badge color="purple lighten-4" text small overlap class="ma-auto mr-5">
+          <span slot="badge" class="purple--text font-weight-bold">?</span>
+          <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="openCamera">
+            <v-icon left>mdi-camera</v-icon>
+            <div class="gradient-text">Streaming</div>
           </v-btn>
         </v-badge>
       </v-toolbar-items>
@@ -84,6 +91,22 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+
+    <v-dialog v-model="dialog" width="600px">
+      <v-card>
+        <v-card-title>
+          <span class="headline">Video Streaming</span>
+        </v-card-title>
+        <v-card-text>
+          <Camera />
+          <!-- <vue-web-cam /> -->
+        </v-card-text>
+        <!-- <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="green darken-1" text @click="dialog = false">Start Stream</v-btn>
+        </v-card-actions> -->
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
 <style lang="scss">
@@ -100,9 +123,10 @@ import store from '@/store';
 import CountryFlip from '../../../store/CountryFlip';
 import ActionButtonsSwitch from '@/store/ActionButtonsSwitch';
 import CartStore from '@/store/CartStore';
-
+import Camera from '../../camera/Camera.vue';
+// import { WebCam } from 'vue-web-cam';
 @Component({
-  components: { NavigationDrawer },
+  components: { NavigationDrawer, Camera },
 })
 export default class ToolBar extends Vue {
   name = 'ToolBar';
@@ -119,7 +143,7 @@ export default class ToolBar extends Vue {
     'opacity:0.95; background-color: #263238; background: rgb(250,117,0); background: radial-gradient(circle, rgba(250,117,0,1) 0%, rgba(128,153,41,1) 76%, rgba(62,83,81,1) 100%);';
   activeComponent = 'Home';
   cartCount = 0;
-
+  dialog = false;
   menu = [
     {
       icon: 'mdi-order-bool-descending-variant',
@@ -127,7 +151,7 @@ export default class ToolBar extends Vue {
       path: '/',
       badge: '?',
     },
-    { icon: 'mdi-chef-hat', title: 'My Chefs', path: '/', badge: '?', action: 'login' }
+    { icon: 'mdi-chef-hat', title: 'My Chefs', path: '/', badge: '?', action: 'login' },
   ];
   image = require('@/assets/logo.png');
 
@@ -177,6 +201,9 @@ export default class ToolBar extends Vue {
 
   login() {
     authService.login();
+  }
+  openCamera() {
+    this.dialog = true;
   }
   updateAvailable(event) {
     this.registration = event.detail;

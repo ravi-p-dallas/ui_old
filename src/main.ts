@@ -10,6 +10,8 @@ import VuePlyr from 'vue-plyr';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 import VueLogger from 'vue-logger-plugin';
+import { WebCam } from "vue-web-cam";
+Vue.use(WebCam);
 
 const isProduction = process.env.NODE_ENV === 'production';
 
