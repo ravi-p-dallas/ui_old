@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid fill-height class="pa-0 ma-0">
+  <v-container fluid fill-height class="pa-0 ma-0" style="position: absolute">
     <v-app-bar :style="tbStyle" text-center align="center" class="pa-0" elevate-on-scroll fixed v-scroll="onScroll">
       <v-app-bar-nav-icon :class="this.$vuetify.breakpoint.mdAndDown ? 'pa-0' : 'ml-2 pb-1 '">
         <a href="/">

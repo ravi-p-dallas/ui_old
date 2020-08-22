@@ -1,6 +1,6 @@
 <template>
   <v-container fluid fill-height class="ma-0 pa-0">
-    <ToolBar style="position: absolute"/>
+    <ToolBar />
     <v-main style="width:100%; padding:0" v-if="activeComponent == 'Home'">
       <ScrollTransitionButtons />
       <BgVideo />
