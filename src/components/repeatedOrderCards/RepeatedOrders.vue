@@ -73,6 +73,15 @@ export default Vue.extend({
         dividerStyle: 'blue lighten-4',
         scrollId: 'daily_id',
       },
+      {
+        title: 'One Time',
+        char: 'N',
+        color: 'ma-auto font-weight-bold blue--text text--lighten-3',
+        caption: 'Delivered for once',
+        customStyle: 'blue-grey lighten-3',
+        dividerStyle: 'blue-grey lighten-4',
+        scrollId: 'onetime_id',
+      },
     ],
   }),
 });
