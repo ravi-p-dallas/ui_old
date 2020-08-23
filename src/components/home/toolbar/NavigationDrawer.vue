@@ -1,22 +1,22 @@
 <template>
-  <v-container fluid class="pa-0 mx-0 mb-0 mt-16">
-    <v-navigation-drawer v-model="isOpen" right color="green lighten-2 " disable-resize-watcher absolute
-      temporary>
-      <v-list-item two-line>
-        <v-list-item-avatar size="36" tile>
-          <img src="https://randomuser.me/api/portraits/men/81.jpg" />
-        </v-list-item-avatar>
+  <v-container fluid class="pa-0 ma-0">
+    <v-navigation-drawer v-model="isOpen" color="green lighten-2 " absolute temporary>
+      <v-list dense>
+        <v-list-item two-line>
+          <v-list-item-avatar size="36" tile>
+            <img src="https://randomuser.me/api/portraits/men/81.jpg" />
+          </v-list-item-avatar>
 
-        <v-list-item-content>
-          <v-list-item-title>Gopi Kancharla</v-list-item-title>
-          <v-list-item-subtitle>Premium User</v-list-item-subtitle>
-        </v-list-item-content>
+          <v-list-item-content>
+            <v-list-item-title>Gopi Kancharla</v-list-item-title>
+            <v-list-item-subtitle>Premium User</v-list-item-subtitle>
+          </v-list-item-content>
 
-        <v-btn icon @click.stop="updateDrawerState">
-          <v-icon>mdi-chevron-right</v-icon>
-        </v-btn>
-      </v-list-item>
-
+          <v-btn icon @click.stop="updateDrawerState">
+            <v-icon>mdi-chevron-left-box</v-icon>
+          </v-btn>
+        </v-list-item>
+      </v-list>
       <v-divider></v-divider>
       <v-list subheader>
         <v-subheader>Actions:</v-subheader>
