@@ -54,7 +54,7 @@
         </v-badge>
 
         <div class="dropdown ma-auto">
-          <v-btn id="parent" text small class="ma-auto white--text font-weight-bold">
+          <v-btn text small class="ma-auto white--text font-weight-bold">
             <v-icon left>mdi-earth</v-icon>
             <select name="country" @change="onchange()" class="dropdown-select ma-auto" v-model="defaultCountry">
               <option v-for="country in visualsClassAttributes" :key="country.name" :value="country.name">{{ country.name }}</option>
