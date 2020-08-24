@@ -7,7 +7,9 @@
         </a>
       </v-app-bar-nav-icon>
 
-      <v-toolbar-title class="pl-2 text-h6 white--text font-weight-bold gradient-text-logo"><a href="/">VantaShala</a></v-toolbar-title>
+      <v-toolbar-title class="pl-2 text-h6 white--text font-weight-bold gradient-text-logo"
+        ><a href="/">{{ this.getSiteName() }}</a></v-toolbar-title
+      >
       <v-spacer></v-spacer>
 
       <v-toolbar-items v-if="deferredPrompt">
@@ -265,6 +267,16 @@ export default class ToolBar extends Vue {
         this.tbStyle = 'background-color: transparent';
       }
     }
+  }
+
+  private getSiteName(): string {
+    if (window) {
+      if (window.location.host == 'vantashala') {
+        console.log('Visiting at VantaShala');
+        return 'Under Construction';
+      }
+    }
+    return 'VantaShala';
   }
 }
 </script>
