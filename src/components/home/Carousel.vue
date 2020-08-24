@@ -53,18 +53,18 @@ export default class Carousel extends Vue {
     },
     {
       caption: 'Family & Education Time Matters',
-      title: 'Home Made, Live Streaming',
+      title: 'Home Made, Watch Live',
       desc: 'You have right to watch how your food is being made.',
     },
     {
       caption: 'Daily Suppliments @ Home',
       title: 'Nutritiously Homemade',
-      desc: 'Chemicals Free. Quinoa & Bazra Mixed Rice.',
+      desc: 'Chemical Free. Organic. Quinoa & Bazra & Cerels Mixed with Rice.',
     },
     {
       caption: 'Public & Social Health',
       title: 'Organic - Be Diet Specific ',
-      desc: 'Complete Organic. Unlike restaurants. Share your health profile & let us care rest',
+      desc: 'Unlike Restaurants, Every possible ingradient is organic. `<a>Check how we manage</a>`',
     },
   ];
 
