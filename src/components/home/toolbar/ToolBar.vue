@@ -271,7 +271,8 @@ export default class ToolBar extends Vue {
 
   private getSiteName(): string {
     if (window) {
-      if (window.location.host == 'vantashala') {
+      console.log('====>', window.location);
+      if (window.location.host.toLowerCase().includes('vantashala')) {
         console.log('Visiting at VantaShala');
         return 'Under Construction';
       }
