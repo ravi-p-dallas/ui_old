@@ -17,7 +17,7 @@
           </v-card-title>
           <v-divider class="mx-2 pa-0"></v-divider>
           <v-card-title class="text-subtitle-2 mx-2 pa-2">
-            Portion: {{ Menu.capacity }} person(s)<v-spacer />
+            Serves: {{ Menu.capacity }} person(s)<v-spacer />
             <v-rating v-model="Menu.rating" dense half-increments>
               <template v-slot:item="props">
                 <v-icon color="green lighten-1" small @click="props.click">
