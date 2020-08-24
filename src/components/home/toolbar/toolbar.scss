@@ -99,7 +99,7 @@
     animation: rainbow-text-simple-animation-rev 0.75s ease forwards;
 }
 
-#parent:hover .gradient-text{
+#gradient-button:hover .gradient-text {
     background-image: linear-gradient(90deg, #2f00ff  30%, #ff00dd 20%, #fffb00 50%);
     animation: rainbow-text-simple-animation 1s ease-in forwards;
 }
@@ -115,12 +115,11 @@
     animation: rainbow-text-simple-animation-rev 0.75s ease forwards;
 }
 
-#parent:hover .gradient-button-logo {
+#gradient-button:hover .gradient-button-logo {
     background-image: linear-gradient(45deg, #2f00ff   30%, #ff00dd 20%, #fffb00 50%);
     animation: rainbow-text-simple-animation 0.75s ease-in forwards;
 }
-
-.gradient-button,#parent{
+.gradient-button{
     cursor: pointer;
 }
 /* Move the background and make it smaller. */
