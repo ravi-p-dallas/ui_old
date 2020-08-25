@@ -32,10 +32,12 @@
 
       <v-card-title class="text-subtitle-2 mx-2 pa-2">
         Choose Dates:
+        <v-btn color="red lighten-2" dark icon @click.stop="dialog = true">
+          <v-icon color="green lighten-1">
+            mdi-calendar-clock
+          </v-icon>
+        </v-btn>
 
-        <v-icon color="green lighten-1" class="ml-2">
-          mdi-calendar-clock
-        </v-icon>
         <!-- <v-date-picker v-model="startDate" color="green lighten-1"></v-date-picker> -->
         <v-spacer />
         Order Limit:
@@ -71,7 +73,7 @@
         </v-btn>
       </v-app-bar>
 
-      <v-navigation-drawer v-model="drawer" absolute bottom temporary width="320" color="green lighten-2 ">
+      <v-navigation-drawer v-model="drawer" absolute bottom temporary width="320" color="green lighten-2 " hide-overlay>
         <v-list dense>
           <v-list-item two-line>
             <v-list-item-avatar size="42" tile>
@@ -98,6 +100,17 @@
         <v-list subheader>
           <v-subheader> <v-icon>mdi-barley</v-icon> Gradients</v-subheader>
           <v-subheader>
+            <!-- 
+           <v-combobox
+            multiple
+            chips
+            small-chips
+            readonly
+          >
+          
+         
+          </v-combobox> -->
+
             <v-chip-group column>
               <v-chip small color="green lighten-4">Rice</v-chip>
               <v-chip small color="green lighten-4">almonds</v-chip>
@@ -127,6 +140,10 @@
         </v-btn>
       </template>
     </v-snackbar>
+
+    <v-dialog v-model="dialog" max-width="290">
+      <v-card> <v-date-picker v-model="dates" color="green lighten-1" multiple></v-date-picker></v-card>
+    </v-dialog>
   </v-container>
 </template>
 
@@ -153,7 +170,8 @@ export default class SearchMenus extends Vue {
   name = 'SearchMenus';
   snackbar = false;
   drawer = null;
-
+  dialog = false;
+  dates = [];
   constructor(parameters) {
     super();
     console.log(' Constructing Menu Item ');
