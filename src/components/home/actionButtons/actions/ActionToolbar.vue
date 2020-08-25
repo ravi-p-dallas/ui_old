@@ -49,7 +49,7 @@ export default class ActionToolbar extends Vue {
 
   constructor(parameters) {
     super();
-    console.log('LayoutContainer Object Contructor called');
+    console.log('ActionToolBar Contructed');
   }
 
   handleFunctionCall(comp: string) {
@@ -57,8 +57,8 @@ export default class ActionToolbar extends Vue {
     const cMod = getModule(ActionButtonsSwitch);
     cMod.changeComponent(comp);
   }
-  create(key){
-    console.log("Pressed Key: ", key);
+  create(key) {
+    console.log('Pressed Key: ', key);
   }
 }
 </script>

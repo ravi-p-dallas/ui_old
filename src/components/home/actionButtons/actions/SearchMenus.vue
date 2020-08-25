@@ -3,71 +3,7 @@
     <ActionToolbar title="Explore Menus" />
     <v-row>
       <v-col v-for="(Menu, i) in Menus" :key="i" align-content="center" class="ma-0" align="center" justify="space-around">
-        <v-card max-width="320" min-width="320" class="ma-0">
-          <v-img height="250" :src="Menu.image" class="align-end">
-            <v-card-title class="test font-weight-bold white--text">
-              <v-icon color="orange lighten-1"> mdi-fire </v-icon> {{ Menu.itemName }}<v-spacer />
-              <v-icon color="white lighten-1" small> mdi-currency-inr </v-icon>{{ Menu.price }}</v-card-title
-            >
-          </v-img>
-          <v-card-text class="text-justify"
-            ><a @click="slide(Menu.id)"> Details:</a>
-            <v-clamp autoresize :max-lines="2"> {{ Menu.description }} </v-clamp>
-          </v-card-text>
-          <v-card-title class="text-subtitle-1 mx-2 pa-2">
-            {{ Menu.kitchenName }} <v-spacer />
-            <div class="text-subtitle-1 blue-grey--text ml-1">{{ Menu.speciality }}</div>
-          </v-card-title>
-          <v-divider class="mx-2 pa-0"></v-divider>
-          <v-card-title class="text-subtitle-2 mx-2 pa-2">
-            Serves: {{ Menu.capacity }} person(s)<v-spacer />
-            <v-rating v-model="Menu.rating" dense half-increments>
-              <template v-slot:item="props">
-                <v-icon color="green lighten-1" small @click="props.click">
-                  {{ props.isFilled ? 'mdi-star-circle' : 'mdi-circle-outline' }}
-                </v-icon>
-              </template>
-            </v-rating>
-          </v-card-title>
-
-          <v-card-title class="text-subtitle-2 mx-2 pa-2">
-            Choose Dates:
-
-            <v-icon color="green lighten-1" class="ml-2">
-              mdi-calendar-clock
-            </v-icon>
-            <!-- <v-date-picker v-model="startDate" color="green lighten-1"></v-date-picker> -->
-            <v-spacer />
-            Order Limit:
-            {{ Menu.orderCapacityLeft != null && Menu.orderCapacityLeft > 0 ? '' + Menu.orderCapacityLeft : '100' }}
-          </v-card-title>
-
-          <v-card-text class="ma-0">
-            <v-chip-group column multiple active-class="green darken-4 white--text text--darken-4" class="pa-0">
-              <v-chip small color="green lighten-4">09:00 AM</v-chip>
-              <v-chip small color="green lighten-4">12:00 PM</v-chip>
-              <v-chip small color="green lighten-4">04:00 PM</v-chip>
-              <v-chip small color="green lighten-4">07:00 PM</v-chip>
-              <v-chip small color="green lighten-4">09:00 PM</v-chip>
-            </v-chip-group>
-          </v-card-text>
-          <v-card-actions>
-            <v-btn color="deep-purple lighten-2" text @click="addTocart(Menu)">
-              <v-icon color="green lighten-1">
-                mdi-cart-plus
-              </v-icon>
-            </v-btn>
-            <v-spacer></v-spacer>
-
-            <v-btn color="yellow darken-3" text @click="addTocart(Menu)"
-              >Reccuring
-              <v-icon color="yellow darken-3">
-                mdi-cart-arrow-right
-              </v-icon>
-            </v-btn>
-          </v-card-actions>
-          <!-- <v-navigation-drawer v-if="dialog" temporary floating absolute > gopi </v-navigation-drawer> -->
-        </v-card>
+        <MenuItem :Menu="Menu" />
       </v-col>
     </v-row>
 
@@ -104,13 +40,11 @@ import ActionToolbar from './ActionToolbar.vue';
 import { getModule } from 'vuex-module-decorators';
 import CountryFlip from '../../../../store/CountryFlip';
 import CartStore from '../../../../store/CartStore';
-import VClamp from 'vue-clamp';
 
-interface KeyValue {
-  [key: string]: boolean;
-}
+import MenuItem from './MeniItem/MenuItem.vue';
+
 @Component({
-  components: { ActionToolbar, VClamp },
+  components: { ActionToolbar, MenuItem },
 })
 export default class SearchMenus extends Vue {
   name = 'SearchMenus';
