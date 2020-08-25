@@ -52,7 +52,7 @@
         </v-chip-group>
       </v-card-text>
 
-      <v-app-bar color="deep-green accent-1" dark>
+      <v-app-bar color="deep-green accent-1" dark dense>
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
         <v-btn color="deep-purple lighten-2" text @click="addTocart(Menu)">
@@ -74,13 +74,12 @@
       <v-navigation-drawer v-model="drawer" absolute bottom temporary width="320" color="green lighten-2 ">
         <v-list dense>
           <v-list-item two-line>
-            <v-list-item-avatar size="36" tile>
-              <img src="https://randomuser.me/api/portraits/men/81.jpg" />
+            <v-list-item-avatar size="42" tile>
+              <img :src="Menu.image" />
             </v-list-item-avatar>
 
             <v-list-item-content>
-              <v-list-item-title>Gopi Kancharla</v-list-item-title>
-              <v-list-item-subtitle>Premium User</v-list-item-subtitle>
+              <v-list-item-title>{{ Menu.itemName }}</v-list-item-title>
             </v-list-item-content>
 
             <v-btn icon @click.stop="drawer = !drawer">
@@ -98,7 +97,22 @@
 
         <v-list subheader>
           <v-subheader> <v-icon>mdi-barley</v-icon> Gradients</v-subheader>
-          <v-subheader> Rice, Almonds....</v-subheader>
+          <v-subheader>
+            <v-chip-group column>
+              <v-chip small color="green lighten-4">Rice</v-chip>
+              <v-chip small color="green lighten-4">almonds</v-chip>
+              <v-chip small color="green lighten-4">test</v-chip>
+              <v-chip small color="green lighten-4">Rice</v-chip>
+              <v-chip small color="green lighten-4">almonds</v-chip>
+              <v-chip small color="green lighten-4">test</v-chip>
+              <v-chip small color="green lighten-4">Rice</v-chip>
+              <v-chip small color="green lighten-4">almonds</v-chip>
+              <v-chip small color="green lighten-4">test</v-chip>
+              <v-chip small color="green lighten-4">Rice</v-chip>
+              <v-chip small color="green lighten-4">almonds</v-chip>
+              <v-chip small color="green lighten-4">test</v-chip>
+            </v-chip-group></v-subheader
+          >
         </v-list>
         <v-divider></v-divider>
       </v-navigation-drawer>
