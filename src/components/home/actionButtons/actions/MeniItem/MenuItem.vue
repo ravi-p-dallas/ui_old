@@ -73,7 +73,7 @@
         </v-btn>
       </v-app-bar>
 
-      <v-navigation-drawer v-model="drawer" absolute bottom temporary width="320" color="green lighten-2 " hide-overlay>
+      <v-navigation-drawer v-model="drawer" absolute temporary width="320" color="green lighten-2 " hide-overlay>
         <v-list dense>
           <v-list-item two-line>
             <v-list-item-avatar size="42" tile>
