@@ -30,6 +30,14 @@
           <v-chip small class="ma-2" color="green" outlined label filter filter-icon="mdi-check-box-outline">Veg</v-chip>
           <v-chip small class="ma-2" color="green" outlined label filter filter-icon="mdi-check-box-outline">Calorie Smart</v-chip>
         </v-chip-group>
+
+        <v-chip-group column multiple>
+          <v-chip small class="ma-2" color="orange" outlined label filter filter-icon="mdi-check-box-outline">Breafast</v-chip>
+          <v-chip small class="ma-2" color="orange" outlined label filter filter-icon="mdi-check-box-outline">Lunch</v-chip>
+          <v-chip small class="ma-2" color="orange" outlined label filter filter-icon="mdi-check-box-outline">Snack</v-chip>
+          <v-chip small class="ma-2" color="orange" outlined label filter filter-icon="mdi-check-box-outline">Dinner</v-chip>
+          <v-chip small class="ma-2" color="orange" outlined label filter filter-icon="mdi-check-box-outline">Yougert</v-chip>
+        </v-chip-group>
       </v-toolbar>
     </v-col>
   </v-row>
