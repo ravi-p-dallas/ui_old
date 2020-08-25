@@ -1,13 +1,15 @@
 <template>
-  <v-container fluid class="pa-0 ma-0">
+  <v-container fluid fill-height class="pa-0 ma-0" style="position: absolute">
     <v-app-bar :style="tbStyle" text-center align="center" class="pa-0" elevate-on-scroll fixed v-scroll="onScroll">
-      <v-app-bar-nav-icon :class="this.$vuetify.breakpoint.mdAndDown ? 'pa-3' : 'ml-2 pa-7'">
+      <v-app-bar-nav-icon :class="this.$vuetify.breakpoint.mdAndDown ? 'pa-0' : 'ml-2 pb-1 '">
         <a href="/">
           <v-img :src="image" width="48px"></v-img>
         </a>
       </v-app-bar-nav-icon>
 
-      <v-toolbar-title class="pl-2 text-h6 white--text font-weight-bold gradient-text-logo"><a href="/">VantaShala</a></v-toolbar-title>
+      <v-toolbar-title class="pl-2 text-h6 white--text font-weight-bold gradient-text-logo"
+        ><a href="/">{{ this.getSiteName() }}</a></v-toolbar-title
+      >
       <v-spacer></v-spacer>
 
       <v-toolbar-items v-if="deferredPrompt">
@@ -24,8 +26,15 @@
         <v-badge color="purple lighten-4" text small overlap class="ma-auto mr-5">
           <span slot="badge" class="purple--text font-weight-bold">?</span>
           <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="login">
-            <v-icon left>mdi-open-in-new</v-icon>
-            <div class="gradient-text">Test Login</div>
+            <v-icon class="gradient-button-logo" left>mdi-open-in-new</v-icon>
+            <div class="gradient-text">Login</div>
+          </v-btn>
+        </v-badge>
+        <v-badge color="purple lighten-4" text small overlap class="ma-auto mr-5">
+          <span slot="badge" class="purple--text font-weight-bold">?</span>
+          <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="openCamera">
+            <v-icon class="gradient-button-logo" left>mdi-camera</v-icon>
+            <div class="gradient-text">Streaming</div>
           </v-btn>
         </v-badge>
       </v-toolbar-items>
@@ -33,8 +42,16 @@
         <v-badge color="purple lighten-4" v-for="(item, i) in menu" :key="i" :to="item.link" text small overlap class="ma-auto mr-5" :value="item.badge != '?'">
           <span slot="badge" class="purple--text font-weight-bold">{{ item.badge }}</span>
           <v-btn text small class="ma-auto white--text font-weight-bold">
-            <v-icon left>{{ item.icon }}</v-icon>
+            <v-icon class="gradient-button-logo" left>{{ item.icon }}</v-icon>
             <div class="gradient-text">{{ item.title }}</div>
+          </v-btn>
+        </v-badge>
+
+        <v-badge color="purple lighten-4" text small overlap class="ma-auto mr-5" :value="this.cartCount != 0">
+          <span slot="badge" class="purple--text font-weight-bold">{{ cartCount }}</span>
+          <v-btn text small class="ma-auto white--text font-weight-bold">
+            <v-icon class="gradient-button-logo" left>mdi-cart-outline</v-icon>
+            <div class="gradient-text">My Cart</div>
           </v-btn>
         </v-badge>
 
@@ -76,6 +93,17 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+
+    <v-dialog v-model="dialog" width="600px">
+      <v-card>
+        <v-card-title>
+          <span class="headline">Video Streaming</span>
+        </v-card-title>
+        <v-card-text>
+          <Camera />
+        </v-card-text>
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
 <style lang="scss">
@@ -91,12 +119,13 @@ import { getModule } from 'vuex-module-decorators';
 import store from '@/store';
 import CountryFlip from '../../../store/CountryFlip';
 import ActionButtonsSwitch from '@/store/ActionButtonsSwitch';
-
+import CartStore from '@/store/CartStore';
+import Camera from '../../camera/Camera.vue';
 @Component({
-  components: { NavigationDrawer },
+  components: { NavigationDrawer, Camera },
 })
 export default class ToolBar extends Vue {
-  name = 'ToolBar';
+  name = 'ToolBar: ';
   drawer = false;
   defaultCountry;
   collapseOnScroll = true;
@@ -105,11 +134,12 @@ export default class ToolBar extends Vue {
   updateExists = false;
   deferredPrompt = '';
   visualsClassAttributes = getModule(CountryFlip).visualsClassAttributes;
-  tbStyle = 'background-color: transparent';
+  tbStyle = 'background-color: transparent;';
   tbStyleNonTransparent =
     'opacity:0.95; background-color: #263238; background: rgb(250,117,0); background: radial-gradient(circle, rgba(250,117,0,1) 0%, rgba(128,153,41,1) 76%, rgba(62,83,81,1) 100%);';
-  activeComponent = '';
-
+  activeComponent = 'Home';
+  cartCount = 0;
+  dialog = false;
   menu = [
     {
       icon: 'mdi-order-bool-descending-variant',
@@ -118,7 +148,6 @@ export default class ToolBar extends Vue {
       badge: '?',
     },
     { icon: 'mdi-chef-hat', title: 'My Chefs', path: '/', badge: '?', action: 'login' },
-    { icon: 'mdi-cart-outline', title: 'My Cart', path: '/', badge: '?' },
   ];
   image = require('@/assets/logo.png');
 
@@ -157,7 +186,7 @@ export default class ToolBar extends Vue {
     this.drawer = !this.drawer;
   }
   updateDrawerState(status) {
-    console.log('--> ', this.drawer, status);
+    console.log(this.name, ' Drawrer State: ', this.drawer, status);
     if (!this.drawer === status) {
       this.drawer = status;
     }
@@ -168,6 +197,9 @@ export default class ToolBar extends Vue {
 
   login() {
     authService.login();
+  }
+  openCamera() {
+    this.dialog = true;
   }
   updateAvailable(event) {
     this.registration = event.detail;
@@ -182,31 +214,45 @@ export default class ToolBar extends Vue {
 
   @Watch('countryChanged')
   setbackCountry() {
-    console.log(this.constructor.name, ': Country Changed', getModule(CountryFlip).country);
+    this.$log.info(this.name, 'Country Changed: ', getModule(CountryFlip).country);
     this.defaultCountry = getModule(CountryFlip).country;
   }
+
   get countryChanged() {
-    this.$log.info('Country Chnaged in Vuex Store');
+    this.$log.info(this.name, 'Country Chnaged');
     const cMod = getModule(CountryFlip);
     return cMod.visualStyle.overlay;
   }
 
   @Watch('activeComponentChanged')
   updateActiveComponent() {
-    this.$log.info(this.name, 'Watch Observed', this.activeComponent);
     this.activeComponent = getModule(ActionButtonsSwitch).activeComponent;
-
+    this.$log.info(this.name, 'Watch Observed: ', this.activeComponent);
     if (this.activeComponent != 'Home') {
       this.tbStyle = this.tbStyleNonTransparent;
     } else {
       this.tbStyle = 'background-color: transparent';
     }
+    this.$log.info(this.name, 'Style Applied: ', this.tbStyle);
   }
 
   get activeComponentChanged() {
     const cMod = getModule(ActionButtonsSwitch);
-    this.$log.debug(this.name, ': Active Component Changed : ' + cMod.activeComponent);
+    this.$log.info(this.name, 'Active Component Changed: ' + cMod.activeComponent);
     return cMod.activeComponent;
+  }
+
+  @Watch('cartCountChange')
+  updateCartCount() {
+    this.$log.info(this.name, 'Watch Observed', this.cartCount);
+    const cMod = getModule(CartStore);
+    this.cartCount = cMod.cartCount;
+  }
+
+  get cartCountChange() {
+    const cMod = getModule(CartStore);
+    this.$log.debug(this.name, ': Cart count changed : ' + cMod.cartCount);
+    return cMod.cartCount;
   }
 
   onScroll(e) {
@@ -221,6 +267,17 @@ export default class ToolBar extends Vue {
         this.tbStyle = 'background-color: transparent';
       }
     }
+  }
+
+  private getSiteName(): string {
+    if (window) {
+      console.log('====>', window.location);
+      if (window.location.host.toLowerCase().includes('vantashala')) {
+        console.log('Visiting at VantaShala');
+        return 'Under Construction';
+      }
+    }
+    return 'VantaShala';
   }
 }
 </script>

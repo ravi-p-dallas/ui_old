@@ -1,6 +1,6 @@
 <template>
   <v-container fluid mt-10>
-    <ActionToolbar />
+    <ActionToolbar title="Chefs Nearby"/>
     <v-row align="center" justify="center" class="ma-2">
       <v-col>
         FindChefs

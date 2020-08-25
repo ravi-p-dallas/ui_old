@@ -7,7 +7,7 @@ import VueKeyCloak from '@dsb-norge/vue-keycloak-js';
 const initOptions = {
   init: {
     // Use 'login-required' to always require authentication
-    // If using 'login-required', there is no need for the router guards in router.js check-sso
+    // If using 'login-required', there is no need for the router guards in router.js -  check-sso
     onLoad: 'check-sso',
   },
   config: {

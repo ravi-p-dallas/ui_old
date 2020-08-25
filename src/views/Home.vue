@@ -1,7 +1,7 @@
 <template>
-  <v-container fluid fill-height class="ma-0 pa-0 flex-column" scroll-y>
+  <v-container fluid fill-height class="ma-0 pa-0">
     <ToolBar />
-    <v-main style="width:100%" v-if="activeComponent == 'Home'">
+    <v-main style="width:100%; padding:0" v-if="activeComponent == 'Home'">
       <ScrollTransitionButtons />
       <BgVideo />
       <RepeatedOrders class="mb-0 grey lighten-5 overflow-y-auto" id="RO" />
@@ -10,7 +10,7 @@
       <ContactUs id="CU" />
       <LayoutContainer class="ma-auto grey lighten-4" id="LC" />
     </v-main>
-    <SearchMenus v-if="activeComponent == 'Explore Menus'" />
+    <SearchMenus v-show="activeComponent == 'Explore Menus'" />
     <BeAChef v-if="activeComponent == 'Be A Chef'" />
     <FindChefs v-if="activeComponent == 'Find Home Chefs'" />
     <Footer id="FT" />
@@ -65,18 +65,18 @@ export default class Home extends Vue {
   }
 
   created() {
-    this.$log.info(this.name, ' Created');
+    this.$log.info(this.name, 'Created');
     this.setActiveComponet();
   }
 
   setActiveComponet() {
     const cMod = getModule(ActionButtonsSwitch);
     this.activeComponent = cMod.activeComponent;
-    this.$log.info(this.name, ': Active Component updated', this.activeComponent);
+    this.$log.info(this.name, 'Active Component updated: ', this.activeComponent);
   }
 
   resetActiveComponent() {
-    this.$log.info(this.name, ': Resetting Active Components');
+    this.$log.info(this.name, 'Resetting Active Component. ');
     this.setActiveComponet();
   }
 
@@ -88,7 +88,7 @@ export default class Home extends Vue {
 
   get activeComponentChanged() {
     const cMod = getModule(ActionButtonsSwitch);
-    this.$log.info(this.name, ': Active Component Changed' + cMod.activeComponent);
+    this.$log.info(this.name, 'Active Component Changed: ' + cMod.activeComponent);
     return cMod.activeComponent;
   }
 }

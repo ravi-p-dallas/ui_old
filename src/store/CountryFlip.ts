@@ -4,6 +4,7 @@ import store from '@/store';
 @Module({ dynamic: true, store, name: 'CountryFlip' })
 export default class CountryFlip extends VuexModule {
   private countryName = 'INDIA';
+  private name = 'CountryFlip: ';
   private visualsClasses = {
     INDIA: {
       fCclass: 'ma-2 white--text font-weight-bold orange darken-1',
@@ -45,16 +46,16 @@ export default class CountryFlip extends VuexModule {
   @Mutation
   private updateCountry(payload: string) {
     this.countryName = payload;
-    console.log(': Country Change Mutation');
+    console.log(this.name, 'Store Mutation: Country Changed');
   }
 
   public get country() {
-    console.log(': Country Get');
+    console.log(this.name, ': Country Get');
     return this.countryName;
   }
 
   public get visualStyle() {
-    console.log(': VisualStyle Get', this.visualsClasses[this.countryName]);
+    console.log(this.name, 'VisualStyle Get', this.visualsClasses[this.countryName]);
     return this.visualsClasses[this.countryName];
   }
 
@@ -65,6 +66,7 @@ export default class CountryFlip extends VuexModule {
   @Action
   public changeCountry(country: string) {
     this.context.commit('updateCountry', country);
-    console.log(': Country Change Action');
+    console.log(this.name, 'Store Action: Country Changed');
+
   }
 }
