@@ -1,9 +1,9 @@
 <template>
   <v-container fluid mt-10>
     <ActionToolbar title="Explore Menus" />
-    <v-row align="center" justify="center" class="ma-2">
-      <v-col v-for="(Menu, i) in Menus" :key="i">
-        <v-card max-width="320">
+    <v-row align="center" justify="center" md-4 lg-6 sm-12>
+      <v-col v-for="(Menu, i) in Menus" :key="i" align-content="center" class="ma-0" align="center" justify="center">
+        <v-card max-width="320" min-width="270" class="ma-0">
           <v-img height="250" :src="Menu.image" class="align-end">
             <v-card-title class="test font-weight-bold white--text">
               <v-icon color="orange lighten-1"> mdi-fire </v-icon> {{ Menu.itemName }}<v-spacer />
@@ -17,7 +17,7 @@
           </v-card-title>
           <v-divider class="mx-2 pa-0"></v-divider>
           <v-card-title class="text-subtitle-2 mx-2 pa-2">
-            Portion: {{ Menu.capacity }} person(s)<v-spacer />
+            Serves: {{ Menu.capacity }} person(s)<v-spacer />
             <v-rating v-model="Menu.rating" dense half-increments>
               <template v-slot:item="props">
                 <v-icon color="green lighten-1" small @click="props.click">
@@ -29,9 +29,9 @@
 
           <v-card-text>
             <div class="text-subtitle-2">Orders Left: {{ Menu.orderCapacityLeft != null ? Menu.orderCapacityLeft : 0 }}</div>
-            <v-chip-group active-class="deep-purple accent-4 white--text" column>
-              <v-chip small class="ma-2" color="green" outlined>9:00 AM</v-chip>
-              <v-chip small class="ma-2" color="green" outlined>12:00 PM</v-chip>
+            <v-chip-group column multiple active-class="orange" outlined>
+              <v-chip small class="ma-2" >9:00 AM</v-chip>
+              <v-chip small class="ma-2" color="green lighten-4" >12:00 PM</v-chip>
               <v-chip small class="ma-2" color="green" outlined>4:00 PM</v-chip>
               <v-chip small class="ma-2" color="green" outlined>7:00 PM</v-chip>
               <v-chip small class="ma-2" color="green" outlined>9:00 PM</v-chip>
@@ -108,6 +108,7 @@ export default class SearchMenus extends Vue {
       capacity: 3,
       orderCapacityLeft: 5,
       price: 220,
+      tags: ['organic', 'healthy', 'veggie'],
     },
     {
       image: 'https://mjskitchen.com/wp-content/uploads/2017/05/ArugulaPeaSaladV1_Web.jpg',
@@ -120,6 +121,7 @@ export default class SearchMenus extends Vue {
       capacity: 4,
       orderCapacityLeft: 5,
       price: 220,
+      tags: ['organic', 'healthy', 'veggie'],
     },
     {
       image: 'https://media.cntraveler.com/photos/5703e5da62735b7f3cd8b9b1/16:9/w_1440,c_limit/pizza-cities-nyc-robertas-cr-courtesy.jpg',
@@ -132,6 +134,7 @@ export default class SearchMenus extends Vue {
       capacity: 5,
       orderCapacityLeft: 5,
       price: 220,
+      tags: ['organic', 'healthy', 'veggie'],
     },
     {
       image: 'https://www.kohinoor-joy.com/wp-content/uploads/2016/11/north-Indian-food-featured-image-1068x712.jpg',
@@ -143,6 +146,7 @@ export default class SearchMenus extends Vue {
       noOfReviews: 13,
       capacity: 6,
       price: 220,
+      tags: ['organic', 'healthy', 'veggie'],
     },
     {
       image: 'https://www.abbeyskitchen.com/wp-content/uploads/2016/07/veggie-noodle-lemon-pasta-1-of-9.jpg',
@@ -154,6 +158,7 @@ export default class SearchMenus extends Vue {
       noOfReviews: 13,
       capacity: 3,
       price: 220,
+      tags: ['organic', 'healthy', 'veggie'],
     },
     {
       image: 'https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/ukh7i9riyebe4d6z8wtr',
@@ -165,6 +170,7 @@ export default class SearchMenus extends Vue {
       noOfReviews: 13,
       capacity: 4,
       price: 220,
+      tags: ['organic', 'healthy', 'veggie'],
     },
     {
       image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',

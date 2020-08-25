@@ -65,7 +65,7 @@ export default class ActionButtons extends Vue {
     this.beAchefStyle = styles['bCclass'];
     this.exploreMenusStyle = styles['sMclass'];
 
-    console.log('===> ', this.findChefStyle, this.beAchefStyle, this.exploreMenusStyle);
+    //console.log('===> ', this.findChefStyle, this.beAchefStyle, this.exploreMenusStyle);
   }
   handleFunctionCall(event) {
     console.log(this.name, '-clicked-', event);

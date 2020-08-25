@@ -1,21 +1,22 @@
 <template>
   <v-container fluid class="pa-0 ma-0">
-    <v-navigation-drawer v-model="isOpen" right color="green lighten-2 mt-16" disable-resize-watcher absolute>
-      <v-list-item two-line>
-        <v-list-item-avatar size="36" tile>
-          <img src="https://randomuser.me/api/portraits/men/81.jpg" />
-        </v-list-item-avatar>
+    <v-navigation-drawer v-model="isOpen" color="green lighten-2 " absolute temporary>
+      <v-list dense>
+        <v-list-item two-line>
+          <v-list-item-avatar size="36" tile>
+            <img src="https://randomuser.me/api/portraits/men/81.jpg" />
+          </v-list-item-avatar>
 
-        <v-list-item-content>
-          <v-list-item-title>Gopi Kancharla</v-list-item-title>
-          <v-list-item-subtitle>Premium User</v-list-item-subtitle>
-        </v-list-item-content>
+          <v-list-item-content>
+            <v-list-item-title>Gopi Kancharla</v-list-item-title>
+            <v-list-item-subtitle>Premium User</v-list-item-subtitle>
+          </v-list-item-content>
 
-        <v-btn icon @click.stop="updateDrawerState">
-          <v-icon>mdi-chevron-right</v-icon>
-        </v-btn>
-      </v-list-item>
-
+          <v-btn icon @click.stop="updateDrawerState">
+            <v-icon>mdi-chevron-left-box</v-icon>
+          </v-btn>
+        </v-list-item>
+      </v-list>
       <v-divider></v-divider>
       <v-list subheader>
         <v-subheader>Actions:</v-subheader>
@@ -99,7 +100,7 @@ import CartStore from '@/store/CartStore';
   props: ['menu', 'drawer'],
 })
 export default class NavigationDrawer extends Vue {
-  name = 'NavigationDrawer';
+  name = 'NavigationDrawer: ';
   isOpen = false;
   visualsClassAttributes = getModule(CountryFlip).visualsClassAttributes;
   styles = {
@@ -141,6 +142,17 @@ export default class NavigationDrawer extends Vue {
     const cMod = getModule(CartStore);
     this.$log.debug(this.name, ': Cart count changed : ' + cMod.cartCount);
     return cMod.cartCount;
+  }
+
+  @Watch('countryChanged')
+  setbackCountry() {
+    this.$log.info(this.name, 'Country Changed: ', getModule(CountryFlip).country);
+    this.defaultCountry = getModule(CountryFlip).country;
+  }
+  get countryChanged() {
+    this.$log.info(this.name, 'Country Changed');
+    const cMod = getModule(CountryFlip);
+    return cMod.visualStyle.overlay;
   }
 }
 </script>

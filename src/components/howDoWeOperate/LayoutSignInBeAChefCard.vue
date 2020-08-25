@@ -52,6 +52,7 @@ import CountryFlip from '../../store/CountryFlip';
 
 @Component({})
 export default class LayoutSignInBeAChefCard extends Vue {
+  name = 'LayoutSignInBeAChefCard';
   loading = false;
   image = require('@/assets/biryani_2.jpg');
 
@@ -68,7 +69,7 @@ export default class LayoutSignInBeAChefCard extends Vue {
     this.findChefStyle = styles['fCclass'];
     this.exploreMenusStyle = styles['sMclass'];
 
-    console.log('===> ', this.findChefStyle, this.exploreMenusStyle);
+    //console.log('===> ', this.findChefStyle, this.exploreMenusStyle);
   }
   handleFunctionCall(event) {
     console.log('-->', event);
@@ -84,7 +85,7 @@ export default class LayoutSignInBeAChefCard extends Vue {
 
   @Watch('countryChanged')
   updateClasses() {
-    console.log(this.constructor.name, ': Country Changed');
+    console.log(this.name, ': Country Changed');
     this.updateStyles();
   }
 
