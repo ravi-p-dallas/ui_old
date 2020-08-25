@@ -17,6 +17,7 @@
           clearable
           hide-details
           append-icon="mdi-magnify"
+          @keydown.enter="create"
         ></v-text-field>
 
         <v-btn text class="ml-2"><v-icon class="green--text lighten-4">mdi-book-open-page-variant</v-icon></v-btn>
@@ -25,8 +26,8 @@
 
         <v-chip-group column multiple>
           <v-chip small class="ma-2" color="green" outlined label filter filter-icon="mdi-check-box-outline">Organic</v-chip>
-          <v-chip small class="ma-2" color="green" outlined label filter filter-icon="mdi-check-box-outline">Healthy</v-chip>
-          <v-chip small class="ma-2" color="green" outlined label filter filter-icon="mdi-check-box-outline">Veggie</v-chip>
+          <v-chip small class="ma-2" color="green" outlined label filter filter-icon="mdi-check-box-outline">Non-Veg</v-chip>
+          <v-chip small class="ma-2" color="green" outlined label filter filter-icon="mdi-check-box-outline">Veg</v-chip>
           <v-chip small class="ma-2" color="green" outlined label filter filter-icon="mdi-check-box-outline">Calorie Smart</v-chip>
         </v-chip-group>
       </v-toolbar>
@@ -55,6 +56,9 @@ export default class ActionToolbar extends Vue {
     console.log(comp);
     const cMod = getModule(ActionButtonsSwitch);
     cMod.changeComponent(comp);
+  }
+  create(key){
+    console.log("Pressed Key: ", key);
   }
 }
 </script>
