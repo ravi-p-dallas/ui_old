@@ -30,11 +30,18 @@
             </v-rating>
           </v-card-title>
 
+          <v-card-title class="text-subtitle-2 mx-2 pa-2">
+            Choose Date:
+
+            <v-icon color="green lighten-1" class="ml-2">
+              mdi-calendar-clock
+            </v-icon>
+            <v-spacer />
+            Order Limit:
+            {{ Menu.orderCapacityLeft != null && Menu.orderCapacityLeft > 0 ? '' + Menu.orderCapacityLeft : '100' }}
+          </v-card-title>
+
           <v-card-text class="ma-0">
-            <div class="text-left text-subtitle-2">
-              Order Limit:
-              {{ Menu.orderCapacityLeft != null && Menu.orderCapacityLeft > 0 ? '' + Menu.orderCapacityLeft : '100' }}
-            </div>
             <v-chip-group column multiple active-class="green darken-4 white--text text--darken-4" class="pa-0">
               <v-chip small color="green lighten-4">09:00 AM</v-chip>
               <v-chip small color="green lighten-4">12:00 PM</v-chip>
