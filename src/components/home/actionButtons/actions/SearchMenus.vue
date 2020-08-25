@@ -31,11 +31,12 @@
           </v-card-title>
 
           <v-card-title class="text-subtitle-2 mx-2 pa-2">
-            Choose Date:
+            Choose Dates:
 
             <v-icon color="green lighten-1" class="ml-2">
               mdi-calendar-clock
             </v-icon>
+            <!-- <v-date-picker v-model="startDate" color="green lighten-1"></v-date-picker> -->
             <v-spacer />
             Order Limit:
             {{ Menu.orderCapacityLeft != null && Menu.orderCapacityLeft > 0 ? '' + Menu.orderCapacityLeft : '100' }}
@@ -115,7 +116,7 @@ export default class SearchMenus extends Vue {
   name = 'SearchMenus';
   snackbar = false;
   dialog = true;
-
+  startDate = false;
   myMap = new Map();
 
   Menus = [
