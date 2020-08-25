@@ -1,14 +1,14 @@
 <template>
   <v-container fluid mt-10>
-    <v-card max-width="320" min-width="320" class="ma-0">
+    <v-card max-width="320" min-width="320" class="mx-auto overflow-hidden">
       <v-img height="250" :src="Menu.image" class="align-end">
         <v-card-title class="test font-weight-bold white--text">
           <v-icon color="orange lighten-1"> mdi-fire </v-icon> {{ Menu.itemName }}<v-spacer /> <v-icon color="white lighten-1" small> mdi-currency-inr </v-icon
           >{{ Menu.price }}</v-card-title
         >
       </v-img>
-      <v-card-text class="text-justify"
-        ><a @click.stop="drawer = !drawer"> Details:</a>
+
+      <v-card-text class="text-justify">
         <v-clamp autoresize :max-lines="2"> {{ Menu.description }} </v-clamp>
       </v-card-text>
       <v-card-title class="text-subtitle-1 mx-2 pa-2">
@@ -18,7 +18,10 @@
       <v-divider class="mx-2 pa-0"></v-divider>
       <v-card-title class="text-subtitle-2 mx-2 pa-2">
         Serves: {{ Menu.capacity }} person(s)<v-spacer />
-        <v-rating v-model="Menu.rating" dense half-increments>
+        <v-btn icon x-small>
+          <v-icon color="green">mdi-open-source-initiative </v-icon>
+        </v-btn>
+        <v-rating v-model="Menu.rating" dense half-increments class="pb-1">
           <template v-slot:item="props">
             <v-icon color="green lighten-1" small @click="props.click">
               {{ props.isFilled ? 'mdi-star-circle' : 'mdi-circle-outline' }}
@@ -48,12 +51,16 @@
           <v-chip small color="green lighten-4">09:00 PM</v-chip>
         </v-chip-group>
       </v-card-text>
-      <v-card-actions>
+
+      <v-app-bar color="deep-green accent-1" dark>
+        <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+
         <v-btn color="deep-purple lighten-2" text @click="addTocart(Menu)">
           <v-icon color="green lighten-1">
             mdi-cart-plus
           </v-icon>
         </v-btn>
+
         <v-spacer></v-spacer>
 
         <v-btn color="yellow darken-3" text @click="addTocart(Menu)"
@@ -62,23 +69,38 @@
             mdi-cart-arrow-right
           </v-icon>
         </v-btn>
-      </v-card-actions>
-      <v-navigation-drawer v-model="drawer" absolute temporary>
-        <v-list-item>
-          <v-list-item-avatar>
-            <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
-          </v-list-item-avatar>
+      </v-app-bar>
 
-          <v-list-item-content>
-            <v-list-item-title>John Leider</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+      <v-navigation-drawer v-model="drawer" absolute bottom temporary width="320" color="green lighten-2 ">
+        <v-list dense>
+          <v-list-item two-line>
+            <v-list-item-avatar size="36" tile>
+              <img src="https://randomuser.me/api/portraits/men/81.jpg" />
+            </v-list-item-avatar>
+
+            <v-list-item-content>
+              <v-list-item-title>Gopi Kancharla</v-list-item-title>
+              <v-list-item-subtitle>Premium User</v-list-item-subtitle>
+            </v-list-item-content>
+
+            <v-btn icon @click.stop="drawer = !drawer">
+              <v-icon>mdi-chevron-left-box</v-icon>
+            </v-btn>
+          </v-list-item>
+        </v-list>
+        <v-divider></v-divider>
+        <v-list subheader>
+          <v-subheader>Description:</v-subheader>
+          <v-list-item-content>{{ Menu.description }}</v-list-item-content>
+        </v-list>
 
         <v-divider></v-divider>
 
-        <v-list dense>
-          GOPi
+        <v-list subheader>
+          <v-subheader> <v-icon>mdi-barley</v-icon> Gradients</v-subheader>
+          <v-subheader> Rice, Almonds....</v-subheader>
         </v-list>
+        <v-divider></v-divider>
       </v-navigation-drawer>
     </v-card>
 
@@ -109,9 +131,6 @@ import CountryFlip from '../../../../../store/CountryFlip';
 import CartStore from '../../../../../store/CartStore';
 import VClamp from 'vue-clamp';
 
-interface KeyValue {
-  [key: string]: boolean;
-}
 @Component({
   components: { VClamp },
   props: ['Menu'],
