@@ -50,19 +50,19 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 export default Vue.extend({
-  name: "ContactUs",
+  name: 'ContactUs',
   data: () => ({
-    image: require("@/assets/biryani_2.jpg"),
+    image: require('@/assets/biryani_2.jpg'),
     valid: false,
-    firstname: "",
-    lastname: "",
-    nameRules: [v => !!v || "Name is required", v => v.length <= 15 || "Name must be less than 15 characters"],
-    email: "",
-    emailRules: [v => !!v || "E-mail is required", v => /.+@.+/.test(v) || "E-mail must be valid"]
+    firstname: '',
+    lastname: '',
+    nameRules: [v => !!v || 'Name is required', v => v.length <= 15 || 'Name must be less than 15 characters'],
+    email: '',
+    emailRules: [v => !!v || 'E-mail is required', v => /.+@.+/.test(v) || 'E-mail must be valid'],
   }),
-  methods: {}
+  methods: {},
 });
 </script>
 

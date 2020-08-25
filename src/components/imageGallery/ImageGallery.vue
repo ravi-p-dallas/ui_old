@@ -97,10 +97,10 @@
 </style>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 
 export default Vue.extend({
-  name: "ImageGallery",
+  name: 'ImageGallery',
 
   components: {},
   data: () => ({
@@ -110,59 +110,59 @@ export default Vue.extend({
         {
           groups: [
             {
-              src: "https://media.gettyimages.com/photos/vegetarian-biryani-on-dark-metal-background-with-copy-space-picture-id522286984?s=2048x2048"
+              src: 'https://media.gettyimages.com/photos/vegetarian-biryani-on-dark-metal-background-with-copy-space-picture-id522286984?s=2048x2048',
             },
             {
-              src: "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/ukh7i9riyebe4d6z8wtr"
+              src: 'https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/ukh7i9riyebe4d6z8wtr',
             },
             {
-              src: "https://i0.wp.com/indiathedestiny.com/wp-content/uploads/2016/03/Kerela-food-channel-copy-e1458019341128.jpg?resize=600%2C320&ssl=1"
+              src: 'https://i0.wp.com/indiathedestiny.com/wp-content/uploads/2016/03/Kerela-food-channel-copy-e1458019341128.jpg?resize=600%2C320&ssl=1',
             },
             {
-              src: "https://www.sheknows.com/wp-content/uploads/2018/08/ti8wzfbbvdspxo8dg1ci.jpeg"
+              src: 'https://www.sheknows.com/wp-content/uploads/2018/08/ti8wzfbbvdspxo8dg1ci.jpeg',
             },
             {
-              src: "https://www.kohinoor-joy.com/wp-content/uploads/2016/11/north-Indian-food-featured-image-1068x712.jpg"
+              src: 'https://www.kohinoor-joy.com/wp-content/uploads/2016/11/north-Indian-food-featured-image-1068x712.jpg',
             },
             {
-              src: "https://www.lifetothefullest.abbott/content/dam/gmo/anthem2/india/_604811.jpg.transform/anthem-masthead-resizing-image/image.jpg"
-            }
-          ]
+              src: 'https://www.lifetothefullest.abbott/content/dam/gmo/anthem2/india/_604811.jpg.transform/anthem-masthead-resizing-image/image.jpg',
+            },
+          ],
         },
         {
           groups: [
             {
-              src: "https://media.gettyimages.com/photos/vegetarian-biryani-on-dark-metal-background-with-copy-space-picture-id522286984?s=2048x2048"
+              src: 'https://media.gettyimages.com/photos/vegetarian-biryani-on-dark-metal-background-with-copy-space-picture-id522286984?s=2048x2048',
             },
             {
-              src: "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/ukh7i9riyebe4d6z8wtr"
+              src: 'https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/ukh7i9riyebe4d6z8wtr',
             },
             {
-              src: "https://i0.wp.com/indiathedestiny.com/wp-content/uploads/2016/03/Kerela-food-channel-copy-e1458019341128.jpg?resize=600%2C320&ssl=1"
+              src: 'https://i0.wp.com/indiathedestiny.com/wp-content/uploads/2016/03/Kerela-food-channel-copy-e1458019341128.jpg?resize=600%2C320&ssl=1',
             },
             {
-              src: "https://media.gettyimages.com/photos/vegetarian-biryani-on-dark-metal-background-with-copy-space-picture-id522286984?s=2048x2048"
+              src: 'https://media.gettyimages.com/photos/vegetarian-biryani-on-dark-metal-background-with-copy-space-picture-id522286984?s=2048x2048',
             },
             {
-              src: "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/ukh7i9riyebe4d6z8wtr"
+              src: 'https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/ukh7i9riyebe4d6z8wtr',
             },
             {
-              src: "https://i0.wp.com/indiathedestiny.com/wp-content/uploads/2016/03/Kerela-food-channel-copy-e1458019341128.jpg?resize=600%2C320&ssl=1"
-            }
-          ]
+              src: 'https://i0.wp.com/indiathedestiny.com/wp-content/uploads/2016/03/Kerela-food-channel-copy-e1458019341128.jpg?resize=600%2C320&ssl=1',
+            },
+          ],
         },
         {
           groups: [
             {
-              src: "https://media.gettyimages.com/photos/vegetarian-biryani-on-dark-metal-background-with-copy-space-picture-id522286984?s=2048x2048"
+              src: 'https://media.gettyimages.com/photos/vegetarian-biryani-on-dark-metal-background-with-copy-space-picture-id522286984?s=2048x2048',
             },
             {
-              src: "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/ukh7i9riyebe4d6z8wtr"
-            }
-          ]
-        }
-      ]
-    }
-  })
+              src: 'https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/ukh7i9riyebe4d6z8wtr',
+            },
+          ],
+        },
+      ],
+    },
+  }),
 });
 </script>

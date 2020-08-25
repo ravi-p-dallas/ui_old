@@ -50,22 +50,22 @@
 </template>
 
 <style lang="scss">
-@import "./OrderRepeatedCard.scss";
+@import './OrderRepeatedCard.scss';
 </style>
 
 <script lang="ts">
-import Vue from "vue";
-import ItemCard from "./ItemCard.vue";
+import Vue from 'vue';
+import ItemCard from './ItemCard.vue';
 
 export default Vue.extend({
-  name: "DesignedCard",
-  props: ["Title", "Caption", "Char", "Color", "CustomStyle", "DividerStyle", "scrollId"],
+  name: 'DesignedCard',
+  props: ['Title', 'Caption', 'Char', 'Color', 'CustomStyle', 'DividerStyle', 'scrollId'],
   components: {
-    ItemCard
+    ItemCard,
   },
   data: () => ({
-    scrollInvoked: 0
+    scrollInvoked: 0,
   }),
-  methods: {}
+  methods: {},
 });
 </script>

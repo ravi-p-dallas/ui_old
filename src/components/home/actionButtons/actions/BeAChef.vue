@@ -1,32 +1,27 @@
 <template>
-  <v-expansion-panels focusable>
-    <v-expansion-panel>
-      <v-expansion-panel-header>Join Us by Social - Recommended</v-expansion-panel-header>
-      <v-expansion-panel-content>
-        <v-content>Be a honest cook. Get blessed.</v-content>
-        <v-content>FACEBOOK</v-content>
-        <v-content>GOOGLE</v-content>
-      </v-expansion-panel-content>
-    </v-expansion-panel>
-    <v-expansion-panel>
-      <v-expansion-panel-header>Join Us by Email</v-expansion-panel-header>
-      <v-expansion-panel-content>Coming Soon....</v-expansion-panel-content>
-    </v-expansion-panel>
-  </v-expansion-panels>
+  <v-container fluid mt-10>
+    <ActionToolbar title="Be A Chef"/>
+    <v-row align="center" justify="center" class="ma-2">
+      <v-col>
+        BeAChef
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
-
-<style scoped></style>
-
 <script lang="ts">
-import Vue from "vue";
-export default Vue.extend({
-  name: "BeAChef",
+import Vue from 'vue';
+import { Component, Prop, Watch } from 'vue-property-decorator';
+import ActionToolbar from './ActionToolbar.vue';
 
-  components: {},
+@Component({
+  components: { ActionToolbar },
+})
+export default class BeAChef extends Vue {
+  name = ' BeAChef';
 
-  computed: {},
-
-  data: () => ({}),
-  methods: {}
-});
+  constructor(parameters) {
+    super();
+    console.log('LayoutContainer Object Contructor called');
+  }
+}
 </script>
