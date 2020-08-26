@@ -38,6 +38,18 @@
           <v-chip small class="ma-2" color="orange" outlined label filter filter-icon="mdi-check-box-outline">Dinner</v-chip>
           <v-chip small class="ma-2" color="orange" outlined label filter filter-icon="mdi-check-box-outline">Yougert</v-chip>
         </v-chip-group>
+
+        <v-chip-group column multiple>
+          <v-chip small class="ma-2" color="blue" outlined label filter filter-icon="mdi-check-box-outline">Cancer Support</v-chip>
+          <v-chip small class="ma-2" color="blue" outlined label filter filter-icon="mdi-check-box-outline">Diabetes Friendly</v-chip>
+          <v-chip small class="ma-2" color="blue" outlined label filter filter-icon="mdi-check-box-outline">Generall Wellness</v-chip>
+          <v-chip small class="ma-2" color="blue" outlined label filter filter-icon="mdi-check-box-outline">Gluten Free</v-chip>
+          <v-chip small class="ma-2" color="blue" outlined label filter filter-icon="mdi-check-box-outline">Heart Friendly</v-chip>
+          <v-chip small class="ma-2" color="blue" outlined label filter filter-icon="mdi-check-box-outline">Low Sodium</v-chip>
+          <v-chip small class="ma-2" color="blue" outlined label filter filter-icon="mdi-check-box-outline">Pureed</v-chip>
+          <v-chip small class="ma-2" color="blue" outlined label filter filter-icon="mdi-check-box-outline">Renal Friendly</v-chip>
+           <v-chip small class="ma-2" color="blue" outlined label filter filter-icon="mdi-check-box-outline">Gastric Friendly</v-chip>
+        </v-chip-group>
       </v-toolbar>
     </v-col>
   </v-row>
