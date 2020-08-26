@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid mt-10>
+  <v-container fluid>
     <v-card max-width="320" min-width="320" class="mx-auto overflow-hidden">
       <v-img height="250" :src="Menu.image" class="align-end">
         <v-card-title class="test font-weight-bold white--text">
@@ -17,7 +17,7 @@
       </v-card-title>
       <v-divider class="mx-2 pa-0"></v-divider>
       <v-card-title class="text-subtitle-2 mx-2 pa-2">
-        Serves: {{ Menu.capacity }} person(s)<v-spacer />
+        Serves: {{ Menu.serves }} adult(s)<v-spacer />
         <v-btn icon x-small>
           <v-icon color="green">mdi-open-source-initiative </v-icon>
         </v-btn>
@@ -41,7 +41,7 @@
         <!-- <v-date-picker v-model="startDate" color="green lighten-1"></v-date-picker> -->
         <v-spacer />
         Order Limit:
-        {{ Menu.orderCapacityLeft != null && Menu.orderCapacityLeft > 0 ? '' + Menu.orderCapacityLeft : '100' }}
+        {{ Menu.orderLimit != null && Menu.orderLimit > 0 ? '' + Menu.orderLimit : '100' }}
       </v-card-title>
 
       <v-card-text class="ma-0">
