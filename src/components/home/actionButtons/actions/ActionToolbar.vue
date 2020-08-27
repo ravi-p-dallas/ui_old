@@ -5,12 +5,13 @@
       <v-col cols="12" md="12">
         <v-card class="pa-2 justify-center" outlined tile>
           <v-row no-gutters>
-            <v-col cols="12" md="3" class="my-2">
+            <v-col cols="12" md="3" lg="4" class="my-auto">
+              <v-col class="my-auto px-5">
               <span style="letter-spacing:1px; width:100%; height:100%" class="ma-auto text_card_style justify-center text-left">
                 {{ title }}
-              </span>
+              </span></v-col>
             </v-col>
-            <v-col cols="12" md="4" class="my-2 text-center">
+            <v-col cols="12" md="4" lg="4" class="text-center">
               <v-text-field
                 label="Search"
                 class="green--text text--lighten-3 ma-2"
@@ -27,11 +28,13 @@
                 style="max-width:320px; max-height:30px; min-width: 125px "
               ></v-text-field>
             </v-col>
-            <v-col cols="12" md="5" class="my-2 text-right">
-              <v-btn color="green lighten-5" class="ma-1"><v-icon class="green--text">mdi-backburger</v-icon></v-btn>
+            <v-col cols="12" md="5" lg="4" class="text-right">
+              <v-col class="my-auto">
+              <v-btn color="green lighten-5" class="mr-3"><v-icon class="green--text">mdi-backburger</v-icon></v-btn>
               <!-- <v-btn color="green lighten-5" class="ma-1"><v-icon class="green--text">mdi-book-open-page-variant</v-icon></v-btn>
               <v-btn color="green lighten-5" class="ma-1"><v-icon class="green--text">mdi-silverware</v-icon></v-btn> -->
-              <v-btn color="green lighten-5" class="ma-1"><v-icon class="green--text">mdi-chef-hat</v-icon></v-btn>
+              <v-btn color="green lighten-5" class=""><v-icon class="green--text">mdi-chef-hat</v-icon></v-btn>
+              </v-col>
             </v-col>
           </v-row>
 
