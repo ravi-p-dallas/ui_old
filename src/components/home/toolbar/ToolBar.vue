@@ -171,6 +171,7 @@ export default class ToolBar extends Vue {
       window.location.reload();
     });
     this.defaultCountry = getModule(CountryFlip).country;
+    this.updateActiveComponent();
   }
 
   isLoggedIn() {
@@ -233,7 +234,7 @@ export default class ToolBar extends Vue {
     } else {
       this.tbStyle = 'background-color: transparent';
     }
-    this.$log.info(this.name, 'Style Applied: ', this.tbStyle);
+    this.$log.info(this.name, this.activeComponent, 'Style Applied: ', this.tbStyle);
   }
 
   get activeComponentChanged() {
@@ -260,7 +261,8 @@ export default class ToolBar extends Vue {
 
     const top = window.pageYOffset || e.target.scrollTop || 0;
 
-    if (top > 120) {
+    //console.log(top, this.activeComponent, this.tbStyle);
+    if (top > 400) {
       this.tbStyle = this.tbStyleNonTransparent;
     } else {
       if (this.activeComponent == 'Home') {
@@ -269,6 +271,7 @@ export default class ToolBar extends Vue {
         this.tbStyle = this.tbStyleNonTransparent;
       }
     }
+    // console.log(top, this.activeComponent, this.tbStyle);
   }
 
   private getSiteName(): string {

@@ -1,27 +1,14 @@
 <template>
   <v-container fluid grid-list-md>
-    <v-layout row wrap>
-      <v-flex d-flex xs12 sm6 md8>
-        <v-layout row wrap>
-          <v-flex d-flex>
-            <v-layout row wrap align-center>
-              <v-flex d-flex xs12>
-                <v-flex xs12 fill-height>
-                  <v-card dark>
-                    <v-card-text style="text-align:center">
-                      KITCHEN WARE
-                      <v-btn v-for="icon in icons" :key="icon" class="mx-4 white--text" icon>
-                        <v-icon size="24px" color="green lighten-3"> mdi-circle-small </v-icon>
-                      </v-btn>
-                    </v-card-text>
-                  </v-card>
-                </v-flex>
-              </v-flex>
-            </v-layout>
-          </v-flex>
-        </v-layout>
-      </v-flex>
-    </v-layout>
+    <v-card light>
+      <v-card-text style="text-align:center">
+        Prilimary Check VantaShala Performs: <br />
+        1. Kitchen Ware being used <br />
+        2. Clean & Neat Sourroundings <br />
+        3. Validates the Pictures uploaded by the chefs. <br />
+        4. Validates the recipts uploaded by chefs. <br />
+      </v-card-text>
+    </v-card>
   </v-container>
 </template>
 <script>

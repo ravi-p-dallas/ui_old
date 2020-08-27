@@ -72,6 +72,9 @@ export default class Home extends Vue {
   setActiveComponet() {
     const cMod = getModule(ActionButtonsSwitch);
     this.activeComponent = cMod.activeComponent;
+    if (this.activeComponent == ""){
+      cMod.changeComponent("Home");
+    }
     this.$log.info(this.name, 'Active Component updated: ', this.activeComponent);
   }
 
