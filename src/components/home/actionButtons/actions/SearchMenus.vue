@@ -85,7 +85,7 @@ export default class SearchMenus extends Vue {
       serves: 4,
       orderLimit: 5,
       price: 220,
-      tags: ['organic', 'healthy', 'veggie', 'breakfast', 'lunch', 'snack'],
+      tags: ['organic', 'healthy', 'veggie', 'breakfast', 'lunch', 'snack', 'gastric', 'cancer', 'glutenfree', 'diabetes', 'lowsodium'],
       id: 'one',
 
       deliveryOptions: ['delivery', 'pickup'],
@@ -103,7 +103,7 @@ export default class SearchMenus extends Vue {
       serves: 5,
       orderLimit: 5,
       price: 220,
-      tags: ['organic', 'healthy', 'veggie'],
+      tags: ['organic', 'healthy', 'veggie', 'breakfast', 'lunch', 'snack', 'gastric', 'cancer', 'glutenfree', 'diabetes', 'lowsodium'],
     },
     {
       image: 'https://www.kohinoor-joy.com/wp-content/uploads/2016/11/north-Indian-food-featured-image-1068x712.jpg',
@@ -128,7 +128,7 @@ export default class SearchMenus extends Vue {
       noOfReviews: 13,
       serves: 3,
       price: 220,
-      tags: ['organic', 'healthy', 'veggie'],
+      tags: ['organic', 'healthy', 'veggie', 'breakfast', 'lunch', 'snack', 'gastric', 'cancer', 'glutenfree', 'diabetes', 'lowsodium'],
     },
     {
       image: 'https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/ukh7i9riyebe4d6z8wtr',
