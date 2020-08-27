@@ -137,7 +137,7 @@ export default class ToolBar extends Vue {
   tbStyle = 'background-color: transparent;';
   tbStyleNonTransparent =
     'opacity:0.95; background-color: #263238; background: rgb(250,117,0); background: radial-gradient(circle, rgba(250,117,0,1) 0%, rgba(128,153,41,1) 76%, rgba(62,83,81,1) 100%);';
-  activeComponent = 'Home';
+  activeComponent = '';
   cartCount = 0;
   dialog = false;
   menu = [
