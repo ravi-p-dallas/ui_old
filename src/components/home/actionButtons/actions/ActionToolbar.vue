@@ -5,7 +5,7 @@
       <v-col cols="12" md="12">
         <v-card class="pa-2 justify-center" outlined tile>
           <v-row no-gutters>
-            <v-col cols="12" md="3" lg="4">
+            <v-col cols="12" md="3" lg="4" class="my-auto">
               <v-col class="my-auto px-5">
               <span style="letter-spacing:1px; width:100%; height:100%" class="ma-auto text_card_style justify-center text-left">
                 {{ title }}
