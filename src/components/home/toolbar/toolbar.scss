@@ -99,7 +99,23 @@
     animation: rainbow-text-simple-animation-rev 0.75s ease forwards;
 }
 
-#gradient-button:hover .gradient-text {
+#login-button:hover .gradient-text {
+    background-image: linear-gradient(90deg, #2f00ff  30%, #ff00dd 20%, #fffb00 50%);
+    animation: rainbow-text-simple-animation 1s ease-in forwards;
+}
+#cart-button:hover .gradient-text {
+    background-image: linear-gradient(90deg, #2f00ff  30%, #ff00dd 20%, #fffb00 50%);
+    animation: rainbow-text-simple-animation 1s ease-in forwards;
+}
+#camera-button:hover .gradient-text {
+    background-image: linear-gradient(90deg, #2f00ff  30%, #ff00dd 20%, #fffb00 50%);
+    animation: rainbow-text-simple-animation 1s ease-in forwards;
+}
+#install-button:hover .gradient-text {
+    background-image: linear-gradient(90deg, #2f00ff  30%, #ff00dd 20%, #fffb00 50%);
+    animation: rainbow-text-simple-animation 1s ease-in forwards;
+}
+#orders-chefs-button:hover .gradient-text {
     background-image: linear-gradient(90deg, #2f00ff  30%, #ff00dd 20%, #fffb00 50%);
     animation: rainbow-text-simple-animation 1s ease-in forwards;
 }
@@ -114,12 +130,27 @@
     -webkit-text-fill-color: transparent;
     animation: rainbow-text-simple-animation-rev 0.75s ease forwards;
 }
-
-#gradient-button:hover .gradient-button-logo {
-    background-image: linear-gradient(45deg, #2f00ff   30%, #ff00dd 20%, #fffb00 50%);
+#login-button:hover .gradient-button-logo {
+    background-image: linear-gradient(90deg, #2f00ff  30%, #ff00dd 20%, #fffb00 50%);
+    animation: rainbow-text-simple-animation 1s ease-in forwards;
+}
+#install-button:hover .gradient-button-logo {
+    background-image: linear-gradient(45deg, #2f00ff  30%, #ff00dd 20%, #fffb00 50%);
     animation: rainbow-text-simple-animation 0.75s ease-in forwards;
 }
-.gradient-button{
+#cart-button:hover .gradient-button-logo {
+    background-image: linear-gradient(45deg, #2f00ff  30%, #ff00dd 20%, #fffb00 50%);
+    animation: rainbow-text-simple-animation 0.75s ease-in forwards;
+}
+#camera-button:hover .gradient-button-logo {
+    background-image: linear-gradient(45deg, #2f00ff  30%, #ff00dd 20%, #fffb00 50%);
+    animation: rainbow-text-simple-animation 0.75s ease-in forwards;
+}
+#orders-chefs-button:hover .gradient-button-logo {
+    background-image: linear-gradient(45deg, #2f00ff  30%, #ff00dd 20%, #fffb00 50%);
+    animation: rainbow-text-simple-animation 0.75s ease-in forwards;
+}
+.install-button,.login-button,.camera-button,.orders-chefs-button,.cart-button{
     cursor: pointer;
 }
 /* Move the background and make it smaller. */
