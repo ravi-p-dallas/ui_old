@@ -265,6 +265,8 @@ export default class ToolBar extends Vue {
     } else {
       if (this.activeComponent == 'Home') {
         this.tbStyle = 'background-color: transparent';
+      } else {
+        this.tbStyle = this.tbStyleNonTransparent;
       }
     }
   }
