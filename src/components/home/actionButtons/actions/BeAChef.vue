@@ -15,7 +15,7 @@
       </v-row>
     </v-card>
     <v-stepper v-model="e6" vertical non-linear>
-      <v-stepper-step :complete="e6 > 1" step="1" editable>
+      <v-stepper-step :complete="e6 > 1" step="1" editable color="green">
         Kitchen Name
         <small>Expalins How customers can identify you</small>
       </v-stepper-step>
@@ -29,7 +29,7 @@
         </v-card>
       </v-stepper-content>
 
-      <v-stepper-step :complete="e6 > 2" step="2" editable>Personal Details <small>Address where you cook food.</small></v-stepper-step>
+      <v-stepper-step :complete="e6 > 2" step="2" editable color="orange">Personal Details <small>Address where you cook food.</small></v-stepper-step>
 
       <v-stepper-content step="2" editable>
         <v-card color="grey lighten-5" class="ma-auto" flat>
@@ -69,7 +69,7 @@
         </v-card>
       </v-stepper-content>
 
-      <v-stepper-step :complete="e6 > 3" step="3" editable
+      <v-stepper-step :complete="e6 > 3" step="3" editable color="blue"
         >Options
         <small>Identity & Delivery Options</small>
       </v-stepper-step>
@@ -80,7 +80,7 @@
         <v-btn color="primary" class="ml-2" @click="e6 = 2">Back</v-btn>
       </v-stepper-content>
 
-      <v-stepper-step step="4" editable>Review & Finish <small>Lets show to the world your talent</small></v-stepper-step>
+      <v-stepper-step step="4" editable color="pink">Review & Finish <small>Lets show to the world your talent</small></v-stepper-step>
       <v-stepper-content step="4">
         <v-card color="grey lighten-1" class="mb-12" height="200px">
           <v-btn color="primary">World is waiting! Let's ready.</v-btn>
@@ -89,6 +89,9 @@
     </v-stepper>
   </v-container>
 </template>
+<style lang="scss" scoped>
+
+</style>
 <script lang="ts">
 import Vue from 'vue';
 import { Component, Prop, Watch } from 'vue-property-decorator';
