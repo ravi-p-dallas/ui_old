@@ -23,14 +23,14 @@
       </v-toolbar-items>
 
       <v-toolbar-items>
-        <v-badge color="purple lighten-4" text small overlap class="ma-auto mr-5">
+        <v-badge color="purple lighten-4" text small overlap class="ma-auto mr-5 hidden-sm-and-down">
           <span slot="badge" class="purple--text font-weight-bold">?</span>
           <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="login">
             <v-icon class="gradient-button-logo" left>mdi-open-in-new</v-icon>
             <div class="gradient-text">Login</div>
           </v-btn>
         </v-badge>
-        <v-badge color="purple lighten-4" text small overlap class="ma-auto mr-5">
+        <v-badge color="purple lighten-4" text small overlap class="ma-auto mr-5 hidden-sm-and-down">
           <span slot="badge" class="purple--text font-weight-bold">?</span>
           <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="openCamera">
             <v-icon class="gradient-button-logo" left>mdi-camera</v-icon>
@@ -271,7 +271,6 @@ export default class ToolBar extends Vue {
 
   private getSiteName(): string {
     if (window) {
-      console.log('====>', window.location);
       if (window.location.host.toLowerCase().includes('vantashala')) {
         console.log('Visiting at VantaShala');
         return 'Under Construction';

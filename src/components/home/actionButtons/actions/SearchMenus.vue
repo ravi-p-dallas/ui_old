@@ -1,19 +1,17 @@
 <template>
   <v-container fluid mt-10>
     <ActionToolbar title="Explore Menus" />
+
     <v-row>
       <v-col v-for="(Menu, i) in Menus" :key="i" align-content="center" class="ma-0" align="center" justify="space-around">
         <MenuItem :Menu="Menu" />
       </v-col>
+      <v-col align-content="center" class="ma-0" align="center" justify="space-around">
+       <v-btn to="/ourMenu">View more Menus</v-btn>
+      </v-col>
     </v-row>
 
-    <v-row>
-      <v-row>
-        <v-col cols="12" sm="12" md="4" lg="3" v-for="(Menu, i) in Menus" :key="i"> </v-col>
-        <v-btn style="background: transparent;" to="/ourMenu" class="mx-auto my-12 text-center" width="300" height="100" cols="12">View more Menus</v-btn>
-      </v-row>
-    </v-row>
-
+   
     <v-snackbar v-model="snackbar" :timeout="-1" shaped color="success" bottom>
       Item added to cart. Click on cart to chekout on the right navigation drawer.
 
@@ -71,8 +69,8 @@ export default class SearchMenus extends Vue {
       deliveryOptions: ['delivery', 'pickup'],
       paymentOptions: ['onlineOnly'],
       recurringOptions: ['Daily', 'Weekly', 'BiWeekly', 'Monthly', 'OneTime'],
-      nonOrganicIgradients:['Rice', 'almonds', 'Flower', 'Turmeric'],
-      Orgnaicingradients:['Rice', 'almonds', 'Flower', 'Turmeric']
+      nonOrganicIgradients: ['Rice', 'almonds', 'Flower', 'Turmeric'],
+      Orgnaicingradients: ['Rice', 'almonds', 'Flower', 'Turmeric'],
     },
     {
       image: 'https://mjskitchen.com/wp-content/uploads/2017/05/ArugulaPeaSaladV1_Web.jpg',
