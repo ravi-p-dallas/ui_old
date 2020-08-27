@@ -1,5 +1,19 @@
 <template>
   <v-container fluid mt-10>
+    <v-card class="pa-2 justify-center" flat>
+      <v-row no-gutters>
+        <v-col cols="12" md="3" lg="4" class="my-auto">
+          <v-col class="my-auto px-5">
+            <span style="letter-spacing:1px; width:100%; height:100%" class="ma-auto text_card_style justify-center text-left">
+              Be A Chef
+            </span>
+
+            <v-btn color="green lighten-5" class="ml-5"><v-icon class="green--text">mdi-backburger</v-icon></v-btn>
+            <v-btn color="green lighten-5" class="ml-5"><v-icon class="green--text">mdi-chef-hat</v-icon></v-btn></v-col
+          >
+        </v-col>
+      </v-row>
+    </v-card>
     <v-stepper v-model="e6" vertical non-linear>
       <v-stepper-step :complete="e6 > 1" step="1" editable>
         Kitchen Name
@@ -51,7 +65,7 @@
             </v-container>
           </v-form>
           <v-btn color="primary" @click="e6 = 3">Continue</v-btn>
-          <v-btn text>Cancel</v-btn>
+          <v-btn color="primary" class="ml-2" @click="e6 = 1">Back</v-btn>
         </v-card>
       </v-stepper-content>
 
@@ -63,14 +77,14 @@
       <v-stepper-content step="3">
         <v-card color="grey lighten-1" class="mb-12" height="200px"></v-card>
         <v-btn color="primary" @click="e6 = 4">Continue</v-btn>
-        <v-btn text>Cancel</v-btn>
+        <v-btn color="primary" class="ml-2" @click="e6 = 2">Back</v-btn>
       </v-stepper-content>
 
       <v-stepper-step step="4" editable>Review & Finish <small>Lets show to the world your talent</small></v-stepper-step>
       <v-stepper-content step="4">
-        <v-card color="grey lighten-1" class="mb-12" height="200px"></v-card>
-        <v-btn color="primary" @click="e6 = 1">Continue</v-btn>
-        <v-btn text>Cancel</v-btn>
+        <v-card color="grey lighten-1" class="mb-12" height="200px">
+          <v-btn color="primary">World is waiting! Let's ready.</v-btn>
+        </v-card>
       </v-stepper-content>
     </v-stepper>
   </v-container>
