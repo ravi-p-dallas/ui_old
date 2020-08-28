@@ -7,5 +7,8 @@ module.exports = {
         appleMobileWebAppCapable: 'yes',
         appleMobileWebAppStatusBarStyle: '#fff3e0',
         workboxPluginMode: 'GenerateSW',
+        workboxOptions: {
+            exclude: [/_redirects/],
+        }
     },
 };
