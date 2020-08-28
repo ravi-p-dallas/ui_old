@@ -4,31 +4,24 @@ import Vue from 'vue';
 import Component from 'vue-class-component';
 import VueKeyCloak from '@dsb-norge/vue-keycloak-js';
 
-if (window) {
-  if (!window.location.host.toLowerCase().includes('vantashala')) {
-    console.log('Visiting at VantaShala');
 
-
-    const initOptions = {
-      init: {
-        // Use 'login-required' to always require authentication
-        // If using 'login-required', there is no need for the router guards in router.js -  check-sso
-        onLoad: 'check-sso',
-      },
-      config: {
-        url: 'http://keycloak:9080/auth',
-        realm: 'VantaShala',
-        clientId: 'vantashala',
-      },
-      onReady: (keycloak: any) => {
-        //this.tokenInterceptor();
-        console.log('I wonder what Keycloak returns: ' + Vue.prototype.$keycloak);
-      },
-    };
-    Vue.use(VueKeyCloak, initOptions);
-
-  }
-}
+const initOptions = {
+  init: {
+    // Use 'login-required' to always require authentication
+    // If using 'login-required', there is no need for the router guards in router.js -  check-sso
+    onLoad: 'check-sso',
+  },
+  config: {
+    url: 'http://keycloak:9080/auth',
+    realm: 'VantaShala',
+    clientId: 'vantashala',
+  },
+  onReady: (keycloak: any) => {
+    //this.tokenInterceptor();
+    console.log('I wonder what Keycloak returns: ' + Vue.prototype.$keycloak);
+  },
+};
+Vue.use(VueKeyCloak, initOptions);
 
 @Component
 class AuthService extends Vue {
