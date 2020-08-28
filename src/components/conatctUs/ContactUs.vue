@@ -5,7 +5,7 @@
         <v-col class="text-center" cols="12">
           <v-card fluid class="mx-auto" dense flat :max-width="$vuetify.breakpoint.smAndDown ? '100%' : '50%'" color="rgb(255, 255, 255, 0.9)">
             <v-toolbar dark>
-              <v-toolbar-title>
+              <v-toolbar-title class="text-wrap">
                 <div style="letter-spacing:3px">COMPLAINTS & CONTACT FORM</div>
               </v-toolbar-title>
               <v-spacer></v-spacer>
@@ -30,7 +30,7 @@
                   </v-col>
 
                   <v-col cols="12" md="12">
-                    <v-textarea outlined name="input-7-4" label="Message" value></v-textarea>
+                    <v-textarea outlined label="Message" rows="3"></v-textarea>
                   </v-col>
                 </v-row>
               </v-container>
@@ -50,19 +50,19 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 export default Vue.extend({
-  name: "ContactUs",
+  name: 'ContactUs',
   data: () => ({
-    image: require("@/assets/biryani_2.jpg"),
+    image: require('@/assets/biryani_2.jpg'),
     valid: false,
-    firstname: "",
-    lastname: "",
-    nameRules: [v => !!v || "Name is required", v => v.length <= 15 || "Name must be less than 15 characters"],
-    email: "",
-    emailRules: [v => !!v || "E-mail is required", v => /.+@.+/.test(v) || "E-mail must be valid"]
+    firstname: '',
+    lastname: '',
+    nameRules: [v => !!v || 'Name is required', v => v.length <= 15 || 'Name must be less than 15 characters'],
+    email: '',
+    emailRules: [v => !!v || 'E-mail is required', v => /.+@.+/.test(v) || 'E-mail must be valid'],
   }),
-  methods: {}
+  methods: {},
 });
 </script>
 
