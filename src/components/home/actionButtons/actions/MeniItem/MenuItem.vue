@@ -43,14 +43,11 @@
         Order Limit:
         {{ Menu.orderLimit != null && Menu.orderLimit > 0 ? '' + Menu.orderLimit : '100' }}
       </v-card-title>
-
       <v-card-text class="ma-0">
-        <v-chip-group column multiple active-class="green darken-4 white--text text--darken-4" class="pa-0">
-          <v-chip small color="green lighten-4">09:00 AM</v-chip>
-          <v-chip small color="green lighten-4">12:00 PM</v-chip>
-          <v-chip small color="green lighten-4">04:00 PM</v-chip>
-          <v-chip small color="green lighten-4">07:00 PM</v-chip>
-          <v-chip small color="green lighten-4">09:00 PM</v-chip>
+        <v-chip-group column multiple active-class="green darken-4 white--text text--darken-4" class="pa-0" v-model="Menu.selectedtimeslot">
+          <v-chip v-for="time in Menu.timeslots" :key="time" :value="time" small color="green lighten-5">
+            {{ time }}
+          </v-chip>
         </v-chip-group>
       </v-card-text>
 
@@ -141,6 +138,16 @@
       </template>
     </v-snackbar>
 
+     <v-snackbar v-model="timeslotcheck" :timeout="-1" shaped color="warning" bottom>
+      Please select atleast one timeslot.
+
+      <template v-slot:action="{ attrs }">
+        <v-btn color="white" text v-bind="attrs" @click="timeslotcheck = false">
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
+
     <v-dialog v-model="dialog" max-width="290">
       <v-card> <v-date-picker v-model="dates" color="green lighten-1" multiple></v-date-picker></v-card>
     </v-dialog>
@@ -169,6 +176,7 @@ import VClamp from 'vue-clamp';
 export default class SearchMenus extends Vue {
   name = 'SearchMenus';
   snackbar = false;
+  timeslotcheck = false;
   drawer = null;
   dialog = false;
   dates = [];
@@ -178,9 +186,18 @@ export default class SearchMenus extends Vue {
   }
 
   addTocart(menu: any) {
+    this.snackbar = false;
+    this.timeslotcheck = false;
     console.log('Adding to cart', menu);
-    getModule(CartStore).addToCart(menu);
-    this.snackbar = true;
+    if(menu.selectedtimeslot==null || menu.selectedtimeslot == undefined || menu.selectedtimeslot.length<=0){
+      console.log('TimeSlot is not selected');
+      this.timeslotcheck = true;
+
+    }else{
+       getModule(CartStore).addToCart(menu);
+      this.snackbar = true;
+    }
+   
   }
 }
 </script>

@@ -6,11 +6,13 @@
       <v-col v-for="(Menu, i) in Menus" :key="i" align-content="center" class="ma-0" align="center" justify="space-around">
         <MenuItem :Menu="Menu" />
       </v-col>
-      <v-col align-content="center" class="ma-0" align="center" justify="space-around">
-       <v-btn to="/ourMenu">View more Menus</v-btn>
-      </v-col>
+     
     </v-row>
-
+    <v-row>
+     <v-col align-content="center" class="ma-0" align="center">
+       <v-btn to="/ourMenu" >View more Menus</v-btn>
+      </v-col>
+   </v-row>
    
     <v-snackbar v-model="snackbar" :timeout="-1" shaped color="success" bottom>
       Item added to cart. Click on cart to chekout on the right navigation drawer.
@@ -71,6 +73,7 @@ export default class SearchMenus extends Vue {
       recurringOptions: ['Daily', 'Weekly', 'BiWeekly', 'Monthly', 'OneTime'],
       nonOrganicIgradients: ['Rice', 'almonds', 'Flower', 'Turmeric'],
       Orgnaicingradients: ['Rice', 'almonds', 'Flower', 'Turmeric'],
+      timeslots:['9:00 AM','4:00 PM', '7:00 PM'],
     },
     {
       image: 'https://mjskitchen.com/wp-content/uploads/2017/05/ArugulaPeaSaladV1_Web.jpg',
@@ -89,6 +92,7 @@ export default class SearchMenus extends Vue {
       deliveryOptions: ['delivery', 'pickup'],
       paymentOptions: ['onlineOnly'],
       recurringOptions: ['Daily', 'Weekly', 'BiWeekly', 'Monthly', 'OneTime'],
+      timeslots:['09:00 AM', '12:00 PM', '4:00 PM', '7:00 PM', '11 PM']
     },
     {
       image: 'https://media.cntraveler.com/photos/5703e5da62735b7f3cd8b9b1/16:9/w_1440,c_limit/pizza-cities-nyc-robertas-cr-courtesy.jpg',
@@ -102,6 +106,7 @@ export default class SearchMenus extends Vue {
       orderLimit: 5,
       price: 220,
       tags: ['organic', 'healthy', 'veggie', 'breakfast', 'lunch', 'snack', 'gastric', 'cancer', 'glutenfree', 'diabetes', 'lowsodium'],
+       timeslots:['12:00 PM', '7:00 PM']
     },
     {
       image: 'https://www.kohinoor-joy.com/wp-content/uploads/2016/11/north-Indian-food-featured-image-1068x712.jpg',
@@ -115,6 +120,7 @@ export default class SearchMenus extends Vue {
       price: 220,
       orderLimit: -1,
       tags: ['organic', 'healthy', 'veggie'],
+      timeslots:['09:00 AM', '12:00 PM', '4:00 PM', '7:00 PM', '11:00 PM']
     },
     {
       image: 'https://www.abbeyskitchen.com/wp-content/uploads/2016/07/veggie-noodle-lemon-pasta-1-of-9.jpg',
@@ -127,6 +133,8 @@ export default class SearchMenus extends Vue {
       serves: 3,
       price: 220,
       tags: ['organic', 'healthy', 'veggie', 'breakfast', 'lunch', 'snack', 'gastric', 'cancer', 'glutenfree', 'diabetes', 'lowsodium'],
+      timeslots:['4:00 PM', '7:00 PM', '11:00 PM'],
+
     },
     {
       image: 'https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/ukh7i9riyebe4d6z8wtr',
@@ -139,6 +147,7 @@ export default class SearchMenus extends Vue {
       serves: 4,
       price: 220,
       tags: ['organic', 'healthy', 'veggie'],
+      timeslots:['09:00 AM', '12:00 PM']
     },
     {
       image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
@@ -150,6 +159,7 @@ export default class SearchMenus extends Vue {
       noOfReviews: 13,
       serves: 5,
       price: 220,
+      timeslots:['09:00 AM', '12:00 PM', '4:00 PM', '7:00 PM', '11:00 PM']
     },
     {
       image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
@@ -160,6 +170,7 @@ export default class SearchMenus extends Vue {
       description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
       serves: 6,
+      timeslots:['09:00 AM', '12:00 PM', '4:00 PM', '7:00 PM', '11:00 PM']
     },
     {
       image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
@@ -170,6 +181,7 @@ export default class SearchMenus extends Vue {
       description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
       serves: 3,
+      timeslots:['09:00 AM', '12:00 PM', '4:00 PM', '7:00 PM', '11:00 PM']
     },
     {
       image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
@@ -181,6 +193,7 @@ export default class SearchMenus extends Vue {
       noOfReviews: 13,
       serves: 4,
       price: 220,
+      timeslots:['09:00 AM', '12:00 PM', '4:00 PM', '7:00 PM', '11:00 PM']
     },
     {
       image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
@@ -191,6 +204,7 @@ export default class SearchMenus extends Vue {
       description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
       serves: 5,
+      timeslots:['09:00 AM', '12:00 PM', '4:00 PM', '7:00 PM', '11:00 PM']
     },
     {
       image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
@@ -202,6 +216,7 @@ export default class SearchMenus extends Vue {
       noOfReviews: 13,
       serves: 6,
       price: 220,
+      timeslots:['09:00 AM', '12:00 PM', '4:00 PM', '7:00 PM', '11:00 PM']
     },
     {
       image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
@@ -212,39 +227,8 @@ export default class SearchMenus extends Vue {
       description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
       serves: 3,
-    },
-    {
-      image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
-      kitchenName: 'MyKitchen2',
-      speciality: 'Mexican2',
-      rating: 4.5,
-      itemName: 'Sandwich',
-      description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
-      noOfReviews: 13,
-      serves: 4,
-    },
-    {
-      image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
-      kitchenName: 'MyKitchen3',
-      speciality: 'Mexican3',
-      rating: 4.5,
-      itemName: 'Sandwich',
-      description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
-      noOfReviews: 13,
-      serves: 5,
-      price: 220,
-    },
-    {
-      image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
-      kitchenName: 'MyKitchen4',
-      speciality: 'Mexican4',
-      rating: 4.5,
-      itemName: 'Sandwich',
-      description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
-      noOfReviews: 13,
-      serves: 6,
-      price: 220,
-    },
+      timeslots:['09:00 AM', '12:00 PM', '4:00 PM', '7:00 PM', '11:00 PM']
+    }
   ];
 
   constructor(parameters) {
