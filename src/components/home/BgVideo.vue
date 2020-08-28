@@ -38,7 +38,7 @@ export default class BgVideo extends Vue {
   visuals: any;
   name = 'BgVideo: ';
   created() {
-    this.BGvidsrc = 'https://vsassets.netlify.app/vantashala_1.mp4';
+    //this.BGvidsrc = 'https://vsassets.netlify.app/vantashala_1.mp4';
     getModule(ActionButtonsSwitch).changeComponent('Home');
   }
 
