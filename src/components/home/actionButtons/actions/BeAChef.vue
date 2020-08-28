@@ -70,12 +70,30 @@
       </v-stepper-content>
 
       <v-stepper-step :complete="e6 > 3" step="3" editable color="blue"
-        >Options
-        <small>Identity & Delivery Options</small>
+        >Identity Documents
+        <small> Any Two Govt Issued Proofs</small>
       </v-stepper-step>
 
       <v-stepper-content step="3">
-        <v-card color="grey lighten-1" class="mb-12" height="200px"></v-card>
+        <v-card color="grey lighten-1" class="ma-5">
+          <v-file-input
+            v-model="files"
+            placeholder="Upload your documents"
+            multiple
+            prepend-icon="mdi-paperclip"
+            :rules="rules"
+            accept="image/png, image/jpeg, image/jpg, image/bmp"
+            show-size
+            counter
+            class="ma-10"
+          >
+            <template v-slot:selection="{ text }">
+              <v-chip small label color="primary">
+                {{ text }}
+              </v-chip>
+            </template>
+          </v-file-input>
+        </v-card>
         <v-btn color="primary" @click="e6 = 4">Continue</v-btn>
         <v-btn color="primary" class="ml-2" @click="e6 = 2">Back</v-btn>
       </v-stepper-content>
@@ -90,7 +108,6 @@
   </v-container>
 </template>
 <style lang="scss" scoped>
-
 </style>
 <script lang="ts">
 import Vue from 'vue';
@@ -105,6 +122,8 @@ export default class BeAChef extends Vue {
   name = ' BeAChef';
   e6 = 1;
   address;
+  files = [];
+  rules = [value => !value || value.size < 2000000 || 'File size should be less than 2 MB!'];
   constructor(parameters) {
     super();
     console.log('LayoutContainer Object Contructor called');
