@@ -152,6 +152,12 @@ export default class ToolBar extends Vue {
   image = require('@/assets/logo.png');
 
   created() {
+    this.defaultCountry = getModule(CountryFlip).country;
+    this.updateActiveComponent();
+    this.handlePWA();
+  }
+
+  handlePWA() {
     window.addEventListener('beforeinstallprompt', e => {
       e.preventDefault();
       // Stash the event so it can be triggered later.
@@ -170,8 +176,6 @@ export default class ToolBar extends Vue {
       console.log('Reloading.....');
       window.location.reload();
     });
-    this.defaultCountry = getModule(CountryFlip).country;
-    this.updateActiveComponent();
   }
 
   isLoggedIn() {
