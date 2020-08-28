@@ -1,83 +1,19 @@
 <template>
   <v-container fluid mt-10>
     <ActionToolbar title="Explore Menus" />
+
     <v-row>
       <v-col v-for="(Menu, i) in Menus" :key="i" align-content="center" class="ma-0" align="center" justify="space-around">
-        <v-card max-width="320" min-width="320" class="ma-0">
-          <v-img height="250" :src="Menu.image" class="align-end">
-            <v-card-title class="test font-weight-bold white--text">
-              <v-icon color="orange lighten-1"> mdi-fire </v-icon> {{ Menu.itemName }}<v-spacer />
-              <v-icon color="white lighten-1" small> mdi-currency-inr </v-icon>{{ Menu.price }}</v-card-title
-            >
-          </v-img>
-          <v-card-text class="text-justify"
-            ><a @click="slide(Menu.id)"> Details:</a>
-            <v-clamp autoresize :max-lines="2"> {{ Menu.description }} </v-clamp>
-          </v-card-text>
-          <v-card-title class="text-subtitle-1 mx-2 pa-2">
-            {{ Menu.kitchenName }} <v-spacer />
-            <div class="text-subtitle-1 blue-grey--text ml-1">{{ Menu.speciality }}</div>
-          </v-card-title>
-          <v-divider class="mx-2 pa-0"></v-divider>
-          <v-card-title class="text-subtitle-2 mx-2 pa-2">
-            Serves: {{ Menu.capacity }} person(s)<v-spacer />
-            <v-rating v-model="Menu.rating" dense half-increments>
-              <template v-slot:item="props">
-                <v-icon color="green lighten-1" small @click="props.click">
-                  {{ props.isFilled ? 'mdi-star-circle' : 'mdi-circle-outline' }}
-                </v-icon>
-              </template>
-            </v-rating>
-          </v-card-title>
-
-          <v-card-title class="text-subtitle-2 mx-2 pa-2">
-            Choose Dates:
-
-            <v-icon color="green lighten-1" class="ml-2">
-              mdi-calendar-clock
-            </v-icon>
-            <!-- <v-date-picker v-model="startDate" color="green lighten-1"></v-date-picker> -->
-            <v-spacer />
-            Order Limit:
-            {{ Menu.orderCapacityLeft != null && Menu.orderCapacityLeft > 0 ? '' + Menu.orderCapacityLeft : '100' }}
-          </v-card-title>
-
-          <v-card-text class="ma-0">
-            <v-chip-group column multiple active-class="green darken-4 white--text text--darken-4" class="pa-0">
-              <v-chip small color="green lighten-4">09:00 AM</v-chip>
-              <v-chip small color="green lighten-4">12:00 PM</v-chip>
-              <v-chip small color="green lighten-4">04:00 PM</v-chip>
-              <v-chip small color="green lighten-4">07:00 PM</v-chip>
-              <v-chip small color="green lighten-4">09:00 PM</v-chip>
-            </v-chip-group>
-          </v-card-text>
-          <v-card-actions>
-            <v-btn color="deep-purple lighten-2" text @click="addTocart(Menu)">
-              <v-icon color="green lighten-1">
-                mdi-cart-plus
-              </v-icon>
-            </v-btn>
-            <v-spacer></v-spacer>
-
-            <v-btn color="yellow darken-3" text @click="addTocart(Menu)"
-              >Reccuring
-              <v-icon color="yellow darken-3">
-                mdi-cart-arrow-right
-              </v-icon>
-            </v-btn>
-          </v-card-actions>
-          <!-- <v-navigation-drawer v-if="dialog" temporary floating absolute > gopi </v-navigation-drawer> -->
-        </v-card>
+        <MenuItem :Menu="Menu" />
       </v-col>
+     
     </v-row>
-
     <v-row>
-      <v-row>
-        <v-col cols="12" sm="12" md="4" lg="3" v-for="(Menu, i) in Menus" :key="i"> </v-col>
-        <v-btn style="background: transparent;" to="/ourMenu" class="mx-auto my-12 text-center" width="300" height="100" cols="12">View more Menus</v-btn>
-      </v-row>
-    </v-row>
-
+     <v-col align-content="center" class="ma-0" align="center">
+       <v-btn to="/ourMenu" >View more Menus</v-btn>
+      </v-col>
+   </v-row>
+   
     <v-snackbar v-model="snackbar" :timeout="-1" shaped color="success" bottom>
       Item added to cart. Click on cart to chekout on the right navigation drawer.
 
@@ -104,13 +40,11 @@ import ActionToolbar from './ActionToolbar.vue';
 import { getModule } from 'vuex-module-decorators';
 import CountryFlip from '../../../../store/CountryFlip';
 import CartStore from '../../../../store/CartStore';
-import VClamp from 'vue-clamp';
 
-interface KeyValue {
-  [key: string]: boolean;
-}
+import MenuItem from './MeniItem/MenuItem.vue';
+
 @Component({
-  components: { ActionToolbar, VClamp },
+  components: { ActionToolbar, MenuItem },
 })
 export default class SearchMenus extends Vue {
   name = 'SearchMenus';
@@ -129,11 +63,17 @@ export default class SearchMenus extends Vue {
       description:
         'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seatinSmall plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seatinSmall plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seatin sdf ds fds fdsfdsfjkdshfjksd fdshfjhds fhsdfjhdsjfh dskfhsdfhdsjkfhs',
       noOfReviews: 13,
-      capacity: 3,
-      orderCapacityLeft: 5,
+      serves: 3,
+      orderLimit: 5,
       price: 220,
-      tags: ['organic', 'healthy', 'veggie'],
+      tags: ['organic', 'healthy', 'veggie', 'breakfast', 'lunch', 'snack'],
       id: 'two',
+      deliveryOptions: ['delivery', 'pickup'],
+      paymentOptions: ['onlineOnly'],
+      recurringOptions: ['Daily', 'Weekly', 'BiWeekly', 'Monthly', 'OneTime'],
+      nonOrganicIgradients: ['Rice', 'almonds', 'Flower', 'Turmeric'],
+      Orgnaicingradients: ['Rice', 'almonds', 'Flower', 'Turmeric'],
+      timeslots:['9:00 AM','4:00 PM', '7:00 PM'],
     },
     {
       image: 'https://mjskitchen.com/wp-content/uploads/2017/05/ArugulaPeaSaladV1_Web.jpg',
@@ -143,11 +83,16 @@ export default class SearchMenus extends Vue {
       itemName: 'Sandwich',
       description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
-      capacity: 4,
-      orderCapacityLeft: 5,
+      serves: 4,
+      orderLimit: 5,
       price: 220,
-      tags: ['organic', 'healthy', 'veggie'],
+      tags: ['organic', 'healthy', 'veggie', 'breakfast', 'lunch', 'snack', 'gastric', 'cancer', 'glutenfree', 'diabetes', 'lowsodium'],
       id: 'one',
+
+      deliveryOptions: ['delivery', 'pickup'],
+      paymentOptions: ['onlineOnly'],
+      recurringOptions: ['Daily', 'Weekly', 'BiWeekly', 'Monthly', 'OneTime'],
+      timeslots:['09:00 AM', '12:00 PM', '4:00 PM', '7:00 PM', '11 PM']
     },
     {
       image: 'https://media.cntraveler.com/photos/5703e5da62735b7f3cd8b9b1/16:9/w_1440,c_limit/pizza-cities-nyc-robertas-cr-courtesy.jpg',
@@ -157,10 +102,11 @@ export default class SearchMenus extends Vue {
       itemName: 'Cheese Pizza',
       description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
-      capacity: 5,
-      orderCapacityLeft: 5,
+      serves: 5,
+      orderLimit: 5,
       price: 220,
-      tags: ['organic', 'healthy', 'veggie'],
+      tags: ['organic', 'healthy', 'veggie', 'breakfast', 'lunch', 'snack', 'gastric', 'cancer', 'glutenfree', 'diabetes', 'lowsodium'],
+       timeslots:['12:00 PM', '7:00 PM']
     },
     {
       image: 'https://www.kohinoor-joy.com/wp-content/uploads/2016/11/north-Indian-food-featured-image-1068x712.jpg',
@@ -170,10 +116,11 @@ export default class SearchMenus extends Vue {
       itemName: 'Sandwich',
       description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
-      capacity: 6,
+      serves: 6,
       price: 220,
-      orderCapacityLeft: -1,
+      orderLimit: -1,
       tags: ['organic', 'healthy', 'veggie'],
+      timeslots:['09:00 AM', '12:00 PM', '4:00 PM', '7:00 PM', '11:00 PM']
     },
     {
       image: 'https://www.abbeyskitchen.com/wp-content/uploads/2016/07/veggie-noodle-lemon-pasta-1-of-9.jpg',
@@ -183,9 +130,11 @@ export default class SearchMenus extends Vue {
       itemName: 'Sandwich',
       description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
-      capacity: 3,
+      serves: 3,
       price: 220,
-      tags: ['organic', 'healthy', 'veggie'],
+      tags: ['organic', 'healthy', 'veggie', 'breakfast', 'lunch', 'snack', 'gastric', 'cancer', 'glutenfree', 'diabetes', 'lowsodium'],
+      timeslots:['4:00 PM', '7:00 PM', '11:00 PM'],
+
     },
     {
       image: 'https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/ukh7i9riyebe4d6z8wtr',
@@ -195,9 +144,10 @@ export default class SearchMenus extends Vue {
       itemName: 'Sandwich',
       description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
-      capacity: 4,
+      serves: 4,
       price: 220,
       tags: ['organic', 'healthy', 'veggie'],
+      timeslots:['09:00 AM', '12:00 PM']
     },
     {
       image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
@@ -207,8 +157,9 @@ export default class SearchMenus extends Vue {
       itemName: 'Sandwich',
       description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
-      capacity: 5,
+      serves: 5,
       price: 220,
+      timeslots:['09:00 AM', '12:00 PM', '4:00 PM', '7:00 PM', '11:00 PM']
     },
     {
       image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
@@ -218,7 +169,8 @@ export default class SearchMenus extends Vue {
       itemName: 'Sandwich',
       description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
-      capacity: 6,
+      serves: 6,
+      timeslots:['09:00 AM', '12:00 PM', '4:00 PM', '7:00 PM', '11:00 PM']
     },
     {
       image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
@@ -228,7 +180,8 @@ export default class SearchMenus extends Vue {
       itemName: 'Sandwich',
       description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
-      capacity: 3,
+      serves: 3,
+      timeslots:['09:00 AM', '12:00 PM', '4:00 PM', '7:00 PM', '11:00 PM']
     },
     {
       image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
@@ -238,8 +191,9 @@ export default class SearchMenus extends Vue {
       itemName: 'Sandwich',
       description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
-      capacity: 4,
+      serves: 4,
       price: 220,
+      timeslots:['09:00 AM', '12:00 PM', '4:00 PM', '7:00 PM', '11:00 PM']
     },
     {
       image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
@@ -249,7 +203,8 @@ export default class SearchMenus extends Vue {
       itemName: 'Sandwich',
       description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
-      capacity: 5,
+      serves: 5,
+      timeslots:['09:00 AM', '12:00 PM', '4:00 PM', '7:00 PM', '11:00 PM']
     },
     {
       image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
@@ -259,8 +214,9 @@ export default class SearchMenus extends Vue {
       itemName: 'Sandwich',
       description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
-      capacity: 6,
+      serves: 6,
       price: 220,
+      timeslots:['09:00 AM', '12:00 PM', '4:00 PM', '7:00 PM', '11:00 PM']
     },
     {
       image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
@@ -270,40 +226,9 @@ export default class SearchMenus extends Vue {
       itemName: 'Sandwich',
       description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
       noOfReviews: 13,
-      capacity: 3,
-    },
-    {
-      image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
-      kitchenName: 'MyKitchen2',
-      speciality: 'Mexican2',
-      rating: 4.5,
-      itemName: 'Sandwich',
-      description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
-      noOfReviews: 13,
-      capacity: 4,
-    },
-    {
-      image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
-      kitchenName: 'MyKitchen3',
-      speciality: 'Mexican3',
-      rating: 4.5,
-      itemName: 'Sandwich',
-      description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
-      noOfReviews: 13,
-      capacity: 5,
-      price: 220,
-    },
-    {
-      image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
-      kitchenName: 'MyKitchen4',
-      speciality: 'Mexican4',
-      rating: 4.5,
-      itemName: 'Sandwich',
-      description: 'Small plates, salads & Sandwich - an intimate setting with 12 indoor seats plus patio seating.',
-      noOfReviews: 13,
-      capacity: 6,
-      price: 220,
-    },
+      serves: 3,
+      timeslots:['09:00 AM', '12:00 PM', '4:00 PM', '7:00 PM', '11:00 PM']
+    }
   ];
 
   constructor(parameters) {

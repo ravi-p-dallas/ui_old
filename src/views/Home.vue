@@ -36,7 +36,7 @@ import SearchMenus from '../components/home/actionButtons/actions/SearchMenus.vu
 import BeAChef from '../components/home/actionButtons/actions/BeAChef.vue';
 import FindChefs from '../components/home/actionButtons/actions/FindChefs.vue';
 import ActionButtonsSwitch from '../store/ActionButtonsSwitch';
-import { Component, Prop, Watch } from 'vue-property-decorator';
+import { Component, Watch } from 'vue-property-decorator';
 import { getModule } from 'vuex-module-decorators';
 
 @Component({
@@ -72,6 +72,9 @@ export default class Home extends Vue {
   setActiveComponet() {
     const cMod = getModule(ActionButtonsSwitch);
     this.activeComponent = cMod.activeComponent;
+    if (this.activeComponent == '') {
+      cMod.changeComponent('Home');
+    }
     this.$log.info(this.name, 'Active Component updated: ', this.activeComponent);
   }
 

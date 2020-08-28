@@ -3,7 +3,7 @@ import store from '@/store';
 
 @Module({ dynamic: true, store, name: 'ActionButtonsSwitch' })
 export default class ActionButtonsSwitch extends VuexModule {
-    private aComponent = 'Home';
+    private aComponent = '';
 
     @Mutation
     private setActiveComponent(cName: string) {

@@ -23,14 +23,14 @@
       </v-toolbar-items>
 
       <v-toolbar-items>
-        <v-badge color="purple lighten-4" text small overlap class="ma-auto mr-5">
+        <v-badge color="purple lighten-4" text small overlap class="ma-auto mr-5 hidden-sm-and-down">
           <span slot="badge" class="purple--text font-weight-bold">?</span>
           <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="login">
             <v-icon class="gradient-button-logo" left>mdi-open-in-new</v-icon>
             <div class="gradient-text">Login</div>
           </v-btn>
         </v-badge>
-        <v-badge color="purple lighten-4" text small overlap class="ma-auto mr-5">
+        <v-badge color="purple lighten-4" text small overlap class="ma-auto mr-5 hidden-sm-and-down">
           <span slot="badge" class="purple--text font-weight-bold">?</span>
           <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="openCamera">
             <v-icon class="gradient-button-logo" left>mdi-camera</v-icon>
@@ -137,7 +137,7 @@ export default class ToolBar extends Vue {
   tbStyle = 'background-color: transparent;';
   tbStyleNonTransparent =
     'opacity:0.95; background-color: #263238; background: rgb(250,117,0); background: radial-gradient(circle, rgba(250,117,0,1) 0%, rgba(128,153,41,1) 76%, rgba(62,83,81,1) 100%);';
-  activeComponent = 'Home';
+  activeComponent = '';
   cartCount = 0;
   dialog = false;
   menu = [
@@ -152,6 +152,12 @@ export default class ToolBar extends Vue {
   image = require('@/assets/logo.png');
 
   created() {
+    this.defaultCountry = getModule(CountryFlip).country;
+    this.updateActiveComponent();
+    this.handlePWA();
+  }
+
+  handlePWA() {
     window.addEventListener('beforeinstallprompt', e => {
       e.preventDefault();
       // Stash the event so it can be triggered later.
@@ -170,7 +176,6 @@ export default class ToolBar extends Vue {
       console.log('Reloading.....');
       window.location.reload();
     });
-    this.defaultCountry = getModule(CountryFlip).country;
   }
 
   isLoggedIn() {
@@ -233,7 +238,7 @@ export default class ToolBar extends Vue {
     } else {
       this.tbStyle = 'background-color: transparent';
     }
-    this.$log.info(this.name, 'Style Applied: ', this.tbStyle);
+    this.$log.info(this.name, this.activeComponent, 'Style Applied: ', this.tbStyle);
   }
 
   get activeComponentChanged() {
@@ -260,18 +265,21 @@ export default class ToolBar extends Vue {
 
     const top = window.pageYOffset || e.target.scrollTop || 0;
 
-    if (top > 120) {
+    //console.log(top, this.activeComponent, this.tbStyle);
+    if (top > 400) {
       this.tbStyle = this.tbStyleNonTransparent;
     } else {
       if (this.activeComponent == 'Home') {
         this.tbStyle = 'background-color: transparent';
+      } else {
+        this.tbStyle = this.tbStyleNonTransparent;
       }
     }
+    // console.log(top, this.activeComponent, this.tbStyle);
   }
 
   private getSiteName(): string {
     if (window) {
-      console.log('====>', window.location);
       if (window.location.host.toLowerCase().includes('vantashala')) {
         console.log('Visiting at VantaShala');
         return 'Under Construction';

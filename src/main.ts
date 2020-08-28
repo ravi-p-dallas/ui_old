@@ -11,8 +11,12 @@ import axios from 'axios';
 import VueAxios from 'vue-axios';
 import VueLogger from 'vue-logger-plugin';
 import { WebCam } from "vue-web-cam";
-Vue.use(WebCam);
+import VuetifyGoogleAutocomplete from 'vuetify-google-autocomplete';
 
+Vue.use(WebCam);
+Vue.use(VuetifyGoogleAutocomplete, {
+  apiKey: 'AIzaSyBZiQ1eeuvAyu7jOLGzBJMHtuCe_5ExW-o'
+});
 const isProduction = process.env.NODE_ENV === 'production';
 
 Vue.use(VueLogger, {

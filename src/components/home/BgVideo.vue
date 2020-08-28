@@ -25,6 +25,7 @@ import Carousel from './Carousel.vue';
 import SearchMenus from './actionButtons/actions/SearchMenus.vue';
 import actionButtons from './actionButtons/ActionCardButtons.vue';
 import CountryFlip from '../../store/CountryFlip';
+import ActionButtonsSwitch from '../../store/ActionButtonsSwitch';
 import store from '@/store';
 import { Component, Prop, Watch } from 'vue-property-decorator';
 import { getModule } from 'vuex-module-decorators';
@@ -38,6 +39,7 @@ export default class BgVideo extends Vue {
   name = 'BgVideo: ';
   created() {
     this.BGvidsrc = 'https://vsassets.netlify.app/vantashala_1.mp4';
+    getModule(ActionButtonsSwitch).changeComponent('Home');
   }
 
   get countryChanged() {
@@ -45,5 +47,6 @@ export default class BgVideo extends Vue {
     const cMod = getModule(CountryFlip);
     return cMod.visualStyle.overlay;
   }
+
 }
 </script>

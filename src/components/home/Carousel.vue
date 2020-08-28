@@ -49,16 +49,16 @@ export default class Carousel extends Vue {
     {
       caption: 'Home Made',
       title: 'Ancient Traditions Applied',
-      desc: 'Using Clay Pots & Slow Cooking Techniques',
+      desc: 'Using Clay Pots & Slow Cooking Techniques.',
     },
     {
       caption: 'Family & Education Time Matters',
       title: 'Home Made, Watch Live',
-      desc: 'You have right to watch how your food is being made.',
+      desc: 'You have the right to watch how your food is being cooked.',
     },
     {
       caption: 'Daily Suppliments @ Home',
-      title: 'Nutritiously Homemade',
+      title: 'Nutritionally Homemade',
       desc: 'Chemical Free. Organic. Quinoa & Bazra & Cerels Mixed with Rice.',
     },
     {

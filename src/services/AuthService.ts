@@ -4,6 +4,7 @@ import Vue from 'vue';
 import Component from 'vue-class-component';
 import VueKeyCloak from '@dsb-norge/vue-keycloak-js';
 
+
 const initOptions = {
   init: {
     // Use 'login-required' to always require authentication
@@ -20,7 +21,6 @@ const initOptions = {
     console.log('I wonder what Keycloak returns: ' + Vue.prototype.$keycloak);
   },
 };
-
 Vue.use(VueKeyCloak, initOptions);
 
 @Component
@@ -61,5 +61,7 @@ class AuthService extends Vue {
     console.log('intercepting the request');
   }
 }
+
+
 
 export const authService = new AuthService();
