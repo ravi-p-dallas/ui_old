@@ -12,10 +12,11 @@
                 </span></v-col
               >
             </v-col>
-            <v-col cols="12" md="4" lg="4" class="text-center">
+            <v-col cols="12" md="4" lg="4" class="text-center my-auto">
+              <v-col class="my-auto">
               <v-text-field
                 label="Search"
-                class="green--text text--lighten-3 ma-2"
+                class="green--text text--lighten-3 mb-3"
                 outlined
                 clear-icon="mdi-close-circle"
                 clearable
@@ -28,8 +29,9 @@
                 dense
                 style="max-width:320px; max-height:30px; min-width: 125px "
               ></v-text-field>
+              </v-col>
             </v-col>
-            <v-col cols="12" md="5" lg="4" class="text-right">
+            <v-col cols="12" md="5" lg="4" class="text-right my-auto">
               <v-col class="my-auto">
                 <v-btn color="green lighten-5" class="mr-3"><v-icon class="green--text">mdi-backburger</v-icon></v-btn>
                 <v-btn color="green lighten-5" class=""><v-icon class="green--text">mdi-chef-hat</v-icon></v-btn>
