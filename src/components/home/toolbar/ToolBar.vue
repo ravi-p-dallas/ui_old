@@ -16,7 +16,7 @@
         <v-badge color="purple lighten-4" text small overlap class="ma-auto mr-5">
           <span slot="badge" class="purple--text font-weight-bold">alert</span>
           <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="install">
-            <v-icon left>mdi-open-in-new</v-icon>
+            <v-icon class="gradient-button-logo" left>mdi-open-in-new</v-icon>
             <div class="gradient-text">Install App</div>
           </v-btn>
         </v-badge>
@@ -25,7 +25,7 @@
       <v-toolbar-items>
         <v-badge color="purple lighten-4" text small overlap class="ma-auto mr-5 hidden-sm-and-down">
           <span slot="badge" class="purple--text font-weight-bold">?</span>
-          <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold" @click="login">
+          <v-btn color="purple lighten-4" text small class="ma-auto white--text font-weight-bold " @click="login">
             <v-icon class="gradient-button-logo" left>mdi-open-in-new</v-icon>
             <div class="gradient-text">Login</div>
           </v-btn>
@@ -41,7 +41,7 @@
       <v-toolbar-items class="hidden-sm-and-down">
         <v-badge color="purple lighten-4" v-for="(item, i) in menu" :key="i" :to="item.link" text small overlap class="ma-auto mr-5" :value="item.badge != '?'">
           <span slot="badge" class="purple--text font-weight-bold">{{ item.badge }}</span>
-          <v-btn text small class="ma-auto white--text font-weight-bold">
+          <v-btn text small class="ma-auto white--text font-weight-bold gradient-button">
             <v-icon class="gradient-button-logo" left>{{ item.icon }}</v-icon>
             <div class="gradient-text">{{ item.title }}</div>
           </v-btn>
@@ -49,7 +49,7 @@
 
         <v-badge color="purple lighten-4" text small overlap class="ma-auto mr-5" :value="this.cartCount != 0">
           <span slot="badge" class="purple--text font-weight-bold">{{ cartCount }}</span>
-          <v-btn text small class="ma-auto white--text font-weight-bold">
+          <v-btn text small class="ma-auto white--text font-weight-bold gradient-button">
             <v-icon class="gradient-button-logo" left>mdi-cart-outline</v-icon>
             <div class="gradient-text">My Cart</div>
           </v-btn>
